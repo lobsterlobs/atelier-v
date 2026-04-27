@@ -78,8 +78,8 @@ nav.scrolled{box-shadow:0 4px 28px rgba(27,42,74,0.10);}
 }
 .lang-menu a:hover{background:var(--off);color:var(--gold);}
 .lang-menu a.active{color:var(--gold);font-weight:600;}
-.lang-flag{font-size:15px;line-height:1;flex-shrink:0;}
-.trigger-flag{font-size:14px;line-height:1;}
+.lang-flag{width:16px;height:12px;flex-shrink:0;display:inline-block;vertical-align:middle;}
+.trigger-flag{width:16px;height:12px;display:inline-block;vertical-align:middle;}
 
 /* ── HERO ── */
 .hero{position:relative;height:100vh;min-height:600px;overflow:hidden;}
@@ -223,22 +223,22 @@ footer{background:var(--navy);padding:36px 56px;display:flex;align-items:center;
     </ul>
     <div class="lang-dropdown" id="langDrop">
       <div class="lang-trigger" id="langTrigger">
-        <span class="trigger-flag" id="langFlag">🇬🇧</span>
+        <img class="trigger-flag" id="langFlag" src="https://flagcdn.com/16x12/gb.png" alt="EN">
         <svg class="lang-arrow" width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4l4 4 4-4"/></svg>
       </div>
       <div class="lang-menu">
-        <a href="#" class="active" data-lang="EN" data-flag="🇬🇧"><span class="lang-flag">🇬🇧</span>EN — English</a>
-        <a href="#" data-lang="BG" data-flag="🇧🇬"><span class="lang-flag">🇧🇬</span>BG — Български</a>
-        <a href="#" data-lang="DE" data-flag="🇩🇪"><span class="lang-flag">🇩🇪</span>DE — Deutsch</a>
-        <a href="#" data-lang="FR" data-flag="🇫🇷"><span class="lang-flag">🇫🇷</span>FR — Français</a>
-        <a href="#" data-lang="GR" data-flag="🇬🇷"><span class="lang-flag">🇬🇷</span>GR — Ελληνικά</a>
-        <a href="#" data-lang="MK" data-flag="🇲🇰"><span class="lang-flag">🇲🇰</span>MK — Македонски</a>
-        <a href="#" data-lang="IT" data-flag="🇮🇹"><span class="lang-flag">🇮🇹</span>IT — Italiano</a>
-        <a href="#" data-lang="NL" data-flag="🇳🇱"><span class="lang-flag">🇳🇱</span>NL — Nederlands</a>
-        <a href="#" data-lang="NO" data-flag="🇳🇴"><span class="lang-flag">🇳🇴</span>NO — Norsk</a>
-        <a href="#" data-lang="SV" data-flag="🇸🇪"><span class="lang-flag">🇸🇪</span>SV — Svenska</a>
-        <a href="#" data-lang="DA" data-flag="🇩🇰"><span class="lang-flag">🇩🇰</span>DA — Dansk</a>
-        <a href="#" data-lang="RO" data-flag="🇷🇴"><span class="lang-flag">🇷🇴</span>RO — Română</a>
+        <a href="#" class="active" data-lang="EN" data-flag="gb"><img class="lang-flag" src="https://flagcdn.com/16x12/gb.png" alt="EN">EN — English</a>
+        <a href="#" data-lang="BG" data-flag="bg"><img class="lang-flag" src="https://flagcdn.com/16x12/bg.png" alt="BG">BG — Български</a>
+        <a href="#" data-lang="DE" data-flag="de"><img class="lang-flag" src="https://flagcdn.com/16x12/de.png" alt="DE">DE — Deutsch</a>
+        <a href="#" data-lang="FR" data-flag="fr"><img class="lang-flag" src="https://flagcdn.com/16x12/fr.png" alt="FR">FR — Français</a>
+        <a href="#" data-lang="GR" data-flag="gr"><img class="lang-flag" src="https://flagcdn.com/16x12/gr.png" alt="GR">GR — Ελληνικά</a>
+        <a href="#" data-lang="MK" data-flag="mk"><img class="lang-flag" src="https://flagcdn.com/16x12/mk.png" alt="MK">MK — Македонски</a>
+        <a href="#" data-lang="IT" data-flag="it"><img class="lang-flag" src="https://flagcdn.com/16x12/it.png" alt="IT">IT — Italiano</a>
+        <a href="#" data-lang="NL" data-flag="nl"><img class="lang-flag" src="https://flagcdn.com/16x12/nl.png" alt="NL">NL — Nederlands</a>
+        <a href="#" data-lang="NO" data-flag="no"><img class="lang-flag" src="https://flagcdn.com/16x12/no.png" alt="NO">NO — Norsk</a>
+        <a href="#" data-lang="SV" data-flag="se"><img class="lang-flag" src="https://flagcdn.com/16x12/se.png" alt="SV">SV — Svenska</a>
+        <a href="#" data-lang="DA" data-flag="dk"><img class="lang-flag" src="https://flagcdn.com/16x12/dk.png" alt="DA">DA — Dansk</a>
+        <a href="#" data-lang="RO" data-flag="ro"><img class="lang-flag" src="https://flagcdn.com/16x12/ro.png" alt="RO">RO — Română</a>
       </div>
     </div>
   </div>
@@ -412,7 +412,7 @@ restart();
 const langDrop=document.getElementById("langDrop"),langTrigger=document.getElementById("langTrigger"),langFlag=document.getElementById("langFlag");
 langTrigger.addEventListener("click",e=>{e.stopPropagation();langDrop.classList.toggle("open");});
 document.querySelectorAll(".lang-menu a").forEach(a=>{
-  a.addEventListener("click",e=>{e.preventDefault();document.querySelectorAll(".lang-menu a").forEach(x=>x.classList.remove("active"));a.classList.add("active");langFlag.textContent=a.dataset.flag;langDrop.classList.remove("open");});
+  a.addEventListener("click",e=>{e.preventDefault();document.querySelectorAll(".lang-menu a").forEach(x=>x.classList.remove("active"));a.classList.add("active");langFlag.src=`https://flagcdn.com/16x12/${a.dataset.flag}.png`;langFlag.alt=a.dataset.lang;langDrop.classList.remove("open");});
 });
 document.addEventListener("click",()=>langDrop.classList.remove("open"));
 
