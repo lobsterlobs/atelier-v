@@ -224,7 +224,6 @@ footer{background:var(--navy);padding:36px 56px;display:flex;align-items:center;
     <div class="lang-dropdown" id="langDrop">
       <div class="lang-trigger" id="langTrigger">
         <span class="trigger-flag" id="langFlag">🇬🇧</span>
-        <span id="langCurrent">EN</span>
         <svg class="lang-arrow" width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4l4 4 4-4"/></svg>
       </div>
       <div class="lang-menu">
@@ -410,10 +409,10 @@ function restart(){clearInterval(t);t=setInterval(tick,5000);}
 dots.forEach(d=>d.addEventListener("click",()=>{goTo(+d.dataset.index);restart();}));
 restart();
 
-const langDrop=document.getElementById("langDrop"),langTrigger=document.getElementById("langTrigger"),langCurrent=document.getElementById("langCurrent"),langFlag=document.getElementById("langFlag");
+const langDrop=document.getElementById("langDrop"),langTrigger=document.getElementById("langTrigger"),langFlag=document.getElementById("langFlag");
 langTrigger.addEventListener("click",e=>{e.stopPropagation();langDrop.classList.toggle("open");});
 document.querySelectorAll(".lang-menu a").forEach(a=>{
-  a.addEventListener("click",e=>{e.preventDefault();document.querySelectorAll(".lang-menu a").forEach(x=>x.classList.remove("active"));a.classList.add("active");langCurrent.textContent=a.dataset.lang;langFlag.textContent=a.dataset.flag;langDrop.classList.remove("open");});
+  a.addEventListener("click",e=>{e.preventDefault();document.querySelectorAll(".lang-menu a").forEach(x=>x.classList.remove("active"));a.classList.add("active");langFlag.textContent=a.dataset.flag;langDrop.classList.remove("open");});
 });
 document.addEventListener("click",()=>langDrop.classList.remove("open"));
 
