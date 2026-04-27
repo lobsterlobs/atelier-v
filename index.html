@@ -71,13 +71,15 @@ nav.scrolled{box-shadow:0 4px 28px rgba(27,42,74,0.10);}
 }
 .lang-dropdown.open .lang-menu{opacity:1;visibility:visible;transform:translateY(0);}
 .lang-menu a{
-  display:block;padding:10px 18px;
+  display:flex;align-items:center;gap:8px;padding:9px 16px;
   font-family:'Jost',sans-serif;font-size:12px;font-weight:500;
   letter-spacing:.06em;color:var(--navy);text-decoration:none;
   transition:background .15s,color .15s;
 }
 .lang-menu a:hover{background:var(--off);color:var(--gold);}
 .lang-menu a.active{color:var(--gold);font-weight:600;}
+.lang-flag{font-size:15px;line-height:1;flex-shrink:0;}
+.trigger-flag{font-size:14px;line-height:1;}
 
 /* ── HERO ── */
 .hero{position:relative;height:100vh;min-height:600px;overflow:hidden;}
@@ -221,16 +223,23 @@ footer{background:var(--navy);padding:36px 56px;display:flex;align-items:center;
     </ul>
     <div class="lang-dropdown" id="langDrop">
       <div class="lang-trigger" id="langTrigger">
+        <span class="trigger-flag" id="langFlag">🇬🇧</span>
         <span id="langCurrent">EN</span>
         <svg class="lang-arrow" width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4l4 4 4-4"/></svg>
       </div>
       <div class="lang-menu">
-        <a href="#" class="active" data-lang="EN">EN — English</a>
-        <a href="#" data-lang="BG">BG — Български</a>
-        <a href="#" data-lang="DE">DE — Deutsch</a>
-        <a href="#" data-lang="FR">FR — Français</a>
-        <a href="#" data-lang="GR">GR — Ελληνικά</a>
-        <a href="#" data-lang="MK">MK — Македонски</a>
+        <a href="#" class="active" data-lang="EN" data-flag="🇬🇧"><span class="lang-flag">🇬🇧</span>EN — English</a>
+        <a href="#" data-lang="BG" data-flag="🇧🇬"><span class="lang-flag">🇧🇬</span>BG — Български</a>
+        <a href="#" data-lang="DE" data-flag="🇩🇪"><span class="lang-flag">🇩🇪</span>DE — Deutsch</a>
+        <a href="#" data-lang="FR" data-flag="🇫🇷"><span class="lang-flag">🇫🇷</span>FR — Français</a>
+        <a href="#" data-lang="GR" data-flag="🇬🇷"><span class="lang-flag">🇬🇷</span>GR — Ελληνικά</a>
+        <a href="#" data-lang="MK" data-flag="🇲🇰"><span class="lang-flag">🇲🇰</span>MK — Македонски</a>
+        <a href="#" data-lang="IT" data-flag="🇮🇹"><span class="lang-flag">🇮🇹</span>IT — Italiano</a>
+        <a href="#" data-lang="NL" data-flag="🇳🇱"><span class="lang-flag">🇳🇱</span>NL — Nederlands</a>
+        <a href="#" data-lang="NO" data-flag="🇳🇴"><span class="lang-flag">🇳🇴</span>NO — Norsk</a>
+        <a href="#" data-lang="SV" data-flag="🇸🇪"><span class="lang-flag">🇸🇪</span>SV — Svenska</a>
+        <a href="#" data-lang="DA" data-flag="🇩🇰"><span class="lang-flag">🇩🇰</span>DA — Dansk</a>
+        <a href="#" data-lang="RO" data-flag="🇷🇴"><span class="lang-flag">🇷🇴</span>RO — Română</a>
       </div>
     </div>
   </div>
@@ -298,7 +307,7 @@ footer{background:var(--navy);padding:36px 56px;display:flex;align-items:center;
     </div>
     <div class="why-card reveal"><span class="why-num">03</span>
       <svg class="why-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="24" cy="24" r="18"/><path d="M6 24h36M24 6c-5 6-8 12-8 18s3 12 8 18M24 6c5 6 8 12 8 18s-3 12-8 18"/></svg>
-      <h3 class="why-title">8 Languages</h3><p class="why-text">Multilingual branding for international markets. EN, BG, DE, FR, GR, MK and more — all covered.</p>
+      <h3 class="why-title">12 Languages</h3><p class="why-text">Multilingual branding for international markets. EN, BG, DE, FR, GR, MK, IT, NL, NO, SV, DA, RO — all covered.</p>
     </div>
     <div class="why-card reveal"><span class="why-num">04</span>
       <svg class="why-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 40V22l12-14 12 14v18H28v-9h-8v9H12z"/></svg>
@@ -401,10 +410,10 @@ function restart(){clearInterval(t);t=setInterval(tick,5000);}
 dots.forEach(d=>d.addEventListener("click",()=>{goTo(+d.dataset.index);restart();}));
 restart();
 
-const langDrop=document.getElementById("langDrop"),langTrigger=document.getElementById("langTrigger"),langCurrent=document.getElementById("langCurrent");
+const langDrop=document.getElementById("langDrop"),langTrigger=document.getElementById("langTrigger"),langCurrent=document.getElementById("langCurrent"),langFlag=document.getElementById("langFlag");
 langTrigger.addEventListener("click",e=>{e.stopPropagation();langDrop.classList.toggle("open");});
 document.querySelectorAll(".lang-menu a").forEach(a=>{
-  a.addEventListener("click",e=>{e.preventDefault();document.querySelectorAll(".lang-menu a").forEach(x=>x.classList.remove("active"));a.classList.add("active");langCurrent.textContent=a.dataset.lang;langDrop.classList.remove("open");});
+  a.addEventListener("click",e=>{e.preventDefault();document.querySelectorAll(".lang-menu a").forEach(x=>x.classList.remove("active"));a.classList.add("active");langCurrent.textContent=a.dataset.lang;langFlag.textContent=a.dataset.flag;langDrop.classList.remove("open");});
 });
 document.addEventListener("click",()=>langDrop.classList.remove("open"));
 
