@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="bg">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Богомил Kараконов — Atelier V</title>
+<title>Atelier V — Digital Business Card</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -29,7 +29,6 @@ body{
   overflow-x:hidden;
 }
 
-/* Subtle dot-grid texture on background */
 body::before{
   content:'';
   position:fixed;inset:0;
@@ -63,16 +62,12 @@ body::before{
   position:relative;
   overflow:hidden;
 }
-
-/* Gold top bar */
 .card-top::before{
   content:'';
   display:block;height:3px;
   background:linear-gradient(90deg,var(--gold),var(--gold-l),var(--gold));
   margin:0 -44px 40px;
 }
-
-/* Decorative circle behind name */
 .card-top::after{
   content:'';
   position:absolute;
@@ -108,14 +103,6 @@ body::before{
   background:linear-gradient(to right,rgba(201,168,76,.3),transparent);
 }
 
-.card-name{
-  font-family:'Cormorant Garamond',serif;
-  font-size:42px;font-weight:300;font-style:italic;
-  color:var(--white);
-  line-height:1.1;
-  margin-bottom:14px;
-  position:relative;z-index:1;
-}
 .card-title{
   font-family:'Jost',sans-serif;
   font-size:9.5px;font-weight:600;
@@ -196,14 +183,13 @@ body::before{
   border:1px solid rgba(27,42,74,.08);
   margin-bottom:24px;
 }
-.qr-canvas-wrap{
+.qr-img-wrap{
   flex-shrink:0;
   width:100px;height:100px;
   display:flex;align-items:center;justify-content:center;
   background:var(--white);
 }
-.qr-canvas-wrap canvas,
-.qr-canvas-wrap img{display:block;}
+.qr-img-wrap img{display:block;width:100px;height:100px;}
 
 .qr-info{flex:1;}
 .qr-eyebrow{
@@ -263,7 +249,6 @@ body::before{
   .card-top{padding:0 28px 36px;}
   .card-top::before{margin:0 -28px 32px;}
   .card-bottom{padding:32px 28px 36px;}
-  .card-name{font-size:34px;}
   .qr-wrap{flex-direction:column;align-items:flex-start;gap:16px;}
 }
 </style>
@@ -281,8 +266,6 @@ body::before{
         <span class="card-brand-text">Atelier V</span>
         <div class="card-logo-line"></div>
       </div>
-
-      <h1 class="card-name">Богомил<br>Kараконов</h1>
       <p class="card-title">Chief Executive Officer</p>
     </div>
 
@@ -300,7 +283,7 @@ body::before{
             <svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.28-.27.7-.36 1.06-.23 1.16.4 2.42.61 3.74.61.55 0 1 .45 1 1V20c0 .55-.45 1-1 1C10.18 21 3 13.82 3 5c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.33.21 2.6.61 3.76.11.36.03.77-.21 1.04L6.6 10.8z"/></svg>
           </div>
           <div class="contact-info">
-            <span class="contact-label">Телефон</span>
+            <span class="contact-label">Phone</span>
             <a href="tel:+359888355777" class="contact-value">+359 888 355 777</a>
           </div>
         </li>
@@ -309,8 +292,17 @@ body::before{
             <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
           </div>
           <div class="contact-info">
-            <span class="contact-label">Имейл</span>
+            <span class="contact-label">Email</span>
             <a href="mailto:bkarakonov@gmail.com" class="contact-value">bkarakonov@gmail.com</a>
+          </div>
+        </li>
+        <li class="contact-item">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          </div>
+          <div class="contact-info">
+            <span class="contact-label">Instagram</span>
+            <a href="https://instagram.com/atelierv.design" class="contact-value" target="_blank" rel="noopener">@atelierv.design</a>
           </div>
         </li>
         <li class="contact-item">
@@ -318,7 +310,7 @@ body::before{
             <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
           </div>
           <div class="contact-info">
-            <span class="contact-label">Студио</span>
+            <span class="contact-label">Studio</span>
             <span class="contact-value">Atelier V — Digital Branding Studio</span>
           </div>
         </li>
@@ -326,17 +318,19 @@ body::before{
 
       <!-- QR CODE -->
       <div class="qr-wrap">
-        <div class="qr-canvas-wrap" id="qrcode"></div>
+        <div class="qr-img-wrap">
+          <img id="qrcode" alt="QR Code">
+        </div>
         <div class="qr-info">
-          <div class="qr-eyebrow">Сканирай &amp; запази</div>
-          <p class="qr-desc">Насочете камерата на телефона към кода, за да добавите контакта директно в адресната книга.</p>
+          <div class="qr-eyebrow">Scan &amp; Save</div>
+          <p class="qr-desc">Point your camera at the QR code to save this contact directly to your address book.</p>
         </div>
       </div>
 
       <!-- SAVE CONTACT BUTTON -->
       <button class="btn-save" onclick="downloadVCF()">
         <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
-        <span>Запази контакт</span>
+        <span>Save Contact</span>
       </button>
 
     </div>
@@ -344,12 +338,11 @@ body::before{
 
   <a href="index.html" class="back-link">
     <svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
-    Обратно към сайта
+    Back to website
   </a>
 
 </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" integrity="sha512-CNgIRecGo7nphbeZ04Sc13ka07paqdeTu0WR1IM4kNcpmBAUSHSe2HkjUJD4LM8HETRJxfFkgpknAMmm/sC+A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
 const VCARD = [
   'BEGIN:VCARD',
@@ -360,17 +353,13 @@ const VCARD = [
   'TITLE:CEO',
   'TEL;TYPE=CELL,VOICE:+359888355777',
   'EMAIL;TYPE=INTERNET:bkarakonov@gmail.com',
+  'URL:https://instagram.com/atelierv.design',
   'END:VCARD'
 ].join('\r\n');
 
-new QRCode(document.getElementById('qrcode'), {
-  text: VCARD,
-  width: 100,
-  height: 100,
-  colorDark: '#1B2A4A',
-  colorLight: '#ffffff',
-  correctLevel: QRCode.CorrectLevel.M
-});
+document.getElementById('qrcode').src =
+  'https://api.qrserver.com/v1/create-qr-code/?size=100x100&color=1B2A4A&bgcolor=ffffff&data=' +
+  encodeURIComponent(VCARD);
 
 function downloadVCF() {
   const blob = new Blob([VCARD], { type: 'text/vcard;charset=utf-8' });
