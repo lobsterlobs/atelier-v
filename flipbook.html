@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Atelier V — Brand Catalog 2024–2025</title>
+<title>Atelier V — Digital Catalog 2026</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
   --navy:#1B2A4A;--gold:#C9A84C;--gold-l:#e8c96a;
   --white:#fff;--off:#F9F8F6;--muted:#777;
-  --nav-h:64px;
+  --nav-h:76px;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html,body{height:100%;overflow:hidden;}
@@ -21,11 +21,10 @@ body{font-family:'Jost',sans-serif;background:var(--navy);}
   background:#cc2222;color:#fff;
   font-family:'Jost',sans-serif;font-size:10px;font-weight:700;
   letter-spacing:.22em;text-transform:uppercase;
-  padding:7px 16px;
-  pointer-events:none;
+  padding:7px 16px;pointer-events:none;
 }
 
-/* ── CONTAINER ── */
+/* ── FLIPBOOK CONTAINER ── */
 .flipbook{position:fixed;inset:0;bottom:var(--nav-h);overflow:hidden;}
 
 /* ── PAGE BASE ── */
@@ -37,17 +36,80 @@ body{font-family:'Jost',sans-serif;background:var(--navy);}
 .page.active{opacity:1;pointer-events:auto;}
 
 /* ─────────────────────────────────────────
-   CHAPTER INTRO PAGES  (navy full-screen)
+   COVER  (page 1)
+───────────────────────────────────────── */
+#p1{
+  background:var(--navy);
+  display:flex;align-items:center;justify-content:center;
+  min-height:100%;position:relative;overflow:hidden;
+}
+#p1::before{
+  content:'';position:absolute;inset:0;
+  background-image:radial-gradient(rgba(201,168,76,.09) 1px,transparent 1px);
+  background-size:28px 28px;pointer-events:none;
+}
+#p1::after{
+  content:'';position:absolute;
+  top:28px;left:28px;right:28px;bottom:28px;
+  border:1px solid rgba(201,168,76,.1);pointer-events:none;
+}
+.cover-inner{position:relative;z-index:1;text-align:center;padding:48px 32px;}
+.cover-year-tag{
+  font-family:'Jost',sans-serif;font-size:9px;font-weight:600;
+  letter-spacing:.32em;text-transform:uppercase;color:var(--gold);
+  margin-bottom:36px;
+  display:flex;align-items:center;justify-content:center;gap:14px;
+}
+.cover-year-tag::before,.cover-year-tag::after{
+  content:'';width:32px;height:1px;background:var(--gold);opacity:.4;
+}
+.cover-catalog{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(14px,2vw,20px);font-weight:300;
+  letter-spacing:.28em;text-transform:uppercase;
+  color:rgba(255,255,255,.35);margin-bottom:12px;
+}
+.cover-headline{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(56px,9vw,112px);font-weight:300;
+  color:var(--white);line-height:.95;letter-spacing:.02em;
+  margin-bottom:8px;
+}
+.cover-headline em{font-style:italic;color:var(--gold);}
+.cover-year-num{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(56px,9vw,112px);font-weight:300;
+  color:var(--gold);line-height:.95;letter-spacing:.02em;
+  margin-bottom:48px;
+}
+.cover-rule{
+  width:1px;height:52px;
+  background:linear-gradient(to bottom,transparent,rgba(201,168,76,.4),transparent);
+  margin:0 auto 36px;
+}
+.cover-sectors{
+  font-family:'Jost',sans-serif;font-size:10px;font-weight:400;
+  letter-spacing:.18em;text-transform:uppercase;
+  color:rgba(255,255,255,.4);margin-bottom:48px;
+}
+.cover-logo-text{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(18px,2.5vw,26px);font-weight:300;
+  color:rgba(255,255,255,.25);letter-spacing:.08em;
+}
+.cover-logo-text em{font-style:italic;color:rgba(201,168,76,.5);}
+
+/* ─────────────────────────────────────────
+   CHAPTER PAGES
 ───────────────────────────────────────── */
 .chapter-page{
   background:var(--navy);
   display:flex;align-items:center;justify-content:center;
-  min-height:100%;
-  position:relative;overflow:hidden;
+  min-height:100%;position:relative;overflow:hidden;
 }
 .chapter-page::before{
   content:'';position:absolute;inset:0;
-  background-image:radial-gradient(rgba(201,168,76,.09) 1px,transparent 1px);
+  background-image:radial-gradient(rgba(201,168,76,.07) 1px,transparent 1px);
   background-size:28px 28px;pointer-events:none;
 }
 .ch-num{
@@ -56,53 +118,44 @@ body{font-family:'Jost',sans-serif;background:var(--navy);}
   font-size:clamp(160px,22vw,280px);font-weight:300;
   color:rgba(201,168,76,.04);line-height:1;
   top:50%;left:50%;transform:translate(-50%,-50%);
-  pointer-events:none;white-space:nowrap;letter-spacing:.04em;
+  pointer-events:none;white-space:nowrap;
 }
-.ch-inner{
-  position:relative;z-index:1;
-  text-align:center;padding:60px 40px;
-}
+.ch-inner{position:relative;z-index:1;text-align:center;padding:60px 40px;}
 .ch-eyebrow{
-  font-family:'Jost',sans-serif;font-size:10px;font-weight:600;
+  font-family:'Jost',sans-serif;font-size:9px;font-weight:600;
   letter-spacing:.3em;text-transform:uppercase;color:var(--gold);
   margin-bottom:24px;
-  display:flex;align-items:center;justify-content:center;gap:16px;
+  display:flex;align-items:center;justify-content:center;gap:14px;
 }
 .ch-eyebrow::before,.ch-eyebrow::after{
-  content:'';display:block;width:36px;height:1px;background:var(--gold);opacity:.45;
+  content:'';width:32px;height:1px;background:var(--gold);opacity:.4;
 }
 .ch-title{
   font-family:'Cormorant Garamond',serif;
-  font-size:clamp(52px,8vw,96px);font-weight:300;
-  color:var(--white);line-height:1;letter-spacing:.02em;
+  font-size:clamp(48px,7.5vw,90px);font-weight:300;
+  color:var(--white);line-height:1.05;
 }
 .ch-title em{font-style:italic;color:var(--gold);}
-.ch-rule{
-  width:1px;height:52px;
+.ch-rule{width:1px;height:48px;
   background:linear-gradient(to bottom,transparent,rgba(201,168,76,.5),transparent);
-  margin:32px auto;
-}
+  margin:28px auto;}
 .ch-desc{
-  font-family:'Jost',sans-serif;font-size:14px;font-weight:300;
-  color:rgba(255,255,255,.5);letter-spacing:.04em;max-width:420px;
-  margin:0 auto;line-height:1.75;
+  font-family:'Jost',sans-serif;font-size:13px;font-weight:300;
+  color:rgba(255,255,255,.45);max-width:400px;margin:0 auto;line-height:1.75;
 }
 
 /* ─────────────────────────────────────────
-   SPLIT PAGES  (photo left | text right)
+   SPLIT PAGES
 ───────────────────────────────────────── */
 .split-page{display:grid;grid-template-columns:1fr 1fr;min-height:100%;}
-.split-img{
-  position:relative;overflow:hidden;
-  background:linear-gradient(135deg,var(--navy) 0%,#243559 100%);
-}
+.split-img{position:relative;overflow:hidden;
+  background:linear-gradient(135deg,var(--navy) 0%,#243559 100%);}
 .split-img img{
-  width:100%;height:100%;
-  object-fit:cover;object-position:center;
-  filter:brightness(.72) saturate(.85);
+  width:100%;height:100%;object-fit:cover;object-position:center;
+  filter:brightness(.75) saturate(.85);
   transition:transform 8s ease;
 }
-.page.active .split-img img{transform:scale(1.05);}
+.page.active .split-img img{transform:scale(1.04);}
 .split-img::after{
   content:'';position:absolute;inset:0;
   background:linear-gradient(to right,transparent 55%,var(--off));
@@ -111,261 +164,266 @@ body{font-family:'Jost',sans-serif;background:var(--navy);}
   background:linear-gradient(to right,transparent 55%,var(--navy));
 }
 .split-text{
-  background:var(--off);
-  padding:60px 48px;
+  background:var(--off);padding:52px 44px;
   display:flex;flex-direction:column;justify-content:center;
 }
 .split-navy .split-text{background:var(--navy);}
 
-/* ─────────────────────────────────────────
-   CONTENT PAGES  (off-white, scrollable)
-───────────────────────────────────────── */
-.content-page{background:var(--off);}
-.content-inner{max-width:920px;margin:0 auto;padding:56px 48px 72px;}
-
-/* ─────────────────────────────────────────
-   SHARED TEXT ATOMS
-───────────────────────────────────────── */
+/* text atoms */
 .eyebrow{
-  font-family:'Jost',sans-serif;font-size:10px;font-weight:600;
+  font-family:'Jost',sans-serif;font-size:9px;font-weight:600;
   letter-spacing:.28em;text-transform:uppercase;color:var(--gold);
-  margin-bottom:14px;display:block;
+  margin-bottom:12px;display:block;
 }
-.pg-title{
+.section-label{
   font-family:'Cormorant Garamond',serif;
-  font-size:clamp(30px,4.5vw,50px);font-weight:400;
-  color:var(--navy);line-height:1.15;margin-bottom:14px;
+  font-size:clamp(28px,4vw,46px);font-weight:300;
+  color:var(--navy);line-height:1;letter-spacing:.02em;
+  margin-bottom:6px;
 }
-.split-navy .pg-title{color:var(--white);}
+.split-navy .section-label{color:var(--white);}
+.prop-name{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(20px,2.8vw,32px);font-weight:400;
+  color:var(--navy);margin-bottom:4px;line-height:1.2;
+}
+.split-navy .prop-name{color:var(--white);}
+.prop-sub{
+  font-family:'Jost',sans-serif;font-size:11px;font-weight:300;
+  color:var(--muted);margin-bottom:20px;letter-spacing:.04em;
+}
+.split-navy .prop-sub{color:rgba(255,255,255,.4);}
+.prop-price{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(26px,3.2vw,40px);font-weight:300;
+  color:var(--gold);margin-bottom:24px;line-height:1;
+}
+.rule{width:36px;height:2px;background:var(--gold);margin:16px 0 22px;}
 .pg-body{
-  font-family:'Jost',sans-serif;font-size:13px;font-weight:300;
-  line-height:1.8;color:var(--muted);margin-bottom:28px;max-width:380px;
-}
-.split-navy .pg-body{color:rgba(255,255,255,.45);}
-.rule{width:40px;height:2px;background:var(--gold);margin-bottom:28px;}
-
-/* feature list */
-.feat-list{list-style:none;display:flex;flex-direction:column;gap:9px;}
-.feat-list li{
   font-family:'Jost',sans-serif;font-size:12px;font-weight:300;
-  color:var(--muted);padding-left:18px;position:relative;
+  line-height:1.8;color:var(--muted);margin-bottom:24px;
+}
+.split-navy .pg-body{color:rgba(255,255,255,.42);}
+.feat-list{list-style:none;display:flex;flex-direction:column;gap:8px;}
+.feat-list li{
+  font-family:'Jost',sans-serif;font-size:11.5px;font-weight:300;
+  color:var(--muted);padding-left:16px;position:relative;
 }
 .feat-list li::before{content:'—';position:absolute;left:0;color:var(--gold);}
-.split-navy .feat-list li{color:rgba(255,255,255,.45);}
+.split-navy .feat-list li{color:rgba(255,255,255,.42);}
+
+/* specs row */
+.specs-row{
+  display:flex;gap:0;margin-bottom:20px;
+  border:1px solid rgba(201,168,76,.18);
+}
+.spec{
+  padding:10px 16px;
+  font-family:'Jost',sans-serif;font-size:10px;font-weight:400;
+  letter-spacing:.1em;text-transform:uppercase;
+  color:var(--navy);border-right:1px solid rgba(201,168,76,.18);
+}
+.spec:last-child{border-right:none;}
+.split-navy .spec{color:rgba(255,255,255,.6);border-color:rgba(201,168,76,.2);}
+.spec strong{display:block;font-size:9px;font-weight:600;color:var(--gold);margin-bottom:2px;}
 
 /* stat row */
-.stat-row{display:flex;gap:32px;margin-top:32px;flex-wrap:wrap;}
-.stat-item{text-align:center;}
+.stat-row{display:flex;gap:28px;flex-wrap:wrap;}
+.stat-item{text-align:left;}
 .stat-val{
   font-family:'Cormorant Garamond',serif;
-  font-size:36px;font-weight:300;color:var(--gold);display:block;line-height:1;
+  font-size:32px;font-weight:300;color:var(--gold);display:block;line-height:1;
 }
 .stat-lbl{
   font-family:'Jost',sans-serif;font-size:9px;font-weight:600;
-  letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-top:4px;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-top:3px;
 }
 
 /* ─────────────────────────────────────────
-   ENTERPRISE SERVICES  (page 7)
+   FLOOR PLAN PAGE (page 5)
 ───────────────────────────────────────── */
-.enterprise-list{display:flex;flex-direction:column;gap:2px;}
-.ent-item{
-  display:flex;align-items:center;
-  background:rgba(201,168,76,.05);
-  padding:24px 28px;gap:20px;
-  transition:background .25s;
+.floorplan-page{background:var(--off);min-height:100%;
+  display:flex;flex-direction:column;}
+.floorplan-header{
+  background:var(--navy);padding:22px 44px;
+  display:flex;align-items:center;justify-content:space-between;flex-shrink:0;
 }
-.ent-item:hover{background:rgba(201,168,76,.1);}
-.ent-info{flex:1;}
-.ent-name{
-  font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:500;
-  color:var(--white);margin-bottom:4px;
+.floorplan-header-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(22px,3vw,34px);font-weight:300;
+  color:var(--white);letter-spacing:.04em;
 }
-.ent-desc{
+.floorplan-header-title em{font-style:italic;color:var(--gold);}
+.floorplan-meta{
+  font-family:'Jost',sans-serif;font-size:10px;font-weight:400;
+  letter-spacing:.14em;text-transform:uppercase;
+  color:rgba(255,255,255,.35);text-align:right;
+}
+.floorplan-meta strong{display:block;color:var(--gold);font-size:13px;
+  font-family:'Cormorant Garamond',serif;letter-spacing:.04em;font-weight:300;}
+.floorplan-body{flex:1;display:flex;align-items:center;justify-content:center;
+  padding:28px 40px;}
+.floorplan-svg-wrap{width:100%;max-width:640px;}
+
+/* ─────────────────────────────────────────
+   CONTENT PAGE
+───────────────────────────────────────── */
+.content-page{background:var(--off);}
+.content-inner{max-width:900px;margin:0 auto;padding:52px 44px 68px;}
+
+/* service grid */
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;
+  background:rgba(27,42,74,.08);margin-top:28px;}
+.svc-card{background:var(--white);padding:26px 22px;transition:background .25s;}
+.svc-card:hover{background:var(--navy);}
+.svc-card:hover .svc-name,.svc-card:hover .svc-desc{color:var(--white);}
+.svc-num{
+  font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:300;
+  color:rgba(201,168,76,.25);line-height:1;margin-bottom:12px;
+}
+.svc-name{
+  font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:500;
+  color:var(--navy);margin-bottom:6px;transition:color .25s;
+}
+.svc-desc{
   font-family:'Jost',sans-serif;font-size:11px;font-weight:300;
-  color:rgba(255,255,255,.4);
+  color:var(--muted);line-height:1.65;transition:color .25s;
 }
 
 /* ─────────────────────────────────────────
-   COVER PAGE  (page 1)
+   CONTACT PAGE (page 13)
 ───────────────────────────────────────── */
-#p1{
+#p13{
   background:var(--navy);
   display:flex;align-items:center;justify-content:center;
-  min-height:100%;
+  min-height:100%;position:relative;overflow:hidden;
 }
-#p1::before{
-  content:'';position:fixed;inset:0 0 var(--nav-h);
-  background-image:radial-gradient(rgba(201,168,76,.1) 1px,transparent 1px);
-  background-size:28px 28px;pointer-events:none;
-}
-#p1::after{
-  content:'';position:absolute;
-  top:32px;left:32px;right:32px;bottom:32px;
-  border:1px solid rgba(201,168,76,.1);pointer-events:none;
-}
-.cover-inner{position:relative;z-index:1;text-align:center;padding:48px;}
-.cover-ey{
-  font-family:'Jost',sans-serif;font-size:10px;font-weight:600;
-  letter-spacing:.3em;text-transform:uppercase;color:var(--gold);
-  margin-bottom:32px;
-  display:flex;align-items:center;justify-content:center;gap:16px;
-}
-.cover-ey::before,.cover-ey::after{
-  content:'';width:36px;height:1px;background:var(--gold);opacity:.45;
-}
-.cover-logo{
-  font-family:'Cormorant Garamond',serif;
-  font-size:clamp(60px,9vw,108px);font-weight:300;
-  color:var(--white);line-height:1;letter-spacing:.04em;
-  margin-bottom:6px;
-}
-.cover-logo em{font-style:italic;color:var(--gold);}
-.cover-studio{
-  font-family:'Jost',sans-serif;font-size:11px;font-weight:500;
-  letter-spacing:.24em;text-transform:uppercase;
-  color:rgba(255,255,255,.35);margin-bottom:56px;
-}
-.cover-divider{width:1px;height:52px;
-  background:linear-gradient(to bottom,transparent,rgba(201,168,76,.4),transparent);
-  margin:0 auto 40px;
-}
-.cover-tagline{
-  font-family:'Cormorant Garamond',serif;
-  font-size:clamp(18px,2.5vw,26px);font-weight:300;font-style:italic;
-  color:rgba(255,255,255,.65);line-height:1.5;margin-bottom:48px;max-width:500px;
-}
-.cover-sectors{
-  display:flex;align-items:center;justify-content:center;gap:20px;
-  font-family:'Jost',sans-serif;font-size:9px;font-weight:600;
-  letter-spacing:.2em;text-transform:uppercase;color:rgba(201,168,76,.55);
-}
-.cover-sectors span{width:4px;height:4px;background:var(--gold);
-  border-radius:50%;opacity:.4;}
-.cover-year{
-  font-family:'Jost',sans-serif;font-size:9px;font-weight:600;
-  letter-spacing:.26em;text-transform:uppercase;
-  color:rgba(255,255,255,.2);margin-top:40px;
-}
-
-/* ─────────────────────────────────────────
-   CONTACT PAGE  (page 8)
-───────────────────────────────────────── */
-#p8{
-  background:var(--navy);
-  display:flex;align-items:center;justify-content:center;
-  min-height:100%;
-  position:relative;overflow:hidden;
-}
-#p8::before{
+#p13::before{
   content:'';position:absolute;inset:0;
   background:
     radial-gradient(ellipse at 20% 50%,rgba(201,168,76,.08) 0%,transparent 55%),
     radial-gradient(ellipse at 80% 30%,rgba(201,168,76,.05) 0%,transparent 50%);
   pointer-events:none;
 }
-.contact-inner{position:relative;z-index:1;text-align:center;max-width:580px;padding:48px;}
+.contact-inner{position:relative;z-index:1;text-align:center;max-width:560px;padding:48px;}
 .contact-ey{
-  font-family:'Jost',sans-serif;font-size:10px;font-weight:600;
-  letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:28px;
+  font-family:'Jost',sans-serif;font-size:9px;font-weight:600;
+  letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:28px;
 }
 .contact-h{
   font-family:'Cormorant Garamond',serif;
-  font-size:clamp(34px,5.5vw,62px);font-weight:300;
-  color:var(--white);line-height:1.15;margin-bottom:36px;
+  font-size:clamp(38px,6vw,68px);font-weight:300;
+  color:var(--white);line-height:1.1;margin-bottom:20px;
 }
 .contact-h em{font-style:italic;color:var(--gold-l);}
+.contact-tagline{
+  font-family:'Jost',sans-serif;font-size:12px;font-weight:300;
+  color:rgba(255,255,255,.38);letter-spacing:.06em;margin-bottom:40px;
+  line-height:1.7;
+}
 .contact-gem-row{
   display:flex;align-items:center;gap:16px;margin-bottom:36px;
 }
 .contact-gem-row::before,.contact-gem-row::after{
   content:'';flex:1;height:1px;
-  background:linear-gradient(to right,transparent,rgba(201,168,76,.3),transparent);
+  background:linear-gradient(to right,transparent,rgba(201,168,76,.28),transparent);
 }
 .gem{width:6px;height:6px;background:var(--gold);transform:rotate(45deg);}
-.contact-links{display:flex;flex-direction:column;align-items:center;gap:12px;margin-bottom:44px;}
+.contact-links{display:flex;flex-direction:column;align-items:center;gap:10px;margin-bottom:40px;}
 .clink{
   display:flex;align-items:center;gap:10px;
-  font-family:'Jost',sans-serif;font-size:14px;font-weight:300;
-  letter-spacing:.04em;color:rgba(255,255,255,.55);
+  font-family:'Jost',sans-serif;font-size:13px;font-weight:300;
+  letter-spacing:.04em;color:rgba(255,255,255,.5);
   text-decoration:none;transition:color .2s;
 }
 .clink:hover{color:var(--gold);}
-.clink svg{width:14px;height:14px;fill:currentColor;opacity:.6;}
+.clink svg{width:13px;height:13px;fill:currentColor;opacity:.6;}
 .btn-start{
   display:inline-flex;align-items:center;gap:12px;
-  padding:17px 52px;
+  padding:16px 52px;
   background:var(--gold);color:var(--navy);
-  font-family:'Jost',sans-serif;font-size:11px;font-weight:600;
-  letter-spacing:.24em;text-transform:uppercase;text-decoration:none;
+  font-family:'Jost',sans-serif;font-size:10px;font-weight:700;
+  letter-spacing:.26em;text-transform:uppercase;text-decoration:none;
   transition:background .25s,transform .2s;
 }
 .btn-start:hover{background:var(--gold-l);transform:translateY(-2px);}
-.btn-start svg{width:14px;height:14px;fill:currentColor;}
+.btn-start svg{width:13px;height:13px;fill:currentColor;}
 
 /* ─────────────────────────────────────────
-   NAV BAR
+   NAV BAR (with dots)
 ───────────────────────────────────────── */
 .fnav{
   position:fixed;bottom:0;left:0;right:0;
   height:var(--nav-h);z-index:200;
   background:rgba(27,42,74,.97);
-  border-top:1px solid rgba(201,168,76,.13);
+  border-top:1px solid rgba(201,168,76,.12);
   backdrop-filter:blur(8px);
-  display:flex;align-items:center;justify-content:center;gap:0;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  gap:6px;padding:8px 0 6px;
 }
 .fnav-progress{
   position:absolute;top:0;left:0;right:0;height:2px;
-  background:rgba(255,255,255,.05);
+  background:rgba(255,255,255,.04);
 }
-.fnav-bar{
-  height:100%;background:var(--gold);
-  transition:width .4s ease;
-}
+.fnav-bar{height:100%;background:var(--gold);transition:width .4s ease;}
 .fnav-home{
-  position:absolute;left:24px;
-  display:flex;align-items:center;gap:7px;
-  font-family:'Jost',sans-serif;font-size:10px;font-weight:500;
+  position:absolute;left:20px;top:50%;transform:translateY(-50%);
+  display:flex;align-items:center;gap:6px;
+  font-family:'Jost',sans-serif;font-size:9px;font-weight:500;
   letter-spacing:.14em;text-transform:uppercase;
-  color:rgba(255,255,255,.35);text-decoration:none;transition:color .2s;
+  color:rgba(255,255,255,.3);text-decoration:none;transition:color .2s;
 }
 .fnav-home:hover{color:var(--gold);}
-.fnav-home svg{width:13px;height:13px;fill:currentColor;}
+.fnav-home svg{width:12px;height:12px;fill:currentColor;}
+
+/* controls row */
+.fnav-controls{display:flex;align-items:center;gap:0;}
 .fnav-btn{
-  width:44px;height:44px;background:none;
-  border:1px solid rgba(201,168,76,.22);
-  color:rgba(255,255,255,.55);cursor:pointer;
+  width:40px;height:40px;background:none;
+  border:1px solid rgba(201,168,76,.2);
+  color:rgba(255,255,255,.5);cursor:pointer;
   display:flex;align-items:center;justify-content:center;
   transition:border-color .2s,color .2s,background .2s;
 }
 .fnav-btn:hover:not(:disabled){
   border-color:var(--gold);color:var(--gold);background:rgba(201,168,76,.07);
 }
-.fnav-btn:disabled{opacity:.22;cursor:default;}
+.fnav-btn:disabled{opacity:.2;cursor:default;}
 .fnav-counter{
-  width:72px;text-align:center;
+  width:64px;text-align:center;
   font-family:'Jost',sans-serif;font-size:11px;font-weight:500;
-  letter-spacing:.14em;color:rgba(255,255,255,.42);user-select:none;
+  letter-spacing:.12em;color:rgba(255,255,255,.4);user-select:none;
 }
+
+/* dots */
+.fnav-dots{display:flex;gap:5px;align-items:center;}
+.fnav-dot{
+  width:5px;height:5px;border-radius:50%;
+  background:rgba(255,255,255,.16);border:none;cursor:pointer;padding:0;
+  transition:background .22s,transform .22s;flex-shrink:0;
+}
+.fnav-dot.active{background:var(--gold);transform:scale(1.35);}
+.fnav-dot:hover:not(.active){background:rgba(201,168,76,.45);}
 
 /* ─────────────────────────────────────────
    RESPONSIVE
 ───────────────────────────────────────── */
 @media(max-width:900px){
   .split-page{grid-template-columns:1fr;}
-  .split-img{height:260px;}
-  .split-img::after,.split-navy .split-img::after{
-    background:linear-gradient(to bottom,transparent 55%,var(--off));
-  }
-  .split-navy .split-img::after{
-    background:linear-gradient(to bottom,transparent 55%,var(--navy));
-  }
-  .split-text{padding:36px 28px 48px;}
-  .content-inner{padding:40px 24px 56px;}
+  .split-img{height:240px;}
+  .split-img::after{background:linear-gradient(to bottom,transparent 55%,var(--off));}
+  .split-navy .split-img::after{background:linear-gradient(to bottom,transparent 55%,var(--navy));}
+  .split-text{padding:32px 24px 44px;}
+  .svc-grid{grid-template-columns:1fr 1fr;}
+  .content-inner{padding:36px 20px 52px;}
+  .specs-row{flex-wrap:wrap;}
+  .fnav-home span{display:none;}
 }
 @media(max-width:560px){
-  .fnav-home span{display:none;}
-  .ch-title{font-size:clamp(44px,12vw,80px);}
+  .ch-title{font-size:clamp(40px,11vw,72px);}
+  .svc-grid{grid-template-columns:1fr;}
+  .fnav-dots{display:none;}
 }
 </style>
 </head>
@@ -380,119 +438,234 @@ body{font-family:'Jost',sans-serif;background:var(--navy);}
 ══════════════════════════════════════════ -->
 <div class="page active" id="p1">
   <div class="cover-inner">
-    <div class="cover-ey">Brand Catalog</div>
-    <div class="cover-logo">Atelier <em>V</em></div>
-    <div class="cover-studio">Digital Branding Studio</div>
-    <div class="cover-divider"></div>
-    <p class="cover-tagline">Three sectors. One studio<br>that delivers in seven days.</p>
-    <div class="cover-sectors">
-      Real Estate <span></span> Restaurant &amp; Hospitality <span></span> Corporate
-    </div>
-    <div class="cover-year">2024 — 2025 Edition</div>
+    <div class="cover-year-tag">Atelier V</div>
+    <div class="cover-catalog">Digital Catalog</div>
+    <div class="cover-headline">DIGITAL<br>CATALOG</div>
+    <div class="cover-year-num"><em>2026</em></div>
+    <div class="cover-rule"></div>
+    <div class="cover-sectors">Real Estate &nbsp;·&nbsp; Hospitality &nbsp;·&nbsp; Corporate</div>
+    <div class="cover-logo-text">Atelier <em>V</em> &mdash; Digital Branding Studio</div>
   </div>
 </div>
 
 <!-- ══════════════════════════════════════════
-     P2 — REAL ESTATE INTRO
+     P2 — CONSTRUCTION & DEVELOPMENT
 ══════════════════════════════════════════ -->
-<div class="page chapter-page" id="p2">
-  <div class="ch-num">01</div>
-  <div class="ch-inner">
-    <div class="ch-eyebrow">Sector One</div>
-    <div class="ch-title">Real <em>Estate</em><br>Branding</div>
-    <div class="ch-rule"></div>
-    <p class="ch-desc">From agent cards to full property identity systems — we craft the brand that sells.</p>
+<div class="page" id="p2">
+  <div class="split-page split-navy">
+    <div class="split-img">
+      <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=900&q=80&auto=format&fit=crop"
+           alt="Construction" loading="lazy">
+    </div>
+    <div class="split-text">
+      <span class="eyebrow">Real Estate — Sector 01</span>
+      <div class="section-label">Construction &amp;<br>Development</div>
+      <div class="rule"></div>
+      <div class="prop-name">Monaco Residence</div>
+      <div class="prop-sub">Ново строителство — луксозни апартаменти</div>
+      <div class="prop-price">From EUR 850,000</div>
+      <div class="specs-row">
+        <div class="spec"><strong>Площ</strong>от 350 кв.м.</div>
+        <div class="spec"><strong>Завършване</strong>Q4 2026</div>
+        <div class="spec"><strong>Тип</strong>Луксозни апартаменти</div>
+      </div>
+      <ul class="feat-list">
+        <li>Панорамна гледка към морето</li>
+        <li>Подземен паркинг</li>
+        <li>Smart home система</li>
+        <li>Частен плаж</li>
+      </ul>
+    </div>
   </div>
 </div>
 
 <!-- ══════════════════════════════════════════
-     P3 — REAL ESTATE SERVICES
+     P3 — PROPERTY FOR SALE
 ══════════════════════════════════════════ -->
 <div class="page" id="p3">
   <div class="split-page">
     <div class="split-img">
       <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=900&q=80&auto=format&fit=crop"
-           alt="Luxury Real Estate" loading="lazy">
+           alt="Property for Sale" loading="lazy">
     </div>
     <div class="split-text">
-      <span class="eyebrow">Real Estate</span>
-      <h2 class="pg-title">Premium Property<br>Identity</h2>
+      <span class="eyebrow">Real Estate — Sector 01</span>
+      <div class="section-label">Property<br>for Sale</div>
       <div class="rule"></div>
-      <p class="pg-body">Every successful property brand begins with a cohesive identity. We build the visual systems that make agencies, agents and listings instantly recognisable.</p>
+      <div class="prop-name">Paris — Haussmann Apartment</div>
+      <div class="prop-sub">3-ти етаж · Централно местоположение</div>
+      <div class="prop-price">EUR 450,000</div>
+      <div class="specs-row">
+        <div class="spec"><strong>Площ</strong>85 кв.м.</div>
+        <div class="spec"><strong>Спални</strong>3</div>
+        <div class="spec"><strong>Бани</strong>2</div>
+      </div>
+      <p class="pg-body">Класическа парижка архитектура, напълно реновиран интериор, централно местоположение. Висококачествени материали и детайли.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     P4 — PROPERTIES FOR RENT
+══════════════════════════════════════════ -->
+<div class="page" id="p4">
+  <div class="split-page split-navy">
+    <div class="split-img">
+      <img src="https://images.unsplash.com/photo-1534351590666-13e3e96b5017?w=900&q=80&auto=format&fit=crop"
+           alt="Properties for Rent" loading="lazy">
+    </div>
+    <div class="split-text">
+      <span class="eyebrow">Real Estate — Sector 01</span>
+      <div class="section-label">Properties<br>for Rent</div>
+      <div class="rule"></div>
+      <div class="prop-name">Amsterdam — Canal House Office</div>
+      <div class="prop-sub">Open plan · Конферентна зала</div>
+      <div class="prop-price">EUR 4,500 / месец</div>
+      <div class="specs-row">
+        <div class="spec"><strong>Площ</strong>200 кв.м.</div>
+        <div class="spec"><strong>Тип</strong>Open plan</div>
+        <div class="spec"><strong>Местоположение</strong>На канала</div>
+      </div>
       <ul class="feat-list">
-        <li>Agency logo &amp; brand identity</li>
-        <li>Agent &amp; team card system</li>
-        <li>Property listing templates</li>
-        <li>QR &amp; NFC card integration</li>
-        <li>Multilingual materials (12 languages)</li>
-        <li>Presentation &amp; pitch decks</li>
+        <li>Историческа сграда на канала</li>
+        <li>Напълно оборудвана</li>
+        <li>Бърз интернет (1Gbps)</li>
+        <li>Конферентна зала за 20 човека</li>
       </ul>
-      <div class="stat-row" style="margin-top:32px;">
-        <div class="stat-item"><span class="stat-val">12</span><div class="stat-lbl">Languages</div></div>
-        <div class="stat-item"><span class="stat-val">7</span><div class="stat-lbl">Day Delivery</div></div>
-        <div class="stat-item"><span class="stat-val">50+</span><div class="stat-lbl">Agents Branded</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     P5 — FLOOR PLAN
+══════════════════════════════════════════ -->
+<div class="page" id="p5">
+  <div class="floorplan-page">
+    <div class="floorplan-header">
+      <div class="floorplan-header-title">Floor Plan — <em>Sample Unit</em></div>
+      <div class="floorplan-meta">
+        Total Area
+        <strong>92 sqm</strong>
+        Unit 081-009
+      </div>
+    </div>
+    <div class="floorplan-body">
+      <div class="floorplan-svg-wrap">
+        <svg viewBox="0 0 620 390" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;">
+          <defs>
+            <style>
+              .rm{fill:rgba(201,168,76,.07);stroke:#1B2A4A;stroke-width:1.5;}
+              .rm-alt{fill:rgba(27,42,74,.04);stroke:#1B2A4A;stroke-width:1.5;}
+              .rm-terrace{fill:rgba(201,168,76,.04);stroke:#1B2A4A;stroke-width:1.5;stroke-dasharray:6,3;}
+              .lbl{font-family:'Cormorant Garamond',Georgia,serif;font-size:14px;fill:#1B2A4A;font-weight:400;}
+              .lbl-sm{font-family:'Jost',Arial,sans-serif;font-size:9.5px;fill:#888;letter-spacing:.08em;}
+              .dim{stroke:#C9A84C;stroke-width:.8;opacity:.55;marker-end:url(#arr);}
+              .dim-lbl{font-family:'Jost',Arial,sans-serif;font-size:8px;fill:#C9A84C;letter-spacing:.06em;opacity:.8;}
+              .north{font-family:'Jost',Arial,sans-serif;font-size:8px;fill:rgba(27,42,74,.35);letter-spacing:.08em;}
+            </style>
+          </defs>
+
+          <!-- Living Room (25 sqm) — top left -->
+          <rect class="rm" x="20" y="20" width="250" height="205"/>
+          <text class="lbl" x="145" y="116" text-anchor="middle">Living Room</text>
+          <text class="lbl-sm" x="145" y="133" text-anchor="middle">25 SQM</text>
+
+          <!-- Kitchen (12 sqm) — mid left -->
+          <rect class="rm-alt" x="20" y="225" width="148" height="120"/>
+          <text class="lbl" x="94" y="283" text-anchor="middle">Kitchen</text>
+          <text class="lbl-sm" x="94" y="299" text-anchor="middle">12 SQM</text>
+
+          <!-- Bathroom (8 sqm) — mid left small -->
+          <rect class="rm-alt" x="168" y="225" width="102" height="120"/>
+          <text class="lbl" x="219" y="279" text-anchor="middle">Bathroom</text>
+          <text class="lbl-sm" x="219" y="295" text-anchor="middle">8 SQM</text>
+
+          <!-- Terrace (15 sqm) — bottom left, dashed -->
+          <rect class="rm-terrace" x="20" y="345" width="250" height="34"/>
+          <text class="lbl" x="145" y="366" text-anchor="middle" style="font-size:12px;">Terrace — 15 SQM</text>
+
+          <!-- Master Bedroom (18 sqm) — top right -->
+          <rect class="rm" x="290" y="20" width="310" height="185"/>
+          <text class="lbl" x="445" y="105" text-anchor="middle">Master Bedroom</text>
+          <text class="lbl-sm" x="445" y="122" text-anchor="middle">18 SQM</text>
+
+          <!-- Bedroom (14 sqm) — bottom right -->
+          <rect class="rm-alt" x="290" y="205" width="310" height="140"/>
+          <text class="lbl" x="445" y="273" text-anchor="middle">Bedroom</text>
+          <text class="lbl-sm" x="445" y="290" text-anchor="middle">14 SQM</text>
+
+          <!-- dimension reference lines -->
+          <line x1="20" y1="8" x2="270" y2="8" stroke="#C9A84C" stroke-width=".6" opacity=".45"/>
+          <text class="dim-lbl" x="145" y="6" text-anchor="middle">10.2 m</text>
+          <line x1="290" y1="8" x2="600" y2="8" stroke="#C9A84C" stroke-width=".6" opacity=".45"/>
+          <text class="dim-lbl" x="445" y="6" text-anchor="middle">12.4 m</text>
+
+          <!-- north indicator -->
+          <text class="north" x="598" y="385" text-anchor="end">N ↑</text>
+        </svg>
       </div>
     </div>
   </div>
 </div>
 
 <!-- ══════════════════════════════════════════
-     P4 — RESTAURANT & HOSPITALITY INTRO
+     P6 — HOSPITALITY CHAPTER
 ══════════════════════════════════════════ -->
-<div class="page chapter-page" id="p4">
+<div class="page chapter-page" id="p6">
   <div class="ch-num">02</div>
   <div class="ch-inner">
     <div class="ch-eyebrow">Sector Two</div>
     <div class="ch-title">Restaurant &amp;<br><em>Hospitality</em></div>
     <div class="ch-rule"></div>
-    <p class="ch-desc">Where ambiance meets identity — menu design, wine branding and full F&amp;B visual systems.</p>
+    <p class="ch-desc">From menu design and wine branding to full hotel identity systems — we design the brand that guests remember.</p>
   </div>
 </div>
 
 <!-- ══════════════════════════════════════════
-     P5 — RESTAURANT SERVICES
+     P7 — RESTAURANT BRANDING
 ══════════════════════════════════════════ -->
-<div class="page" id="p5">
+<div class="page" id="p7">
   <div class="split-page">
     <div class="split-img">
       <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=900&q=80&auto=format&fit=crop"
            alt="Fine Dining" loading="lazy">
     </div>
     <div class="split-text">
-      <span class="eyebrow">Restaurant &amp; Hospitality</span>
-      <h2 class="pg-title">From kitchen<br>to brand</h2>
+      <span class="eyebrow">Hospitality — Sector 02</span>
+      <div class="section-label">Restaurant<br>Branding</div>
       <div class="rule"></div>
-      <p class="pg-body">A restaurant's brand is experienced before the first dish arrives. We design identity systems that make every touchpoint — from the menu to the matchbox — intentional.</p>
+      <p class="pg-body">A restaurant's brand is experienced before the first dish. We design identity systems that make every touchpoint — from the menu to the matchbox — intentional.</p>
       <ul class="feat-list">
         <li>Restaurant logo &amp; brand identity</li>
-        <li>Menu design (food &amp; wine)</li>
+        <li>Menu design — food &amp; wine lists</li>
         <li>Table cards &amp; signage</li>
         <li>Social media content kit</li>
         <li>Digital reservation card with QR</li>
         <li>Branded packaging design</li>
       </ul>
-      <div class="stat-row" style="margin-top:32px;">
+      <div class="stat-row" style="margin-top:28px;">
         <div class="stat-item"><span class="stat-val">5</span><div class="stat-lbl">Day Delivery</div></div>
         <div class="stat-item"><span class="stat-val">3</span><div class="stat-lbl">Menu Formats</div></div>
+        <div class="stat-item"><span class="stat-val">12</span><div class="stat-lbl">Languages</div></div>
       </div>
     </div>
   </div>
 </div>
 
 <!-- ══════════════════════════════════════════
-     P6 — HOTEL & RESORT
+     P8 — HOTEL & RESORT IDENTITY
 ══════════════════════════════════════════ -->
-<div class="page" id="p6">
+<div class="page" id="p8">
   <div class="split-page split-navy">
     <div class="split-img">
       <img src="https://images.unsplash.com/photo-1455587734955-081b22074882?w=900&q=80&auto=format&fit=crop"
            alt="Luxury Hotel" loading="lazy">
     </div>
     <div class="split-text">
-      <span class="eyebrow">Hotel &amp; Resort</span>
-      <h2 class="pg-title">Luxury brand<br>for luxury spaces</h2>
+      <span class="eyebrow">Hospitality — Sector 02</span>
+      <div class="section-label">Hotel &amp; Resort<br>Identity</div>
       <div class="rule"></div>
-      <p class="pg-body">Hotels and resorts require branding that extends into every guest touchpoint — from the lobby signage to the in-room card and concierge portal.</p>
+      <p class="pg-body">Hotels and resorts require branding that extends into every guest touchpoint — from lobby signage to the in-room card and digital concierge portal.</p>
       <ul class="feat-list">
         <li>Hotel logo &amp; full brand system</li>
         <li>Concierge &amp; staff card design</li>
@@ -506,25 +679,106 @@ body{font-family:'Jost',sans-serif;background:var(--navy);}
 </div>
 
 <!-- ══════════════════════════════════════════
-     P7 — CORPORATE SERVICES INTRO
+     P9 — CORPORATE CHAPTER
 ══════════════════════════════════════════ -->
-<div class="page chapter-page" id="p7">
+<div class="page chapter-page" id="p9">
   <div class="ch-num">03</div>
   <div class="ch-inner">
     <div class="ch-eyebrow">Sector Three</div>
-    <div class="ch-title"><em>Corporate</em><br>Services</div>
+    <div class="ch-title"><em>Corporate</em><br>Identity</div>
     <div class="ch-rule"></div>
-    <p class="ch-desc">Strategic brand consulting, market analysis and business development for companies that think ahead.</p>
+    <p class="ch-desc">Strategic branding, corporate identity systems and investor-ready documents for companies that think ahead.</p>
   </div>
 </div>
 
 <!-- ══════════════════════════════════════════
-     P8 — CONTACT (LAST PAGE)
+     P10 — CORPORATE BRANDING
 ══════════════════════════════════════════ -->
-<div class="page" id="p8">
+<div class="page" id="p10">
+  <div class="split-page">
+    <div class="split-img">
+      <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=900&q=80&auto=format&fit=crop"
+           alt="Corporate Office" loading="lazy">
+    </div>
+    <div class="split-text">
+      <span class="eyebrow">Corporate — Sector 03</span>
+      <div class="section-label">Corporate<br>Branding</div>
+      <div class="rule"></div>
+      <p class="pg-body">A strong corporate brand signals trust before the first handshake. We design complete identity systems — from the business card to the brand guidelines document.</p>
+      <ul class="feat-list">
+        <li>Corporate logo &amp; identity system</li>
+        <li>Brand guidelines document</li>
+        <li>Business card &amp; stationery</li>
+        <li>Email signature system</li>
+        <li>Social media corporate kit</li>
+        <li>Multilingual materials</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     P11 — PRESENTATIONS & DOCUMENTS
+══════════════════════════════════════════ -->
+<div class="page" id="p11">
+  <div class="split-page split-navy">
+    <div class="split-img">
+      <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=900&q=80&auto=format&fit=crop"
+           alt="Presentations" loading="lazy">
+    </div>
+    <div class="split-text">
+      <span class="eyebrow">Corporate — Sector 03</span>
+      <div class="section-label">Presentations<br>&amp; Documents</div>
+      <div class="rule"></div>
+      <p class="pg-body">Investor-grade presentations and corporate documents designed to close deals and communicate vision.</p>
+      <ul class="feat-list">
+        <li>PowerPoint &amp; Google Slides presentations</li>
+        <li>Pitch decks за инвеститори</li>
+        <li>Annual reports</li>
+        <li>Brand guidelines documents</li>
+        <li>Proposal &amp; tender documents</li>
+      </ul>
+      <div class="stat-row" style="margin-top:28px;">
+        <div class="stat-item"><span class="stat-val">7</span><div class="stat-lbl">Day Delivery</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     P12 — ARCHITECTURAL BRANDING
+══════════════════════════════════════════ -->
+<div class="page" id="p12">
+  <div class="split-page">
+    <div class="split-img">
+      <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=900&q=80&auto=format&fit=crop"
+           alt="Architectural Branding" loading="lazy">
+    </div>
+    <div class="split-text">
+      <span class="eyebrow">Real Estate — Sector 01</span>
+      <div class="section-label">Architectural<br>Branding</div>
+      <div class="rule"></div>
+      <p class="pg-body">Construction projects need a brand before the first brick is laid. We build the visual identity that sells properties off-plan and builds developer reputation.</p>
+      <ul class="feat-list">
+        <li>Брандиране на строителни проекти</li>
+        <li>Sales office дизайн</li>
+        <li>Signage &amp; wayfinding system</li>
+        <li>Digital &amp; print marketing materials</li>
+        <li>Брошури и каталози за проекти</li>
+        <li>CGI &amp; visualisation layout</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     P13 — CONTACT
+══════════════════════════════════════════ -->
+<div class="page" id="p13">
   <div class="contact-inner">
-    <div class="contact-ey">Get in touch</div>
-    <h2 class="contact-h">Ready to build<br>your <em>brand?</em><br>Start today.</h2>
+    <div class="contact-ey">Start your project</div>
+    <h2 class="contact-h">Start your<br><em>Project</em></h2>
+    <p class="contact-tagline">Ready in 7 days. No meetings.<br>Just results.</p>
     <div class="contact-gem-row"><div class="gem"></div></div>
     <div class="contact-links">
       <a href="https://atelierv.design" class="clink" target="_blank" rel="noopener">
@@ -554,17 +808,19 @@ body{font-family:'Jost',sans-serif;background:var(--navy);}
     <span>Back to site</span>
   </a>
 
-  <button class="fnav-btn" id="btn-prev" disabled aria-label="Previous">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
-  </button>
-
-  <div class="fnav-counter">
-    <span id="cur-page">1</span><span style="opacity:.3"> / </span><span id="total-pages" style="opacity:.3">8</span>
+  <div class="fnav-controls">
+    <button class="fnav-btn" id="btn-prev" disabled aria-label="Previous">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+    </button>
+    <div class="fnav-counter">
+      <span id="cur-page">1</span><span style="opacity:.3"> / </span><span id="total-pages">13</span>
+    </div>
+    <button class="fnav-btn" id="btn-next" aria-label="Next">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+    </button>
   </div>
 
-  <button class="fnav-btn" id="btn-next" aria-label="Next">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
-  </button>
+  <div class="fnav-dots" id="fnav-dots"></div>
 </nav>
 
 <script>
@@ -574,11 +830,29 @@ const btnNext = document.getElementById('btn-next');
 const curEl   = document.getElementById('cur-page');
 const totEl   = document.getElementById('total-pages');
 const bar     = document.getElementById('fnav-bar');
+const dotsWrap= document.getElementById('fnav-dots');
 const TOTAL   = pages.length;
 let current = 0;
 
 totEl.textContent = TOTAL;
-bar.style.width = (1 / TOTAL * 100) + '%';
+
+// Build dots
+pages.forEach((_, i) => {
+  const d = document.createElement('button');
+  d.className = 'fnav-dot' + (i === 0 ? ' active' : '');
+  d.setAttribute('aria-label', 'Page ' + (i + 1));
+  d.addEventListener('click', () => goTo(i));
+  dotsWrap.appendChild(d);
+});
+const dots = Array.from(dotsWrap.querySelectorAll('.fnav-dot'));
+
+function updateUI(){
+  curEl.textContent = current + 1;
+  bar.style.width = ((current + 1) / TOTAL * 100) + '%';
+  btnPrev.disabled = current === 0;
+  btnNext.disabled = current === TOTAL - 1;
+  dots.forEach((d, i) => d.classList.toggle('active', i === current));
+}
 
 function goTo(idx){
   if(idx < 0 || idx >= TOTAL || idx === current) return;
@@ -586,11 +860,10 @@ function goTo(idx){
   current = idx;
   pages[current].classList.add('active');
   pages[current].scrollTop = 0;
-  curEl.textContent = current + 1;
-  bar.style.width = ((current + 1) / TOTAL * 100) + '%';
-  btnPrev.disabled = current === 0;
-  btnNext.disabled = current === TOTAL - 1;
+  updateUI();
 }
+
+updateUI();
 
 btnPrev.addEventListener('click', () => goTo(current - 1));
 btnNext.addEventListener('click', () => goTo(current + 1));
