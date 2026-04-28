@@ -8,7 +8,7 @@
 <style>
 :root{
   --navy:#1B2A4A;--gold:#C9A84C;--gold-l:#e8c96a;
-  --white:#fff;--off:#F9F8F6;--txt:#2c2c2c;--muted:#777;
+  --white:#fff;--off:#F9F8F6;--muted:#777;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{height:100%;}
@@ -20,22 +20,16 @@ body{
   background-image:
     radial-gradient(ellipse at 15% 60%, rgba(201,168,76,.07) 0%, transparent 55%),
     radial-gradient(ellipse at 85% 20%, rgba(201,168,76,.05) 0%, transparent 50%);
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
   padding:48px 20px;
-  position:relative;
-  overflow-x:hidden;
+  position:relative;overflow-x:hidden;
 }
-
 body::before{
-  content:'';
-  position:fixed;inset:0;
+  content:'';position:fixed;inset:0;
   background-image:radial-gradient(rgba(201,168,76,.12) 1px, transparent 1px);
   background-size:28px 28px;
-  pointer-events:none;
-  z-index:0;
+  pointer-events:none;z-index:0;
 }
 
 .page-inner{
@@ -51,26 +45,24 @@ body::before{
   animation:cardIn .9s cubic-bezier(.22,.68,0,1.2) forwards;
   opacity:0;transform:translateY(28px) scale(.97);
 }
-@keyframes cardIn{
-  to{opacity:1;transform:translateY(0) scale(1);}
-}
+@keyframes cardIn{to{opacity:1;transform:translateY(0) scale(1);}}
 
 /* ── TOP – NAVY ── */
 .card-top{
   background:var(--navy);
   padding:0 44px 44px;
-  position:relative;
-  overflow:hidden;
+  position:relative;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
 }
+/* Gold top bar */
 .card-top::before{
-  content:'';
-  display:block;height:3px;
+  content:'';position:absolute;top:0;left:0;right:0;
+  height:3px;
   background:linear-gradient(90deg,var(--gold),var(--gold-l),var(--gold));
-  margin:0 -44px 40px;
 }
+/* Decorative circle */
 .card-top::after{
-  content:'';
-  position:absolute;
+  content:'';position:absolute;
   bottom:-60px;right:-60px;
   width:220px;height:220px;
   border-radius:50%;
@@ -78,55 +70,36 @@ body::before{
   pointer-events:none;
 }
 
-.card-logo-row{
-  display:flex;align-items:center;gap:12px;
-  margin-bottom:36px;
-}
-.card-monogram{
-  width:40px;height:40px;border:1px solid rgba(201,168,76,.45);
+.card-logo-wrap{
+  padding-top:52px; /* clears the 3px bar + spacing */
+  position:relative;z-index:1;
   display:flex;align-items:center;justify-content:center;
-  flex-shrink:0;
 }
-.card-monogram span{
+/* Actual logo loaded via JS */
+.card-logo-img{
+  height:72px;width:auto;
+  display:none; /* shown once src is set */
+  filter:brightness(0) invert(1);
+}
+/* Fallback text shown until/if logo loads */
+.card-logo-fallback{
   font-family:'Cormorant Garamond',serif;
-  font-size:20px;font-weight:500;
-  color:var(--gold);line-height:1;
+  font-size:32px;font-weight:300;font-style:italic;
+  color:var(--white);
+  letter-spacing:.12em;
 }
-.card-brand-text{
-  font-family:'Jost',sans-serif;
-  font-size:11px;font-weight:600;
-  letter-spacing:.26em;text-transform:uppercase;
-  color:rgba(201,168,76,.75);
-}
-.card-logo-line{
-  flex:1;height:1px;
-  background:linear-gradient(to right,rgba(201,168,76,.3),transparent);
-}
-
-.card-title{
-  font-family:'Jost',sans-serif;
-  font-size:9.5px;font-weight:600;
-  letter-spacing:.25em;text-transform:uppercase;
-  color:var(--gold);
-  display:flex;align-items:center;gap:10px;
-}
-.card-title::after{
-  content:'';display:block;
-  width:32px;height:1px;
-  background:var(--gold);opacity:.4;
+.card-logo-fallback em{
+  font-style:normal;color:var(--gold);
 }
 
 /* ── DIVIDER ── */
 .card-divider{
-  background:var(--white);
-  height:1px;
-  position:relative;
+  height:1px;background:var(--white);
   display:flex;align-items:center;justify-content:center;
 }
 .card-divider-gem{
   width:8px;height:8px;
-  background:var(--gold);
-  transform:rotate(45deg);
+  background:var(--gold);transform:rotate(45deg);
   position:relative;z-index:1;
   box-shadow:0 0 0 4px var(--white);
 }
@@ -137,10 +110,7 @@ body::before{
   padding:40px 44px 44px;
 }
 
-.contact-list{
-  list-style:none;
-  margin-bottom:28px;
-}
+.contact-list{list-style:none;margin-bottom:28px;}
 .contact-item{
   display:flex;align-items:center;gap:16px;
   padding:11px 0;
@@ -150,11 +120,9 @@ body::before{
 
 .contact-icon{
   width:38px;height:38px;
-  background:var(--navy);
-  border-radius:50%;
+  background:var(--navy);border-radius:50%;
   display:flex;align-items:center;justify-content:center;
-  flex-shrink:0;
-  transition:background .25s;
+  flex-shrink:0;transition:background .25s;
 }
 .contact-item:hover .contact-icon{background:var(--gold);}
 .contact-item:hover .contact-icon svg{fill:var(--navy);}
@@ -175,7 +143,7 @@ body::before{
 }
 .contact-value:hover{color:var(--gold);}
 
-/* ── QR SECTION ── */
+/* ── QR ── */
 .qr-wrap{
   display:flex;align-items:center;gap:20px;
   padding:18px;
@@ -184,8 +152,7 @@ body::before{
   margin-bottom:24px;
 }
 .qr-img-wrap{
-  flex-shrink:0;
-  width:100px;height:100px;
+  flex-shrink:0;width:100px;height:100px;
   display:flex;align-items:center;justify-content:center;
   background:var(--white);
 }
@@ -208,22 +175,19 @@ body::before{
 .btn-save{
   display:flex;align-items:center;justify-content:center;gap:10px;
   width:100%;padding:17px 24px;
-  background:var(--navy);
-  color:var(--gold);
+  background:var(--navy);color:var(--gold);
   font-family:'Jost',sans-serif;
   font-size:11px;font-weight:600;
   letter-spacing:.22em;text-transform:uppercase;
   border:none;cursor:pointer;
-  position:relative;overflow:hidden;
-  transition:color .3s;
+  position:relative;overflow:hidden;transition:color .3s;
 }
 .btn-save::before{
   content:'';
   position:absolute;top:0;left:-100%;
   width:100%;height:100%;
   background:var(--gold);
-  transition:left .32s cubic-bezier(.4,0,.2,1);
-  z-index:0;
+  transition:left .32s cubic-bezier(.4,0,.2,1);z-index:0;
 }
 .btn-save:hover::before{left:0;}
 .btn-save:hover{color:var(--navy);}
@@ -238,8 +202,7 @@ body::before{
   font-size:10px;font-weight:500;
   letter-spacing:.16em;text-transform:uppercase;
   color:rgba(255,255,255,.35);
-  text-decoration:none;
-  transition:color .25s;
+  text-decoration:none;transition:color .25s;
 }
 .back-link:hover{color:var(--gold);}
 .back-link svg{width:12px;height:12px;fill:currentColor;}
@@ -247,7 +210,6 @@ body::before{
 /* ── RESPONSIVE ── */
 @media(max-width:480px){
   .card-top{padding:0 28px 36px;}
-  .card-top::before{margin:0 -28px 32px;}
   .card-bottom{padding:32px 28px 36px;}
   .qr-wrap{flex-direction:column;align-items:flex-start;gap:16px;}
 }
@@ -256,17 +218,14 @@ body::before{
 <body>
 
 <div class="page-inner">
-
   <div class="card">
 
-    <!-- TOP: NAVY SECTION -->
+    <!-- TOP: NAVY + LOGO -->
     <div class="card-top">
-      <div class="card-logo-row">
-        <div class="card-monogram"><span>V</span></div>
-        <span class="card-brand-text">Atelier V</span>
-        <div class="card-logo-line"></div>
+      <div class="card-logo-wrap">
+        <img id="card-logo" class="card-logo-img" alt="Atelier V">
+        <span class="card-logo-fallback">Atelier <em>V</em></span>
       </div>
-      <p class="card-title">Chief Executive Officer</p>
     </div>
 
     <!-- ORNAMENTAL DIVIDER -->
@@ -274,7 +233,7 @@ body::before{
       <div class="card-divider-gem"></div>
     </div>
 
-    <!-- BOTTOM: CREAM SECTION -->
+    <!-- BOTTOM: CONTACTS -->
     <div class="card-bottom">
 
       <ul class="contact-list">
@@ -323,7 +282,7 @@ body::before{
         </div>
         <div class="qr-info">
           <div class="qr-eyebrow">Scan &amp; Save</div>
-          <p class="qr-desc">Point your camera at the QR code to save this contact directly to your address book.</p>
+          <p class="qr-desc">Point your camera at the QR code to save Atelier V directly to your contacts.</p>
         </div>
       </div>
 
@@ -340,33 +299,47 @@ body::before{
     <svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
     Back to website
   </a>
-
 </div>
 
 <script>
 const VCARD = [
   'BEGIN:VCARD',
   'VERSION:3.0',
-  'N:Karakonov;Bogomil;;;',
-  'FN:Bogomil Karakonov',
-  'ORG:Atelier V',
-  'TITLE:CEO',
-  'TEL;TYPE=CELL,VOICE:+359888355777',
+  'FN:Atelier V',
+  'ORG:Atelier V — Digital Branding Studio',
+  'TEL;TYPE=WORK,VOICE:+359888355777',
   'EMAIL;TYPE=INTERNET:bkarakonov@gmail.com',
   'URL:https://instagram.com/atelierv.design',
   'END:VCARD'
 ].join('\r\n');
 
+// QR code via api.qrserver.com
 document.getElementById('qrcode').src =
   'https://api.qrserver.com/v1/create-qr-code/?size=100x100&color=1B2A4A&bgcolor=ffffff&data=' +
   encodeURIComponent(VCARD);
+
+// Load real logo from index.html (avoids duplicating 100 KB+ of base64)
+fetch('index.html')
+  .then(r => r.text())
+  .then(html => {
+    const doc = new DOMParser().parseFromString(html, 'text/html');
+    const navImg = doc.querySelector('.nav-logo img');
+    if (navImg) {
+      const logoEl = document.getElementById('card-logo');
+      logoEl.src = navImg.getAttribute('src');
+      logoEl.style.display = 'block';
+      const fallback = document.querySelector('.card-logo-fallback');
+      if (fallback) fallback.style.display = 'none';
+    }
+  })
+  .catch(() => { /* fallback text stays visible */ });
 
 function downloadVCF() {
   const blob = new Blob([VCARD], { type: 'text/vcard;charset=utf-8' });
   const url  = URL.createObjectURL(blob);
   const a    = document.createElement('a');
   a.href     = url;
-  a.download = 'Bogomil_Karakonov_AtelierV.vcf';
+  a.download = 'AtelierV.vcf';
   document.body.appendChild(a);
   a.click();
   document.body.removeChild(a);
