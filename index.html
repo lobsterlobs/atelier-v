@@ -176,14 +176,21 @@ section{padding:100px 56px;}
 #portfolio{background:var(--off);padding:100px 56px;}
 .portfolio-header{text-align:center;margin-bottom:56px;}
 .portfolio-header .section-sub{margin:16px auto 0;}
-.portfolio-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;max-width:1280px;margin:0 auto;background:rgba(27,42,74,.07);}
-.portfolio-item{aspect-ratio:3/4;overflow:hidden;position:relative;background:var(--navy);}
-.portfolio-item img{width:100%;height:100%;object-fit:cover;transition:transform .6s,filter .6s;filter:brightness(.88);}
-.portfolio-item:hover img{transform:scale(1.06);filter:brightness(.6);}
-.portfolio-overlay{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding-bottom:28px;opacity:0;transition:opacity .3s;background:linear-gradient(to top,rgba(27,42,74,.75) 0%,transparent 60%);}
-.portfolio-item:hover .portfolio-overlay{opacity:1;}
-.portfolio-label{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:500;color:var(--white);letter-spacing:.04em;}
-.portfolio-cat{font-family:'Jost',sans-serif;font-size:10px;font-weight:500;color:var(--gold);letter-spacing:.18em;text-transform:uppercase;margin-top:5px;}
+.cases-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;max-width:1280px;margin:0 auto;}
+.case-card{position:relative;overflow:hidden;background:var(--navy);cursor:pointer;}
+.case-img{width:100%;height:380px;object-fit:cover;filter:brightness(.45);transition:transform .6s ease,filter .6s ease;display:block;}
+.case-card:hover .case-img{transform:scale(1.05);filter:brightness(.25);}
+.case-body{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:40px 36px;}
+.case-tag{font-family:'Jost',sans-serif;font-size:10px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;display:block;}
+.case-title{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:600;color:var(--white);line-height:1.1;margin-bottom:8px;}
+.case-sub{font-family:'Jost',sans-serif;font-size:12px;font-weight:300;color:rgba(255,255,255,.5);letter-spacing:.04em;}
+.case-meta{display:flex;flex-direction:column;gap:8px;margin-top:18px;margin-bottom:22px;opacity:0;transform:translateY(14px);transition:opacity .35s ease,transform .35s ease;}
+.case-card:hover .case-meta{opacity:1;transform:translateY(0);}
+.case-problem,.case-solution{font-family:'Jost',sans-serif;font-size:11px;line-height:1.65;color:rgba(255,255,255,.7);font-weight:300;}
+.case-problem strong,.case-solution strong{color:var(--gold);font-weight:600;}
+.case-btn{display:inline-block;padding:11px 26px;background:transparent;border:1px solid var(--gold);color:var(--gold);font-family:'Jost',sans-serif;font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;transition:background .25s,color .25s;opacity:0;transform:translateY(10px);transition:background .25s,color .25s,opacity .35s .05s ease,transform .35s .05s ease;}
+.case-card:hover .case-btn{opacity:1;transform:translateY(0);}
+.case-btn:hover{background:var(--gold);color:var(--navy);}
 .portfolio-catalog{text-align:center;padding-top:48px;}
 .btn-catalog{display:inline-block;padding:18px 52px;background:var(--navy);color:var(--gold);font-family:'Jost',sans-serif;font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;text-decoration:none;transition:background .25s,color .25s;border:2px solid var(--navy);}
 .btn-catalog:hover{background:var(--gold);color:var(--navy);border-color:var(--gold);}
@@ -234,8 +241,8 @@ footer{background:var(--navy);padding:36px 56px;display:flex;align-items:center;
 .mob-links>li:last-child{padding-top:20px;}
 .mob-links>li:last-child>a{border:none;display:inline-block;padding:13px 28px;background:var(--gold);color:var(--navy)!important;font-weight:600;letter-spacing:.2em;}
 .mob-links>li:last-child>a:hover{background:var(--gold-l)!important;}
-@media(max-width:1100px){.packages-grid{grid-template-columns:repeat(2,1fr);} .portfolio-grid{grid-template-columns:repeat(2,1fr);}}
-@media(max-width:768px){.why-grid{grid-template-columns:1fr;} .packages-grid{grid-template-columns:1fr;} .stats-inner{grid-template-columns:repeat(2,1fr);} .portfolio-grid{grid-template-columns:repeat(2,1fr);} .support-inner{flex-direction:column;text-align:center;} .nav-links{display:none;} section{padding:72px 24px;} footer{flex-direction:column;gap:20px;text-align:center;padding:28px 24px;} nav{padding:0 20px;}.ham-btn{display:flex;}}
+@media(max-width:1100px){.packages-grid{grid-template-columns:repeat(2,1fr);} .portfolio-grid{grid-template-columns:repeat(2,1fr);} .cases-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:768px){.why-grid{grid-template-columns:1fr;} .packages-grid{grid-template-columns:1fr;} .stats-inner{grid-template-columns:repeat(2,1fr);} .portfolio-grid{grid-template-columns:repeat(2,1fr);} .cases-grid{grid-template-columns:1fr;} .support-inner{flex-direction:column;text-align:center;} .nav-links{display:none;} section{padding:72px 24px;} footer{flex-direction:column;gap:20px;text-align:center;padding:28px 24px;} nav{padding:0 20px;}.ham-btn{display:flex;}}
 
 /* ── BOOK A CALL ── */
 .book-section{background:var(--navy);padding:100px 56px;text-align:center;position:relative;overflow:hidden;}
@@ -419,12 +426,52 @@ footer{background:var(--navy);padding:36px 56px;display:flex;align-items:center;
 <section id="portfolio">
   <div class="portfolio-header reveal">
     <span class="section-eyebrow">Portfolio</span>
-    <h2 class="section-title">Brands we've built</h2>
-    <p class="section-sub">A selection of recent brand identities — each crafted in 7 days or less.</p>
+    <h2 class="section-title">Our Work</h2>
+    <p class="section-sub">Three brands. Three industries. One process.</p>
+  </div>
+  <div class="cases-grid">
+    <div class="case-card reveal">
+      <img class="case-img" src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800" alt="Horizon Living" loading="lazy">
+      <div class="case-body">
+        <span class="case-tag">Real Estate</span>
+        <h3 class="case-title">Horizon Living</h3>
+        <p class="case-sub">Premium rebrand for a boutique property agency</p>
+        <div class="case-meta">
+          <p class="case-problem"><strong>Problem —</strong> Generic brand lost in a crowded market</p>
+          <p class="case-solution"><strong>Solution —</strong> Elevated identity positioning them in the luxury segment</p>
+        </div>
+        <a href="flipbook.html" class="case-btn">View Complete Brand &rarr;</a>
+      </div>
+    </div>
+    <div class="case-card reveal">
+      <img class="case-img" src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800" alt="Le Jardin" loading="lazy">
+      <div class="case-body">
+        <span class="case-tag">Restaurant &amp; Hospitality</span>
+        <h3 class="case-title">Le Jardin</h3>
+        <p class="case-sub">Full brand identity for a fine dining concept</p>
+        <div class="case-meta">
+          <p class="case-problem"><strong>Problem —</strong> No visual identity to match the quality of the cuisine</p>
+          <p class="case-solution"><strong>Solution —</strong> Elegant, timeless brand that commands premium pricing</p>
+        </div>
+        <a href="flipbook.html" class="case-btn">View Complete Brand &rarr;</a>
+      </div>
+    </div>
+    <div class="case-card reveal">
+      <img class="case-img" src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800" alt="Craft &amp; Co. Butchery" loading="lazy">
+      <div class="case-body">
+        <span class="case-tag">Local Business</span>
+        <h3 class="case-title">Craft &amp; Co. Butchery</h3>
+        <p class="case-sub">Modern rebrand for a traditional local business</p>
+        <div class="case-meta">
+          <p class="case-problem"><strong>Problem —</strong> Old-fashioned look, not attracting younger customers</p>
+          <p class="case-solution"><strong>Solution —</strong> Bold, modern identity that kept the craft heritage</p>
+        </div>
+        <a href="flipbook.html#butchery" class="case-btn">View Complete Brand &rarr;</a>
+      </div>
+    </div>
   </div>
   <div class="portfolio-catalog">
     <a href="flipbook.html" class="btn-catalog">EXPLORE OUR CATALOG &rarr;</a>
-    <p class="catalog-cats">Real Estate &middot; Restaurant &amp; Hospitality &middot; Corporate &amp; Business</p>
   </div>
 </section>
 
