@@ -274,12 +274,175 @@ body::before{
   color:var(--gold);text-align:center;letter-spacing:.06em;
 }
 
+/* ── BOOKING SECTION ── */
+.booking-section{
+  width:100%;margin-top:3px;
+  background:var(--navy);
+  box-shadow:0 48px 120px rgba(0,0,0,.55),0 0 0 1px rgba(201,168,76,.18);
+  padding:40px 44px 48px;
+  position:relative;overflow:hidden;
+}
+.booking-section::before{
+  content:'';position:absolute;inset:0;
+  background-image:radial-gradient(rgba(201,168,76,.07) 1px,transparent 1px);
+  background-size:28px 28px;pointer-events:none;
+}
+.booking-inner{position:relative;z-index:1;}
+.booking-ey{
+  font-family:'Jost',sans-serif;font-size:9px;font-weight:600;
+  letter-spacing:.28em;text-transform:uppercase;
+  color:var(--gold);display:block;margin-bottom:8px;
+}
+.booking-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:26px;font-weight:300;color:var(--white);margin-bottom:4px;
+}
+.booking-sub{
+  font-family:'Jost',sans-serif;font-size:11px;font-weight:300;
+  color:rgba(255,255,255,.32);letter-spacing:.04em;margin-bottom:32px;
+}
+.step-label{
+  font-family:'Jost',sans-serif;font-size:9px;font-weight:600;
+  letter-spacing:.2em;text-transform:uppercase;color:var(--gold);
+  margin-bottom:14px;display:flex;align-items:center;gap:10px;
+}
+.step-num{
+  width:22px;height:22px;border:1px solid rgba(201,168,76,.4);
+  border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-size:9px;color:var(--gold);flex-shrink:0;
+}
+.step-divider{height:1px;background:rgba(201,168,76,.1);margin:28px 0;}
+
+/* calendar */
+.cal-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;}
+.cal-month{
+  font-family:'Cormorant Garamond',serif;
+  font-size:20px;font-weight:300;color:var(--white);
+}
+.cal-nav{
+  background:none;border:1px solid rgba(201,168,76,.22);
+  color:rgba(255,255,255,.45);cursor:pointer;
+  width:30px;height:30px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:16px;transition:border-color .2s,color .2s;line-height:1;
+}
+.cal-nav:hover{border-color:var(--gold);color:var(--gold);}
+.cal-days-hd{
+  display:grid;grid-template-columns:repeat(7,1fr);
+  gap:2px;margin-bottom:4px;
+}
+.cal-dn{
+  font-family:'Jost',sans-serif;font-size:9px;font-weight:600;
+  letter-spacing:.08em;text-transform:uppercase;
+  color:rgba(255,255,255,.22);text-align:center;padding:4px 0;
+}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;}
+.cal-day,.cal-empty{
+  aspect-ratio:1;display:flex;align-items:center;justify-content:center;
+  font-family:'Jost',sans-serif;font-size:12px;font-weight:300;
+}
+.cal-day{
+  background:rgba(255,255,255,.04);border:1px solid transparent;
+  color:rgba(255,255,255,.65);cursor:pointer;
+  transition:border-color .18s,background .18s,color .18s;
+}
+.cal-day:hover:not([disabled]){border-color:rgba(201,168,76,.4);color:#fff;}
+.cal-day.cal-weekend{color:rgba(201,168,76,.55);}
+.cal-day.cal-past{opacity:.2;cursor:default;}
+.cal-day.cal-today{border-color:rgba(201,168,76,.3);}
+.cal-day.cal-sel{
+  background:var(--gold);color:var(--navy);
+  border-color:var(--gold);font-weight:600;
+}
+
+/* time slots */
+.slots-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;}
+.slot-btn{
+  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);
+  color:rgba(255,255,255,.5);font-family:'Jost',sans-serif;
+  font-size:12px;font-weight:300;padding:10px 4px;cursor:pointer;
+  text-align:center;transition:border-color .18s,background .18s,color .18s;
+}
+.slot-btn:hover{border-color:rgba(201,168,76,.4);color:#fff;}
+.slot-btn.slot-sel{
+  background:var(--gold);color:var(--navy);
+  border-color:var(--gold);font-weight:500;
+}
+
+/* booking form fields */
+.bfield{margin-bottom:12px;}
+.bfield-label{
+  display:block;font-family:'Jost',sans-serif;
+  font-size:9px;font-weight:600;
+  letter-spacing:.16em;text-transform:uppercase;
+  color:rgba(255,255,255,.3);margin-bottom:5px;
+}
+.bfield-input{
+  width:100%;padding:11px 14px;
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.1);
+  color:var(--white);font-family:'Jost',sans-serif;
+  font-size:13px;font-weight:300;outline:none;
+  transition:border-color .2s;appearance:none;border-radius:0;
+}
+.bfield-input:focus{border-color:var(--gold);}
+.bfield-input::placeholder{color:rgba(255,255,255,.18);}
+.bfield-textarea{min-height:80px;resize:vertical;}
+
+/* confirm button */
+.btn-confirm{
+  display:flex;align-items:center;justify-content:center;gap:12px;
+  width:100%;padding:17px 24px;
+  background:var(--gold);color:var(--navy);
+  font-family:'Jost',sans-serif;font-size:11px;font-weight:700;
+  letter-spacing:.24em;text-transform:uppercase;
+  border:none;cursor:pointer;margin-top:4px;
+  position:relative;overflow:hidden;transition:color .3s;
+}
+.btn-confirm::before{
+  content:'';position:absolute;top:0;left:-100%;
+  width:100%;height:100%;background:var(--gold-l);
+  transition:left .32s cubic-bezier(.4,0,.2,1);z-index:0;
+}
+.btn-confirm:hover::before{left:0;}
+.btn-confirm span,.btn-confirm svg{position:relative;z-index:1;}
+.btn-confirm svg{width:14px;height:14px;fill:currentColor;transition:transform .2s;}
+.btn-confirm:hover svg{transform:translateX(4px);}
+.booking-note-sm{
+  text-align:center;margin-top:12px;
+  font-family:'Jost',sans-serif;font-size:10px;font-weight:300;
+  color:rgba(255,255,255,.2);letter-spacing:.1em;text-transform:uppercase;
+}
+
+/* success state */
+.bk-success{
+  display:none;text-align:center;padding:36px 0;
+}
+.bk-check{
+  width:56px;height:56px;
+  border:1.5px solid var(--gold);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 20px;
+}
+.bk-check svg{width:26px;height:26px;fill:var(--gold);}
+.bk-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:28px;font-weight:300;color:var(--white);margin-bottom:10px;
+}
+.bk-detail{
+  font-family:'Jost',sans-serif;font-size:12px;font-weight:300;
+  color:rgba(255,255,255,.38);line-height:1.75;
+}
+.bk-detail strong{color:var(--gold);font-weight:500;}
+
 /* ── RESPONSIVE ── */
 @media(max-width:480px){
   .card-top{padding:0 28px 36px;}
   .card-bottom{padding:32px 28px 36px;}
   .qr-wrap{flex-direction:column;align-items:flex-start;gap:16px;}
   .form-section{padding:28px 28px 36px;}
+  .booking-section{padding:28px 24px 36px;}
+  .slots-grid{grid-template-columns:repeat(3,1fr);}
 }
 </style>
 </head>
@@ -388,6 +551,82 @@ body::before{
     </form>
   </div>
 
+  <!-- BOOKING SECTION -->
+  <div class="booking-section">
+    <div class="booking-inner">
+      <span class="booking-ey">Free Consultation</span>
+      <div class="booking-title">Schedule a Consultation</div>
+      <div class="booking-sub">Available 9:00–21:00 CET &nbsp;·&nbsp; We confirm within 1 hour</div>
+
+      <!-- Step 1: Date -->
+      <div class="step-label"><span class="step-num">1</span>Select a Date</div>
+      <div class="cal-header">
+        <button class="cal-nav" id="calPrev">&#8249;</button>
+        <div class="cal-month" id="calTitle"></div>
+        <button class="cal-nav" id="calNext">&#8250;</button>
+      </div>
+      <div class="cal-days-hd">
+        <div class="cal-dn">Mo</div><div class="cal-dn">Tu</div>
+        <div class="cal-dn">We</div><div class="cal-dn">Th</div>
+        <div class="cal-dn">Fr</div>
+        <div class="cal-dn" style="color:rgba(201,168,76,.45)">Sa</div>
+        <div class="cal-dn" style="color:rgba(201,168,76,.45)">Su</div>
+      </div>
+      <div class="cal-grid" id="calGrid"></div>
+
+      <div class="step-divider"></div>
+
+      <!-- Step 2: Time -->
+      <div class="step-label"><span class="step-num">2</span>Select a Time</div>
+      <div class="slots-grid" id="slotsGrid"></div>
+
+      <div class="step-divider"></div>
+
+      <!-- Step 3: Details -->
+      <div class="step-label"><span class="step-num">3</span>Your Details</div>
+      <div class="bfield">
+        <label class="bfield-label" for="bName">Full Name</label>
+        <input id="bName" type="text" class="bfield-input" placeholder="Your full name" required>
+      </div>
+      <div class="bfield">
+        <label class="bfield-label" for="bEmail">Email Address</label>
+        <input id="bEmail" type="email" class="bfield-input" placeholder="your@email.com" required>
+      </div>
+      <div class="bfield">
+        <label class="bfield-label" for="bPhone">Phone Number</label>
+        <input id="bPhone" type="tel" class="bfield-input" placeholder="+1 234 567 890">
+      </div>
+      <div class="bfield">
+        <label class="bfield-label" for="bNote">Tell us about your project (optional)</label>
+        <textarea id="bNote" class="bfield-input bfield-textarea" placeholder="Briefly describe your project or goals..."></textarea>
+      </div>
+
+      <div class="step-divider"></div>
+
+      <!-- Step 4: Confirm -->
+      <div class="step-label"><span class="step-num">4</span>Confirm Booking</div>
+      <div id="bkFormArea">
+        <button class="btn-confirm" id="btnConfirm" type="button">
+          <span>Confirm Booking</span>
+          <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+        </button>
+        <p class="booking-note-sm">No commitment. Just a conversation.</p>
+      </div>
+
+      <!-- Success message -->
+      <div class="bk-success" id="bkSuccess">
+        <div class="bk-check">
+          <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+        </div>
+        <div class="bk-title">Thank you!</div>
+        <p class="bk-detail">
+          We will confirm your booking within 1 hour.<br>
+          <strong id="bkSummary"></strong>
+        </p>
+      </div>
+    </div>
+  </div>
+
   <a href="index.html" class="back-link">
     <svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
     Back to website
@@ -426,6 +665,95 @@ fetch('index.html')
     }
   })
   .catch(() => { /* fallback text stays visible */ });
+
+// ── BOOKING CALENDAR ──
+(function(){
+  var MONTHS=['January','February','March','April','May','June','July','August','September','October','November','December'];
+  var SLOTS=['09:00','10:00','11:00','12:00','13:00','14:00','15:00','16:00','17:00','18:00','19:00','20:00','21:00'];
+  var DAYS_SHORT=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  var viewYear,viewMonth,selDate=null,selTime=null;
+
+  var calGrid=document.getElementById('calGrid');
+  var calTitle=document.getElementById('calTitle');
+  var slotsGrid=document.getElementById('slotsGrid');
+
+  var now=new Date();
+  viewYear=now.getFullYear();
+  viewMonth=now.getMonth();
+  renderCal();
+  renderSlots();
+
+  document.getElementById('calPrev').addEventListener('click',function(){
+    if(viewMonth===0){viewMonth=11;viewYear--;}else viewMonth--;
+    var t=new Date();
+    if(viewYear<t.getFullYear()||(viewYear===t.getFullYear()&&viewMonth<t.getMonth())){
+      viewMonth=t.getMonth();viewYear=t.getFullYear();
+    }
+    renderCal();
+  });
+  document.getElementById('calNext').addEventListener('click',function(){
+    if(viewMonth===11){viewMonth=0;viewYear++;}else viewMonth++;
+    renderCal();
+  });
+
+  function renderCal(){
+    calTitle.textContent=MONTHS[viewMonth]+' '+viewYear;
+    var firstDay=new Date(viewYear,viewMonth,1).getDay();
+    var daysInMonth=new Date(viewYear,viewMonth+1,0).getDate();
+    var today=new Date();today.setHours(0,0,0,0);
+    var offset=firstDay===0?6:firstDay-1;
+    var html='';
+    for(var i=0;i<offset;i++) html+='<div class="cal-empty"></div>';
+    for(var d=1;d<=daysInMonth;d++){
+      var date=new Date(viewYear,viewMonth,d);
+      var past=date<today;
+      var dow=date.getDay();
+      var weekend=dow===0||dow===6;
+      var isToday=date.getTime()===today.getTime();
+      var sel=selDate&&selDate.getDate()===d&&selDate.getMonth()===viewMonth&&selDate.getFullYear()===viewYear;
+      var cls='cal-day';
+      if(weekend)cls+=' cal-weekend';
+      if(past)cls+=' cal-past';
+      if(isToday&&!sel)cls+=' cal-today';
+      if(sel)cls+=' cal-sel';
+      html+='<button class="'+cls+'" '+(past?'disabled':'')+' data-d="'+d+'">'+d+'</button>';
+    }
+    calGrid.innerHTML=html;
+    calGrid.querySelectorAll('.cal-day:not([disabled])').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        selDate=new Date(viewYear,viewMonth,parseInt(btn.dataset.d));
+        renderCal();
+      });
+    });
+  }
+
+  function renderSlots(){
+    slotsGrid.innerHTML=SLOTS.map(function(t){
+      return '<button class="slot-btn'+(selTime===t?' slot-sel':'')+'" data-t="'+t+'">'+t+'</button>';
+    }).join('');
+    slotsGrid.querySelectorAll('.slot-btn').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        selTime=btn.dataset.t;
+        renderSlots();
+      });
+    });
+  }
+
+  document.getElementById('btnConfirm').addEventListener('click',function(){
+    var name=document.getElementById('bName').value.trim();
+    var email=document.getElementById('bEmail').value.trim();
+    if(!name){document.getElementById('bName').focus();return;}
+    if(!email){document.getElementById('bEmail').focus();return;}
+    if(!selDate){calGrid.scrollIntoView({behavior:'smooth'});return;}
+    if(!selTime){slotsGrid.scrollIntoView({behavior:'smooth'});return;}
+    var dateStr=DAYS_SHORT[selDate.getDay()]+', '+selDate.getDate()+' '+MONTHS[selDate.getMonth()]+' '+selDate.getFullYear();
+    document.getElementById('bkSummary').textContent=dateStr+' at '+selTime+' CET';
+    document.getElementById('bkFormArea').style.display='none';
+    var s=document.getElementById('bkSuccess');
+    s.style.display='block';
+    s.scrollIntoView({behavior:'smooth',block:'center'});
+  });
+})();
 
 function handleSubmit(e) {
   e.preventDefault();
