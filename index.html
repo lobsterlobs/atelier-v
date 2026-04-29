@@ -128,16 +128,16 @@ section{padding:100px 56px;}
 .why-header{text-align:center;margin-bottom:64px;}
 .why-header .section-sub{margin:16px auto 0;}
 .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;max-width:1200px;margin:0 auto;background:rgba(27,42,74,.08);}
-.why-card{background:var(--white);padding:48px 40px;position:relative;overflow:hidden;transition:opacity .7s ease,transform .7s ease,box-shadow .35s ease;}
+.why-card{background:var(--white);padding:48px 40px;position:relative;overflow:hidden;transition:transform 0.3s ease,box-shadow 0.3s ease;cursor:pointer;}
 .why-card::before{content:'';position:absolute;top:0;left:0;width:3px;height:0;background:var(--gold);transition:height .4s;}
 .why-card:hover::before{height:100%;}
-.why-card:hover{transform:translateY(-8px);box-shadow:0 24px 64px rgba(27,42,74,.14),0 0 0 1px rgba(201,168,76,.4);z-index:1;transition-delay:0s;}
+.why-card:hover{transform:translateY(-8px);box-shadow:0 20px 40px rgba(184,149,42,0.15);border-color:#b8952a;z-index:1;transition-delay:0s;}
 .why-icon{width:44px;height:44px;margin-bottom:20px;color:var(--gold);transition:transform .3s ease;}
-.why-card:hover .why-icon{transform:scale(1.2);}
+.why-card:hover .why-icon{transform:scale(1.2);transition:transform 0.3s ease;}
 .why-title{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:var(--navy);margin-bottom:10px;}
 .why-text{font-family:'Jost',sans-serif;font-size:14px;line-height:1.75;color:var(--muted);font-weight:300;}
 .why-num{position:absolute;top:20px;right:28px;font-family:'Cormorant Garamond',serif;font-size:64px;font-weight:300;color:rgba(27,42,74,.05);line-height:1;transition:color .35s ease;}
-.why-card:hover .why-num{color:rgba(201,168,76,.55);}
+.why-card:hover .why-num{color:#b8952a;opacity:1;}
 .why-grid .why-card:nth-child(1){transition-delay:0s;}
 .why-grid .why-card:nth-child(2){transition-delay:.15s;}
 .why-grid .why-card:nth-child(3){transition-delay:.3s;}
@@ -366,11 +366,11 @@ footer{background:var(--navy);padding:36px 56px;display:flex;align-items:center;
     </div>
     <div class="why-card reveal"><span class="why-num">04</span>
       <svg class="why-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="24,8 4,20 24,32 44,20"/><path d="M10 25v10l14 7 14-7V25"/><line x1="44" y1="20" x2="44" y2="35"/><circle cx="44" cy="37" r="2" fill="currentColor" stroke="none"/></svg>
-      <h3 class="why-title">Built at KIT, Grown in Europe</h3><p class="why-text">We started at one of Europe's top universities. Young, driven, and connected across Bulgaria, Germany, Greece and Egypt.</p>
+      <h3 class="why-title">Top-Tier Thinking, Real-World Results</h3><p class="why-text">We started at one of Europe's top universities. Four countries, one obsession: making brands that actually work.</p>
     </div>
     <div class="why-card reveal"><span class="why-num">05</span>
       <svg class="why-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M24 6c0 0-10 8-10 20a10 10 0 0 0 20 0C34 14 24 6 24 6z"/><path d="M24 26v10"/><path d="M16 38c-4 2-6 6-6 6h28s-2-4-6-6"/><circle cx="24" cy="22" r="3"/></svg>
-      <h3 class="why-title">Ready in 7 Days</h3><p class="why-text">7 days. That's all. From zero to a complete brand identity, ready to face the world.</p>
+      <h3 class="why-title">While they schedule their 3rd meeting — you're already live.</h3><p class="why-text">7 days. That's all. From zero to a complete brand identity, ready to face the world.</p>
     </div>
     <div class="why-card reveal"><span class="why-num">06</span>
       <svg class="why-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="12" y="6" width="24" height="36" rx="2"/><path d="M18 14h12M18 20h12M18 26h8"/><line x1="10" y1="10" x2="38" y2="38"/><line x1="38" y1="10" x2="10" y2="38"/></svg>
