@@ -207,11 +207,79 @@ body::before{
 .back-link:hover{color:var(--gold);}
 .back-link svg{width:12px;height:12px;fill:currentColor;}
 
+/* ── CONTACT FORM ── */
+.form-section{
+  width:100%;margin-top:3px;
+  background:var(--off);
+  box-shadow:0 48px 120px rgba(0,0,0,.55),0 0 0 1px rgba(201,168,76,.18);
+  padding:36px 44px 44px;
+}
+.form-eyebrow{
+  font-family:'Jost',sans-serif;
+  font-size:9px;font-weight:600;
+  letter-spacing:.26em;text-transform:uppercase;
+  color:var(--gold);display:block;margin-bottom:8px;
+}
+.form-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:26px;font-weight:400;
+  color:var(--navy);margin-bottom:28px;line-height:1;
+}
+.form-title em{font-style:italic;color:var(--gold);}
+.field{margin-bottom:14px;}
+.field-label{
+  display:block;
+  font-family:'Jost',sans-serif;
+  font-size:9px;font-weight:600;
+  letter-spacing:.16em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:5px;
+}
+.field-input{
+  width:100%;padding:11px 14px;
+  background:var(--white);
+  border:1px solid rgba(27,42,74,.12);
+  font-family:'Jost',sans-serif;
+  font-size:13px;font-weight:300;
+  color:var(--navy);outline:none;
+  transition:border-color .2s;
+  appearance:none;border-radius:0;
+}
+.field-input:focus{border-color:var(--gold);}
+.field-input::placeholder{color:rgba(119,119,119,.55);}
+.field-textarea{min-height:90px;resize:vertical;}
+.btn-send{
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  width:100%;padding:15px 24px;
+  background:var(--navy);color:var(--gold);
+  font-family:'Jost',sans-serif;
+  font-size:11px;font-weight:600;
+  letter-spacing:.22em;text-transform:uppercase;
+  border:none;cursor:pointer;
+  position:relative;overflow:hidden;
+  transition:color .3s;margin-top:4px;
+}
+.btn-send::before{
+  content:'';position:absolute;top:0;left:-100%;
+  width:100%;height:100%;background:var(--gold);
+  transition:left .32s cubic-bezier(.4,0,.2,1);z-index:0;
+}
+.btn-send:hover::before{left:0;}
+.btn-send:hover{color:var(--navy);}
+.btn-send span,.btn-send svg{position:relative;z-index:1;}
+.btn-send svg{width:14px;height:14px;fill:currentColor;}
+.form-success{
+  display:none;margin-top:14px;
+  font-family:'Jost',sans-serif;
+  font-size:12px;font-weight:400;
+  color:var(--gold);text-align:center;letter-spacing:.06em;
+}
+
 /* ── RESPONSIVE ── */
 @media(max-width:480px){
   .card-top{padding:0 28px 36px;}
   .card-bottom{padding:32px 28px 36px;}
   .qr-wrap{flex-direction:column;align-items:flex-start;gap:16px;}
+  .form-section{padding:28px 28px 36px;}
 }
 </style>
 </head>
@@ -295,6 +363,31 @@ body::before{
     </div>
   </div>
 
+  <!-- CONTACT FORM -->
+  <div class="form-section">
+    <span class="form-eyebrow">Send a Message</span>
+    <h2 class="form-title">Get in <em>touch</em></h2>
+    <form id="contactForm" onsubmit="handleSubmit(event)" novalidate>
+      <div class="field">
+        <label class="field-label" for="f-name">Name</label>
+        <input id="f-name" type="text" class="field-input" placeholder="Your name" required>
+      </div>
+      <div class="field">
+        <label class="field-label" for="f-email">Email</label>
+        <input id="f-email" type="email" class="field-input" placeholder="your@email.com" required>
+      </div>
+      <div class="field">
+        <label class="field-label" for="f-msg">Message</label>
+        <textarea id="f-msg" class="field-input field-textarea" placeholder="How can we help?" required></textarea>
+      </div>
+      <button type="submit" class="btn-send">
+        <span>Send Message</span>
+        <svg viewBox="0 0 24 24"><path d="M2 21l21-9L2 3v7l15 2-15 2v7z"/></svg>
+      </button>
+      <p class="form-success" id="formSuccess">Thank you! We'll be in touch soon.</p>
+    </form>
+  </div>
+
   <a href="index.html" class="back-link">
     <svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
     Back to website
@@ -333,6 +426,17 @@ fetch('index.html')
     }
   })
   .catch(() => { /* fallback text stays visible */ });
+
+function handleSubmit(e) {
+  e.preventDefault();
+  const name  = document.getElementById('f-name').value.trim();
+  const email = document.getElementById('f-email').value.trim();
+  const msg   = document.getElementById('f-msg').value.trim();
+  if (!name || !email || !msg) return;
+  const success = document.getElementById('formSuccess');
+  success.style.display = 'block';
+  e.target.reset();
+}
 
 function downloadVCF() {
   const blob = new Blob([VCARD], { type: 'text/vcard;charset=utf-8' });
