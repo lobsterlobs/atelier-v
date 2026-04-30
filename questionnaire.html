@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Start Your Brand — Atelier V</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --navy:#1B2A4A;
+  --gold:#C9A84C;
+  --gold-l:#e8c96a;
+  --off:#F9F8F6;
+  --muted:#777;
+  --white:#fff;
+}
+html{scroll-behavior:smooth;}
+body{font-family:'Jost',sans-serif;background:var(--navy);color:var(--white);min-height:100vh;}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  height:64px;padding:0 40px;
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(249,248,246,.97);
+  border-bottom:1px solid rgba(201,168,76,.12);
+  backdrop-filter:blur(8px);
+}
+.nav-logo{
+  font-family:'Cormorant Garamond',serif;
+  font-size:20px;font-weight:300;letter-spacing:.08em;
+  color:var(--navy);text-decoration:none;
+}
+.nav-logo em{font-style:italic;color:var(--gold);}
+.nav-back{
+  font-family:'Jost',sans-serif;font-size:11px;font-weight:500;
+  letter-spacing:.16em;text-transform:uppercase;
+  color:var(--muted);text-decoration:none;
+  display:flex;align-items:center;gap:6px;
+  transition:color .2s;
+}
+.nav-back:hover{color:var(--gold);}
+.nav-back svg{width:14px;height:14px;fill:currentColor;}
+
+/* ── HERO ── */
+.q-hero{
+  padding:128px 24px 64px;
+  text-align:center;
+  background:var(--navy);
+  position:relative;overflow:hidden;
+}
+.q-hero::before{
+  content:'';position:absolute;inset:0;
+  background-image:radial-gradient(rgba(201,168,76,.07) 1px,transparent 1px);
+  background-size:28px 28px;pointer-events:none;
+}
+.q-eyebrow{
+  font-family:'Jost',sans-serif;font-size:10px;font-weight:600;
+  letter-spacing:.3em;text-transform:uppercase;color:var(--gold);
+  display:block;margin-bottom:20px;position:relative;z-index:1;
+}
+.q-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(38px,6vw,72px);font-weight:300;
+  line-height:1.05;color:var(--white);
+  margin-bottom:16px;position:relative;z-index:1;
+}
+.q-title em{font-style:italic;color:var(--gold);}
+.q-sub{
+  font-family:'Jost',sans-serif;font-size:13px;font-weight:300;
+  color:rgba(255,255,255,.45);letter-spacing:.06em;
+  position:relative;z-index:1;
+}
+
+/* ── FORM CONTAINER ── */
+.q-wrap{
+  max-width:720px;margin:0 auto;
+  padding:64px 24px 100px;
+}
+
+/* ── FIELD GROUP ── */
+.field-group{margin-bottom:40px;}
+.field-label{
+  font-family:'Jost',sans-serif;font-size:10px;font-weight:600;
+  letter-spacing:.24em;text-transform:uppercase;color:var(--gold);
+  display:block;margin-bottom:12px;
+}
+.field-input,
+.field-select,
+.field-textarea{
+  width:100%;
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(201,168,76,.2);
+  color:var(--white);
+  font-family:'Jost',sans-serif;font-size:13px;font-weight:300;
+  letter-spacing:.04em;
+  padding:14px 18px;
+  outline:none;
+  transition:border-color .2s,background .2s;
+  appearance:none;-webkit-appearance:none;
+  border-radius:0;
+}
+.field-input::placeholder,
+.field-textarea::placeholder{color:rgba(255,255,255,.22);}
+.field-input:focus,
+.field-select:focus,
+.field-textarea:focus{
+  border-color:var(--gold);
+  background:rgba(201,168,76,.06);
+}
+.field-select{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='%23C9A84C'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;
+  background-position:right 14px center;
+  padding-right:40px;
+  cursor:pointer;
+}
+.field-select option{background:var(--navy);color:var(--white);}
+.field-textarea{resize:vertical;min-height:120px;line-height:1.7;}
+
+/* date input */
+input[type="date"]{color-scheme:dark;}
+input[type="date"]::-webkit-calendar-picker-indicator{
+  filter:invert(1) sepia(1) saturate(2) hue-rotate(5deg);
+  opacity:.6;cursor:pointer;
+}
+
+/* two-col row */
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+@media(max-width:560px){.field-row{grid-template-columns:1fr;}}
+
+/* ── PACKAGE CARDS ── */
+.pkg-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+@media(max-width:600px){.pkg-cards{grid-template-columns:1fr;}}
+
+.pkg-card input[type="radio"]{display:none;}
+.pkg-card label{
+  display:block;cursor:pointer;
+  border:1px solid rgba(201,168,76,.18);
+  padding:24px 20px;
+  text-align:center;
+  transition:border-color .2s,background .2s;
+  position:relative;
+}
+.pkg-card label:hover{border-color:rgba(201,168,76,.45);}
+.pkg-card input[type="radio"]:checked + label{
+  border-color:var(--gold);
+  background:rgba(201,168,76,.08);
+}
+.pkg-card input[type="radio"]:checked + label::after{
+  content:'✓';
+  position:absolute;top:10px;right:12px;
+  font-size:11px;color:var(--gold);font-weight:600;
+}
+.pkg-name{
+  font-family:'Cormorant Garamond',serif;
+  font-size:18px;font-weight:400;color:var(--white);
+  margin-bottom:6px;
+}
+.pkg-desc{
+  font-family:'Jost',sans-serif;font-size:10px;font-weight:300;
+  color:rgba(255,255,255,.35);letter-spacing:.06em;
+  line-height:1.6;
+}
+
+/* ── DIVIDER ── */
+.q-divider{
+  width:36px;height:1px;
+  background:rgba(201,168,76,.3);
+  margin:48px 0;
+}
+
+/* ── SUBMIT ── */
+.q-submit{
+  display:inline-block;
+  padding:18px 64px;
+  background:var(--gold);color:var(--navy);
+  font-family:'Jost',sans-serif;font-size:11px;font-weight:700;
+  letter-spacing:.24em;text-transform:uppercase;
+  text-decoration:none;border:none;cursor:pointer;
+  transition:background .22s,transform .18s;
+  width:100%;text-align:center;
+}
+.q-submit:hover{background:var(--gold-l);transform:translateY(-2px);}
+.q-note{
+  font-family:'Jost',sans-serif;font-size:10px;font-weight:300;
+  color:rgba(255,255,255,.25);letter-spacing:.06em;
+  text-align:center;margin-top:16px;line-height:1.7;
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Atelier <em>V</em></a>
+  <a href="index.html" class="nav-back">
+    <svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+    Back to site
+  </a>
+</nav>
+
+<div class="q-hero">
+  <span class="q-eyebrow">Atelier V — Start Your Project</span>
+  <h1 class="q-title">Tell us about<br><em>your brand.</em></h1>
+  <p class="q-sub">Takes 2 minutes &nbsp;·&nbsp; We'll follow up within 24 hours</p>
+</div>
+
+<div class="q-wrap">
+  <form id="qForm">
+
+    <!-- Name + Business -->
+    <div class="field-row">
+      <div class="field-group">
+        <label class="field-label" for="f-name">Your Name</label>
+        <input class="field-input" type="text" id="f-name" name="name" placeholder="Jane Smith" required>
+      </div>
+      <div class="field-group">
+        <label class="field-label" for="f-biz">Business Name</label>
+        <input class="field-input" type="text" id="f-biz" name="business" placeholder="My Company" required>
+      </div>
+    </div>
+
+    <!-- Email + Phone -->
+    <div class="field-row">
+      <div class="field-group">
+        <label class="field-label" for="f-email">Email Address</label>
+        <input class="field-input" type="email" id="f-email" name="email" placeholder="you@example.com" required>
+      </div>
+      <div class="field-group">
+        <label class="field-label" for="f-phone">Phone / WhatsApp</label>
+        <input class="field-input" type="tel" id="f-phone" name="phone" placeholder="+1 234 567 8900">
+      </div>
+    </div>
+
+    <!-- Industry -->
+    <div class="field-group">
+      <label class="field-label" for="f-industry">Industry</label>
+      <select class="field-select" id="f-industry" name="industry">
+        <option value="" disabled selected>Select your industry</option>
+        <option>Real Estate &amp; Property</option>
+        <option>Restaurant &amp; Hospitality</option>
+        <option>Construction &amp; Architecture</option>
+        <option>Retail &amp; E-commerce</option>
+        <option>Health &amp; Wellness</option>
+        <option>Professional Services</option>
+        <option>Local Business</option>
+        <option>Other</option>
+      </select>
+    </div>
+
+    <div class="q-divider"></div>
+
+    <!-- Package Cards -->
+    <div class="field-group">
+      <label class="field-label">Package</label>
+      <div class="pkg-cards">
+        <div class="pkg-card">
+          <input type="radio" name="package" id="pkg-web" value="Website Only">
+          <label for="pkg-web">
+            <div class="pkg-name">Website Only</div>
+            <div class="pkg-desc">Professional website built for your business</div>
+          </label>
+        </div>
+        <div class="pkg-card">
+          <input type="radio" name="package" id="pkg-logo" value="Website + Logo">
+          <label for="pkg-logo">
+            <div class="pkg-name">Website + Logo</div>
+            <div class="pkg-desc">Logo design paired with a complete website</div>
+          </label>
+        </div>
+        <div class="pkg-card">
+          <input type="radio" name="package" id="pkg-full" value="Full Brand Package">
+          <label for="pkg-full">
+            <div class="pkg-name">Full Brand Package</div>
+            <div class="pkg-desc">Logo, brand identity, website &amp; content</div>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <div class="q-divider"></div>
+
+    <!-- Deadline -->
+    <div class="field-group">
+      <label class="field-label" for="f-deadline">Preferred Deadline</label>
+      <input class="field-input" type="date" id="f-deadline" name="deadline">
+    </div>
+
+    <!-- Notes -->
+    <div class="field-group">
+      <label class="field-label" for="f-notes">Additional Notes</label>
+      <textarea class="field-textarea" id="f-notes" name="notes" placeholder="Tell us anything else — your vision, references, must-haves, or questions."></textarea>
+    </div>
+
+    <button type="submit" class="q-submit">Send My Brief &rarr;</button>
+    <p class="q-note">Your answers will be sent to team@atelierv.design.<br>We respond within 24 hours.</p>
+
+  </form>
+</div>
+
+<script>
+document.getElementById('qForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  var name     = document.getElementById('f-name').value;
+  var business = document.getElementById('f-biz').value;
+  var email    = document.getElementById('f-email').value;
+  var phone    = document.getElementById('f-phone').value;
+  var industry = document.getElementById('f-industry').value;
+  var pkg      = document.querySelector('input[name="package"]:checked');
+  var deadline = document.getElementById('f-deadline').value;
+  var notes    = document.getElementById('f-notes').value;
+
+  var body =
+    'Name: ' + name + '\n' +
+    'Business: ' + business + '\n' +
+    'Email: ' + email + '\n' +
+    'Phone: ' + (phone || 'Not provided') + '\n' +
+    'Industry: ' + (industry || 'Not selected') + '\n' +
+    'Package: ' + (pkg ? pkg.value : 'Not selected') + '\n' +
+    'Deadline: ' + (deadline || 'Not specified') + '\n\n' +
+    'Notes:\n' + (notes || 'None');
+
+  window.location.href =
+    'mailto:team@atelierv.design' +
+    '?subject=' + encodeURIComponent('New Brand Brief — ' + business) +
+    '&body=' + encodeURIComponent(body);
+});
+</script>
+</body>
+</html>
