@@ -131,7 +131,7 @@ input[type="date"]::-webkit-calendar-picker-indicator{
 @media(max-width:560px){.field-row{grid-template-columns:1fr;}}
 
 /* ── PACKAGE CARDS ── */
-.pkg-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+.pkg-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;}
 @media(max-width:600px){.pkg-cards{grid-template-columns:1fr;}}
 
 .pkg-card input[type="radio"]{display:none;}
@@ -271,24 +271,31 @@ input[type="date"]::-webkit-calendar-picker-indicator{
       <label class="field-label">Package</label>
       <div class="pkg-cards">
         <div class="pkg-card">
-          <input type="radio" name="package" id="pkg-web" value="Website Only">
-          <label for="pkg-web">
-            <div class="pkg-name">Website Only</div>
-            <div class="pkg-desc">Professional website built for your business</div>
+          <input type="radio" name="package" id="pkg-essential" value="Essential">
+          <label for="pkg-essential">
+            <div class="pkg-name">Essential</div>
+            <div class="pkg-desc">From €299 &nbsp;·&nbsp; Logo, brand palette, digital card</div>
           </label>
         </div>
         <div class="pkg-card">
-          <input type="radio" name="package" id="pkg-logo" value="Website + Logo">
-          <label for="pkg-logo">
-            <div class="pkg-name">Website + Logo</div>
-            <div class="pkg-desc">Logo design paired with a complete website</div>
+          <input type="radio" name="package" id="pkg-full-brand" value="Full Brand">
+          <label for="pkg-full-brand">
+            <div class="pkg-name">Full Brand</div>
+            <div class="pkg-desc">From €899 &nbsp;·&nbsp; Website, identity &amp; hosting</div>
           </label>
         </div>
         <div class="pkg-card">
-          <input type="radio" name="package" id="pkg-full" value="Full Brand Package">
-          <label for="pkg-full">
-            <div class="pkg-name">Full Brand Package</div>
-            <div class="pkg-desc">Logo, brand identity, website &amp; content</div>
+          <input type="radio" name="package" id="pkg-total" value="Total Brand">
+          <label for="pkg-total">
+            <div class="pkg-name">Total Brand</div>
+            <div class="pkg-desc">From €2,500 &nbsp;·&nbsp; Strategy, social &amp; marketing</div>
+          </label>
+        </div>
+        <div class="pkg-card">
+          <input type="radio" name="package" id="pkg-support" value="Monthly Support">
+          <label for="pkg-support">
+            <div class="pkg-name">Monthly Support</div>
+            <div class="pkg-desc">€19.99/mo &nbsp;·&nbsp; Updates, support, no contract</div>
           </label>
         </div>
       </div>
@@ -329,7 +336,8 @@ input[type="date"]::-webkit-calendar-picker-indicator{
 
     <!-- Payment note -->
     <div class="payment-note">
-      <strong>30% deposit to start</strong> &nbsp;&middot;&nbsp; <strong>Preview before final payment</strong> &nbsp;&middot;&nbsp; <strong>70% on approval</strong>
+      <strong>30% deposit to start</strong> &nbsp;&middot;&nbsp; <strong>Preview before final payment</strong> &nbsp;&middot;&nbsp; <strong>70% on approval</strong><br>
+      <span style="font-size:10px;color:rgba(255,255,255,.22);letter-spacing:.08em;">Standard domains included. Premium domains priced separately.</span>
     </div>
 
     <button type="submit" class="q-submit">Send My Brief &rarr;</button>
