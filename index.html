@@ -145,6 +145,17 @@ section{padding:100px 56px;}
 .why-grid .why-card:nth-child(5){transition-delay:.6s;}
 .why-grid .why-card:nth-child(6){transition-delay:.75s;}
 
+/* ── HOW IT WORKS ── */
+#how-it-works{background:var(--off);padding-bottom:120px;}
+.hiw-header{text-align:center;margin-bottom:64px;}
+.hiw-header .section-sub{margin:16px auto 0;}
+.hiw-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;max-width:1100px;margin:0 auto;background:rgba(27,42,74,.08);}
+.hiw-step{background:var(--white);padding:52px 40px;position:relative;overflow:hidden;}
+.hiw-step-num{font-family:'Cormorant Garamond',serif;font-size:80px;font-weight:300;color:rgba(27,42,74,.05);line-height:1;position:absolute;top:16px;right:28px;}
+.hiw-step-icon{width:44px;height:44px;margin-bottom:20px;color:var(--gold);}
+.hiw-step-title{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:600;color:var(--navy);margin-bottom:12px;}
+.hiw-step-text{font-family:'Jost',sans-serif;font-size:14px;line-height:1.75;color:var(--muted);font-weight:300;}
+.hiw-cta{text-align:center;margin-top:64px;}
 /* ── PACKAGES ── */
 #packages{background:var(--white);padding-bottom:120px;}
 .packages-header{text-align:center;margin-bottom:64px;}
@@ -248,8 +259,8 @@ footer{background:var(--navy);padding:36px 56px;display:flex;align-items:center;
 .mob-links>li:last-child{padding-top:20px;}
 .mob-links>li:last-child>a{border:none;display:inline-block;padding:13px 28px;background:var(--gold);color:var(--navy)!important;font-weight:600;letter-spacing:.2em;}
 .mob-links>li:last-child>a:hover{background:var(--gold-l)!important;}
-@media(max-width:1100px){.packages-grid{grid-template-columns:repeat(2,1fr);} .portfolio-grid{grid-template-columns:repeat(2,1fr);} .cases-grid{grid-template-columns:repeat(2,1fr);}}
-@media(max-width:768px){.why-grid{grid-template-columns:1fr;} .packages-grid{grid-template-columns:1fr;} .stats-inner{grid-template-columns:repeat(2,1fr);} .portfolio-grid{grid-template-columns:repeat(2,1fr);} .cases-grid{grid-template-columns:1fr;} .support-inner{flex-direction:column;text-align:center;} .nav-links{display:none;} section{padding:72px 24px;} footer{flex-direction:column;gap:20px;text-align:center;padding:28px 24px;} nav{padding:0 20px;}.ham-btn{display:flex;}}
+@media(max-width:1100px){.hiw-grid{grid-template-columns:repeat(3,1fr);} .packages-grid{grid-template-columns:repeat(2,1fr);} .portfolio-grid{grid-template-columns:repeat(2,1fr);} .cases-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:768px){.hiw-grid{grid-template-columns:1fr;} .why-grid{grid-template-columns:1fr;} .packages-grid{grid-template-columns:1fr;} .stats-inner{grid-template-columns:repeat(2,1fr);} .portfolio-grid{grid-template-columns:repeat(2,1fr);} .cases-grid{grid-template-columns:1fr;} .support-inner{flex-direction:column;text-align:center;} .nav-links{display:none;} section{padding:72px 24px;} footer{flex-direction:column;gap:20px;text-align:center;padding:28px 24px;} nav{padding:0 20px;}.ham-btn{display:flex;}}
 
 /* ── BOOK A CALL ── */
 .book-section{background:var(--navy);padding:100px 56px;text-align:center;position:relative;overflow:hidden;}
@@ -394,6 +405,37 @@ footer{background:var(--navy);padding:36px 56px;display:flex;align-items:center;
   </div>
   <div style="text-align:center;margin-top:64px;">
     <a href="flipbook.html" class="btn-catalog" style="font-size:13px;letter-spacing:.24em;padding:22px 64px;">SEE OUR WORK &rarr;</a>
+  </div>
+</section>
+
+<section id="how-it-works">
+  <div class="hiw-header reveal">
+    <span class="section-eyebrow">The Process</span>
+    <h2 class="section-title">From brief to brand<br>in three steps</h2>
+    <p class="section-sub">No meetings. No delays. Just a clear, simple process that gets your brand live — fast.</p>
+  </div>
+  <div class="hiw-grid">
+    <div class="hiw-step reveal">
+      <span class="hiw-step-num">01</span>
+      <svg class="hiw-step-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="8" y="8" width="32" height="36" rx="3"/><path d="M16 18h16M16 25h12M16 32h8"/><path d="M34 6v6M38 8h-8"/></svg>
+      <h3 class="hiw-step-title">Fill in our brief</h3>
+      <p class="hiw-step-text">Tell us who you are, what you do, and what you need. Our questionnaire takes under 5 minutes and gives us everything we need to start.</p>
+    </div>
+    <div class="hiw-step reveal">
+      <span class="hiw-step-num">02</span>
+      <svg class="hiw-step-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="20" cy="18" r="10"/><path d="M32 32c0-4-5-8-12-8S8 28 8 32"/><path d="M34 20l4 4 8-8"/></svg>
+      <h3 class="hiw-step-title">We design your brand</h3>
+      <p class="hiw-step-text">Our team gets to work. Logo, identity, website, email signature — everything built to your brief, reviewed, and refined through your revision rounds.</p>
+    </div>
+    <div class="hiw-step reveal">
+      <span class="hiw-step-num">03</span>
+      <svg class="hiw-step-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 36l12-12 8 8 16-18"/><circle cx="42" cy="10" r="4"/></svg>
+      <h3 class="hiw-step-title">Go live in 7 days</h3>
+      <p class="hiw-step-text">Your brand is delivered, hosted, and ready. No admin panel, no technical knowledge needed — just a brand that works while you focus on your business.</p>
+    </div>
+  </div>
+  <div class="hiw-cta reveal">
+    <a href="questionnaire.html" class="btn-primary">Start your brief &rarr;</a>
   </div>
 </section>
 
