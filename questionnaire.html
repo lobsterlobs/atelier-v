@@ -188,6 +188,21 @@ input[type="date"]::-webkit-calendar-picker-indicator{
   color:rgba(255,255,255,.25);letter-spacing:.06em;
   text-align:center;margin-top:16px;line-height:1.7;
 }
+
+/* ── MONTHLY SUPPORT ADD-ON ── */
+.addon-box{border:1px solid rgba(201,168,76,.2);padding:32px;margin-bottom:40px;}
+.addon-eyebrow{font-family:'Jost',sans-serif;font-size:10px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:14px;}
+.addon-title{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;color:var(--white);margin-bottom:6px;}
+.addon-price{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:300;color:var(--gold);line-height:1;margin-bottom:20px;}
+.addon-price small{font-family:'Jost',sans-serif;font-size:12px;font-weight:300;color:rgba(255,255,255,.35);letter-spacing:.06em;margin-left:4px;}
+.addon-features{list-style:none;margin-bottom:24px;}
+.addon-features li{font-family:'Jost',sans-serif;font-size:13px;font-weight:300;color:rgba(255,255,255,.65);padding:5px 0 5px 18px;position:relative;}
+.addon-features li::before{content:'';position:absolute;left:0;top:13px;width:7px;height:1px;background:var(--gold);}
+.addon-btn{display:inline-block;padding:13px 32px;border:1px solid var(--gold);color:var(--gold);font-family:'Jost',sans-serif;font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;transition:background .2s,color .2s;}
+.addon-btn:hover{background:var(--gold);color:var(--navy);}
+/* ── PAYMENT NOTE ── */
+.payment-note{border-top:1px solid rgba(201,168,76,.15);padding-top:28px;margin-bottom:28px;font-family:'Jost',sans-serif;font-size:11px;font-weight:300;color:rgba(255,255,255,.38);letter-spacing:.1em;text-align:center;line-height:2;}
+.payment-note strong{color:rgba(255,255,255,.65);font-weight:500;}
 </style>
 </head>
 <body>
@@ -293,8 +308,32 @@ input[type="date"]::-webkit-calendar-picker-indicator{
       <textarea class="field-textarea" id="f-notes" name="notes" placeholder="Tell us anything else — your vision, references, must-haves, or questions."></textarea>
     </div>
 
+    <div class="q-divider"></div>
+
+    <!-- Monthly Support Add-On -->
+    <div class="field-group">
+      <span class="field-label">Optional Add-On</span>
+      <div class="addon-box">
+        <span class="addon-eyebrow">Monthly Support</span>
+        <div class="addon-title">Keep your brand always up to date</div>
+        <div class="addon-price">€19.99 <small>/month</small></div>
+        <ul class="addon-features">
+          <li>Changes &amp; updates via email</li>
+          <li>Technical support</li>
+          <li>Response within 24 hours</li>
+          <li>No contract — cancel anytime</li>
+        </ul>
+        <a href="mailto:team@atelierv.design?subject=Monthly Support Add-On" class="addon-btn">Add to your package &rarr;</a>
+      </div>
+    </div>
+
+    <!-- Payment note -->
+    <div class="payment-note">
+      <strong>30% deposit to start</strong> &nbsp;&middot;&nbsp; <strong>Preview before final payment</strong> &nbsp;&middot;&nbsp; <strong>70% on approval</strong>
+    </div>
+
     <button type="submit" class="q-submit">Send My Brief &rarr;</button>
-    <p class="q-note">Your answers will be sent to team@atelierv.design.<br>We respond within 24 hours.</p>
+    <p class="q-note">Your answers will be sent to team@atelierv.design. We respond within 24 hours.<br>By filling in the questionnaire you accept our <a href="terms.html" style="color:rgba(255,255,255,.45);text-decoration:underline;">Terms &amp; Conditions</a>.</p>
 
   </form>
 </div>
