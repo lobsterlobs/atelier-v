@@ -539,33 +539,27 @@ body::before{
         </li>
       </ul>
 
+      <!-- QR CODE -->
+      <div class="qr-wrap">
+        <div class="qr-img-wrap">
+          <img id="qrcode" alt="QR Code">
+        </div>
+        <div class="qr-info">
+          <div class="qr-eyebrow">Scan &amp; Save</div>
+          <p class="qr-desc">Point your camera at the QR code to save Atelier V directly to your contacts.</p>
+        </div>
+      </div>
+
+      <!-- SAVE CONTACT BUTTON -->
+      <button class="btn-save" onclick="downloadVCF()">
+        <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+        <span>Save Contact</span>
+      </button>
+
     </div>
   </div>
 
   <div class="sections-row">
-
-    <div class="sections-col">
-      <div class="qr-section">
-
-        <!-- QR CODE -->
-        <div class="qr-wrap">
-          <div class="qr-img-wrap">
-            <img id="qrcode" alt="QR Code">
-          </div>
-          <div class="qr-info">
-            <div class="qr-eyebrow">Scan &amp; Save</div>
-            <p class="qr-desc">Point your camera at the QR code to save Atelier V directly to your contacts.</p>
-          </div>
-        </div>
-
-        <!-- SAVE CONTACT BUTTON -->
-        <button class="btn-save" onclick="downloadVCF()">
-          <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
-          <span>Save Contact</span>
-        </button>
-
-      </div>
-    </div>
 
     <div class="sections-col">
       <!-- CONTACT FORM -->
