@@ -14,6 +14,7 @@
   --off:#F9F8F6;
   --muted:#777;
   --white:#fff;
+  --red:#e05252;
 }
 html{scroll-behavior:smooth;}
 body{font-family:'Jost',sans-serif;background:var(--navy);color:var(--white);min-height:100vh;}
@@ -45,7 +46,7 @@ nav{
 
 /* ── HERO ── */
 .q-hero{
-  padding:128px 24px 64px;
+  padding:128px 24px 48px;
   text-align:center;
   background:var(--navy);
   position:relative;overflow:hidden;
@@ -73,14 +74,45 @@ nav{
   position:relative;z-index:1;
 }
 
+/* ── PROGRESS BAR ── */
+.progress-section{
+  max-width:720px;margin:0 auto;
+  padding:36px 24px 0;
+}
+.progress-header{
+  display:flex;justify-content:space-between;align-items:center;
+  margin-bottom:10px;
+}
+.step-label{
+  font-family:'Jost',sans-serif;font-size:10px;font-weight:600;
+  letter-spacing:.22em;text-transform:uppercase;color:var(--gold);
+}
+.step-title-label{
+  font-family:'Jost',sans-serif;font-size:10px;font-weight:300;
+  letter-spacing:.1em;color:rgba(255,255,255,.35);
+}
+.progress-track{
+  height:2px;background:rgba(201,168,76,.15);
+  position:relative;overflow:hidden;
+}
+.progress-fill{
+  height:100%;background:var(--gold);
+  transition:width .4s cubic-bezier(.4,0,.2,1);
+  width:0%;
+}
+
 /* ── FORM CONTAINER ── */
 .q-wrap{
   max-width:720px;margin:0 auto;
-  padding:64px 24px 100px;
+  padding:40px 24px 100px;
 }
 
+/* ── STEPS ── */
+.step{display:none;}
+.step.active{display:block;}
+
 /* ── FIELD GROUP ── */
-.field-group{margin-bottom:40px;}
+.field-group{margin-bottom:32px;}
 .field-label{
   font-family:'Jost',sans-serif;font-size:10px;font-weight:600;
   letter-spacing:.24em;text-transform:uppercase;color:var(--gold);
@@ -109,6 +141,17 @@ nav{
   border-color:var(--gold);
   background:rgba(201,168,76,.06);
 }
+.field-input.error,
+.field-select.error,
+.field-textarea.error{
+  border-color:var(--red) !important;
+  background:rgba(224,82,82,.06) !important;
+}
+.error-msg{
+  font-family:'Jost',sans-serif;font-size:10px;font-weight:400;
+  color:var(--red);letter-spacing:.06em;
+  display:block;margin-top:7px;
+}
 .field-select{
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='%23C9A84C'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
   background-repeat:no-repeat;
@@ -118,22 +161,18 @@ nav{
 }
 .field-select option{background:var(--navy);color:var(--white);}
 .field-textarea{resize:vertical;min-height:120px;line-height:1.7;}
-
-/* date input */
 input[type="date"]{color-scheme:dark;}
 input[type="date"]::-webkit-calendar-picker-indicator{
   filter:invert(1) sepia(1) saturate(2) hue-rotate(5deg);
   opacity:.6;cursor:pointer;
 }
-
-/* two-col row */
 .field-row{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
 @media(max-width:560px){.field-row{grid-template-columns:1fr;}}
 
 /* ── PACKAGE CARDS ── */
 .pkg-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;}
 @media(max-width:600px){.pkg-cards{grid-template-columns:1fr;}}
-
+.pkg-cards.error-border .pkg-card label{border-color:rgba(224,82,82,.5);}
 .pkg-card input[type="radio"]{display:none;}
 .pkg-card label{
   display:block;cursor:pointer;
@@ -168,8 +207,84 @@ input[type="date"]::-webkit-calendar-picker-indicator{
 .q-divider{
   width:36px;height:1px;
   background:rgba(201,168,76,.3);
-  margin:48px 0;
+  margin:40px 0;
 }
+
+/* ── MONTHLY SUPPORT ADD-ON ── */
+.addon-box{border:1px solid rgba(201,168,76,.2);padding:32px;margin-bottom:16px;}
+.addon-eyebrow{font-family:'Jost',sans-serif;font-size:10px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:14px;}
+.addon-title{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;color:var(--white);margin-bottom:6px;}
+.addon-price{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:300;color:var(--gold);line-height:1;margin-bottom:20px;}
+.addon-price small{font-family:'Jost',sans-serif;font-size:12px;font-weight:300;color:rgba(255,255,255,.35);letter-spacing:.06em;margin-left:4px;}
+.addon-features{list-style:none;margin-bottom:24px;}
+.addon-features li{font-family:'Jost',sans-serif;font-size:13px;font-weight:300;color:rgba(255,255,255,.65);padding:5px 0 5px 18px;position:relative;}
+.addon-features li::before{content:'';position:absolute;left:0;top:13px;width:7px;height:1px;background:var(--gold);}
+.addon-toggle{
+  display:flex;align-items:center;gap:14px;
+  padding:14px 18px;
+  border:1px solid rgba(201,168,76,.2);
+  cursor:pointer;
+  transition:border-color .2s,background .2s;
+  user-select:none;
+}
+.addon-toggle:hover{border-color:var(--gold);}
+.addon-toggle input[type="checkbox"]{display:none;}
+.addon-check{
+  width:18px;height:18px;min-width:18px;
+  border:1px solid rgba(201,168,76,.4);
+  display:flex;align-items:center;justify-content:center;
+  transition:background .2s,border-color .2s;
+}
+.addon-toggle input[type="checkbox"]:checked ~ .addon-check{
+  background:var(--gold);border-color:var(--gold);
+}
+.addon-check svg{width:10px;height:10px;fill:var(--navy);display:none;}
+.addon-toggle input[type="checkbox"]:checked ~ .addon-check svg{display:block;}
+.addon-toggle-text{
+  font-family:'Jost',sans-serif;font-size:12px;font-weight:400;
+  color:rgba(255,255,255,.65);letter-spacing:.08em;
+}
+.addon-toggle-text strong{color:var(--white);font-weight:500;}
+
+/* ── REVIEW ── */
+.review-card{
+  border:1px solid rgba(201,168,76,.2);
+  padding:32px;
+  margin-bottom:32px;
+}
+.review-eyebrow{
+  font-family:'Jost',sans-serif;font-size:9px;font-weight:600;
+  letter-spacing:.28em;text-transform:uppercase;color:var(--gold);
+  display:block;margin-bottom:20px;
+}
+.review-row{
+  display:flex;justify-content:space-between;align-items:flex-start;
+  padding:10px 0;
+  border-bottom:1px solid rgba(255,255,255,.05);
+  gap:16px;
+}
+.review-row:last-child{border-bottom:none;}
+.review-key{
+  font-family:'Jost',sans-serif;font-size:10px;font-weight:500;
+  letter-spacing:.18em;text-transform:uppercase;
+  color:rgba(255,255,255,.35);
+  flex-shrink:0;min-width:120px;
+}
+.review-val{
+  font-family:'Jost',sans-serif;font-size:12px;font-weight:300;
+  color:rgba(255,255,255,.8);letter-spacing:.04em;
+  text-align:right;
+}
+.review-divider{height:1px;background:rgba(201,168,76,.15);margin:20px 0;}
+
+/* ── PAYMENT NOTE ── */
+.payment-note{
+  border-top:1px solid rgba(201,168,76,.15);
+  padding-top:24px;margin-bottom:28px;
+  font-family:'Jost',sans-serif;font-size:11px;font-weight:300;
+  color:rgba(255,255,255,.38);letter-spacing:.1em;text-align:center;line-height:2;
+}
+.payment-note strong{color:rgba(255,255,255,.65);font-weight:500;}
 
 /* ── SUBMIT ── */
 .q-submit{
@@ -189,20 +304,45 @@ input[type="date"]::-webkit-calendar-picker-indicator{
   text-align:center;margin-top:16px;line-height:1.7;
 }
 
-/* ── MONTHLY SUPPORT ADD-ON ── */
-.addon-box{border:1px solid rgba(201,168,76,.2);padding:32px;margin-bottom:40px;}
-.addon-eyebrow{font-family:'Jost',sans-serif;font-size:10px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:14px;}
-.addon-title{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;color:var(--white);margin-bottom:6px;}
-.addon-price{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:300;color:var(--gold);line-height:1;margin-bottom:20px;}
-.addon-price small{font-family:'Jost',sans-serif;font-size:12px;font-weight:300;color:rgba(255,255,255,.35);letter-spacing:.06em;margin-left:4px;}
-.addon-features{list-style:none;margin-bottom:24px;}
-.addon-features li{font-family:'Jost',sans-serif;font-size:13px;font-weight:300;color:rgba(255,255,255,.65);padding:5px 0 5px 18px;position:relative;}
-.addon-features li::before{content:'';position:absolute;left:0;top:13px;width:7px;height:1px;background:var(--gold);}
-.addon-btn{display:inline-block;padding:13px 32px;border:1px solid var(--gold);color:var(--gold);font-family:'Jost',sans-serif;font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;transition:background .2s,color .2s;}
-.addon-btn:hover{background:var(--gold);color:var(--navy);}
-/* ── PAYMENT NOTE ── */
-.payment-note{border-top:1px solid rgba(201,168,76,.15);padding-top:28px;margin-bottom:28px;font-family:'Jost',sans-serif;font-size:11px;font-weight:300;color:rgba(255,255,255,.38);letter-spacing:.1em;text-align:center;line-height:2;}
-.payment-note strong{color:rgba(255,255,255,.65);font-weight:500;}
+/* ── STEP NAV BUTTONS ── */
+.btn-row{
+  display:flex;justify-content:space-between;align-items:center;
+  margin-top:40px;gap:16px;
+}
+.btn-row.first{justify-content:flex-end;}
+.btn-next{
+  padding:15px 44px;
+  background:var(--gold);color:var(--navy);
+  font-family:'Jost',sans-serif;font-size:11px;font-weight:700;
+  letter-spacing:.22em;text-transform:uppercase;
+  border:none;cursor:pointer;
+  transition:background .2s,transform .18s;
+  flex-shrink:0;
+}
+.btn-next:hover{background:var(--gold-l);transform:translateY(-2px);}
+.btn-back{
+  padding:14px 32px;
+  background:transparent;color:var(--gold);
+  font-family:'Jost',sans-serif;font-size:11px;font-weight:600;
+  letter-spacing:.22em;text-transform:uppercase;
+  border:1px solid rgba(201,168,76,.4);cursor:pointer;
+  transition:border-color .2s,color .2s;
+  flex-shrink:0;
+}
+.btn-back:hover{border-color:var(--gold);color:var(--gold-l);}
+
+/* ── STEP HEADING ── */
+.step-heading{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(26px,4vw,42px);font-weight:300;
+  color:var(--white);margin-bottom:8px;line-height:1.1;
+}
+.step-heading em{font-style:italic;color:var(--gold);}
+.step-intro{
+  font-family:'Jost',sans-serif;font-size:12px;font-weight:300;
+  color:rgba(255,255,255,.38);letter-spacing:.06em;
+  margin-bottom:40px;line-height:1.7;
+}
 </style>
 </head>
 <body>
@@ -221,105 +361,150 @@ input[type="date"]::-webkit-calendar-picker-indicator{
   <p class="q-sub">Takes 2 minutes &nbsp;·&nbsp; We'll follow up within 24 hours</p>
 </div>
 
+<!-- PROGRESS BAR -->
+<div class="progress-section">
+  <div class="progress-header">
+    <span class="step-label">Step <span id="step-num">1</span> of 6</span>
+    <span class="step-title-label" id="step-title-label">Your Details</span>
+  </div>
+  <div class="progress-track">
+    <div class="progress-fill" id="progress-fill"></div>
+  </div>
+</div>
+
 <div class="q-wrap">
   <form id="qForm">
 
-    <!-- Name + Business -->
-    <div class="field-row">
-      <div class="field-group">
-        <label class="field-label" for="f-name">Your Name</label>
-        <input class="field-input" type="text" id="f-name" name="name" placeholder="Jane Smith" required>
-      </div>
-      <div class="field-group">
-        <label class="field-label" for="f-biz">Business Name</label>
-        <input class="field-input" type="text" id="f-biz" name="business" placeholder="My Company" required>
-      </div>
-    </div>
+    <!-- ══ STEP 1 — Your Details ══ -->
+    <div class="step active" data-step="1">
+      <h2 class="step-heading">Your <em>details.</em></h2>
+      <p class="step-intro">Let's start with who you are.</p>
 
-    <!-- Email + Phone -->
-    <div class="field-row">
-      <div class="field-group">
-        <label class="field-label" for="f-email">Email Address</label>
-        <input class="field-input" type="email" id="f-email" name="email" placeholder="you@example.com" required>
-      </div>
-      <div class="field-group">
-        <label class="field-label" for="f-phone">Phone / WhatsApp</label>
-        <input class="field-input" type="tel" id="f-phone" name="phone" placeholder="+1 234 567 8900">
-      </div>
-    </div>
-
-    <!-- Industry -->
-    <div class="field-group">
-      <label class="field-label" for="f-industry">Industry</label>
-      <select class="field-select" id="f-industry" name="industry">
-        <option value="" disabled selected>Select your industry</option>
-        <option>Real Estate &amp; Property</option>
-        <option>Restaurant &amp; Hospitality</option>
-        <option>Construction &amp; Architecture</option>
-        <option>Retail &amp; E-commerce</option>
-        <option>Health &amp; Wellness</option>
-        <option>Professional Services</option>
-        <option>Local Business</option>
-        <option>Other</option>
-      </select>
-    </div>
-
-    <div class="q-divider"></div>
-
-    <!-- Package Cards -->
-    <div class="field-group">
-      <label class="field-label">Package</label>
-      <div class="pkg-cards">
-        <div class="pkg-card">
-          <input type="radio" name="package" id="pkg-essential" value="Essential">
-          <label for="pkg-essential">
-            <div class="pkg-name">Essential</div>
-            <div class="pkg-desc">From €299 &nbsp;·&nbsp; Logo, brand palette, digital card</div>
-          </label>
+      <div class="field-row">
+        <div class="field-group">
+          <label class="field-label" for="f-name">Your Name <span style="color:var(--red)">*</span></label>
+          <input class="field-input" type="text" id="f-name" name="name" placeholder="Jane Smith">
         </div>
-        <div class="pkg-card">
-          <input type="radio" name="package" id="pkg-full-brand" value="Full Brand">
-          <label for="pkg-full-brand">
-            <div class="pkg-name">Full Brand</div>
-            <div class="pkg-desc">From €899 &nbsp;·&nbsp; Website, identity &amp; hosting</div>
-          </label>
-        </div>
-        <div class="pkg-card">
-          <input type="radio" name="package" id="pkg-total" value="Total Brand">
-          <label for="pkg-total">
-            <div class="pkg-name">Total Brand</div>
-            <div class="pkg-desc">From €2,500 &nbsp;·&nbsp; Strategy, social &amp; marketing</div>
-          </label>
-        </div>
-        <div class="pkg-card">
-          <input type="radio" name="package" id="pkg-support" value="Monthly Support">
-          <label for="pkg-support">
-            <div class="pkg-name">Monthly Support</div>
-            <div class="pkg-desc">€19.99/mo &nbsp;·&nbsp; Updates, support, no contract</div>
-          </label>
+        <div class="field-group">
+          <label class="field-label" for="f-biz">Business Name <span style="color:var(--red)">*</span></label>
+          <input class="field-input" type="text" id="f-biz" name="business" placeholder="My Company">
         </div>
       </div>
+
+      <div class="field-row">
+        <div class="field-group">
+          <label class="field-label" for="f-email">Email Address <span style="color:var(--red)">*</span></label>
+          <input class="field-input" type="email" id="f-email" name="email" placeholder="you@example.com">
+        </div>
+        <div class="field-group">
+          <label class="field-label" for="f-phone">Phone / WhatsApp</label>
+          <input class="field-input" type="tel" id="f-phone" name="phone" placeholder="+1 234 567 8900">
+        </div>
+      </div>
+
+      <div class="btn-row first">
+        <button type="button" class="btn-next" onclick="goNext(1)">Next &rarr;</button>
+      </div>
     </div>
 
-    <div class="q-divider"></div>
+    <!-- ══ STEP 2 — Industry ══ -->
+    <div class="step" data-step="2">
+      <h2 class="step-heading">Your <em>industry.</em></h2>
+      <p class="step-intro">Help us understand your world.</p>
 
-    <!-- Deadline -->
-    <div class="field-group">
-      <label class="field-label" for="f-deadline">Preferred Deadline</label>
-      <input class="field-input" type="date" id="f-deadline" name="deadline">
+      <div class="field-group">
+        <label class="field-label" for="f-industry">Industry <span style="color:var(--red)">*</span></label>
+        <select class="field-select" id="f-industry" name="industry">
+          <option value="" disabled selected>Select your industry</option>
+          <option>Real Estate &amp; Property</option>
+          <option>Restaurant &amp; Hospitality</option>
+          <option>Construction &amp; Architecture</option>
+          <option>Retail &amp; E-commerce</option>
+          <option>Health &amp; Wellness</option>
+          <option>Professional Services</option>
+          <option>Local Business</option>
+          <option>Other</option>
+        </select>
+      </div>
+
+      <div class="btn-row">
+        <button type="button" class="btn-back" onclick="goBack(2)">&larr; Back</button>
+        <button type="button" class="btn-next" onclick="goNext(2)">Next &rarr;</button>
+      </div>
     </div>
 
-    <!-- Notes -->
-    <div class="field-group">
-      <label class="field-label" for="f-notes">Additional Notes</label>
-      <textarea class="field-textarea" id="f-notes" name="notes" placeholder="Tell us anything else — your vision, references, must-haves, or questions."></textarea>
+    <!-- ══ STEP 3 — Package ══ -->
+    <div class="step" data-step="3">
+      <h2 class="step-heading">Your <em>package.</em></h2>
+      <p class="step-intro">Choose the scope that fits your goals.</p>
+
+      <div class="field-group">
+        <label class="field-label">Select a Package <span style="color:var(--red)">*</span></label>
+        <div class="pkg-cards" id="pkg-cards-wrap">
+          <div class="pkg-card">
+            <input type="radio" name="package" id="pkg-essential" value="Essential">
+            <label for="pkg-essential">
+              <div class="pkg-name">Essential</div>
+              <div class="pkg-desc">€499 &nbsp;·&nbsp; Logo, brand palette, digital card</div>
+            </label>
+          </div>
+          <div class="pkg-card">
+            <input type="radio" name="package" id="pkg-full-brand" value="Full Brand">
+            <label for="pkg-full-brand">
+              <div class="pkg-name">Full Brand</div>
+              <div class="pkg-desc">€799 &nbsp;·&nbsp; Website, identity &amp; hosting</div>
+            </label>
+          </div>
+          <div class="pkg-card">
+            <input type="radio" name="package" id="pkg-total" value="Total Brand">
+            <label for="pkg-total">
+              <div class="pkg-name">Total Brand</div>
+              <div class="pkg-desc">€2,500 &nbsp;·&nbsp; Strategy, social &amp; marketing</div>
+            </label>
+          </div>
+          <div class="pkg-card">
+            <input type="radio" name="package" id="pkg-support" value="Monthly Support">
+            <label for="pkg-support">
+              <div class="pkg-name">Monthly Support</div>
+              <div class="pkg-desc">€19.99/mo &nbsp;·&nbsp; Updates, support, no contract</div>
+            </label>
+          </div>
+        </div>
+        <span class="error-msg" id="pkg-error" style="display:none;">Please select a package to continue.</span>
+      </div>
+
+      <div class="btn-row">
+        <button type="button" class="btn-back" onclick="goBack(3)">&larr; Back</button>
+        <button type="button" class="btn-next" onclick="goNext(3)">Next &rarr;</button>
+      </div>
     </div>
 
-    <div class="q-divider"></div>
+    <!-- ══ STEP 4 — Timeline & Notes ══ -->
+    <div class="step" data-step="4">
+      <h2 class="step-heading">Project <em>details.</em></h2>
+      <p class="step-intro">When do you need it, and anything else we should know?</p>
 
-    <!-- Monthly Support Add-On -->
-    <div class="field-group">
-      <span class="field-label">Optional Add-On</span>
+      <div class="field-group">
+        <label class="field-label" for="f-deadline">Preferred Deadline</label>
+        <input class="field-input" type="date" id="f-deadline" name="deadline">
+      </div>
+
+      <div class="field-group">
+        <label class="field-label" for="f-notes">Additional Notes</label>
+        <textarea class="field-textarea" id="f-notes" name="notes" placeholder="Tell us anything else — your vision, references, must-haves, or questions."></textarea>
+      </div>
+
+      <div class="btn-row">
+        <button type="button" class="btn-back" onclick="goBack(4)">&larr; Back</button>
+        <button type="button" class="btn-next" onclick="goNext(4)">Next &rarr;</button>
+      </div>
+    </div>
+
+    <!-- ══ STEP 5 — Add-On ══ -->
+    <div class="step" data-step="5">
+      <h2 class="step-heading">Optional <em>add-on.</em></h2>
+      <p class="step-intro">Keep your brand fresh after launch.</p>
+
       <div class="addon-box">
         <span class="addon-eyebrow">Monthly Support</span>
         <div class="addon-title">Keep your brand always up to date</div>
@@ -330,49 +515,249 @@ input[type="date"]::-webkit-calendar-picker-indicator{
           <li>Response within 24 hours</li>
           <li>No contract — cancel anytime</li>
         </ul>
-        <a href="mailto:team@atelierv.design?subject=Monthly Support Add-On" class="addon-btn">Add to your package &rarr;</a>
+      </div>
+
+      <label class="addon-toggle" for="f-addon">
+        <input type="checkbox" id="f-addon" name="addon" value="yes">
+        <div class="addon-check">
+          <svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <span class="addon-toggle-text"><strong>Yes, add Monthly Support</strong> &nbsp;— €19.99/month, no contract</span>
+      </label>
+
+      <div class="btn-row">
+        <button type="button" class="btn-back" onclick="goBack(5)">&larr; Back</button>
+        <button type="button" class="btn-next" onclick="goNext(5)">Review &rarr;</button>
       </div>
     </div>
 
-    <!-- Payment note -->
-    <div class="payment-note">
-      <strong>30% deposit to start</strong> &nbsp;&middot;&nbsp; <strong>Preview before final payment</strong> &nbsp;&middot;&nbsp; <strong>70% on approval</strong><br>
-      <span style="font-size:10px;color:rgba(255,255,255,.22);letter-spacing:.08em;">Standard domains included. Premium domains priced separately.</span>
-    </div>
+    <!-- ══ STEP 6 — Review & Send ══ -->
+    <div class="step" data-step="6">
+      <h2 class="step-heading">Review &amp; <em>send.</em></h2>
+      <p class="step-intro">Check everything below, then submit your brief.</p>
 
-    <button type="submit" class="q-submit">Send My Brief &rarr;</button>
-    <p class="q-note">Your answers will be sent to team@atelierv.design. We respond within 24 hours.<br>By filling in the questionnaire you accept our <a href="terms.html" style="color:rgba(255,255,255,.45);text-decoration:underline;">Terms &amp; Conditions</a>.</p>
+      <div class="review-card">
+        <span class="review-eyebrow">Your Brief Summary</span>
+
+        <div class="review-row">
+          <span class="review-key">Name</span>
+          <span class="review-val" id="rv-name">—</span>
+        </div>
+        <div class="review-row">
+          <span class="review-key">Business</span>
+          <span class="review-val" id="rv-biz">—</span>
+        </div>
+        <div class="review-row">
+          <span class="review-key">Email</span>
+          <span class="review-val" id="rv-email">—</span>
+        </div>
+        <div class="review-row">
+          <span class="review-key">Phone</span>
+          <span class="review-val" id="rv-phone">—</span>
+        </div>
+
+        <div class="review-divider"></div>
+
+        <div class="review-row">
+          <span class="review-key">Industry</span>
+          <span class="review-val" id="rv-industry">—</span>
+        </div>
+
+        <div class="review-divider"></div>
+
+        <div class="review-row">
+          <span class="review-key">Package</span>
+          <span class="review-val" id="rv-package">—</span>
+        </div>
+        <div class="review-row">
+          <span class="review-key">Deadline</span>
+          <span class="review-val" id="rv-deadline">—</span>
+        </div>
+        <div class="review-row">
+          <span class="review-key">Notes</span>
+          <span class="review-val" id="rv-notes" style="max-width:380px;word-break:break-word;">—</span>
+        </div>
+
+        <div class="review-divider"></div>
+
+        <div class="review-row">
+          <span class="review-key">Monthly Support</span>
+          <span class="review-val" id="rv-addon">—</span>
+        </div>
+      </div>
+
+      <div class="payment-note">
+        <strong>30% deposit to start</strong> &nbsp;&middot;&nbsp; <strong>Preview before final payment</strong> &nbsp;&middot;&nbsp; <strong>70% on approval</strong><br>
+        <span style="font-size:10px;color:rgba(255,255,255,.22);letter-spacing:.08em;">Standard domains included. Premium domains priced separately.</span>
+      </div>
+
+      <div class="btn-row">
+        <button type="button" class="btn-back" onclick="goBack(6)">&larr; Back</button>
+        <button type="submit" class="q-submit">Send My Brief &rarr;</button>
+      </div>
+      <p class="q-note">Your answers will be sent to team@atelierv.design. We respond within 24 hours.<br>By submitting you accept our <a href="terms.html" style="color:rgba(255,255,255,.45);text-decoration:underline;">Terms &amp; Conditions</a>.</p>
+    </div>
 
   </form>
 </div>
 
 <script>
-document.getElementById('qForm').addEventListener('submit', function(e) {
-  e.preventDefault();
-  var name     = document.getElementById('f-name').value;
-  var business = document.getElementById('f-biz').value;
-  var email    = document.getElementById('f-email').value;
-  var phone    = document.getElementById('f-phone').value;
+const TOTAL = 6;
+const STEP_TITLES = ['Your Details','Your Industry','Your Package','Project Details','Optional Add-On','Review & Send'];
+let currentStep = 1;
+
+function updateProgress(step) {
+  document.getElementById('step-num').textContent = step;
+  document.getElementById('step-title-label').textContent = STEP_TITLES[step - 1];
+  const pct = ((step - 1) / (TOTAL - 1)) * 100;
+  document.getElementById('progress-fill').style.width = pct + '%';
+}
+
+function showStep(step) {
+  document.querySelectorAll('.step').forEach(function(s) { s.classList.remove('active'); });
+  document.querySelector('[data-step="' + step + '"]').classList.add('active');
+  currentStep = step;
+  updateProgress(step);
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function clearErrors(stepEl) {
+  stepEl.querySelectorAll('.field-input,.field-select,.field-textarea').forEach(function(f) {
+    f.classList.remove('error');
+  });
+  stepEl.querySelectorAll('.error-msg[data-auto]').forEach(function(e) { e.remove(); });
+}
+
+function addError(field, msg) {
+  field.classList.add('error');
+  if (!field.nextElementSibling || !field.nextElementSibling.classList.contains('error-msg')) {
+    var err = document.createElement('span');
+    err.className = 'error-msg';
+    err.setAttribute('data-auto', '1');
+    err.textContent = msg || 'This field is required.';
+    field.parentNode.appendChild(err);
+  }
+}
+
+function validateStep(step) {
+  var stepEl = document.querySelector('[data-step="' + step + '"]');
+  clearErrors(stepEl);
+  var valid = true;
+
+  if (step === 1) {
+    ['f-name','f-biz','f-email'].forEach(function(id) {
+      var f = document.getElementById(id);
+      if (!f.value.trim()) { addError(f); valid = false; }
+      else if (id === 'f-email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f.value.trim())) {
+        addError(f, 'Enter a valid email address.'); valid = false;
+      }
+    });
+  }
+
+  if (step === 2) {
+    var ind = document.getElementById('f-industry');
+    if (!ind.value) { addError(ind); valid = false; }
+  }
+
+  if (step === 3) {
+    var checked = document.querySelector('input[name="package"]:checked');
+    var pkgErr = document.getElementById('pkg-error');
+    if (!checked) {
+      document.getElementById('pkg-cards-wrap').classList.add('error-border');
+      pkgErr.style.display = 'block';
+      valid = false;
+    } else {
+      document.getElementById('pkg-cards-wrap').classList.remove('error-border');
+      pkgErr.style.display = 'none';
+    }
+  }
+
+  return valid;
+}
+
+function buildReview() {
+  var name     = document.getElementById('f-name').value.trim();
+  var biz      = document.getElementById('f-biz').value.trim();
+  var email    = document.getElementById('f-email').value.trim();
+  var phone    = document.getElementById('f-phone').value.trim();
   var industry = document.getElementById('f-industry').value;
   var pkg      = document.querySelector('input[name="package"]:checked');
   var deadline = document.getElementById('f-deadline').value;
-  var notes    = document.getElementById('f-notes').value;
+  var notes    = document.getElementById('f-notes').value.trim();
+  var addon    = document.getElementById('f-addon').checked;
+
+  document.getElementById('rv-name').textContent    = name || '—';
+  document.getElementById('rv-biz').textContent     = biz || '—';
+  document.getElementById('rv-email').textContent   = email || '—';
+  document.getElementById('rv-phone').textContent   = phone || 'Not provided';
+  document.getElementById('rv-industry').textContent = industry || 'Not selected';
+  document.getElementById('rv-package').textContent  = pkg ? pkg.value : '—';
+  document.getElementById('rv-deadline').textContent = deadline
+    ? new Date(deadline + 'T00:00:00').toLocaleDateString('en-GB', {day:'numeric',month:'long',year:'numeric'})
+    : 'Not specified';
+  document.getElementById('rv-notes').textContent   = notes || 'None';
+  document.getElementById('rv-addon').textContent   = addon ? 'Yes — €19.99/month' : 'No';
+}
+
+function goNext(step) {
+  if (!validateStep(step)) return;
+  if (step === 5) buildReview();
+  showStep(step + 1);
+}
+
+function goBack(step) {
+  showStep(step - 1);
+}
+
+// Remove red highlight on input change
+document.querySelectorAll('.field-input,.field-select,.field-textarea').forEach(function(f) {
+  f.addEventListener('input', function() {
+    f.classList.remove('error');
+    var next = f.nextElementSibling;
+    if (next && next.classList.contains('error-msg') && next.getAttribute('data-auto')) next.remove();
+  });
+  f.addEventListener('change', function() { f.dispatchEvent(new Event('input')); });
+});
+
+document.querySelectorAll('input[name="package"]').forEach(function(r) {
+  r.addEventListener('change', function() {
+    document.getElementById('pkg-cards-wrap').classList.remove('error-border');
+    document.getElementById('pkg-error').style.display = 'none';
+  });
+});
+
+// Submit → mailto
+document.getElementById('qForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  var name     = document.getElementById('f-name').value.trim();
+  var biz      = document.getElementById('f-biz').value.trim();
+  var email    = document.getElementById('f-email').value.trim();
+  var phone    = document.getElementById('f-phone').value.trim();
+  var industry = document.getElementById('f-industry').value;
+  var pkg      = document.querySelector('input[name="package"]:checked');
+  var deadline = document.getElementById('f-deadline').value;
+  var notes    = document.getElementById('f-notes').value.trim();
+  var addon    = document.getElementById('f-addon').checked;
 
   var body =
     'Name: ' + name + '\n' +
-    'Business: ' + business + '\n' +
+    'Business: ' + biz + '\n' +
     'Email: ' + email + '\n' +
     'Phone: ' + (phone || 'Not provided') + '\n' +
     'Industry: ' + (industry || 'Not selected') + '\n' +
     'Package: ' + (pkg ? pkg.value : 'Not selected') + '\n' +
-    'Deadline: ' + (deadline || 'Not specified') + '\n\n' +
+    'Deadline: ' + (deadline || 'Not specified') + '\n' +
+    'Monthly Support: ' + (addon ? 'Yes' : 'No') + '\n\n' +
     'Notes:\n' + (notes || 'None');
 
   window.location.href =
     'mailto:team@atelierv.design' +
-    '?subject=' + encodeURIComponent('New Brand Brief — ' + business) +
+    '?subject=' + encodeURIComponent('New Brand Brief — ' + biz) +
     '&body=' + encodeURIComponent(body);
 });
+
+// Init progress
+updateProgress(1);
 </script>
 </body>
 </html>
