@@ -462,6 +462,26 @@ body::before{
 @media(max-width:480px){
   .qr-section{padding:28px 28px 36px;}
 }
+@media(min-width: 900px) {
+  .page-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+  .card {
+    max-width: 100%;
+  }
+  .sections-row {
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+    align-items: stretch;
+  }
+  .sections-col {
+    flex: 1;
+    min-width: 0;
+  }
+}
 </style>
 </head>
 <body>
