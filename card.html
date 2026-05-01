@@ -382,6 +382,7 @@ body::before{
           <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
         </button>
         <p class="booking-note-sm">No commitment. Just a conversation.</p>
+        <p id="bkError" style="display:none;text-align:center;margin-top:8px;font-family:'Jost',sans-serif;font-size:12px;color:#c0392b;letter-spacing:.06em;"></p>
       </div>
       <div class="bk-success" id="bkSuccess">
         <div class="bk-check"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>
@@ -481,15 +482,33 @@ fetch('index.html').then(r=>r.text()).then(html=>{
   document.getElementById('btnConfirm').addEventListener('click',function(){
     var name=document.getElementById('bName').value.trim();
     var email=document.getElementById('bEmail').value.trim();
+    var phone=document.getElementById('bPhone').value.trim();
+    var note=document.getElementById('bNote').value.trim();
     if(!name){detailsPanel.classList.add('open');detailsToggle.classList.add('open');document.getElementById('bName').focus();return;}
     if(!email){detailsPanel.classList.add('open');detailsToggle.classList.add('open');document.getElementById('bEmail').focus();return;}
     if(!selDate){calGrid.scrollIntoView({behavior:'smooth'});return;}
     if(!selTime){slotsToggle.scrollIntoView({behavior:'smooth'});slotsPanel.classList.add('open');slotsToggle.classList.add('open');return;}
     var ds=DAYS_SHORT[selDate.getDay()]+', '+selDate.getDate()+' '+MONTHS[selDate.getMonth()]+' '+selDate.getFullYear();
-    document.getElementById('bkSummary').textContent=ds+' at '+selTime+' CET';
-    document.getElementById('bkFormArea').style.display='none';
-    var s=document.getElementById('bkSuccess');s.style.display='block';
-    s.scrollIntoView({behavior:'smooth',block:'center'});
+    fetch('https://formspree.io/f/xqenazjb',{
+      method:'POST',
+      headers:{'Accept':'application/json','Content-Type':'application/json'},
+      body:JSON.stringify({name:name,email:email,phone:phone,note:note,date:ds,time:selTime+' CET'})
+    }).then(function(res){
+      if(res.ok){
+        document.getElementById('bkSummary').textContent=ds+' at '+selTime+' CET';
+        document.getElementById('bkFormArea').style.display='none';
+        var s=document.getElementById('bkSuccess');s.style.display='block';
+        s.scrollIntoView({behavior:'smooth',block:'center'});
+      }else{
+        var errEl=document.getElementById('bkError');
+        errEl.textContent='Something went wrong, please try again.';
+        errEl.style.display='block';
+      }
+    }).catch(function(){
+      var errEl=document.getElementById('bkError');
+      errEl.textContent='Something went wrong, please try again.';
+      errEl.style.display='block';
+    });
   });
 })();
 
@@ -497,11 +516,30 @@ function handleSubmit(){
   var n=document.getElementById('f-name').value.trim();
   var e=document.getElementById('f-email').value.trim();
   var m=document.getElementById('f-msg').value.trim();
+  var msgEl=document.getElementById('formSuccess');
   if(!n||!e||!m)return;
-  document.getElementById('formSuccess').style.display='block';
-  document.getElementById('f-name').value='';
-  document.getElementById('f-email').value='';
-  document.getElementById('f-msg').value='';
+  fetch('https://formspree.io/f/mnjwnarn',{
+    method:'POST',
+    headers:{'Accept':'application/json','Content-Type':'application/json'},
+    body:JSON.stringify({name:n,email:e,message:m})
+  }).then(function(res){
+    if(res.ok){
+      msgEl.style.color='';
+      msgEl.textContent='Thank you! We\'ll be in touch soon.';
+      msgEl.style.display='block';
+      document.getElementById('f-name').value='';
+      document.getElementById('f-email').value='';
+      document.getElementById('f-msg').value='';
+    }else{
+      msgEl.style.color='#c0392b';
+      msgEl.textContent='Something went wrong, please try again.';
+      msgEl.style.display='block';
+    }
+  }).catch(function(){
+    msgEl.style.color='#c0392b';
+    msgEl.textContent='Something went wrong, please try again.';
+    msgEl.style.display='block';
+  });
 }
 
 function downloadVCF(){
