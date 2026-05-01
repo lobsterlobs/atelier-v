@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -6,508 +6,261 @@
 <title>Atelier V — Digital Business Card</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{
-  --navy:#1B2A4A;--gold:#C9A84C;--gold-l:#e8c96a;
-  --white:#fff;--off:#F9F8F6;--muted:#777;
-}
+:root{--navy:#1B2A4A;--gold:#C9A84C;--gold-l:#e8c96a;--white:#fff;--off:#F9F8F6;--muted:#777;}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{height:100%;}
-
 body{
-  font-family:'Jost',sans-serif;
-  min-height:100vh;
+  var detailsToggle=document.getElementById('detailsToggle');
+  var detailsPanel=document.getElementById('detailsPanel');
+  var detailsToggleLabel=document.getElementById('detailsToggleLabel');
+  detailsToggle.addEventListener('click',function(){
+    var o=detailsPanel.classList.contains('open');
+    detailsPanel.classList.toggle('open',!o);detailsToggle.classList.toggle('open',!o);
+  });
+
+  font-family:'Jost',sans-serif;min-height:100vh;
   background:var(--navy);
-  background-image:
-    radial-gradient(ellipse at 15% 60%, rgba(201,168,76,.07) 0%, transparent 55%),
-    radial-gradient(ellipse at 85% 20%, rgba(201,168,76,.05) 0%, transparent 50%);
-  display:flex;flex-direction:column;
-  align-items:center;justify-content:center;
-  padding:48px 20px;
-  position:relative;overflow-x:hidden;
+  background-image:radial-gradient(ellipse at 15% 60%,rgba(201,168,76,.07) 0%,transparent 55%),
+    radial-gradient(ellipse at 85% 20%,rgba(201,168,76,.05) 0%,transparent 50%);
+  display:flex;flex-direction:column;align-items:center;
+  padding:48px 20px;position:relative;overflow-x:hidden;
 }
 body::before{
   content:'';position:fixed;inset:0;
-  background-image:radial-gradient(rgba(201,168,76,.12) 1px, transparent 1px);
-  background-size:28px 28px;
-  pointer-events:none;z-index:0;
+  background-image:radial-gradient(rgba(201,168,76,.12) 1px,transparent 1px);
+  background-size:28px 28px;pointer-events:none;z-index:0;
 }
+.page-inner{position:relative;z-index:1;width:100%;max-width:480px;display:flex;flex-direction:column;align-items:center;gap:8px;}
 
-.page-inner{
-  position:relative;z-index:1;
-  width:100%;max-width:440px;
-  display:flex;flex-direction:column;align-items:center;
-}
-
-/* ── CARD ── */
-.card{
-  width:100%;
-  box-shadow:0 48px 120px rgba(0,0,0,.55), 0 0 0 1px rgba(201,168,76,.18);
-  animation:cardIn .9s cubic-bezier(.22,.68,0,1.2) forwards;
-  opacity:0;transform:translateY(28px) scale(.97);
-}
-@keyframes cardIn{to{opacity:1;transform:translateY(0) scale(1);}}
-
-/* ── TOP – NAVY ── */
-.card-top{
-  background:var(--navy);
-  padding:0 44px 44px;
+/* ── LOGO HEADER ── */
+.site-header{
+  width:100%;background:var(--navy);
+  border-top:3px solid var(--gold);
+  box-shadow:0 0 0 1px rgba(201,168,76,.18);
+  display:flex;align-items:center;justify-content:center;
+  padding:28px 44px;
+  animation:fadeUp .9s cubic-bezier(.22,.68,0,1.2) forwards;
+  opacity:0;transform:translateY(20px);
   position:relative;overflow:hidden;
-  display:flex;align-items:center;justify-content:center;
 }
-/* Gold top bar */
-.card-top::before{
-  content:'';position:absolute;top:0;left:0;right:0;
-  height:3px;
-  background:linear-gradient(90deg,var(--gold),var(--gold-l),var(--gold));
-}
-/* Decorative circle */
-.card-top::after{
-  content:'';position:absolute;
-  bottom:-60px;right:-60px;
-  width:220px;height:220px;
-  border-radius:50%;
-  border:1px solid rgba(201,168,76,.08);
-  pointer-events:none;
+.site-header::after{content:'';position:absolute;bottom:-60px;right:-60px;width:200px;height:200px;border-radius:50%;border:1px solid rgba(201,168,76,.06);pointer-events:none;}
+.header-logo-img{height:64px;width:auto;display:none;filter:brightness(0) invert(1);}
+.header-logo-fallback{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:300;font-style:italic;color:var(--white);letter-spacing:.12em;}
+.header-logo-fallback em{font-style:normal;color:var(--gold);}
+.header-gem{width:100%;height:1px;background:rgba(201,168,76,.18);display:flex;align-items:center;justify-content:center;}
+.header-gem-diamond{width:8px;height:8px;background:var(--gold);transform:rotate(45deg);box-shadow:0 0 0 4px var(--navy);}
+
+@keyframes fadeUp{to{opacity:1;transform:translateY(0);}}
+
+/* ── MAIN ROW ── */
+.main-row{
+  width:100%;display:flex;flex-direction:column;gap:8px;
+  animation:fadeUp .9s .15s cubic-bezier(.22,.68,0,1.2) forwards;
+  opacity:0;transform:translateY(20px);
 }
 
-.card-logo-wrap{
-  padding-top:52px; /* clears the 3px bar + spacing */
-  position:relative;z-index:1;
-  display:flex;align-items:center;justify-content:center;
-}
-/* Actual logo loaded via JS */
-.card-logo-img{
-  height:72px;width:auto;
-  display:none; /* shown once src is set */
-  filter:brightness(0) invert(1);
-}
-/* Fallback text shown until/if logo loads */
-.card-logo-fallback{
-  font-family:'Cormorant Garamond',serif;
-  font-size:32px;font-weight:300;font-style:italic;
-  color:var(--white);
-  letter-spacing:.12em;
-}
-.card-logo-fallback em{
-  font-style:normal;color:var(--gold);
-}
-
-/* ── DIVIDER ── */
-.card-divider{
-  height:1px;background:var(--white);
-  display:flex;align-items:center;justify-content:center;
-}
-.card-divider-gem{
-  width:8px;height:8px;
-  background:var(--gold);transform:rotate(45deg);
-  position:relative;z-index:1;
-  box-shadow:0 0 0 4px var(--white);
-}
-
-/* ── BOTTOM – CREAM ── */
-.card-bottom{
+/* ── SHARED PANEL ── */
+.panel{
   background:var(--off);
-  padding:40px 44px 44px;
+  box-shadow:0 24px 80px rgba(0,0,0,.4),0 0 0 1px rgba(201,168,76,.15);
+  padding:36px 40px 40px;
+  display:flex;flex-direction:column;
+  position:relative;
+  transition:transform .25s cubic-bezier(.4,0,.2,1), box-shadow .25s;
 }
+.panel::before{
+  content:'';position:absolute;left:0;top:0;bottom:0;
+  width:3px;background:var(--gold);
+  transform:scaleY(0);transform-origin:bottom;
+  transition:transform .3s cubic-bezier(.4,0,.2,1);
+}
+.panel:hover{transform:translateY(-3px);box-shadow:0 32px 100px rgba(0,0,0,.5),0 0 0 1px rgba(201,168,76,.3);}
+.panel:hover::before{transform:scaleY(1);}
 
-.contact-list{list-style:none;margin-bottom:28px;}
-.contact-item{
-  display:flex;align-items:center;gap:16px;
-  padding:11px 0;
-  border-bottom:1px solid rgba(27,42,74,.07);
-}
+.panel-eyebrow{font-family:'Jost',sans-serif;font-size:9px;font-weight:600;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:20px;}
+
+/* ── CONTACTS ── */
+.contact-list{list-style:none;margin-bottom:24px;flex:1;}
+.contact-item{display:flex;align-items:center;gap:14px;padding:10px 0;border-bottom:1px solid rgba(27,42,74,.07);}
 .contact-item:last-child{border-bottom:none;}
-
-.contact-icon{
-  width:38px;height:38px;
-  background:var(--navy);border-radius:50%;
-  display:flex;align-items:center;justify-content:center;
-  flex-shrink:0;transition:background .25s;
-}
+.contact-icon{width:36px;height:36px;background:var(--navy);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .25s;}
 .contact-item:hover .contact-icon{background:var(--gold);}
 .contact-item:hover .contact-icon svg{fill:var(--navy);}
-.contact-icon svg{width:15px;height:15px;fill:var(--gold);transition:fill .25s;}
-
+.contact-icon svg{width:14px;height:14px;fill:var(--gold);transition:fill .25s;}
 .contact-info{display:flex;flex-direction:column;gap:2px;}
-.contact-label{
-  font-family:'Jost',sans-serif;
-  font-size:9px;font-weight:600;
-  letter-spacing:.16em;text-transform:uppercase;
-  color:var(--muted);
-}
-.contact-value{
-  font-family:'Jost',sans-serif;
-  font-size:14px;font-weight:400;
-  color:var(--navy);text-decoration:none;
-  transition:color .2s;
-}
+.contact-label{font-family:'Jost',sans-serif;font-size:9px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);text-decoration:none;}
+.contact-value{font-family:'Jost',sans-serif;font-size:13px;font-weight:400;color:var(--navy);text-decoration:none;transition:color .2s;}
 .contact-value:hover{color:var(--gold);}
 
-/* ── QR ── */
-.qr-wrap{
-  display:flex;align-items:center;gap:20px;
-  padding:18px;
-  background:var(--white);
-  border:1px solid rgba(27,42,74,.08);
-  margin-bottom:24px;
-}
-.qr-img-wrap{
-  flex-shrink:0;width:100px;height:100px;
-  display:flex;align-items:center;justify-content:center;
-  background:var(--white);
-}
-.qr-img-wrap img{display:block;width:100px;height:100px;}
+/* QR */
+.qr-wrap{display:flex;align-items:center;gap:18px;padding:16px;background:var(--white);border:1px solid rgba(27,42,74,.08);margin-bottom:20px;}
+.qr-img-wrap{flex-shrink:0;width:80px;height:80px;background:var(--white);display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.qr-img-wrap img{display:block;width:80px;height:80px;object-fit:contain;}
+.qr-eyebrow{font-family:'Jost',sans-serif;font-size:9px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:5px;}
+.qr-desc{font-family:'Jost',sans-serif;font-size:11px;font-weight:300;line-height:1.65;color:var(--muted);}
 
-.qr-info{flex:1;}
-.qr-eyebrow{
-  font-family:'Jost',sans-serif;
-  font-size:9px;font-weight:600;
-  letter-spacing:.2em;text-transform:uppercase;
-  color:var(--gold);margin-bottom:6px;
-}
-.qr-desc{
-  font-family:'Jost',sans-serif;
-  font-size:12px;font-weight:300;
-  line-height:1.65;color:var(--muted);
-}
-
-/* ── BUTTON ── */
-.btn-save{
+/* ── SHARED BUTTON (navy bg) ── */
+.btn-primary{
   display:flex;align-items:center;justify-content:center;gap:10px;
-  width:100%;padding:17px 24px;
-  background:var(--navy);color:var(--gold);
-  font-family:'Jost',sans-serif;
-  font-size:11px;font-weight:600;
-  letter-spacing:.22em;text-transform:uppercase;
-  border:none;cursor:pointer;
-  position:relative;overflow:hidden;transition:color .3s;
+  width:100%;padding:15px 24px;background:var(--navy);color:var(--gold);
+  font-family:'Jost',sans-serif;font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;
+  border:none;cursor:pointer;position:relative;overflow:hidden;transition:color .3s;
+  margin-top:auto;
 }
-.btn-save::before{
-  content:'';
-  position:absolute;top:0;left:-100%;
-  width:100%;height:100%;
-  background:var(--gold);
-  transition:left .32s cubic-bezier(.4,0,.2,1);z-index:0;
-}
-.btn-save:hover::before{left:0;}
-.btn-save:hover{color:var(--navy);}
-.btn-save svg{width:14px;height:14px;fill:currentColor;position:relative;z-index:1;flex-shrink:0;}
-.btn-save span{position:relative;z-index:1;}
+.btn-primary::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:var(--gold);transition:left .32s cubic-bezier(.4,0,.2,1);z-index:0;}
+.btn-primary:hover::before{left:0;}
+.btn-primary:hover{color:var(--navy);}
+.btn-primary svg{width:14px;height:14px;fill:currentColor;position:relative;z-index:1;}
+.btn-primary span{position:relative;z-index:1;}
 
-/* ── BACK LINK ── */
-.back-link{
-  display:inline-flex;align-items:center;gap:8px;
-  margin-top:28px;
-  font-family:'Jost',sans-serif;
-  font-size:10px;font-weight:500;
-  letter-spacing:.16em;text-transform:uppercase;
-  color:rgba(255,255,255,.35);
-  text-decoration:none;transition:color .25s;
+/* ── FORM ── */
+.form-title{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:400;color:var(--navy);margin-bottom:20px;line-height:1;}
+.form-title em{font-style:italic;color:var(--gold);}
+.field{margin-bottom:11px;}
+.field-label{display:block;font-family:'Jost',sans-serif;font-size:9px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:5px;}
+.field-input{width:100%;padding:10px 13px;background:var(--white);border:1px solid rgba(27,42,74,.12);font-family:'Jost',sans-serif;font-size:13px;font-weight:300;color:var(--navy);outline:none;transition:border-color .2s;appearance:none;border-radius:0;}
+.field-input:focus{border-color:var(--gold);}
+.field-input::placeholder{color:rgba(119,119,119,.5);}
+.field-textarea{min-height:88px;resize:vertical;}
+.form-success{display:none;margin-top:10px;font-family:'Jost',sans-serif;font-size:12px;color:var(--gold);text-align:center;letter-spacing:.06em;}
+
+/* ── BOOKING — white bg ── */
+.booking-panel{
+  background:var(--white);
+  box-shadow:0 24px 80px rgba(0,0,0,.4),0 0 0 1px rgba(201,168,76,.15);
+  padding:36px 40px 40px;
+  display:flex;flex-direction:column;
+  position:relative;
+  transition:transform .25s cubic-bezier(.4,0,.2,1),box-shadow .25s;
 }
+.booking-panel::before{
+  content:'';position:absolute;left:0;top:0;bottom:0;
+  width:3px;background:var(--gold);
+  transform:scaleY(0);transform-origin:bottom;
+  transition:transform .3s cubic-bezier(.4,0,.2,1);
+}
+.booking-panel:hover{transform:translateY(-3px);box-shadow:0 32px 100px rgba(0,0,0,.25),0 0 0 1px rgba(201,168,76,.3);}
+.booking-panel:hover::before{transform:scaleY(1);}
+
+.booking-ey{font-family:'Jost',sans-serif;font-size:9px;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:8px;}
+.booking-title{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:400;color:var(--navy);margin-bottom:4px;}
+.booking-sub{font-family:'Jost',sans-serif;font-size:11px;font-weight:300;color:var(--muted);letter-spacing:.04em;margin-bottom:28px;}
+
+.step-label{font-family:'Jost',sans-serif;font-size:9px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;display:flex;align-items:center;gap:10px;}
+.step-num{width:20px;height:20px;border:1px solid rgba(201,168,76,.5);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;color:var(--gold);flex-shrink:0;}
+.step-divider{height:1px;background:rgba(27,42,74,.08);margin:22px 0;}
+
+/* Calendar */
+.cal-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;}
+.cal-month{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:400;color:var(--navy);}
+.cal-nav{background:none;border:1px solid rgba(27,42,74,.15);color:var(--muted);cursor:pointer;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-size:15px;transition:border-color .2s,color .2s;line-height:1;}
+.cal-nav:hover{border-color:var(--gold);color:var(--gold);}
+.cal-days-hd{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;margin-bottom:3px;}
+.cal-dn{font-family:'Jost',sans-serif;font-size:8px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:rgba(27,42,74,.3);text-align:center;padding:3px 0;}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;}
+.cal-day,.cal-empty{aspect-ratio:1;display:flex;align-items:center;justify-content:center;font-family:'Jost',sans-serif;font-size:11px;font-weight:300;}
+.cal-day{background:rgba(27,42,74,.03);border:1px solid transparent;color:rgba(27,42,74,.7);cursor:pointer;transition:border-color .18s,background .18s,color .18s;}
+.cal-day:hover:not([disabled]){border-color:rgba(201,168,76,.5);color:var(--navy);}
+.cal-day.cal-weekend{color:rgba(201,168,76,.7);}
+.cal-day.cal-past{opacity:.25;cursor:default;}
+.cal-day.cal-today{border-color:rgba(201,168,76,.4);}
+.cal-day.cal-sel{background:var(--gold);color:var(--white);border-color:var(--gold);font-weight:600;}
+
+/* Slots accordion */
+.slots-toggle{
+  display:flex;align-items:center;justify-content:space-between;
+  width:100%;background:rgba(27,42,74,.04);border:1px solid rgba(201,168,76,.25);
+  color:var(--muted);font-family:'Jost',sans-serif;font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;
+  padding:11px 14px;cursor:pointer;transition:border-color .2s,color .2s;
+}
+.slots-toggle:hover,.slots-toggle.open{border-color:var(--gold);color:var(--gold);}
+.slots-toggle-icon{width:20px;height:20px;border:1px solid currentColor;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px;line-height:1;transition:transform .25s;flex-shrink:0;}
+.slots-toggle.open .slots-toggle-icon{transform:rotate(45deg);}
+.slots-panel{max-height:0;overflow:hidden;transition:max-height .35s cubic-bezier(.4,0,.2,1);}
+.slots-panel.open{max-height:500px;}
+.slots-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;padding-top:8px;}
+.slot-btn{background:rgba(27,42,74,.04);border:1px solid rgba(27,42,74,.1);color:var(--muted);font-family:'Jost',sans-serif;font-size:11px;font-weight:300;padding:9px 4px;cursor:pointer;text-align:center;transition:border-color .18s,background .18s,color .18s;}
+.slot-btn:hover{border-color:rgba(201,168,76,.5);color:var(--navy);}
+.slot-btn.slot-sel{background:var(--gold);color:var(--white);border-color:var(--gold);font-weight:500;}
+
+/* Booking fields */
+.bfield{margin-bottom:10px;}
+.bfield-label{display:block;font-family:'Jost',sans-serif;font-size:9px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:4px;}
+.bfield-input{width:100%;padding:10px 13px;background:var(--off);border:1px solid rgba(27,42,74,.12);color:var(--navy);font-family:'Jost',sans-serif;font-size:12px;font-weight:300;outline:none;transition:border-color .2s;appearance:none;border-radius:0;}
+.bfield-input:focus{border-color:var(--gold);}
+.bfield-input::placeholder{color:rgba(27,42,74,.3);}
+.bfield-textarea{min-height:70px;resize:vertical;}
+
+/* Confirm button — gold */
+.btn-confirm{
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  width:100%;padding:15px 24px;background:var(--navy);color:var(--gold);
+  font-family:'Jost',sans-serif;font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;
+  border:none;cursor:pointer;margin-top:4px;position:relative;overflow:hidden;transition:color .3s;
+}
+.btn-confirm::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:var(--gold);transition:left .32s cubic-bezier(.4,0,.2,1);z-index:0;}
+.btn-confirm:hover::before{left:0;}
+.btn-confirm:hover{color:var(--navy);}
+.btn-confirm span,.btn-confirm svg{position:relative;z-index:1;}
+.btn-confirm svg{width:13px;height:13px;fill:currentColor;transition:transform .2s;}
+.btn-confirm:hover svg{transform:translateX(3px);}
+.booking-note-sm{text-align:center;margin-top:10px;font-family:'Jost',sans-serif;font-size:10px;font-weight:300;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;}
+
+/* Success */
+.bk-success{display:none;text-align:center;padding:32px 0;}
+.bk-check{width:52px;height:52px;border:1.5px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 18px;}
+.bk-check svg{width:24px;height:24px;fill:var(--gold);}
+.bk-title{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:300;color:var(--navy);margin-bottom:8px;}
+.bk-detail{font-family:'Jost',sans-serif;font-size:12px;font-weight:300;color:var(--muted);line-height:1.75;}
+.bk-detail strong{color:var(--gold);font-weight:500;}
+
+/* Back link */
+.back-link{display:inline-flex;align-items:center;gap:8px;margin-top:20px;font-family:'Jost',sans-serif;font-size:10px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.35);text-decoration:none;transition:color .25s;}
 .back-link:hover{color:var(--gold);}
 .back-link svg{width:12px;height:12px;fill:currentColor;}
 
-/* ── CONTACT FORM ── */
-.form-section{
-  width:100%;margin-top:3px;
-  background:var(--off);
-  box-shadow:0 48px 120px rgba(0,0,0,.55),0 0 0 1px rgba(201,168,76,.18);
-  padding:36px 44px 44px;
+/* ── DESKTOP ── */
+@media(min-width:900px){
+  .page-inner{max-width:1280px;}
+  .main-row{flex-direction:row;align-items:stretch;}
+  .panel,.booking-panel{flex:1;min-width:0;display:flex;flex-direction:column;}
 }
-.form-eyebrow{
-  font-family:'Jost',sans-serif;
-  font-size:9px;font-weight:600;
-  letter-spacing:.26em;text-transform:uppercase;
-  color:var(--gold);display:block;margin-bottom:8px;
-}
-.form-title{
-  font-family:'Cormorant Garamond',serif;
-  font-size:26px;font-weight:400;
-  color:var(--navy);margin-bottom:28px;line-height:1;
-}
-.form-title em{font-style:italic;color:var(--gold);}
-.field{margin-bottom:14px;}
-.field-label{
-  display:block;
-  font-family:'Jost',sans-serif;
-  font-size:9px;font-weight:600;
-  letter-spacing:.16em;text-transform:uppercase;
-  color:var(--muted);margin-bottom:5px;
-}
-.field-input{
-  width:100%;padding:11px 14px;
-  background:var(--white);
-  border:1px solid rgba(27,42,74,.12);
-  font-family:'Jost',sans-serif;
-  font-size:13px;font-weight:300;
-  color:var(--navy);outline:none;
-  transition:border-color .2s;
-  appearance:none;border-radius:0;
-}
-.field-input:focus{border-color:var(--gold);}
-.field-input::placeholder{color:rgba(119,119,119,.55);}
-.field-textarea{min-height:90px;resize:vertical;}
-.btn-send{
-  display:flex;align-items:center;justify-content:center;gap:10px;
-  width:100%;padding:15px 24px;
-  background:var(--navy);color:var(--gold);
-  font-family:'Jost',sans-serif;
-  font-size:11px;font-weight:600;
-  letter-spacing:.22em;text-transform:uppercase;
-  border:none;cursor:pointer;
-  position:relative;overflow:hidden;
-  transition:color .3s;margin-top:4px;
-}
-.btn-send::before{
-  content:'';position:absolute;top:0;left:-100%;
-  width:100%;height:100%;background:var(--gold);
-  transition:left .32s cubic-bezier(.4,0,.2,1);z-index:0;
-}
-.btn-send:hover::before{left:0;}
-.btn-send:hover{color:var(--navy);}
-.btn-send span,.btn-send svg{position:relative;z-index:1;}
-.btn-send svg{width:14px;height:14px;fill:currentColor;}
-.form-success{
-  display:none;margin-top:14px;
-  font-family:'Jost',sans-serif;
-  font-size:12px;font-weight:400;
-  color:var(--gold);text-align:center;letter-spacing:.06em;
-}
-
-/* ── BOOKING SECTION ── */
-.booking-section{
-  width:100%;margin-top:3px;
-  background:var(--navy);
-  box-shadow:0 48px 120px rgba(0,0,0,.55),0 0 0 1px rgba(201,168,76,.18);
-  padding:40px 44px 48px;
-  position:relative;overflow:hidden;
-}
-.booking-section::before{
-  content:'';position:absolute;inset:0;
-  background-image:radial-gradient(rgba(201,168,76,.07) 1px,transparent 1px);
-  background-size:28px 28px;pointer-events:none;
-}
-.booking-inner{position:relative;z-index:1;}
-.booking-ey{
-  font-family:'Jost',sans-serif;font-size:9px;font-weight:600;
-  letter-spacing:.28em;text-transform:uppercase;
-  color:var(--gold);display:block;margin-bottom:8px;
-}
-.booking-title{
-  font-family:'Cormorant Garamond',serif;
-  font-size:26px;font-weight:300;color:var(--white);margin-bottom:4px;
-}
-.booking-sub{
-  font-family:'Jost',sans-serif;font-size:11px;font-weight:300;
-  color:rgba(255,255,255,.32);letter-spacing:.04em;margin-bottom:32px;
-}
-.step-label{
-  font-family:'Jost',sans-serif;font-size:9px;font-weight:600;
-  letter-spacing:.2em;text-transform:uppercase;color:var(--gold);
-  margin-bottom:14px;display:flex;align-items:center;gap:10px;
-}
-.step-num{
-  width:22px;height:22px;border:1px solid rgba(201,168,76,.4);
-  border-radius:50%;display:flex;align-items:center;justify-content:center;
-  font-size:9px;color:var(--gold);flex-shrink:0;
-}
-.step-divider{height:1px;background:rgba(201,168,76,.1);margin:28px 0;}
-
-/* calendar */
-.cal-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;}
-.cal-month{
-  font-family:'Cormorant Garamond',serif;
-  font-size:20px;font-weight:300;color:var(--white);
-}
-.cal-nav{
-  background:none;border:1px solid rgba(201,168,76,.22);
-  color:rgba(255,255,255,.45);cursor:pointer;
-  width:30px;height:30px;
-  display:flex;align-items:center;justify-content:center;
-  font-size:16px;transition:border-color .2s,color .2s;line-height:1;
-}
-.cal-nav:hover{border-color:var(--gold);color:var(--gold);}
-.cal-days-hd{
-  display:grid;grid-template-columns:repeat(7,1fr);
-  gap:2px;margin-bottom:4px;
-}
-.cal-dn{
-  font-family:'Jost',sans-serif;font-size:9px;font-weight:600;
-  letter-spacing:.08em;text-transform:uppercase;
-  color:rgba(255,255,255,.22);text-align:center;padding:4px 0;
-}
-.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;}
-.cal-day,.cal-empty{
-  aspect-ratio:1;display:flex;align-items:center;justify-content:center;
-  font-family:'Jost',sans-serif;font-size:12px;font-weight:300;
-}
-.cal-day{
-  background:rgba(255,255,255,.04);border:1px solid transparent;
-  color:rgba(255,255,255,.65);cursor:pointer;
-  transition:border-color .18s,background .18s,color .18s;
-}
-.cal-day:hover:not([disabled]){border-color:rgba(201,168,76,.4);color:#fff;}
-.cal-day.cal-weekend{color:rgba(201,168,76,.55);}
-.cal-day.cal-past{opacity:.2;cursor:default;}
-.cal-day.cal-today{border-color:rgba(201,168,76,.3);}
-.cal-day.cal-sel{
-  background:var(--gold);color:var(--navy);
-  border-color:var(--gold);font-weight:600;
-}
-
-/* time slots */
-.slots-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;}
-.slot-btn{
-  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);
-  color:rgba(255,255,255,.5);font-family:'Jost',sans-serif;
-  font-size:12px;font-weight:300;padding:10px 4px;cursor:pointer;
-  text-align:center;transition:border-color .18s,background .18s,color .18s;
-}
-.slot-btn:hover{border-color:rgba(201,168,76,.4);color:#fff;}
-.slot-btn.slot-sel{
-  background:var(--gold);color:var(--navy);
-  border-color:var(--gold);font-weight:500;
-}
-
-/* booking form fields */
-.bfield{margin-bottom:12px;}
-.bfield-label{
-  display:block;font-family:'Jost',sans-serif;
-  font-size:9px;font-weight:600;
-  letter-spacing:.16em;text-transform:uppercase;
-  color:rgba(255,255,255,.3);margin-bottom:5px;
-}
-.bfield-input{
-  width:100%;padding:11px 14px;
-  background:rgba(255,255,255,.05);
-  border:1px solid rgba(255,255,255,.1);
-  color:var(--white);font-family:'Jost',sans-serif;
-  font-size:13px;font-weight:300;outline:none;
-  transition:border-color .2s;appearance:none;border-radius:0;
-}
-.bfield-input:focus{border-color:var(--gold);}
-.bfield-input::placeholder{color:rgba(255,255,255,.18);}
-.bfield-textarea{min-height:80px;resize:vertical;}
-
-/* confirm button */
-.btn-confirm{
-  display:flex;align-items:center;justify-content:center;gap:12px;
-  width:100%;padding:17px 24px;
-  background:var(--gold);color:var(--navy);
-  font-family:'Jost',sans-serif;font-size:11px;font-weight:700;
-  letter-spacing:.24em;text-transform:uppercase;
-  border:none;cursor:pointer;margin-top:4px;
-  position:relative;overflow:hidden;transition:color .3s;
-}
-.btn-confirm::before{
-  content:'';position:absolute;top:0;left:-100%;
-  width:100%;height:100%;background:var(--gold-l);
-  transition:left .32s cubic-bezier(.4,0,.2,1);z-index:0;
-}
-.btn-confirm:hover::before{left:0;}
-.btn-confirm span,.btn-confirm svg{position:relative;z-index:1;}
-.btn-confirm svg{width:14px;height:14px;fill:currentColor;transition:transform .2s;}
-.btn-confirm:hover svg{transform:translateX(4px);}
-.booking-note-sm{
-  text-align:center;margin-top:12px;
-  font-family:'Jost',sans-serif;font-size:10px;font-weight:300;
-  color:rgba(255,255,255,.2);letter-spacing:.1em;text-transform:uppercase;
-}
-
-/* success state */
-.bk-success{
-  display:none;text-align:center;padding:36px 0;
-}
-.bk-check{
-  width:56px;height:56px;
-  border:1.5px solid var(--gold);border-radius:50%;
-  display:flex;align-items:center;justify-content:center;
-  margin:0 auto 20px;
-}
-.bk-check svg{width:26px;height:26px;fill:var(--gold);}
-.bk-title{
-  font-family:'Cormorant Garamond',serif;
-  font-size:28px;font-weight:300;color:var(--white);margin-bottom:10px;
-}
-.bk-detail{
-  font-family:'Jost',sans-serif;font-size:12px;font-weight:300;
-  color:rgba(255,255,255,.38);line-height:1.75;
-}
-.bk-detail strong{color:var(--gold);font-weight:500;}
-
-/* ── RESPONSIVE ── */
+.field-textarea{min-height:80px;max-height:180px;resize:none;}
+.bfield-textarea{min-height:60px;max-height:100px;resize:none;}
+/* spacer pushes button to bottom */
+.panel-spacer{flex:1;}
+/* ── MOBILE ── */
 @media(max-width:480px){
-  .card-top{padding:0 28px 36px;}
-  .card-bottom{padding:32px 28px 36px;}
-  .qr-wrap{flex-direction:column;align-items:flex-start;gap:16px;}
-  .form-section{padding:28px 28px 36px;}
-  .booking-section{padding:28px 24px 36px;}
+  .site-header{padding:22px 24px;}
+  .panel,.booking-panel{padding:28px 24px 32px;}
+  .qr-wrap{flex-direction:column;gap:14px;}
   .slots-grid{grid-template-columns:repeat(3,1fr);}
-}
-
-/* ── QR SECTION ── */
-.qr-section{
-  width:100%;
-  background:var(--off);
-  box-shadow:0 48px 120px rgba(0,0,0,.55),0 0 0 1px rgba(201,168,76,.18);
-  padding:36px 44px 44px;
-}
-
-@media(max-width:480px){
-  .qr-section{padding:28px 28px 36px;}
-}
-/* ── DESKTOP LAYOUT ── */
-@media(min-width: 900px) {
-  .page-inner {
-    max-width: 920px;
-    margin: 0 auto;
-    padding: 0 2rem;
-  }
-  .card {
-    max-width: 420px;
-    margin: 0 auto;
-  }
-  .sections-row {
-    display: flex;
-    flex-direction: row;
-    gap: 1.5rem;
-    align-items: stretch;
-  }
-  .sections-col {
-    flex: 1;
-    min-width: 0;
-  }
 }
 </style>
 </head>
 <body>
-
 <div class="page-inner">
-  <div class="card">
 
-    <!-- TOP: NAVY + LOGO -->
-    <div class="card-top">
-      <div class="card-logo-wrap">
-        <img id="card-logo" class="card-logo-img" alt="Atelier V">
-        <span class="card-logo-fallback">Atelier <em>V</em></span>
-      </div>
-    </div>
+  <!-- LOGO HEADER -->
+  <div class="site-header">
+    <img id="header-logo" class="header-logo-img" alt="Atelier V">
+    <span class="header-logo-fallback">Atelier <em>V</em></span>
+  </div>
+  <div class="header-gem"><div class="header-gem-diamond"></div></div>
 
-    <!-- ORNAMENTAL DIVIDER -->
-    <div class="card-divider">
-      <div class="card-divider-gem"></div>
-    </div>
+  <!-- THREE COLUMNS -->
+  <div class="main-row">
 
-    <!-- BOTTOM: CONTACTS -->
-    <div class="card-bottom">
-
+    <!-- 1: CONTACTS + QR -->
+    <div class="panel">
+      <span class="panel-eyebrow">Contact</span>
       <ul class="contact-list">
         <li class="contact-item">
           <div class="contact-icon">
             <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
           </div>
           <div class="contact-info">
-            <a href="https://wa.me/359887804614" class="contact-label">WhatsApp</a>
+            <a href="https://wa.me/359887804614" class="contact-value">+359 887 804 614</a>
+            <span class="contact-label">WhatsApp</span>
           </div>
         </li>
         <li class="contact-item">
@@ -515,8 +268,8 @@ body::before{
             <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
           </div>
           <div class="contact-info">
-            <span class="contact-label">Email</span>
             <a href="mailto:team@atelierv.design" class="contact-value">team@atelierv.design</a>
+            <span class="contact-label">Email</span>
           </div>
         </li>
         <li class="contact-item">
@@ -524,8 +277,8 @@ body::before{
             <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
           </div>
           <div class="contact-info">
-            <span class="contact-label">Instagram</span>
             <a href="https://instagram.com/atelierv.design" class="contact-value" target="_blank" rel="noopener">@atelierv.design</a>
+            <span class="contact-label">Instagram</span>
           </div>
         </li>
         <li class="contact-item">
@@ -533,70 +286,55 @@ body::before{
             <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
           </div>
           <div class="contact-info">
-            <span class="contact-label">Studio</span>
             <span class="contact-value">Atelier V — Digital Branding Studio</span>
+            <span class="contact-label">Studio</span>
           </div>
         </li>
       </ul>
-
-      <!-- QR CODE -->
       <div class="qr-wrap">
-        <div class="qr-img-wrap">
-          <img id="qrcode" alt="QR Code">
-        </div>
-        <div class="qr-info">
+        <div class="qr-img-wrap"><img id="qrcode" alt="QR Code"></div>
+        <div>
           <div class="qr-eyebrow">Scan &amp; Save</div>
-          <p class="qr-desc">Point your camera at the QR code to save Atelier V directly to your contacts.</p>
+          <p class="qr-desc">Point your camera to save Atelier V directly to your contacts.</p>
         </div>
       </div>
-
-      <!-- SAVE CONTACT BUTTON -->
-      <button class="btn-save" onclick="downloadVCF()">
+      <div class="panel-spacer"></div>
+      <button class="btn-primary" onclick="downloadVCF()">
         <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
         <span>Save Contact</span>
       </button>
-
     </div>
-  </div>
 
-  <div class="sections-row">
-
-    <div class="sections-col">
-      <!-- CONTACT FORM -->
-      <div class="form-section">
-    <span class="form-eyebrow">Send a Message</span>
-    <h2 class="form-title">Get in <em>touch</em></h2>
-    <form id="contactForm" onsubmit="handleSubmit(event)" novalidate>
+    <!-- 2: FORM -->
+    <div class="panel">
+      <span class="panel-eyebrow">Send a Message</span>
+      <h2 class="form-title">Get in <em>touch</em></h2>
       <div class="field">
         <label class="field-label" for="f-name">Name</label>
-        <input id="f-name" type="text" class="field-input" placeholder="Your name" required>
+        <input id="f-name" type="text" class="field-input" placeholder="Your name">
       </div>
       <div class="field">
         <label class="field-label" for="f-email">Email</label>
-        <input id="f-email" type="email" class="field-input" placeholder="your@email.com" required>
+        <input id="f-email" type="email" class="field-input" placeholder="your@email.com">
       </div>
       <div class="field">
         <label class="field-label" for="f-msg">Message</label>
-        <textarea id="f-msg" class="field-input field-textarea" placeholder="How can we help?" required></textarea>
+        <textarea id="f-msg" class="field-input field-textarea" placeholder="How can we help?"></textarea>
       </div>
-      <button type="submit" class="btn-send">
+      <div class="panel-spacer"></div>
+      <button class="btn-primary" style="margin-top:0;" onclick="handleSubmit()">
         <span>Send Message</span>
         <svg viewBox="0 0 24 24"><path d="M2 21l21-9L2 3v7l15 2-15 2v7z"/></svg>
       </button>
       <p class="form-success" id="formSuccess">Thank you! We'll be in touch soon.</p>
-    </form>
-  </div>
     </div>
 
-    <div class="sections-col">
-      <!-- BOOKING SECTION -->
-      <div class="booking-section">
-    <div class="booking-inner">
+    <!-- 3: BOOKING -->
+    <div class="booking-panel">
       <span class="booking-ey">Free Consultation</span>
       <div class="booking-title">Schedule a Consultation</div>
-      <div class="booking-sub">Available 9:00–21:00 CET &nbsp;·&nbsp; We confirm within 1 hour</div>
+      <div class="booking-sub">Available 9:00–21:00 CET · We confirm within 1 hour</div>
 
-      <!-- Step 1: Date -->
       <div class="step-label"><span class="step-num">1</span>Select a Date</div>
       <div class="cal-header">
         <button class="cal-nav" id="calPrev">&#8249;</button>
@@ -604,44 +342,39 @@ body::before{
         <button class="cal-nav" id="calNext">&#8250;</button>
       </div>
       <div class="cal-days-hd">
-        <div class="cal-dn">Mo</div><div class="cal-dn">Tu</div>
-        <div class="cal-dn">We</div><div class="cal-dn">Th</div>
-        <div class="cal-dn">Fr</div>
-        <div class="cal-dn" style="color:rgba(201,168,76,.45)">Sa</div>
-        <div class="cal-dn" style="color:rgba(201,168,76,.45)">Su</div>
+        <div class="cal-dn">Mo</div><div class="cal-dn">Tu</div><div class="cal-dn">We</div>
+        <div class="cal-dn">Th</div><div class="cal-dn">Fr</div>
+        <div class="cal-dn" style="color:rgba(201,168,76,.7)">Sa</div>
+        <div class="cal-dn" style="color:rgba(201,168,76,.7)">Su</div>
       </div>
       <div class="cal-grid" id="calGrid"></div>
 
       <div class="step-divider"></div>
-
-      <!-- Step 2: Time -->
       <div class="step-label"><span class="step-num">2</span>Select a Time</div>
-      <div class="slots-grid" id="slotsGrid"></div>
+      <button class="slots-toggle" id="slotsToggle" type="button">
+        <span id="slotsToggleLabel">Choose a time slot</span>
+        <span class="slots-toggle-icon">+</span>
+      </button>
+      <div class="slots-panel" id="slotsPanel">
+        <div class="slots-grid" id="slotsGrid"></div>
+      </div>
 
       <div class="step-divider"></div>
-
-      <!-- Step 3: Details -->
       <div class="step-label"><span class="step-num">3</span>Your Details</div>
-      <div class="bfield">
-        <label class="bfield-label" for="bName">Full Name</label>
-        <input id="bName" type="text" class="bfield-input" placeholder="Your full name" required>
-      </div>
-      <div class="bfield">
-        <label class="bfield-label" for="bEmail">Email Address</label>
-        <input id="bEmail" type="email" class="bfield-input" placeholder="your@email.com" required>
-      </div>
-      <div class="bfield">
-        <label class="bfield-label" for="bPhone">Phone Number</label>
-        <input id="bPhone" type="tel" class="bfield-input" placeholder="+1 234 567 890">
-      </div>
-      <div class="bfield">
-        <label class="bfield-label" for="bNote">Tell us about your project (optional)</label>
-        <textarea id="bNote" class="bfield-input bfield-textarea" placeholder="Briefly describe your project or goals..."></textarea>
+      <button class="slots-toggle" id="detailsToggle" type="button">
+        <span id="detailsToggleLabel">Enter your details</span>
+        <span class="slots-toggle-icon">+</span>
+      </button>
+      <div class="slots-panel" id="detailsPanel">
+        <div style="padding-top:10px;">
+          <div class="bfield"><label class="bfield-label" for="bName">Full Name</label><input id="bName" type="text" class="bfield-input" placeholder="Your full name"></div>
+          <div class="bfield"><label class="bfield-label" for="bEmail">Email Address</label><input id="bEmail" type="email" class="bfield-input" placeholder="your@email.com"></div>
+          <div class="bfield"><label class="bfield-label" for="bPhone">Phone</label><input id="bPhone" type="tel" class="bfield-input" placeholder="+1 234 567 890"></div>
+          <div class="bfield"><label class="bfield-label" for="bNote">About your project (optional)</label><textarea id="bNote" class="bfield-input bfield-textarea" placeholder="Briefly describe your goals..."></textarea></div>
+        </div>
       </div>
 
       <div class="step-divider"></div>
-
-      <!-- Step 4: Confirm -->
       <div class="step-label"><span class="step-num">4</span>Confirm Booking</div>
       <div id="bkFormArea">
         <button class="btn-confirm" id="btnConfirm" type="button">
@@ -650,23 +383,14 @@ body::before{
         </button>
         <p class="booking-note-sm">No commitment. Just a conversation.</p>
       </div>
-
-      <!-- Success message -->
       <div class="bk-success" id="bkSuccess">
-        <div class="bk-check">
-          <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-        </div>
+        <div class="bk-check"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>
         <div class="bk-title">Thank you!</div>
-        <p class="bk-detail">
-          We will confirm your booking within 1 hour.<br>
-          <strong id="bkSummary"></strong>
-        </p>
+        <p class="bk-detail">We confirm within 1 hour.<br><strong id="bkSummary"></strong></p>
       </div>
     </div>
-  </div>
-    </div>
 
-  </div><!-- end .sections-row -->
+  </div><!-- /main-row -->
 
   <a href="index.html" class="back-link">
     <svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
@@ -675,106 +399,80 @@ body::before{
 </div>
 
 <script>
-const VCARD = [
-  'BEGIN:VCARD',
-  'VERSION:3.0',
-  'FN:Atelier V',
-  'ORG:Atelier V — Digital Branding Studio',
-  'TEL;TYPE=WORK,VOICE:+359887804614',
-  'EMAIL;TYPE=INTERNET:team@atelierv.design',
-  'URL:https://instagram.com/atelierv.design',
-  'END:VCARD'
-].join('\r\n');
+const VCARD=['BEGIN:VCARD','VERSION:3.0','FN:Atelier V','ORG:Atelier V — Digital Branding Studio','TEL;TYPE=WORK,VOICE:+359887804614','EMAIL;TYPE=INTERNET:team@atelierv.design','URL:https://instagram.com/atelierv.design','END:VCARD'].join('\r\n');
 
-// QR code via api.qrserver.com
-document.getElementById('qrcode').src =
-  'https://api.qrserver.com/v1/create-qr-code/?size=100x100&color=1B2A4A&bgcolor=ffffff&data=' +
-  encodeURIComponent(VCARD);
+// QR — по-висока резолюция за по-чист render
+document.getElementById('qrcode').src='https://api.qrserver.com/v1/create-qr-code/?size=200x200&color=1B2A4A&bgcolor=ffffff&qzone=1&data='+encodeURIComponent(VCARD);
 
-// Load real logo from index.html (avoids duplicating 100 KB+ of base64)
-fetch('index.html')
-  .then(r => r.text())
-  .then(html => {
-    const doc = new DOMParser().parseFromString(html, 'text/html');
-    const navImg = doc.querySelector('.nav-logo img');
-    if (navImg) {
-      const logoEl = document.getElementById('card-logo');
-      logoEl.src = navImg.getAttribute('src');
-      logoEl.style.display = 'block';
-      const fallback = document.querySelector('.card-logo-fallback');
-      if (fallback) fallback.style.display = 'none';
-    }
-  })
-  .catch(() => { /* fallback text stays visible */ });
+fetch('index.html').then(r=>r.text()).then(html=>{
+  const doc=new DOMParser().parseFromString(html,'text/html');
+  const navImg=doc.querySelector('.nav-logo img');
+  if(navImg){
+    const l=document.getElementById('header-logo');
+    l.src=navImg.getAttribute('src');l.style.display='block';
+    document.querySelector('.header-logo-fallback').style.display='none';
+  }
+}).catch(()=>{});
 
-// ── BOOKING CALENDAR ──
 (function(){
   var MONTHS=['January','February','March','April','May','June','July','August','September','October','November','December'];
   var SLOTS=['09:00','10:00','11:00','12:00','13:00','14:00','15:00','16:00','17:00','18:00','19:00','20:00','21:00'];
   var DAYS_SHORT=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
   var viewYear,viewMonth,selDate=null,selTime=null;
-
   var calGrid=document.getElementById('calGrid');
   var calTitle=document.getElementById('calTitle');
   var slotsGrid=document.getElementById('slotsGrid');
+  var slotsToggle=document.getElementById('slotsToggle');
+  var slotsPanel=document.getElementById('slotsPanel');
+  var slotsToggleLabel=document.getElementById('slotsToggleLabel');
+  var now=new Date();viewYear=now.getFullYear();viewMonth=now.getMonth();
+  renderCal();renderSlots();
 
-  var now=new Date();
-  viewYear=now.getFullYear();
-  viewMonth=now.getMonth();
-  renderCal();
-  renderSlots();
-
+  slotsToggle.addEventListener('click',function(){
+    var o=slotsPanel.classList.contains('open');
+    slotsPanel.classList.toggle('open',!o);slotsToggle.classList.toggle('open',!o);
+  });
   document.getElementById('calPrev').addEventListener('click',function(){
     if(viewMonth===0){viewMonth=11;viewYear--;}else viewMonth--;
     var t=new Date();
-    if(viewYear<t.getFullYear()||(viewYear===t.getFullYear()&&viewMonth<t.getMonth())){
-      viewMonth=t.getMonth();viewYear=t.getFullYear();
-    }
+    if(viewYear<t.getFullYear()||(viewYear===t.getFullYear()&&viewMonth<t.getMonth())){viewMonth=t.getMonth();viewYear=t.getFullYear();}
     renderCal();
   });
   document.getElementById('calNext').addEventListener('click',function(){
-    if(viewMonth===11){viewMonth=0;viewYear++;}else viewMonth++;
-    renderCal();
+    if(viewMonth===11){viewMonth=0;viewYear++;}else viewMonth++;renderCal();
   });
 
   function renderCal(){
     calTitle.textContent=MONTHS[viewMonth]+' '+viewYear;
     var firstDay=new Date(viewYear,viewMonth,1).getDay();
-    var daysInMonth=new Date(viewYear,viewMonth+1,0).getDate();
+    var dim=new Date(viewYear,viewMonth+1,0).getDate();
     var today=new Date();today.setHours(0,0,0,0);
     var offset=firstDay===0?6:firstDay-1;
     var html='';
-    for(var i=0;i<offset;i++) html+='<div class="cal-empty"></div>';
-    for(var d=1;d<=daysInMonth;d++){
+    for(var i=0;i<offset;i++)html+='<div class="cal-empty"></div>';
+    for(var d=1;d<=dim;d++){
       var date=new Date(viewYear,viewMonth,d);
-      var past=date<today;
-      var dow=date.getDay();
-      var weekend=dow===0||dow===6;
-      var isToday=date.getTime()===today.getTime();
+      var past=date<today;var dow=date.getDay();
+      var weekend=dow===0||dow===6;var isToday=date.getTime()===today.getTime();
       var sel=selDate&&selDate.getDate()===d&&selDate.getMonth()===viewMonth&&selDate.getFullYear()===viewYear;
       var cls='cal-day';
-      if(weekend)cls+=' cal-weekend';
-      if(past)cls+=' cal-past';
-      if(isToday&&!sel)cls+=' cal-today';
-      if(sel)cls+=' cal-sel';
+      if(weekend)cls+=' cal-weekend';if(past)cls+=' cal-past';
+      if(isToday&&!sel)cls+=' cal-today';if(sel)cls+=' cal-sel';
       html+='<button class="'+cls+'" '+(past?'disabled':'')+' data-d="'+d+'">'+d+'</button>';
     }
     calGrid.innerHTML=html;
     calGrid.querySelectorAll('.cal-day:not([disabled])').forEach(function(btn){
-      btn.addEventListener('click',function(){
-        selDate=new Date(viewYear,viewMonth,parseInt(btn.dataset.d));
-        renderCal();
-      });
+      btn.addEventListener('click',function(){selDate=new Date(viewYear,viewMonth,parseInt(btn.dataset.d));renderCal();});
     });
   }
 
   function renderSlots(){
-    slotsGrid.innerHTML=SLOTS.map(function(t){
-      return '<button class="slot-btn'+(selTime===t?' slot-sel':'')+'" data-t="'+t+'">'+t+'</button>';
-    }).join('');
+    slotsGrid.innerHTML=SLOTS.map(function(t){return '<button class="slot-btn'+(selTime===t?' slot-sel':'')+'" data-t="'+t+'">'+t+'</button>';}).join('');
     slotsGrid.querySelectorAll('.slot-btn').forEach(function(btn){
       btn.addEventListener('click',function(){
         selTime=btn.dataset.t;
+        slotsToggleLabel.textContent=selTime;
+        slotsPanel.classList.remove('open');slotsToggle.classList.remove('open');
         renderSlots();
       });
     });
@@ -783,42 +481,35 @@ fetch('index.html')
   document.getElementById('btnConfirm').addEventListener('click',function(){
     var name=document.getElementById('bName').value.trim();
     var email=document.getElementById('bEmail').value.trim();
-    if(!name){document.getElementById('bName').focus();return;}
-    if(!email){document.getElementById('bEmail').focus();return;}
+    if(!name){detailsPanel.classList.add('open');detailsToggle.classList.add('open');document.getElementById('bName').focus();return;}
+    if(!email){detailsPanel.classList.add('open');detailsToggle.classList.add('open');document.getElementById('bEmail').focus();return;}
     if(!selDate){calGrid.scrollIntoView({behavior:'smooth'});return;}
-    if(!selTime){slotsGrid.scrollIntoView({behavior:'smooth'});return;}
-    var dateStr=DAYS_SHORT[selDate.getDay()]+', '+selDate.getDate()+' '+MONTHS[selDate.getMonth()]+' '+selDate.getFullYear();
-    document.getElementById('bkSummary').textContent=dateStr+' at '+selTime+' CET';
+    if(!selTime){slotsToggle.scrollIntoView({behavior:'smooth'});slotsPanel.classList.add('open');slotsToggle.classList.add('open');return;}
+    var ds=DAYS_SHORT[selDate.getDay()]+', '+selDate.getDate()+' '+MONTHS[selDate.getMonth()]+' '+selDate.getFullYear();
+    document.getElementById('bkSummary').textContent=ds+' at '+selTime+' CET';
     document.getElementById('bkFormArea').style.display='none';
-    var s=document.getElementById('bkSuccess');
-    s.style.display='block';
+    var s=document.getElementById('bkSuccess');s.style.display='block';
     s.scrollIntoView({behavior:'smooth',block:'center'});
   });
 })();
 
-function handleSubmit(e) {
-  e.preventDefault();
-  const name  = document.getElementById('f-name').value.trim();
-  const email = document.getElementById('f-email').value.trim();
-  const msg   = document.getElementById('f-msg').value.trim();
-  if (!name || !email || !msg) return;
-  const success = document.getElementById('formSuccess');
-  success.style.display = 'block';
-  e.target.reset();
+function handleSubmit(){
+  var n=document.getElementById('f-name').value.trim();
+  var e=document.getElementById('f-email').value.trim();
+  var m=document.getElementById('f-msg').value.trim();
+  if(!n||!e||!m)return;
+  document.getElementById('formSuccess').style.display='block';
+  document.getElementById('f-name').value='';
+  document.getElementById('f-email').value='';
+  document.getElementById('f-msg').value='';
 }
 
-function downloadVCF() {
-  const blob = new Blob([VCARD], { type: 'text/vcard;charset=utf-8' });
-  const url  = URL.createObjectURL(blob);
-  const a    = document.createElement('a');
-  a.href     = url;
-  a.download = 'AtelierV.vcf';
-  document.body.appendChild(a);
-  a.click();
-  document.body.removeChild(a);
-  URL.revokeObjectURL(url);
+function downloadVCF(){
+  var blob=new Blob([VCARD],{type:'text/vcard;charset=utf-8'});
+  var url=URL.createObjectURL(blob);
+  var a=document.createElement('a');a.href=url;a.download='AtelierV.vcf';
+  document.body.appendChild(a);a.click();document.body.removeChild(a);URL.revokeObjectURL(url);
 }
 </script>
 </body>
 </html>
-
