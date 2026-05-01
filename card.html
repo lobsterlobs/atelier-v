@@ -453,13 +453,23 @@ body::before{
   padding:36px 44px 44px;
 }
 
-/* ── DESKTOP THREE-COLUMN LAYOUT ── */
+/* ── DESKTOP LAYOUT ── */
 @media(min-width:769px){
   .page-inner{max-width:1320px;}
   .card{max-width:560px;margin:0 auto;}
-  .sections-row{display:flex;align-items:stretch;gap:1.5rem;width:100%;max-width:960px;margin:0 auto;}
-  .sections-col{flex:1;min-width:0;padding:0;}
-  .sections-col:first-child .qr-section{height:100%;}
+}
+@media(min-width:900px){
+  div.sections-row{
+    display:flex;
+    flex-direction:row;
+    gap:1.5rem;
+    max-width:920px;
+    margin:0 auto;
+    align-items:stretch;
+  }
+  div.sections-col{
+    flex:1;
+  }
 }
 @media(max-width:480px){
   .qr-section{padding:28px 28px 36px;}
