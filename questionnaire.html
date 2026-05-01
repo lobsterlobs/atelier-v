@@ -298,7 +298,7 @@ select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='ht
 
   <div class="field">
     <label>How do clients find you currently?</label>
-    <div class="check-grid">
+    <div class="check-grid" id="clientFindHow">
       <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Word of mouth</span></div>
       <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Social media</span></div>
       <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Google search</span></div>
@@ -363,7 +363,7 @@ select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='ht
 
   <div class="field">
     <label>What type of symbol or icon appeals to you?</label>
-    <div class="check-grid">
+    <div class="check-grid" id="logoSymbolTypes">
       <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Abstract geometric shape</span></div>
       <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Letter or monogram</span></div>
       <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Nature / organic shapes</span></div>
@@ -448,7 +448,7 @@ select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='ht
   <div class="field">
     <label>What emotions should your brand evoke?</label>
     <div class="hint">Select up to 3</div>
-    <div class="check-grid">
+    <div class="check-grid" id="brandEmotions">
       <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Trust & Reliability</span></div>
       <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Luxury & Exclusivity</span></div>
       <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Warmth & Friendliness</span></div>
@@ -632,7 +632,7 @@ select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='ht
 
   <div class="field">
     <label>Which languages?</label>
-    <div class="check-grid">
+    <div class="check-grid" id="siteLangsList">
       <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">English</span></div>
       <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Bulgarian</span></div>
       <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">German</span></div>
@@ -976,90 +976,103 @@ function selectPkg(pkg){
   document.getElementById(map[pkg]).classList.add('selected');
 }
 
+function v(id){ const el = document.getElementById(id); return el ? el.value.trim() : ''; }
+
 function submitBrief(){
   const pkg = document.querySelector('#pkgGrid .pkg-card.selected .pkg-label')?.textContent || 'Not selected';
-  const sections = getChecked('siteSections');
-  const langs = getChecked('step6 .check-grid');
 
-  const body = `
-NEW BRAND BRIEF — ATELIER V
-============================
+  const lines = [
+    'NEW BRAND BRIEF — ATELIER V',
+    '============================',
+    '',
+    'STEP 1 — YOUR BUSINESS',
+    '-----------------------',
+    'Business Name: '           + (v('bizName')       || '—'),
+    'What you offer: '          + (v('bizOffer')      || '—'),
+    'Industry: '                + (v('bizIndustry')   || '—'),
+    'Location: '                + (v('bizLocation')   || '—'),
+    'Slogan: '                  + (v('bizSlogan')     || '—'),
+    'Business Age: '            + (getSelected('bizAge')  || '—'),
+    'Team Size: '               + (getSelected('bizTeam') || '—'),
+    'What makes you different: '+ (v('bizDiff')       || '—'),
+    'Existing logo/materials: ' + (getSelected('bizLogo') || '—'),
+    'Notes: '                   + (v('notes1')        || '—'),
+    '',
+    'STEP 2 — YOUR CLIENTS',
+    '----------------------',
+    'Ideal client: '            + (v('clientIdeal')        || '—'),
+    'Client age range: '        + (getChecked('clientAge').join(', ')      || '—'),
+    'Client gender: '           + (getSelected('clientGender')             || '—'),
+    'International clients: '   + (getSelected('clientInternational')      || '—'),
+    'How clients find you: '    + (getChecked('clientFindHow').join(', ')  || '—'),
+    'First impression goal: '   + (v('clientImpression') || '—'),
+    'Brand personality words: ' + (v('clientWords')       || '—'),
+    'Competitors: '             + (v('clientCompetitors') || '—'),
+    'Better than competitors: ' + (v('clientBetter')      || '—'),
+    'Notes: '                   + (v('notes2')            || '—'),
+    '',
+    'STEP 3 — YOUR LOGO',
+    '-------------------',
+    'Logo format: '             + (getSelected('logoFormat')                || '—'),
+    'Symbol types: '            + (getChecked('logoSymbolTypes').join(', ') || '—'),
+    'Logo style: '              + (getSelected('logoStyle')                 || '—'),
+    'Logos they love: '         + (v('logoLove')    || '—'),
+    'Logos they dislike: '      + (v('logoHate')    || '—'),
+    'Specific symbols/elements: '+ (v('logoSymbols') || '—'),
+    'Notes: '                   + (v('notes3')      || '—'),
+    '',
+    'STEP 4 — COLORS & VISUAL IDENTITY',
+    '----------------------------------',
+    'Brand style: '             + (getSelected('brandStyle')               || '—'),
+    'Brand emotions: '          + (getChecked('brandEmotions').join(', ')  || '—'),
+    'Color direction: '         + (getSelected('colorDir')                 || '—'),
+    'Brand as a person: '       + (v('brandPerson') || '—'),
+    'Brands they love: '        + (v('brandLove')   || '—'),
+    'Brands they dislike: '     + (v('brandHate')   || '—'),
+    'Notes: '                   + (v('notes4')      || '—'),
+    '',
+    'STEP 5 — YOUR CONTENT',
+    '----------------------',
+    'Brand story: '             + (v('contentStory')    || '—'),
+    'Services/Products: '       + (v('contentServices') || '—'),
+    'Tone of voice: '           + (getSelected('contentTone')    || '—'),
+    'Photos ready: '            + (getSelected('contentPhotos')  || '—'),
+    'Content ready: '           + (getSelected('contentText')    || '—'),
+    'Tagline: '                 + (getSelected('contentTagline') || '—'),
+    'Notes: '                   + (v('notes5') || '—'),
+    '',
+    'STEP 6 — YOUR WEBSITE',
+    '----------------------',
+    'Sections needed: '         + (getChecked('siteSections').join(', ')  || '—'),
+    'Number of languages: '     + (getSelected('siteLangs')               || '—'),
+    'Languages: '               + (getChecked('siteLangsList').join(', ') || '—'),
+    'Email signature: '         + (getSelected('siteEmails')              || '—'),
+    'Notes: '                   + (v('notes6') || '—'),
+    '',
+    'STEP 7 — TECHNICAL DETAILS',
+    '---------------------------',
+    'Name: '                    + (v('techName')    || '—'),
+    'Email: '                   + (v('techEmail')   || '—'),
+    'Phone: '                   + (v('techPhone')   || '—'),
+    'Address: '                 + (v('techAddress') || '—'),
+    'Instagram: '               + (v('techInstagram') || '—'),
+    'Facebook: '                + (v('techFacebook')  || '—'),
+    'LinkedIn: '                + (v('techLinkedin')  || '—'),
+    'TikTok: '                  + (v('techTiktok')    || '—'),
+    'Domain: '                  + (getSelected('techDomain') || '—') + (v('techDomainName') ? ' — ' + v('techDomainName') : ''),
+    'Email mailboxes: '         + (getSelected('techMailbox') || '—') + (v('techMailboxNames') ? ' — ' + v('techMailboxNames') : ''),
+    'Target launch date: '      + (v('techDeadline') || '—'),
+    'Budget: '                  + (getSelected('techBudget') || '—'),
+    'Notes: '                   + (v('notes7') || '—'),
+    '',
+    'STEP 8 — SELECTED PACKAGE',
+    '--------------------------',
+    'Package: ' + pkg,
+  ];
 
-BUSINESS INFORMATION
-Business Name: ${document.getElementById('bizName').value}
-Offer/Services: ${document.getElementById('bizOffer').value}
-Industry: ${document.getElementById('bizIndustry').value}
-Location: ${document.getElementById('bizLocation').value}
-Slogan: ${document.getElementById('bizSlogan').value || 'None'}
-Business Age: ${getSelected('bizAge')}
-Team Size: ${getSelected('bizTeam')}
-What makes them different: ${document.getElementById('bizDiff').value}
-Existing logo/materials: ${getSelected('bizLogo')}
-Notes (Step 1): ${document.getElementById('notes1').value || 'None'}
-
-CLIENT INFORMATION
-Ideal client: ${document.getElementById('clientIdeal').value}
-Age range: ${getChecked('clientAge').join(', ')}
-Gender: ${getSelected('clientGender')}
-International clients: ${getSelected('clientInternational')}
-First impression goal: ${document.getElementById('clientImpression').value}
-Brand personality words: ${document.getElementById('clientWords').value}
-Competitors: ${document.getElementById('clientCompetitors').value || 'None'}
-Better than competitors: ${document.getElementById('clientBetter').value || 'None'}
-Notes (Step 2): ${document.getElementById('notes2').value || 'None'}
-
-LOGO
-Format: ${getSelected('logoFormat')}
-Style: ${getSelected('logoStyle')}
-Logos they love: ${document.getElementById('logoLove').value || 'None'}
-Logos they dislike: ${document.getElementById('logoHate').value || 'None'}
-Symbols/elements: ${document.getElementById('logoSymbols').value || 'None'}
-Notes (Step 3): ${document.getElementById('notes3').value || 'None'}
-
-VISUAL IDENTITY
-Brand style: ${getSelected('brandStyle')}
-Emotions: ${getChecked('step4 .check-grid').join(', ')}
-Color direction: ${getSelected('colorDir')}
-Brand as a person: ${document.getElementById('brandPerson').value || 'None'}
-Brands they love: ${document.getElementById('brandLove').value || 'None'}
-Brands they dislike: ${document.getElementById('brandHate').value || 'None'}
-Notes (Step 4): ${document.getElementById('notes4').value || 'None'}
-
-CONTENT
-Story: ${document.getElementById('contentStory').value}
-Services/Products: ${document.getElementById('contentServices').value}
-Tone of voice: ${getSelected('contentTone')}
-Photos ready: ${getSelected('contentPhotos')}
-Content ready: ${getSelected('contentText')}
-Tagline: ${getSelected('contentTagline')}
-Notes (Step 5): ${document.getElementById('notes5').value || 'None'}
-
-WEBSITE
-Sections needed: ${sections.join(', ')}
-Languages: ${getSelected('siteLangs')}
-Email signature needed: ${getSelected('siteEmails')}
-Notes (Step 6): ${document.getElementById('notes6').value || 'None'}
-
-TECHNICAL DETAILS
-Name: ${document.getElementById('techName').value}
-Email: ${document.getElementById('techEmail').value}
-Phone: ${document.getElementById('techPhone').value}
-Address: ${document.getElementById('techAddress').value || 'None'}
-Instagram: ${document.getElementById('techInstagram').value || 'None'}
-Facebook: ${document.getElementById('techFacebook').value || 'None'}
-LinkedIn: ${document.getElementById('techLinkedin').value || 'None'}
-TikTok: ${document.getElementById('techTiktok').value || 'None'}
-Domain: ${getSelected('techDomain')} ${document.getElementById('techDomainName').value}
-Email mailboxes: ${getSelected('techMailbox')} — ${document.getElementById('techMailboxNames').value || ''}
-Launch date: ${document.getElementById('techDeadline').value}
-Budget: ${getSelected('techBudget')}
-Notes (Step 7): ${document.getElementById('notes7').value || 'None'}
-
-SELECTED PACKAGE: ${pkg}
-  `.trim();
-
-  const subject = encodeURIComponent('New Brand Brief — ' + (document.getElementById('bizName').value || 'Client'));
-  window.location.href = `mailto:team@atelierv.design?subject=${subject}&body=${encodeURIComponent(body)}`;
+  const body = lines.join('\n');
+  const subject = encodeURIComponent('New Brand Brief — ' + (v('bizName') || 'Client'));
+  window.location.href = 'mailto:team@atelierv.design?subject=' + subject + '&body=' + encodeURIComponent(body);
 }
 
 updateProgress(1);
