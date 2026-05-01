@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>FAQ — Atelier V Digital Branding Studio</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{--navy:#1B2A4A;--gold:#C9A84C;--white:#fff;--off:#F9F8F6;--txt:#2c2c2c;}
+body{font-family:'Jost',sans-serif;color:var(--txt);background:var(--off);}
+a{color:var(--gold);text-decoration:none;}
+a:hover{text-decoration:underline;}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;height:64px;padding:0 48px;display:flex;align-items:center;justify-content:space-between;background:rgba(249,248,246,.97);border-bottom:1px solid rgba(201,168,76,.15);}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;letter-spacing:.08em;color:var(--navy);}
+.nav-back{font-size:12px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--navy);}
+.nav-back:hover{color:var(--gold);}
+
+.hero{background:var(--navy);padding:120px 2rem 60px;text-align:center;}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:300;color:var(--white);margin-bottom:1rem;}
+.hero p{color:#aaa;font-size:1rem;line-height:1.7;max-width:500px;margin:0 auto;}
+
+main{max-width:860px;margin:0 auto;padding:60px 24px 80px;}
+
+.faq-category{margin-bottom:3rem;}
+.category-title{font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;padding-bottom:0.8rem;border-bottom:1px solid #e8e8e8;}
+
+.faq-item{background:var(--white);border:1px solid #e8e8e8;border-radius:6px;margin-bottom:0.8rem;overflow:hidden;transition:box-shadow .2s;}
+.faq-item:hover{box-shadow:0 2px 12px rgba(0,0,0,.06);}
+.faq-question{padding:1.4rem 1.8rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:1rem;}
+.faq-question h3{font-size:1rem;font-weight:500;color:var(--navy);line-height:1.5;}
+.faq-icon{width:24px;height:24px;border-radius:50%;background:var(--off);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .3s;font-size:14px;color:var(--navy);}
+.faq-item.open .faq-icon{background:var(--gold);color:var(--navy);transform:rotate(45deg);}
+.faq-answer{max-height:0;overflow:hidden;transition:max-height .3s ease;}
+.faq-answer-inner{padding:0 1.8rem 1.5rem;font-size:0.95rem;color:#555;line-height:1.9;}
+.faq-answer-inner p{margin-bottom:0.8rem;}
+.faq-answer-inner p:last-child{margin-bottom:0;}
+.faq-answer-inner ul{margin:0.5rem 0;padding-left:0;list-style:none;}
+.faq-answer-inner ul li{padding:0.2rem 0 0.2rem 1.2rem;position:relative;}
+.faq-answer-inner ul li::before{content:"—";color:var(--gold);position:absolute;left:0;}
+.faq-item.open .faq-answer{max-height:600px;}
+
+.cta-box{background:var(--navy);border-radius:6px;padding:3rem 2rem;text-align:center;margin-top:3rem;}
+.cta-box h2{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:var(--white);margin-bottom:1rem;}
+.cta-box p{color:#aaa;margin-bottom:1.5rem;font-size:0.95rem;}
+.btn{display:inline-block;background:var(--gold);color:var(--navy);padding:14px 32px;font-size:12px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;border-radius:4px;transition:opacity .2s;}
+.btn:hover{opacity:.85;text-decoration:none;}
+
+footer{background:var(--navy);color:#aaa;text-align:center;padding:40px 2rem;font-size:0.85rem;}
+.footer-logo{font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:var(--white);margin-bottom:0.3rem;}
+.footer-sub{font-size:0.75rem;letter-spacing:0.1em;color:var(--gold);margin-bottom:1rem;}
+.footer-links{display:flex;justify-content:center;gap:2rem;margin-top:1rem;flex-wrap:wrap;}
+.footer-links a{color:#aaa;text-decoration:none;}
+.footer-links a:hover{color:var(--gold);}
+
+@media(max-width:768px){
+  nav{padding:0 20px;}
+  .hero h1{font-size:2rem;}
+  main{padding:40px 16px 60px;}
+  .faq-question{padding:1.2rem;}
+  .faq-answer-inner{padding:0 1.2rem 1.2rem;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">ATELIER V</a>
+  <a href="index.html" class="nav-back">← Back to site</a>
+</nav>
+
+<div class="hero">
+  <h1>Frequently Asked<br><em>Questions</em></h1>
+  <p>Everything you need to know before starting your brand. Can't find the answer? Write to us at <a href="mailto:team@atelierv.design">team@atelierv.design</a></p>
+</div>
+
+<main>
+
+  <!-- PROCESS -->
+  <div class="faq-category">
+    <div class="category-title">The Process</div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        <h3>How does the process work from start to finish?</h3>
+        <div class="faq-icon">+</div>
+      </div>
+      <div class="faq-answer"><div class="faq-answer-inner">
+        <p>It's simple. You fill in our brand questionnaire — it takes about 10–15 minutes and covers everything we need to know about your business, your clients, and your vision. We review your answers, confirm your order, and send you an invoice for the 30% deposit. Once payment is confirmed, we start building your brand immediately.</p>
+        <p>Within 7 working days, you receive the finished result — logo, website, digital business card, and all included materials. You review it, give us feedback, and we apply any revisions. Once you approve, you pay the remaining 70% and we publish everything live.</p>
+      </div></div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        <h3>How long does it take?</h3>
+        <div class="faq-icon">+</div>
+      </div>
+      <div class="faq-answer"><div class="faq-answer-inner">
+        <p>Standard delivery is <strong>7 working days</strong> from the moment we receive your completed questionnaire and confirmed payment. This covers logo design, website development, digital business card, and all included deliverables.</p>
+        <p>The timeline may be extended if we are waiting for content or feedback from your side. We will always communicate any changes in timeline proactively.</p>
+      </div></div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        <h3>Do we need to meet in person or have calls?</h3>
+        <div class="faq-icon">+</div>
+      </div>
+      <div class="faq-answer"><div class="faq-answer-inner">
+        <p>No meetings required. Our entire process is designed to work remotely and asynchronously. The questionnaire replaces the discovery call — it collects everything we need in a structured way that actually produces better results than an open conversation.</p>
+        <p>All communication happens via email. If you have specific questions or requests, simply write to <a href="mailto:team@atelierv.design">team@atelierv.design</a> and we will respond within 24 hours on working days.</p>
+      </div></div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        <h3>What if I don't know exactly what I want?</h3>
+        <div class="faq-icon">+</div>
+      </div>
+      <div class="faq-answer"><div class="faq-answer-inner">
+        <p>That's completely normal — and it's exactly why we built the questionnaire the way we did. You don't need to know design terminology or have a vision board ready. Just answer the questions honestly and as specifically as you can about your business and your clients.</p>
+        <p>We are the experts in translating business identity into visual language. Your job is to tell us about your business. Our job is to turn that into a brand.</p>
+      </div></div>
+    </div>
+
+  </div>
+
+  <!-- PAYMENT -->
+  <div class="faq-category">
+    <div class="category-title">Payment</div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        <h3>How does payment work?</h3>
+        <div class="faq-icon">+</div>
+      </div>
+      <div class="faq-answer"><div class="faq-answer-inner">
+        <p>We split the payment into two parts to protect both sides:</p>
+        <ul>
+          <li><strong>30% deposit</strong> — paid before we start. This confirms your order and covers our initial work.</li>
+          <li><strong>70% final payment</strong> — paid after you see and approve the finished result, before we publish it live.</li>
+        </ul>
+        <p>This means you never pay the full amount before seeing the work. And we never publish before payment is complete.</p>
+      </div></div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        <h3>Can I get an invoice?</h3>
+        <div class="faq-icon">+</div>
+      </div>
+      <div class="faq-answer"><div class="faq-answer-inner">
+        <p>Yes. We issue invoices for all payments. Please let us know when placing your order if you need the invoice issued to a company name and VAT number, and provide the relevant details.</p>
+      </div></div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        <h3>What if I'm not satisfied with the result?</h3>
+        <div class="faq-icon">+</div>
+      </div>
+      <div class="faq-answer"><div class="faq-answer-inner">
+        <p>Each package includes revision rounds — 1 for Essential, 2 for Full Brand. You review the delivered work and send us a consolidated list of changes. We implement them within 48 hours.</p>
+        <p>In the unlikely event that the result is fundamentally not aligned with your brief, we will work with you to find a resolution. Our goal is for you to be genuinely proud of the result.</p>
+        <p>Please note that revisions must be based on the original brief. A change of direction or completely new concept is a new project.</p>
+      </div></div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        <h3>Can I cancel after placing an order?</h3>
+        <div class="faq-icon">+</div>
+      </div>
+      <div class="faq-answer"><div class="faq-answer-inner">
+        <p>If you cancel before we have started work, we refund 50% of the deposit within 5 business days.</p>
+        <p>If work has already begun, the deposit is non-refundable as it covers the work already completed. The final 70% is never charged if you cancel before approval.</p>
+      </div></div>
+    </div>
+
+  </div>
+
+  <!-- TECHNICAL -->
+  <div class="faq-category">
+    <div class="category-title">Technical Questions</div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        <h3>Do I need any technical knowledge?</h3>
+        <div class="faq-icon">+</div>
+      </div>
+      <div class="faq-answer"><div class="faq-answer-inner">
+        <p>None whatsoever. You don't need to know what a domain, hosting, SSL certificate, or HTML is. We handle 100% of the technical setup. Your only job is to fill in the questionnaire and give us feedback on the result.</p>
+      </div></div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        <h3>Can I edit the website myself after it's delivered?</h3>
+        <div class="faq-icon">+</div>
+      </div>
+      <div class="faq-answer"><div class="faq-answer-inner">
+        <p>The websites we build are in HTML/CSS — they are fast, secure, and don't require a clunky admin panel. However, editing them directly requires basic technical knowledge.</p>
+        <p>This is exactly why we offer Monthly Support at €19.99/month. You simply email us what needs changing and we handle it within 24 hours. No technical knowledge required — ever.</p>
+        <p>The first 3 months of Monthly Support are free for Essential and Full Brand clients.</p>
+      </div></div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        <h3>Where is my website hosted?</h3>
+        <div class="faq-icon">+</div>
+      </div>
+      <div class="faq-answer"><div class="faq-answer-inner">
+        <p>Your website is hosted on GitHub Pages — a professional, reliable hosting platform used by millions of websites worldwide. It offers excellent performance, global CDN delivery, and automatic HTTPS security.</p>
+        <p>24 months of hosting are included in every package at no extra cost. After 24 months, GitHub Pages remains free — there is no mandatory cost increase.</p>
+      </div></div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        <h3>Is my website secure? Will it have HTTPS?</h3>
+        <div class="faq-icon">+</div>
+      </div>
+      <div class="faq-answer"><div class="faq-answer-inner">
+        <p>Yes. Every website we build is served over HTTPS — the padlock symbol your clients see in their browser. This is essential for trust and is set up automatically as part of our technical setup process.</p>
+      </div></div>
+    </div>
+
+  </div>
+
+  <!-- DOMAIN & EMAIL -->
+  <div class="faq-category">
+    <div class="category-title">Domain & Email</div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        <h3>What if I already have a domain?</h3>
+        <div class="faq-icon">+</div>
+      </div>
+      <div class="faq-answer"><div class="faq-answer-inner">
+        <p>No problem. We will connect your existing domain to your new website free of charge as part of the technical setup. Just let us know in the questionnaire and provide the domain name.</p>
+      </div></div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        <h3>What domain will I get?</h3>
+        <div class="faq-icon">+</div>
+      </div>
+      <div class="faq-answer"><div class="faq-answer-inner">
+        <p>We register a standard domain — typically .com, .bg, .eu, .de, or similar — based on your business name and availability. We select it together with you before registration.</p>
+        <p>The first year of domain registration is covered by Atelier V and included in your package price. After the first year, renewal is at your expense. We will remind you 30 days before expiry and assist with renewal.</p>
+        <p>Premium domains with market value above standard registration fees are not included and are priced separately.</p>
+      </div></div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        <h3>Can I have a professional email like info@mybusiness.com?</h3>
+        <div class="faq-icon">+</div>
+      </div>
+      <div class="faq-answer"><div class="faq-answer-inner">
+        <p>Yes. We set up email forwarding on your domain so that emails sent to info@yourbusiness.com (or any address you choose) are forwarded directly to your existing Gmail or other inbox.</p>
+        <p>This means your clients see a professional email address, while you receive everything in the inbox you already use — no new accounts to manage.</p>
+        <p>The number of email addresses you need can be specified in the questionnaire.</p>
+      </div></div>
+    </div>
+
+  </div>
+
+  <!-- PACKAGES -->
+  <div class="faq-category">
+    <div class="category-title">Packages & Services</div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        <h3>What is the difference between Essential and Full Brand?</h3>
+        <div class="faq-icon">+</div>
+      </div>
+      <div class="faq-answer"><div class="faq-answer-inner">
+        <p><strong>Essential (€499)</strong> is the complete foundation — logo, brand colors, digital business card, and a one-page website. Perfect for a new business or anyone who needs a clean, professional online presence fast.</p>
+        <p><strong>Full Brand (€799)</strong> adds depth — a multi-page website (up to 5 pages), a branded HTML email signature, up to 5 languages, and 2 rounds of revisions. Ideal for businesses that need more content, more languages, or more pages.</p>
+        <p>Both packages are delivered in 7 working days and include 24 months of hosting.</p>
+      </div></div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        <h3>Can I upgrade my package later?</h3>
+        <div class="faq-icon">+</div>
+      </div>
+      <div class="faq-answer"><div class="faq-answer-inner">
+        <p>Yes. If you start with Essential and later want to add more pages, languages, or other Full Brand features, we can quote you for the additional work. You only pay the difference.</p>
+      </div></div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        <h3>What does Monthly Support include exactly?</h3>
+        <div class="faq-icon">+</div>
+      </div>
+      <div class="faq-answer"><div class="faq-answer-inner">
+        <p>Monthly Support (€19.99/month) covers all ongoing changes to your existing website content:</p>
+        <ul>
+          <li>Text updates — prices, descriptions, opening hours, contact details</li>
+          <li>Image updates — replacing or adding photos</li>
+          <li>Adding new items within existing sections (e.g. new service, new team member)</li>
+          <li>Technical support if something stops working</li>
+        </ul>
+        <p>How it works: you email us the changes at <a href="mailto:team@atelierv.design">team@atelierv.design</a> and we implement them within 24 hours on working days.</p>
+        <p>Monthly Support does not include building new pages, structural redesign, SEO campaigns, or social media management.</p>
+        <p>The first 3 months are free for all Essential and Full Brand clients.</p>
+      </div></div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        <h3>Who owns the logo and website after delivery?</h3>
+        <div class="faq-icon">+</div>
+      </div>
+      <div class="faq-answer"><div class="faq-answer-inner">
+        <p>You do. After the final payment, you receive full ownership of all delivered materials — the logo files (PNG, SVG), the website code, and all associated design assets. You are free to use them however you wish.</p>
+      </div></div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        <h3>Do you work with businesses in any country?</h3>
+        <div class="faq-icon">+</div>
+      </div>
+      <div class="faq-answer"><div class="faq-answer-inner">
+        <p>Yes. Our process is fully remote and we work with clients across Europe and beyond. We communicate in English, Bulgarian, German, and other languages. Our questionnaire and deliverables can be produced in any of the 12 languages we support.</p>
+      </div></div>
+    </div>
+
+  </div>
+
+  <div class="cta-box">
+    <h2>Still have a question?</h2>
+    <p>Write to us and we will get back to you within 24 hours.</p>
+    <a href="mailto:team@atelierv.design" class="btn">Contact us →</a>
+  </div>
+
+</main>
+
+<footer>
+  <div class="footer-logo">ATELIER V</div>
+  <div class="footer-sub">DIGITAL BRANDING STUDIO</div>
+  <p>© 2026 Atelier V — Digital Branding Studio. All rights reserved.</p>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="terms.html">Terms & Privacy</a>
+    <a href="faq.html">FAQ</a>
+    <a href="mailto:team@atelierv.design">Contact</a>
+  </div>
+</footer>
+
+<script>
+function toggleFaq(el){
+  const item = el.parentElement;
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+  if(!isOpen) item.classList.add('open');
+}
+</script>
+</body>
+</html>
