@@ -1,923 +1,1064 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Start Your Brand — Atelier V</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-:root{
-  --navy:#1B2A4A;
-  --gold:#C9A84C;
-  --gold-l:#e8c96a;
-  --off:#F9F8F6;
-  --muted:#777;
-  --white:#fff;
-  --red:#e05252;
-}
-html{scroll-behavior:smooth;}
-body{font-family:'Jost',sans-serif;background:var(--navy);color:var(--white);min-height:100vh;}
+:root{--navy:#1B2A4A;--gold:#C9A84C;--white:#fff;--off:#F9F8F6;--txt:#2c2c2c;--border:#e0e0e0;}
+body{font-family:'Jost',sans-serif;color:var(--txt);background:var(--off);min-height:100vh;}
+a{text-decoration:none;}
 
-/* ── NAV ── */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;height:64px;padding:0 40px;display:flex;align-items:center;justify-content:space-between;background:rgba(249,248,246,.97);border-bottom:1px solid rgba(201,168,76,.12);backdrop-filter:blur(8px);}
-.nav-logo{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:300;letter-spacing:.08em;color:var(--navy);text-decoration:none;}
-.nav-logo em{font-style:italic;color:var(--gold);}
-.nav-back{font-family:'Jost',sans-serif;font-size:11px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);text-decoration:none;display:flex;align-items:center;gap:6px;transition:color .2s;}
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;height:64px;padding:0 48px;display:flex;align-items:center;justify-content:space-between;background:rgba(249,248,246,.97);border-bottom:1px solid rgba(201,168,76,.15);}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;letter-spacing:.08em;color:var(--navy);}
+.nav-back{font-size:12px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--navy);display:flex;align-items:center;gap:8px;}
 .nav-back:hover{color:var(--gold);}
-.nav-back svg{width:14px;height:14px;fill:currentColor;}
 
-/* ── HERO ── */
-.q-hero{padding:128px 24px 48px;text-align:center;background:var(--navy);position:relative;overflow:hidden;}
-.q-hero::before{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(201,168,76,.07) 1px,transparent 1px);background-size:28px 28px;pointer-events:none;}
-.q-eyebrow{font-family:'Jost',sans-serif;font-size:10px;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:20px;position:relative;z-index:1;}
-.q-title{font-family:'Cormorant Garamond',serif;font-size:clamp(38px,6vw,72px);font-weight:300;line-height:1.05;color:var(--white);margin-bottom:16px;position:relative;z-index:1;}
-.q-title em{font-style:italic;color:var(--gold);}
-.q-sub{font-family:'Jost',sans-serif;font-size:13px;font-weight:300;color:rgba(255,255,255,.45);letter-spacing:.06em;position:relative;z-index:1;}
+/* PROGRESS */
+.progress-wrap{position:fixed;top:64px;left:0;right:0;z-index:99;background:var(--white);border-bottom:1px solid var(--border);padding:16px 48px;}
+.progress-info{display:flex;justify-content:space-between;margin-bottom:8px;font-size:12px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:#888;}
+.progress-bar{height:3px;background:#e8e8e8;border-radius:2px;}
+.progress-fill{height:100%;background:var(--gold);border-radius:2px;transition:width .4s ease;}
 
-/* ── PROGRESS ── */
-.progress-section{max-width:720px;margin:0 auto;padding:36px 24px 0;}
-.progress-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;}
-.step-label{font-family:'Jost',sans-serif;font-size:10px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);}
-.step-title-label{font-family:'Jost',sans-serif;font-size:10px;font-weight:300;letter-spacing:.1em;color:rgba(255,255,255,.35);}
-.progress-track{height:2px;background:rgba(201,168,76,.15);overflow:hidden;}
-.progress-fill{height:100%;background:var(--gold);transition:width .4s cubic-bezier(.4,0,.2,1);width:0%;}
-
-/* ── FORM WRAP ── */
-.q-wrap{max-width:720px;margin:0 auto;padding:40px 24px 100px;}
-.step{display:none;}
+/* MAIN */
+main{padding-top:140px;padding-bottom:80px;min-height:100vh;}
+.step{display:none;max-width:760px;margin:0 auto;padding:0 24px;}
 .step.active{display:block;}
+.step-header{margin-bottom:3rem;}
+.step-eyebrow{font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.8rem;}
+.step-title{font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:300;color:var(--navy);line-height:1.2;margin-bottom:.8rem;}
+.step-subtitle{font-size:1rem;color:#666;line-height:1.7;}
 
-/* ── STEP HEADING ── */
-.step-heading{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,4vw,42px);font-weight:300;color:var(--white);margin-bottom:8px;line-height:1.1;}
-.step-heading em{font-style:italic;color:var(--gold);}
-.step-intro{font-family:'Jost',sans-serif;font-size:12px;font-weight:300;color:rgba(255,255,255,.38);letter-spacing:.06em;margin-bottom:36px;line-height:1.7;}
+/* FIELDS */
+.field{margin-bottom:2rem;}
+.field label{display:block;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--navy);margin-bottom:.6rem;}
+.field .hint{font-size:12px;color:#888;margin-bottom:.6rem;font-style:italic;}
+input[type=text],input[type=email],input[type=date],input[type=url],textarea,select{width:100%;padding:14px 16px;font-family:'Jost',sans-serif;font-size:16px;color:var(--txt);background:var(--white);border:1.5px solid var(--border);border-radius:4px;transition:border .2s;outline:none;}
+input:focus,textarea:focus,select:focus{border-color:var(--gold);}
+input.error,textarea.error,select.error{border-color:#e74c3c;}
+.error-msg{font-size:12px;color:#e74c3c;margin-top:4px;display:none;}
+.error-msg.show{display:block;}
+textarea{resize:vertical;min-height:100px;}
+select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%231B2A4A' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center;}
 
-/* ── FIELD GROUP ── */
-.field-group{margin-bottom:32px;}
-.field-label{font-family:'Jost',sans-serif;font-size:10px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:12px;}
-.field-input,.field-select,.field-textarea{
-  width:100%;background:rgba(255,255,255,.05);border:1px solid rgba(201,168,76,.2);
-  color:var(--white);font-family:'Jost',sans-serif;font-size:13px;font-weight:300;
-  letter-spacing:.04em;padding:14px 18px;outline:none;
-  transition:border-color .2s,background .2s;appearance:none;-webkit-appearance:none;border-radius:0;
+/* CARDS */
+.cards{display:grid;gap:1rem;}
+.cards-2{grid-template-columns:1fr 1fr;}
+.cards-3{grid-template-columns:1fr 1fr 1fr;}
+.cards-4{grid-template-columns:1fr 1fr 1fr 1fr;}
+.card{padding:1.2rem 1.5rem;background:var(--white);border:1.5px solid var(--border);border-radius:6px;cursor:pointer;transition:all .2s;text-align:center;}
+.card:hover{border-color:var(--gold);}
+.card.selected{border-color:var(--gold);background:#fffdf5;}
+.card-title{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--navy);margin-bottom:.3rem;}
+.card-desc{font-size:12px;color:#777;line-height:1.5;}
+.card-emoji{font-size:1.8rem;margin-bottom:.5rem;}
+
+/* STYLE CARDS */
+.style-cards{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.style-card{padding:2rem;background:var(--white);border:2px solid var(--border);border-radius:6px;cursor:pointer;transition:all .2s;}
+.style-card:hover{border-color:var(--gold);}
+.style-card.selected{border-color:var(--gold);background:#fffdf5;}
+.style-card-name{font-size:14px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--navy);margin-bottom:.5rem;}
+.style-card-desc{font-size:13px;color:#666;line-height:1.6;}
+
+/* COLOR SWATCHES */
+.color-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;}
+.color-card{padding:1.5rem 1rem;background:var(--white);border:2px solid var(--border);border-radius:6px;cursor:pointer;transition:all .2s;text-align:center;}
+.color-card:hover{border-color:var(--gold);}
+.color-card.selected{border-color:var(--gold);}
+.color-swatch{height:40px;border-radius:4px;margin-bottom:.8rem;}
+.color-name{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--navy);}
+
+/* CHECKBOXES */
+.check-grid{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;}
+.check-item{display:flex;align-items:center;gap:.6rem;padding:.8rem 1rem;background:var(--white);border:1.5px solid var(--border);border-radius:4px;cursor:pointer;transition:all .2s;}
+.check-item:hover{border-color:var(--gold);}
+.check-item.checked{border-color:var(--gold);background:#fffdf5;}
+.check-item input{display:none;}
+.check-box{width:18px;height:18px;border:2px solid var(--border);border-radius:3px;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .2s;}
+.check-item.checked .check-box{background:var(--gold);border-color:var(--gold);}
+.check-tick{color:var(--navy);font-size:11px;display:none;}
+.check-item.checked .check-tick{display:block;}
+.check-label{font-size:13px;color:var(--txt);}
+
+/* NOTES FIELD */
+.notes-field{margin-top:2.5rem;padding-top:2rem;border-top:1px solid var(--border);}
+.notes-field label{font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:#aaa;margin-bottom:.5rem;display:block;}
+
+/* NAVIGATION */
+.step-nav{display:flex;gap:1rem;margin-top:3rem;padding-top:2rem;border-top:1px solid var(--border);}
+.btn-next{flex:1;padding:16px 32px;background:var(--gold);color:var(--navy);font-family:'Jost',sans-serif;font-size:13px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;transition:opacity .2s;}
+.btn-next:hover{opacity:.85;}
+.btn-back{padding:16px 32px;background:transparent;color:var(--navy);font-family:'Jost',sans-serif;font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;border:2px solid var(--navy);border-radius:4px;cursor:pointer;transition:all .2s;}
+.btn-back:hover{background:var(--navy);color:var(--white);}
+
+/* PACKAGE CARDS */
+.pkg-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.2rem;margin-bottom:2rem;}
+.pkg-card{padding:2rem 1.5rem;background:var(--white);border:2px solid var(--border);border-radius:6px;cursor:pointer;transition:all .2s;position:relative;}
+.pkg-card:hover{border-color:var(--gold);}
+.pkg-card.selected{border-color:var(--gold);background:#fffdf5;}
+.pkg-card.recommended{border-color:var(--gold);background:#fffdf5;}
+.pkg-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--gold);color:var(--navy);font-size:9px;font-weight:700;letter-spacing:.1em;padding:4px 12px;border-radius:20px;text-transform:uppercase;white-space:nowrap;}
+.pkg-label{font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem;}
+.pkg-price{font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:300;color:var(--navy);margin-bottom:.3rem;}
+.pkg-period{font-size:12px;color:#888;margin-bottom:1.2rem;}
+.pkg-features{list-style:none;}
+.pkg-features li{font-size:13px;color:#555;padding:.3rem 0;border-bottom:1px solid #f0f0f0;display:flex;gap:8px;align-items:flex-start;}
+.pkg-features li::before{content:"—";color:var(--gold);flex-shrink:0;}
+
+/* SUMMARY */
+.summary-box{background:var(--navy);border-radius:6px;padding:2rem;margin-bottom:2rem;}
+.summary-row{display:flex;justify-content:space-between;padding:.6rem 0;border-bottom:1px solid rgba(255,255,255,.1);}
+.summary-row:last-child{border:none;}
+.summary-label{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.5);}
+.summary-value{font-size:13px;color:var(--white);text-align:right;max-width:60%;}
+
+/* SUBMIT */
+.btn-submit{width:100%;padding:20px;background:var(--gold);color:var(--navy);font-family:'Jost',sans-serif;font-size:14px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;transition:opacity .2s;margin-top:1rem;}
+.btn-submit:hover{opacity:.85;}
+.submit-note{text-align:center;font-size:13px;color:#888;margin-top:1rem;line-height:1.6;}
+
+@media(max-width:768px){
+  nav{padding:0 20px;}
+  .progress-wrap{padding:12px 20px;}
+  .step{padding:0 16px;}
+  .step-title{font-size:2rem;}
+  .cards-2,.cards-3,.cards-4{grid-template-columns:1fr 1fr;}
+  .style-cards{grid-template-columns:1fr;}
+  .color-cards{grid-template-columns:1fr 1fr;}
+  .check-grid{grid-template-columns:1fr;}
+  .pkg-grid{grid-template-columns:1fr;}
 }
-.field-input::placeholder,.field-textarea::placeholder{color:rgba(255,255,255,.22);}
-.field-input:focus,.field-select:focus,.field-textarea:focus{border-color:var(--gold);background:rgba(201,168,76,.06);}
-.field-input.error,.field-select.error,.field-textarea.error{border-color:var(--red)!important;background:rgba(224,82,82,.06)!important;}
-.error-msg{font-family:'Jost',sans-serif;font-size:10px;font-weight:400;color:var(--red);letter-spacing:.06em;display:block;margin-top:7px;}
-.field-select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='%23C9A84C'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:40px;cursor:pointer;}
-.field-select option{background:var(--navy);color:var(--white);}
-.field-textarea{resize:vertical;min-height:120px;line-height:1.7;}
-input[type="date"]{color-scheme:dark;}
-input[type="date"]::-webkit-calendar-picker-indicator{filter:invert(1) sepia(1) saturate(2) hue-rotate(5deg);opacity:.6;cursor:pointer;}
-.field-row{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
-@media(max-width:560px){.field-row{grid-template-columns:1fr;}}
-
-/* ── STYLE CARDS (2×2) ── */
-.style-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;}
-@media(max-width:560px){.style-cards{grid-template-columns:1fr;}}
-.style-card input[type="radio"]{display:none;}
-.style-card label{
-  display:block;cursor:pointer;border:1px solid rgba(201,168,76,.18);
-  padding:22px 20px;text-align:center;
-  transition:border-color .2s,background .2s;position:relative;
-}
-.style-card label:hover{border-color:rgba(201,168,76,.45);}
-.style-card input[type="radio"]:checked + label{border-color:var(--gold);background:rgba(201,168,76,.08);}
-.style-card input[type="radio"]:checked + label::after{content:'✓';position:absolute;top:10px;right:12px;font-size:11px;color:var(--gold);font-weight:600;}
-.style-name{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:400;color:var(--white);margin-bottom:6px;}
-.style-desc{font-family:'Jost',sans-serif;font-size:10px;font-weight:300;color:rgba(255,255,255,.35);letter-spacing:.06em;line-height:1.6;}
-.style-cards.has-error label{border-color:rgba(224,82,82,.45);}
-.style-card input[type="radio"]:checked + label{border-color:var(--gold)!important;}
-
-/* ── LANGUAGE CARDS (3 cols) ── */
-.lang-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:8px;}
-@media(max-width:480px){.lang-cards{grid-template-columns:1fr;}}
-.lang-card input[type="radio"]{display:none;}
-.lang-card label{
-  display:block;cursor:pointer;border:1px solid rgba(201,168,76,.18);
-  padding:18px 12px;text-align:center;
-  transition:border-color .2s,background .2s;position:relative;
-}
-.lang-card label:hover{border-color:rgba(201,168,76,.45);}
-.lang-card input[type="radio"]:checked + label{border-color:var(--gold);background:rgba(201,168,76,.08);}
-.lang-card input[type="radio"]:checked + label::after{content:'✓';position:absolute;top:8px;right:10px;font-size:10px;color:var(--gold);font-weight:600;}
-.lang-name{font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:400;color:var(--white);margin-bottom:4px;}
-.lang-desc{font-family:'Jost',sans-serif;font-size:9px;font-weight:300;color:rgba(255,255,255,.3);letter-spacing:.06em;}
-.lang-cards.has-error label{border-color:rgba(224,82,82,.45);}
-.lang-card input[type="radio"]:checked + label{border-color:var(--gold)!important;}
-
-/* ── SECTION CARDS ── */
-.section-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;}
-@media(max-width:600px){.section-cards{grid-template-columns:repeat(2,1fr);}}
-@media(max-width:360px){.section-cards{grid-template-columns:1fr 1fr;}}
-.sec-card input[type="checkbox"]{display:none;}
-.sec-card label{
-  display:block;cursor:pointer;border:1px solid rgba(201,168,76,.15);
-  padding:12px 8px;text-align:center;
-  font-family:'Jost',sans-serif;font-size:10px;font-weight:400;
-  color:rgba(255,255,255,.55);letter-spacing:.08em;
-  transition:border-color .2s,background .2s,color .2s;
-}
-.sec-card label:hover{border-color:rgba(201,168,76,.45);color:var(--white);}
-.sec-card input[type="checkbox"]:checked + label{border-color:var(--gold);background:rgba(201,168,76,.08);color:var(--white);}
-.section-cards.has-error label{border-color:rgba(224,82,82,.35);}
-.sec-card input[type="checkbox"]:checked + label{border-color:var(--gold)!important;}
-
-/* ── RECOMMENDATION CARDS ── */
-.rec-intro{
-  font-family:'Jost',sans-serif;font-size:11px;font-weight:300;
-  color:rgba(255,255,255,.45);letter-spacing:.08em;
-  margin-bottom:24px;padding:14px 18px;
-  border-left:2px solid var(--gold);
-  line-height:1.7;
-}
-.rec-intro strong{color:var(--gold);font-weight:600;}
-.rec-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:8px;}
-@media(max-width:640px){.rec-cards{grid-template-columns:1fr;}}
-.rec-card{transition:opacity .25s;}
-.rec-card.dimmed{opacity:.32;}
-.rec-card.dimmed:hover{opacity:.7;}
-.rec-card input[type="radio"]{display:none;}
-.rec-card label{
-  display:block;cursor:pointer;border:1px solid rgba(201,168,76,.18);
-  padding:32px 18px 24px;text-align:center;
-  transition:border-color .2s,background .2s;
-  position:relative;height:100%;
-}
-.rec-card label:hover{border-color:rgba(201,168,76,.5);}
-.rec-card input[type="radio"]:checked + label{border-color:var(--gold);background:rgba(201,168,76,.08);}
-.rec-badge{
-  position:absolute;top:-1px;left:50%;transform:translateX(-50%);
-  background:var(--gold);color:var(--navy);
-  font-family:'Jost',sans-serif;font-size:7.5px;font-weight:700;
-  letter-spacing:.18em;text-transform:uppercase;
-  padding:5px 10px;white-space:nowrap;
-  display:none;
-}
-.rec-card.recommended .rec-badge{display:block;}
-.rec-pkg-name{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:400;color:var(--white);margin-bottom:6px;}
-.rec-pkg-price{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;color:var(--gold);margin-bottom:10px;line-height:1;}
-.rec-pkg-desc{font-family:'Jost',sans-serif;font-size:10px;font-weight:300;color:rgba(255,255,255,.35);letter-spacing:.06em;line-height:1.7;}
-
-/* ── ADD-ON ── */
-.addon-box{border:1px solid rgba(201,168,76,.2);padding:28px;margin-bottom:16px;}
-.addon-eyebrow{font-family:'Jost',sans-serif;font-size:10px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:10px;}
-.addon-title{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:400;color:var(--white);margin-bottom:4px;}
-.addon-price{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:300;color:var(--gold);line-height:1;margin-bottom:16px;}
-.addon-price small{font-family:'Jost',sans-serif;font-size:11px;font-weight:300;color:rgba(255,255,255,.35);letter-spacing:.06em;margin-left:4px;}
-.addon-features{list-style:none;margin-bottom:0;}
-.addon-features li{font-family:'Jost',sans-serif;font-size:12px;font-weight:300;color:rgba(255,255,255,.6);padding:4px 0 4px 16px;position:relative;}
-.addon-features li::before{content:'';position:absolute;left:0;top:12px;width:6px;height:1px;background:var(--gold);}
-.addon-toggle{display:flex;align-items:center;gap:14px;padding:14px 18px;border:1px solid rgba(201,168,76,.2);cursor:pointer;transition:border-color .2s;user-select:none;}
-.addon-toggle:hover{border-color:var(--gold);}
-.addon-toggle input[type="checkbox"]{display:none;}
-.addon-check{width:18px;height:18px;min-width:18px;border:1px solid rgba(201,168,76,.4);display:flex;align-items:center;justify-content:center;transition:background .2s,border-color .2s;}
-.addon-toggle input[type="checkbox"]:checked ~ .addon-check{background:var(--gold);border-color:var(--gold);}
-.addon-check svg{width:10px;height:10px;fill:var(--navy);display:none;}
-.addon-toggle input[type="checkbox"]:checked ~ .addon-check svg{display:block;}
-.addon-toggle-text{font-family:'Jost',sans-serif;font-size:12px;font-weight:400;color:rgba(255,255,255,.65);letter-spacing:.08em;}
-.addon-toggle-text strong{color:var(--white);font-weight:500;}
-
-/* ── REVIEW ── */
-.review-card{border:1px solid rgba(201,168,76,.2);padding:32px;margin-bottom:32px;}
-.review-eyebrow{font-family:'Jost',sans-serif;font-size:9px;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:20px;}
-.review-row{display:flex;justify-content:space-between;align-items:flex-start;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.05);gap:16px;}
-.review-row:last-child{border-bottom:none;}
-.review-key{font-family:'Jost',sans-serif;font-size:10px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.35);flex-shrink:0;min-width:120px;}
-.review-val{font-family:'Jost',sans-serif;font-size:12px;font-weight:300;color:rgba(255,255,255,.8);letter-spacing:.04em;text-align:right;}
-.review-divider{height:1px;background:rgba(201,168,76,.15);margin:16px 0;}
-
-/* ── PAYMENT NOTE ── */
-.payment-note{border-top:1px solid rgba(201,168,76,.15);padding-top:24px;margin-bottom:28px;font-family:'Jost',sans-serif;font-size:11px;font-weight:300;color:rgba(255,255,255,.38);letter-spacing:.1em;text-align:center;line-height:2;}
-.payment-note strong{color:rgba(255,255,255,.65);font-weight:500;}
-
-/* ── SUBMIT ── */
-.q-submit{
-  display:block;width:100%;padding:20px 64px;
-  background:var(--gold);color:var(--navy);
-  font-family:'Jost',sans-serif;font-size:12px;font-weight:700;
-  letter-spacing:.28em;text-transform:uppercase;
-  text-decoration:none;border:none;cursor:pointer;
-  transition:background .22s,transform .18s;text-align:center;
-}
-.q-submit:hover{background:var(--gold-l);transform:translateY(-2px);}
-.q-note{font-family:'Jost',sans-serif;font-size:10px;font-weight:300;color:rgba(255,255,255,.25);letter-spacing:.06em;text-align:center;margin-top:14px;line-height:1.7;}
-.q-followup{
-  margin-top:20px;padding:16px 20px;
-  border:1px solid rgba(201,168,76,.18);
-  font-family:'Jost',sans-serif;font-size:11px;font-weight:300;
-  color:rgba(255,255,255,.55);letter-spacing:.08em;line-height:1.8;
-  text-align:center;
-}
-
-/* ── NAV BUTTONS ── */
-.btn-row{display:flex;justify-content:space-between;align-items:center;margin-top:36px;gap:16px;}
-.btn-row.first{justify-content:flex-end;}
-.btn-next{padding:15px 44px;background:var(--gold);color:var(--navy);font-family:'Jost',sans-serif;font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;border:none;cursor:pointer;transition:background .2s,transform .18s;flex-shrink:0;}
-.btn-next:hover{background:var(--gold-l);transform:translateY(-2px);}
-.btn-back{padding:14px 32px;background:transparent;color:var(--gold);font-family:'Jost',sans-serif;font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;border:1px solid rgba(201,168,76,.4);cursor:pointer;transition:border-color .2s,color .2s;flex-shrink:0;}
-.btn-back:hover{border-color:var(--gold);color:var(--gold-l);}
-
-/* ── DIVIDER ── */
-.q-divider{width:36px;height:1px;background:rgba(201,168,76,.3);margin:32px 0;}
 </style>
 </head>
 <body>
 
 <nav>
-  <a href="index.html" class="nav-logo">Atelier <em>V</em></a>
-  <a href="index.html" class="nav-back">
-    <svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
-    Back to site
-  </a>
+  <a href="index.html" class="nav-logo">ATELIER V</a>
+  <a href="index.html" class="nav-back">← Back to site</a>
 </nav>
 
-<div class="q-hero">
-  <span class="q-eyebrow">Atelier V — Start Your Project</span>
-  <h1 class="q-title">Tell us about<br><em>your brand.</em></h1>
-  <p class="q-sub">Takes 3 minutes &nbsp;·&nbsp; We'll follow up within 24 hours</p>
+<div class="progress-wrap">
+  <div class="progress-info">
+    <span id="stepLabel">Step 1 of 8 — Your Business</span>
+    <span id="stepPct">12%</span>
+  </div>
+  <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:12%"></div></div>
 </div>
 
-<!-- PROGRESS BAR -->
-<div class="progress-section">
-  <div class="progress-header">
-    <span class="step-label">Step <span id="step-num">1</span> of 7</span>
-    <span class="step-title-label" id="step-title-label">Your Details</span>
-  </div>
-  <div class="progress-track">
-    <div class="progress-fill" id="progress-fill"></div>
-  </div>
-</div>
+<main>
 
-<div class="q-wrap">
-<form id="qForm">
-
-<!-- ══════════════════════════════════════════
-     STEP 1 — YOUR DETAILS
-══════════════════════════════════════════ -->
-<div class="step active" data-step="1">
-  <h2 class="step-heading">Your <em>details.</em></h2>
-  <p class="step-intro">Let's start with who you are.</p>
-
-  <div class="field-row">
-    <div class="field-group">
-      <label class="field-label" for="f-name">Your Name <span style="color:var(--red)">*</span></label>
-      <input class="field-input" type="text" id="f-name" name="name" placeholder="Jane Smith">
-    </div>
-    <div class="field-group">
-      <label class="field-label" for="f-biz">Business Name <span style="color:var(--red)">*</span></label>
-      <input class="field-input" type="text" id="f-biz" name="business" placeholder="My Company">
-    </div>
+<!-- STEP 1: YOUR BUSINESS -->
+<div class="step active" id="step1">
+  <div class="step-header">
+    <div class="step-eyebrow">Step 1 of 8</div>
+    <h1 class="step-title">Tell us about<br><em>your business.</em></h1>
+    <p class="step-subtitle">The foundation of your brand starts here. The more you share, the better we can build something that truly represents you.</p>
   </div>
 
-  <div class="field-row">
-    <div class="field-group">
-      <label class="field-label" for="f-email">Email Address <span style="color:var(--red)">*</span></label>
-      <input class="field-input" type="email" id="f-email" name="email" placeholder="you@example.com">
-    </div>
-    <div class="field-group">
-      <label class="field-label" for="f-phone">Phone / WhatsApp</label>
-      <input class="field-input" type="tel" id="f-phone" name="phone" placeholder="+1 234 567 8900">
-    </div>
+  <div class="field">
+    <label>Business name *</label>
+    <input type="text" id="bizName" placeholder="e.g. Le Jardin, Vortex International, Studio Nova" required>
+    <div class="error-msg" id="err-bizName">Please enter your business name</div>
   </div>
 
-  <div class="btn-row first">
-    <button type="button" class="btn-next" onclick="goNext(1)">Next &rarr;</button>
+  <div class="field">
+    <label>What do you sell or offer? *</label>
+    <div class="hint">Describe your main products or services in a few sentences</div>
+    <textarea id="bizOffer" rows="4" placeholder="e.g. We are a fine dining restaurant specializing in Mediterranean cuisine. We also offer private event catering and cooking classes..." required></textarea>
+    <div class="error-msg" id="err-bizOffer">Please describe what you offer</div>
   </div>
-</div>
 
-<!-- ══════════════════════════════════════════
-     STEP 2 — YOUR INDUSTRY
-══════════════════════════════════════════ -->
-<div class="step" data-step="2">
-  <h2 class="step-heading">Your <em>industry.</em></h2>
-  <p class="step-intro">Help us understand your world.</p>
-
-  <div class="field-group">
-    <label class="field-label" for="f-industry">Industry <span style="color:var(--red)">*</span></label>
-    <select class="field-select" id="f-industry" name="industry">
-      <option value="" disabled selected>Select your industry</option>
-      <option>Real Estate &amp; Property</option>
-      <option>Restaurant &amp; Hospitality</option>
-      <option>Construction &amp; Architecture</option>
-      <option>Retail &amp; E-commerce</option>
-      <option>Health &amp; Wellness</option>
-      <option>Professional Services</option>
-      <option>Local Business</option>
+  <div class="field">
+    <label>Industry *</label>
+    <select id="bizIndustry" required>
+      <option value="">Select your industry</option>
+      <option>Restaurant & Hospitality</option>
+      <option>Real Estate</option>
+      <option>Beauty & Wellness</option>
+      <option>Fashion & Retail</option>
+      <option>Professional Services (Law, Finance, Consulting)</option>
+      <option>Construction & Architecture</option>
+      <option>Health & Medical</option>
+      <option>Education & Training</option>
+      <option>NGO & Non-profit</option>
+      <option>Technology</option>
+      <option>Tourism & Travel</option>
       <option>Other</option>
     </select>
+    <div class="error-msg" id="err-bizIndustry">Please select your industry</div>
   </div>
 
-  <div class="btn-row">
-    <button type="button" class="btn-back" onclick="goBack(2)">&larr; Back</button>
-    <button type="button" class="btn-next" onclick="goNext(2)">Next &rarr;</button>
+  <div class="field">
+    <label>City & Country *</label>
+    <input type="text" id="bizLocation" placeholder="e.g. Sofia, Bulgaria" required>
+    <div class="error-msg" id="err-bizLocation">Please enter your location</div>
+  </div>
+
+  <div class="field">
+    <label>Slogan or tagline</label>
+    <div class="hint">Leave empty if you don't have one — we can create it together</div>
+    <input type="text" id="bizSlogan" placeholder="e.g. Quality you can taste">
+  </div>
+
+  <div class="field">
+    <label>How long has your business been running? *</label>
+    <div class="cards cards-4" id="bizAge">
+      <div class="card" onclick="selectCard(this,'bizAge')"><div class="card-emoji">🌱</div><div class="card-title">Just starting</div></div>
+      <div class="card" onclick="selectCard(this,'bizAge')"><div class="card-emoji">🌿</div><div class="card-title">Under 1 year</div></div>
+      <div class="card" onclick="selectCard(this,'bizAge')"><div class="card-emoji">🌳</div><div class="card-title">1–3 years</div></div>
+      <div class="card" onclick="selectCard(this,'bizAge')"><div class="card-emoji">🏛️</div><div class="card-title">Over 3 years</div></div>
+    </div>
+  </div>
+
+  <div class="field">
+    <label>Team size</label>
+    <div class="cards cards-4" id="bizTeam">
+      <div class="card" onclick="selectCard(this,'bizTeam')"><div class="card-title">Just me</div></div>
+      <div class="card" onclick="selectCard(this,'bizTeam')"><div class="card-title">2–5 people</div></div>
+      <div class="card" onclick="selectCard(this,'bizTeam')"><div class="card-title">6–20 people</div></div>
+      <div class="card" onclick="selectCard(this,'bizTeam')"><div class="card-title">Over 20</div></div>
+    </div>
+  </div>
+
+  <div class="field">
+    <label>What makes you different from competitors? *</label>
+    <textarea id="bizDiff" rows="3" placeholder="e.g. We use only locally sourced ingredients. Our team speaks 4 languages. We offer same-day delivery..." required></textarea>
+    <div class="error-msg" id="err-bizDiff">Please tell us what makes you unique</div>
+  </div>
+
+  <div class="field">
+    <label>Do you have an existing logo or brand materials?</label>
+    <div class="cards cards-3" id="bizLogo">
+      <div class="card" onclick="selectCard(this,'bizLogo')"><div class="card-emoji">✨</div><div class="card-title">Starting from scratch</div><div class="card-desc">No existing materials</div></div>
+      <div class="card" onclick="selectCard(this,'bizLogo')"><div class="card-emoji">📁</div><div class="card-title">Yes, I have materials</div><div class="card-desc">I will share them</div></div>
+      <div class="card" onclick="selectCard(this,'bizLogo')"><div class="card-emoji">🔄</div><div class="card-title">Yes, but I want a redesign</div><div class="card-desc">Complete rebrand</div></div>
+    </div>
+  </div>
+
+  <div class="notes-field field">
+    <label>Additional notes for this step</label>
+    <textarea id="notes1" rows="3" placeholder="Anything else about your business we should know before we begin..."></textarea>
+  </div>
+
+  <div class="step-nav">
+    <button class="btn-next" onclick="nextStep(1)">Next — Your Clients →</button>
   </div>
 </div>
 
-<!-- ══════════════════════════════════════════
-     STEP 3 — YOUR STYLE
-     Score: Minimal=0, Bold=1, Elegant=2, Creative=1
-══════════════════════════════════════════ -->
-<div class="step" data-step="3">
-  <h2 class="step-heading">Your <em>style.</em></h2>
-  <p class="step-intro">What best describes the look and feel you're after? <span style="color:var(--red)">*</span></p>
-
-  <div class="field-group">
-    <div class="style-cards" id="style-cards-wrap">
-      <div class="style-card">
-        <input type="radio" name="style" id="style-minimal" value="Minimal &amp; Clean" data-score="0">
-        <label for="style-minimal">
-          <div class="style-name">Minimal &amp; Clean</div>
-          <div class="style-desc">White space, quiet typography, understated elegance</div>
-        </label>
-      </div>
-      <div class="style-card">
-        <input type="radio" name="style" id="style-bold" value="Bold &amp; Modern" data-score="1">
-        <label for="style-bold">
-          <div class="style-name">Bold &amp; Modern</div>
-          <div class="style-desc">Strong contrasts, dynamic layouts, expressive type</div>
-        </label>
-      </div>
-      <div class="style-card">
-        <input type="radio" name="style" id="style-elegant" value="Elegant &amp; Luxury" data-score="2">
-        <label for="style-elegant">
-          <div class="style-name">Elegant &amp; Luxury</div>
-          <div class="style-desc">Refined details, rich palette, sophisticated presence</div>
-        </label>
-      </div>
-      <div class="style-card">
-        <input type="radio" name="style" id="style-creative" value="Creative &amp; Playful" data-score="1">
-        <label for="style-creative">
-          <div class="style-name">Creative &amp; Playful</div>
-          <div class="style-desc">Vibrant colour, illustration, distinctive character</div>
-        </label>
-      </div>
-    </div>
-    <span class="error-msg" id="style-error" style="display:none;">Please select a style to continue.</span>
+<!-- STEP 2: YOUR CLIENTS -->
+<div class="step" id="step2">
+  <div class="step-header">
+    <div class="step-eyebrow">Step 2 of 8</div>
+    <h1 class="step-title">Who are<br><em>your clients?</em></h1>
+    <p class="step-subtitle">Great brands speak directly to the right people. Help us understand who we are building this for.</p>
   </div>
 
-  <div class="btn-row">
-    <button type="button" class="btn-back" onclick="goBack(3)">&larr; Back</button>
-    <button type="button" class="btn-next" onclick="goNext(3)">Next &rarr;</button>
+  <div class="field">
+    <label>Describe your ideal client *</label>
+    <div class="hint">Who is the perfect person that walks through your door or visits your website?</div>
+    <textarea id="clientIdeal" rows="4" placeholder="e.g. Young professionals aged 25–40, living in Sofia, who value quality and are willing to pay more for a premium experience. They discover us through Instagram..." required></textarea>
+    <div class="error-msg" id="err-clientIdeal">Please describe your ideal client</div>
+  </div>
+
+  <div class="field">
+    <label>Age range of your clients</label>
+    <div class="check-grid" id="clientAge">
+      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Under 18</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">18–25</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">26–35</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">36–50</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">50+</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">All ages</span></div>
+    </div>
+  </div>
+
+  <div class="field">
+    <label>Gender of your typical client</label>
+    <div class="cards cards-3" id="clientGender">
+      <div class="card" onclick="selectCard(this,'clientGender')"><div class="card-title">Mostly men</div></div>
+      <div class="card" onclick="selectCard(this,'clientGender')"><div class="card-title">Mostly women</div></div>
+      <div class="card" onclick="selectCard(this,'clientGender')"><div class="card-title">Mixed / Both</div></div>
+    </div>
+  </div>
+
+  <div class="field">
+    <label>Do you have international clients?</label>
+    <div class="cards cards-3" id="clientInternational">
+      <div class="card" onclick="selectCard(this,'clientInternational')"><div class="card-title">Local only</div><div class="card-desc">My clients are from my city or country</div></div>
+      <div class="card" onclick="selectCard(this,'clientInternational')"><div class="card-title">Regional</div><div class="card-desc">Neighboring countries</div></div>
+      <div class="card" onclick="selectCard(this,'clientInternational')"><div class="card-title">International</div><div class="card-desc">Clients from around the world</div></div>
+    </div>
+  </div>
+
+  <div class="field">
+    <label>How do clients find you currently?</label>
+    <div class="check-grid">
+      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Word of mouth</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Social media</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Google search</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Walk-in / physical location</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Referrals from partners</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">No online presence yet</span></div>
+    </div>
+  </div>
+
+  <div class="field">
+    <label>What first impression do you want to make? *</label>
+    <textarea id="clientImpression" rows="3" placeholder="e.g. We want to immediately communicate trust and professionalism. Clients should feel they are dealing with an established, reliable company from the very first glance..." required></textarea>
+    <div class="error-msg" id="err-clientImpression">Please describe the impression you want to make</div>
+  </div>
+
+  <div class="field">
+    <label>3–5 words that describe your brand personality *</label>
+    <div class="hint">Think of adjectives that capture your brand's character</div>
+    <input type="text" id="clientWords" placeholder="e.g. Trustworthy, Modern, Warm, Sophisticated, Bold" required>
+    <div class="error-msg" id="err-clientWords">Please enter some words that describe your brand</div>
+  </div>
+
+  <div class="field">
+    <label>Who are your main competitors?</label>
+    <textarea id="clientCompetitors" rows="2" placeholder="e.g. Restaurant X in Sofia, Hotel Y — or describe the type of businesses you compete with..."></textarea>
+  </div>
+
+  <div class="field">
+    <label>How are you better than them?</label>
+    <textarea id="clientBetter" rows="2" placeholder="e.g. Better location, more personal service, lower prices, higher quality materials..."></textarea>
+  </div>
+
+  <div class="notes-field field">
+    <label>Additional notes for this step</label>
+    <textarea id="notes2" rows="3" placeholder="Any other details about your clients or market that would help us understand your audience..."></textarea>
+  </div>
+
+  <div class="step-nav">
+    <button class="btn-back" onclick="prevStep(2)">← Back</button>
+    <button class="btn-next" onclick="nextStep(2)">Next — Your Logo →</button>
   </div>
 </div>
 
-<!-- ══════════════════════════════════════════
-     STEP 4 — LANGUAGES & SECTIONS
-     Languages: 1=0pt, 2=2pt, 3+=3pt
-     Sections count: 1-3=0, 4-5=2, 6+=4
-══════════════════════════════════════════ -->
-<div class="step" data-step="4">
-  <h2 class="step-heading">Your <em>website.</em></h2>
-  <p class="step-intro">Tell us about the scope of your site.</p>
-
-  <!-- Languages -->
-  <div class="field-group">
-    <label class="field-label">Languages <span style="color:var(--red)">*</span></label>
-    <div class="lang-cards" id="lang-cards-wrap">
-      <div class="lang-card">
-        <input type="radio" name="languages" id="lang-1" value="1 Language" data-score="0">
-        <label for="lang-1">
-          <div class="lang-name">1 Language</div>
-          <div class="lang-desc">Single language site</div>
-        </label>
-      </div>
-      <div class="lang-card">
-        <input type="radio" name="languages" id="lang-2" value="2 Languages" data-score="2">
-        <label for="lang-2">
-          <div class="lang-name">2 Languages</div>
-          <div class="lang-desc">Bilingual site</div>
-        </label>
-      </div>
-      <div class="lang-card">
-        <input type="radio" name="languages" id="lang-3" value="3+ Languages" data-score="3">
-        <label for="lang-3">
-          <div class="lang-name">3+ Languages</div>
-          <div class="lang-desc">Multilingual site</div>
-        </label>
-      </div>
-    </div>
-    <span class="error-msg" id="lang-error" style="display:none;">Please select a language option to continue.</span>
+<!-- STEP 3: YOUR LOGO -->
+<div class="step" id="step3">
+  <div class="step-header">
+    <div class="step-eyebrow">Step 3 of 8</div>
+    <h1 class="step-title">Your<br><em>logo.</em></h1>
+    <p class="step-subtitle">Your logo is the face of your brand. Let's make sure it says exactly the right thing.</p>
   </div>
 
-  <!-- Sections -->
-  <div class="field-group">
-    <label class="field-label">Website Sections <span style="color:var(--red)">*</span><span style="font-weight:300;letter-spacing:.06em;text-transform:none;color:rgba(255,255,255,.3);margin-left:8px;">— select all that apply</span></label>
-    <div class="section-cards" id="section-cards-wrap">
-      <div class="sec-card"><input type="checkbox" name="sections" id="sec-home" value="Home"><label for="sec-home">Home</label></div>
-      <div class="sec-card"><input type="checkbox" name="sections" id="sec-about" value="About"><label for="sec-about">About</label></div>
-      <div class="sec-card"><input type="checkbox" name="sections" id="sec-services" value="Services"><label for="sec-services">Services</label></div>
-      <div class="sec-card"><input type="checkbox" name="sections" id="sec-portfolio" value="Portfolio"><label for="sec-portfolio">Portfolio</label></div>
-      <div class="sec-card"><input type="checkbox" name="sections" id="sec-testimonials" value="Testimonials"><label for="sec-testimonials">Testimonials</label></div>
-      <div class="sec-card"><input type="checkbox" name="sections" id="sec-blog" value="Blog"><label for="sec-blog">Blog</label></div>
-      <div class="sec-card"><input type="checkbox" name="sections" id="sec-shop" value="Shop"><label for="sec-shop">Shop</label></div>
-      <div class="sec-card"><input type="checkbox" name="sections" id="sec-booking" value="Booking"><label for="sec-booking">Booking</label></div>
-      <div class="sec-card"><input type="checkbox" name="sections" id="sec-faq" value="FAQ"><label for="sec-faq">FAQ</label></div>
-      <div class="sec-card"><input type="checkbox" name="sections" id="sec-team" value="Team"><label for="sec-team">Team</label></div>
-      <div class="sec-card"><input type="checkbox" name="sections" id="sec-contact" value="Contact"><label for="sec-contact">Contact</label></div>
+  <div class="field">
+    <label>Logo format preference *</label>
+    <div class="cards cards-3" id="logoFormat">
+      <div class="card" onclick="selectCard(this,'logoFormat')"><div class="card-emoji">𝗔𝗕𝗖</div><div class="card-title">Text only</div><div class="card-desc">Wordmark — your name as the logo</div></div>
+      <div class="card" onclick="selectCard(this,'logoFormat')"><div class="card-emoji">◈</div><div class="card-title">Symbol + Text</div><div class="card-desc">Icon combined with your name</div></div>
+      <div class="card" onclick="selectCard(this,'logoFormat')"><div class="card-emoji">◉</div><div class="card-title">Symbol only</div><div class="card-desc">A standalone icon or mark</div></div>
     </div>
-    <span class="error-msg" id="sections-error" style="display:none;">Please select at least one section.</span>
+    <div class="error-msg" id="err-logoFormat">Please select a logo format</div>
   </div>
 
-  <div class="btn-row">
-    <button type="button" class="btn-back" onclick="goBack(4)">&larr; Back</button>
-    <button type="button" class="btn-next" onclick="goNext(4)">Next &rarr;</button>
+  <div class="field">
+    <label>What type of symbol or icon appeals to you?</label>
+    <div class="check-grid">
+      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Abstract geometric shape</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Letter or monogram</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Nature / organic shapes</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Architecture / lines</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Human / people</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Surprise me</span></div>
+    </div>
+  </div>
+
+  <div class="field">
+    <label>Logo style feeling *</label>
+    <div class="cards cards-3" id="logoStyle">
+      <div class="card" onclick="selectCard(this,'logoStyle')"><div class="card-title">Classic & Timeless</div><div class="card-desc">Serif fonts, traditional feel, built to last</div></div>
+      <div class="card" onclick="selectCard(this,'logoStyle')"><div class="card-title">Modern & Clean</div><div class="card-desc">Sans-serif, minimal, contemporary</div></div>
+      <div class="card" onclick="selectCard(this,'logoStyle')"><div class="card-title">Bold & Expressive</div><div class="card-desc">Strong shapes, high contrast, memorable</div></div>
+      <div class="card" onclick="selectCard(this,'logoStyle')"><div class="card-title">Elegant & Luxury</div><div class="card-desc">Fine details, gold accents, premium</div></div>
+      <div class="card" onclick="selectCard(this,'logoStyle')"><div class="card-title">Friendly & Playful</div><div class="card-desc">Rounded, warm, approachable</div></div>
+      <div class="card" onclick="selectCard(this,'logoStyle')"><div class="card-title">I trust your judgment</div><div class="card-desc">You decide based on our brief</div></div>
+    </div>
+    <div class="error-msg" id="err-logoStyle">Please select a logo style</div>
+  </div>
+
+  <div class="field">
+    <label>Logos you love — describe or paste links</label>
+    <textarea id="logoLove" rows="3" placeholder="e.g. I love the Atelier V logo — clean and premium. I also like Chanel's wordmark. Links: ..."></textarea>
+  </div>
+
+  <div class="field">
+    <label>Logos you absolutely do NOT want to look like</label>
+    <div class="hint">This is just as important — helps us avoid wrong directions</div>
+    <textarea id="logoHate" rows="3" placeholder="e.g. I don't want anything that looks cheap, overly complex, or similar to my competitors. I don't like clipart-style icons..."></textarea>
+  </div>
+
+  <div class="field">
+    <label>Any specific symbols or elements that represent your business?</label>
+    <textarea id="logoSymbols" rows="2" placeholder="e.g. We are a winery so grapes or vines feel relevant. Or: nothing industry-specific, keep it abstract..."></textarea>
+  </div>
+
+  <div class="notes-field field">
+    <label>Additional notes for this step</label>
+    <textarea id="notes3" rows="3" placeholder="Any other thoughts, references, or logo ideas you'd like to share..."></textarea>
+  </div>
+
+  <div class="step-nav">
+    <button class="btn-back" onclick="prevStep(3)">← Back</button>
+    <button class="btn-next" onclick="nextStep(3)">Next — Colors & Visual Identity →</button>
   </div>
 </div>
 
-<!-- ══════════════════════════════════════════
-     STEP 5 — PACKAGE RECOMMENDATION
-══════════════════════════════════════════ -->
-<div class="step" data-step="5">
-  <h2 class="step-heading">Your <em>package.</em></h2>
-  <p class="step-intro">Based on your answers, here's what we recommend. You can switch at any time.</p>
-
-  <div class="rec-intro" id="rec-intro-text">
-    Calculating your recommendation…
+<!-- STEP 4: COLORS & VISUAL IDENTITY -->
+<div class="step" id="step4">
+  <div class="step-header">
+    <div class="step-eyebrow">Step 4 of 8</div>
+    <h1 class="step-title">Colors &<br><em>visual identity.</em></h1>
+    <p class="step-subtitle">Colors communicate before words do. Let's define the visual language of your brand.</p>
   </div>
 
-  <div class="field-group">
-    <div class="rec-cards">
-
-      <div class="rec-card" id="card-essential">
-        <input type="radio" name="package" id="rec-essential" value="Essential — €499">
-        <label for="rec-essential">
-          <span class="rec-badge">Recommended for you</span>
-          <div class="rec-pkg-name">Essential</div>
-          <div class="rec-pkg-price">€499</div>
-          <div class="rec-pkg-desc">Logo, brand palette &amp; digital card</div>
-        </label>
+  <div class="field">
+    <label>Overall brand style *</label>
+    <div class="style-cards" id="brandStyle">
+      <div class="style-card" onclick="selectCard(this,'brandStyle')">
+        <div class="style-card-name">Minimal</div>
+        <div class="style-card-desc">Clean lines, white space, understated elegance. Every element has a purpose. Less is more.</div>
       </div>
-
-      <div class="rec-card" id="card-full">
-        <input type="radio" name="package" id="rec-full" value="Full Brand — €799">
-        <label for="rec-full">
-          <span class="rec-badge">Recommended for you</span>
-          <div class="rec-pkg-name">Full Brand</div>
-          <div class="rec-pkg-price">€799</div>
-          <div class="rec-pkg-desc">Website, full identity &amp; hosting</div>
-        </label>
+      <div class="style-card" onclick="selectCard(this,'brandStyle')">
+        <div class="style-card-name">Luxury</div>
+        <div class="style-card-desc">Rich textures, premium feel, sophisticated details. Built to impress and signal exclusivity.</div>
       </div>
-
-      <div class="rec-card" id="card-total">
-        <input type="radio" name="package" id="rec-total" value="Total Brand — €2,500">
-        <label for="rec-total">
-          <span class="rec-badge">Recommended for you</span>
-          <div class="rec-pkg-name">Total Brand</div>
-          <div class="rec-pkg-price">€2,500</div>
-          <div class="rec-pkg-desc">Strategy, social &amp; full marketing</div>
-        </label>
+      <div class="style-card" onclick="selectCard(this,'brandStyle')">
+        <div class="style-card-name">Playful</div>
+        <div class="style-card-desc">Bold colors, friendly tone, energetic design. Built to connect and create joy.</div>
       </div>
-
+      <div class="style-card" onclick="selectCard(this,'brandStyle')">
+        <div class="style-card-name">Corporate</div>
+        <div class="style-card-desc">Professional, structured, trustworthy. Built to inspire confidence in a business context.</div>
+      </div>
     </div>
-    <span class="error-msg" id="pkg-error" style="display:none;">Please select a package to continue.</span>
+    <div class="error-msg" id="err-brandStyle">Please select a brand style</div>
   </div>
 
-  <div class="btn-row">
-    <button type="button" class="btn-back" onclick="goBack(5)">&larr; Back</button>
-    <button type="button" class="btn-next" onclick="goNext(5)">Next &rarr;</button>
+  <div class="field">
+    <label>What emotions should your brand evoke?</label>
+    <div class="hint">Select up to 3</div>
+    <div class="check-grid">
+      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Trust & Reliability</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Luxury & Exclusivity</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Warmth & Friendliness</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Energy & Excitement</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Authority & Expertise</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Creativity & Innovation</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Calm & Sophistication</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Approachability & Care</span></div>
+    </div>
+  </div>
+
+  <div class="field">
+    <label>Preferred color direction *</label>
+    <div class="color-cards" id="colorDir">
+      <div class="color-card" onclick="selectCard(this,'colorDir')">
+        <div class="color-swatch" style="background:linear-gradient(135deg,#1B2A4A 50%,#C9A84C 50%)"></div>
+        <div class="color-name">Navy & Gold</div>
+      </div>
+      <div class="color-card" onclick="selectCard(this,'colorDir')">
+        <div class="color-swatch" style="background:linear-gradient(135deg,#111 50%,#f5f5f5 50%)"></div>
+        <div class="color-name">Black & White</div>
+      </div>
+      <div class="color-card" onclick="selectCard(this,'colorDir')">
+        <div class="color-swatch" style="background:linear-gradient(135deg,#8B6F47 50%,#D4B896 50%)"></div>
+        <div class="color-name">Earth & Warm tones</div>
+      </div>
+      <div class="color-card" onclick="selectCard(this,'colorDir')">
+        <div class="color-swatch" style="background:linear-gradient(135deg,#2D6A4F 50%,#95D5B2 50%)"></div>
+        <div class="color-name">Green & Natural</div>
+      </div>
+      <div class="color-card" onclick="selectCard(this,'colorDir')">
+        <div class="color-swatch" style="background:linear-gradient(135deg,#E63946 50%,#457B9D 50%)"></div>
+        <div class="color-name">Bold & Vibrant</div>
+      </div>
+      <div class="color-card" onclick="selectCard(this,'colorDir')">
+        <div class="color-swatch" style="background:linear-gradient(135deg,#C9A84C 20%,#1B2A4A 40%,#2D6A4F 60%,#E63946 80%)"></div>
+        <div class="color-name">Surprise me</div>
+      </div>
+    </div>
+    <div class="error-msg" id="err-colorDir">Please select a color direction</div>
+  </div>
+
+  <div class="field">
+    <label>If your brand were a person, who would they be?</label>
+    <div class="hint">This helps us capture the personality behind the visuals</div>
+    <textarea id="brandPerson" rows="3" placeholder="e.g. A confident 45-year-old architect in a tailored navy suit. Precise, sophisticated, speaks softly but commands attention. Values quality over quantity..."></textarea>
+  </div>
+
+  <div class="field">
+    <label>Brands or websites you love and why</label>
+    <textarea id="brandLove" rows="3" placeholder="e.g. I love Apple.com — clean, premium, confident. Also Aesop — everything feels intentional. Links: ..."></textarea>
+  </div>
+
+  <div class="field">
+    <label>Brands or websites you dislike and why</label>
+    <div class="hint">Equally important — helps us avoid the wrong direction</div>
+    <textarea id="brandHate" rows="3" placeholder="e.g. I don't want anything that feels cheap, cluttered, or similar to budget competitors. I dislike flashing animations and too many colors..."></textarea>
+  </div>
+
+  <div class="notes-field field">
+    <label>Additional notes for this step</label>
+    <textarea id="notes4" rows="3" placeholder="Any other visual preferences, references, or ideas about your brand's look and feel..."></textarea>
+  </div>
+
+  <div class="step-nav">
+    <button class="btn-back" onclick="prevStep(4)">← Back</button>
+    <button class="btn-next" onclick="nextStep(4)">Next — Your Content →</button>
   </div>
 </div>
 
-<!-- ══════════════════════════════════════════
-     STEP 6 — PROJECT DETAILS & ADD-ON
-══════════════════════════════════════════ -->
-<div class="step" data-step="6">
-  <h2 class="step-heading">Project <em>details.</em></h2>
-  <p class="step-intro">When do you need it, and anything else we should know?</p>
-
-  <div class="field-group">
-    <label class="field-label" for="f-deadline">Preferred Deadline</label>
-    <input class="field-input" type="date" id="f-deadline" name="deadline">
+<!-- STEP 5: YOUR CONTENT -->
+<div class="step" id="step5">
+  <div class="step-header">
+    <div class="step-eyebrow">Step 5 of 8</div>
+    <h1 class="step-title">Your<br><em>content.</em></h1>
+    <p class="step-subtitle">Your website tells your story. The more detail you give us, the more authentic and powerful it will be.</p>
   </div>
 
-  <div class="field-group">
-    <label class="field-label" for="f-notes">Additional Notes</label>
-    <textarea class="field-textarea" id="f-notes" name="notes" placeholder="Tell us anything else — your vision, references, must-haves, or questions."></textarea>
+  <div class="field">
+    <label>Tell us your story *</label>
+    <div class="hint">Who you are, when you started, why you started, what drives you</div>
+    <textarea id="contentStory" rows="5" placeholder="e.g. We opened Le Jardin in 2019 after 15 years working in Michelin-starred restaurants across Europe. Our mission is to bring authentic French cuisine to Sofia — without the pretension. Every dish tells a story of tradition and craftsmanship..." required></textarea>
+    <div class="error-msg" id="err-contentStory">Please share your story</div>
   </div>
 
-  <div class="q-divider"></div>
+  <div class="field">
+    <label>List your main services or products *</label>
+    <div class="hint">Describe each one — name, brief description, and price if you want to show it</div>
+    <textarea id="contentServices" rows="5" placeholder="e.g. 1. Fine dining — 60 seats, open Tue–Sun, prix fixe menu €45/person&#10;2. Private events — up to 120 guests, full catering service&#10;3. Cooking masterclasses — every Saturday, 10 spots, €65/person..." required></textarea>
+    <div class="error-msg" id="err-contentServices">Please list your services or products</div>
+  </div>
 
-  <div class="field-group">
-    <label class="field-label">Optional Add-On</label>
-    <div class="addon-box">
-      <span class="addon-eyebrow">Monthly Support</span>
-      <div class="addon-title">Keep your brand always up to date</div>
-      <div class="addon-price">€19.99 <small>/month</small></div>
-      <ul class="addon-features">
-        <li>Changes &amp; updates via email</li>
-        <li>Technical support</li>
-        <li>Response within 24 hours</li>
-        <li>No contract — cancel anytime</li>
+  <div class="field">
+    <label>What tone of voice should your brand use?</label>
+    <div class="cards cards-3" id="contentTone">
+      <div class="card" onclick="selectCard(this,'contentTone')"><div class="card-title">Formal & Professional</div><div class="card-desc">Respectful, precise, authoritative</div></div>
+      <div class="card" onclick="selectCard(this,'contentTone')"><div class="card-title">Friendly & Warm</div><div class="card-desc">Conversational, approachable, personal</div></div>
+      <div class="card" onclick="selectCard(this,'contentTone')"><div class="card-title">Bold & Confident</div><div class="card-desc">Direct, strong, no-nonsense</div></div>
+      <div class="card" onclick="selectCard(this,'contentTone')"><div class="card-title">Inspiring & Aspirational</div><div class="card-desc">Visionary, motivational, elevating</div></div>
+      <div class="card" onclick="selectCard(this,'contentTone')"><div class="card-title">Playful & Fun</div><div class="card-desc">Light, humorous, energetic</div></div>
+      <div class="card" onclick="selectCard(this,'contentTone')"><div class="card-title">You decide</div><div class="card-desc">Based on our overall brief</div></div>
+    </div>
+  </div>
+
+  <div class="field">
+    <label>Do you have photos ready?</label>
+    <div class="cards cards-3" id="contentPhotos">
+      <div class="card" onclick="selectCard(this,'contentPhotos')"><div class="card-emoji">📸</div><div class="card-title">Yes — professional</div><div class="card-desc">High quality photos ready to use</div></div>
+      <div class="card" onclick="selectCard(this,'contentPhotos')"><div class="card-emoji">📱</div><div class="card-title">Yes — phone photos</div><div class="card-desc">I have photos but not professional</div></div>
+      <div class="card" onclick="selectCard(this,'contentPhotos')"><div class="card-emoji">🖼️</div><div class="card-title">No — use stock images</div><div class="card-desc">Please find appropriate images for us</div></div>
+    </div>
+  </div>
+
+  <div class="field">
+    <label>Do you have written content ready?</label>
+    <div class="cards cards-3" id="contentText">
+      <div class="card" onclick="selectCard(this,'contentText')"><div class="card-title">Yes — everything</div><div class="card-desc">I will provide all texts</div></div>
+      <div class="card" onclick="selectCard(this,'contentText')"><div class="card-title">Partially</div><div class="card-desc">I need some help with copywriting</div></div>
+      <div class="card" onclick="selectCard(this,'contentText')"><div class="card-title">No — guide me</div><div class="card-desc">Please help create all content</div></div>
+    </div>
+  </div>
+
+  <div class="field">
+    <label>Do you have a tagline or want us to create one?</label>
+    <div class="cards cards-3" id="contentTagline">
+      <div class="card" onclick="selectCard(this,'contentTagline')"><div class="card-title">I have one</div></div>
+      <div class="card" onclick="selectCard(this,'contentTagline')"><div class="card-title">Please create one</div></div>
+      <div class="card" onclick="selectCard(this,'contentTagline')"><div class="card-title">Not needed</div></div>
+    </div>
+  </div>
+
+  <div class="notes-field field">
+    <label>Additional notes for this step</label>
+    <textarea id="notes5" rows="3" placeholder="Any other content details, specific messages you want to communicate, or things to avoid saying..."></textarea>
+  </div>
+
+  <div class="step-nav">
+    <button class="btn-back" onclick="prevStep(5)">← Back</button>
+    <button class="btn-next" onclick="nextStep(5)">Next — Your Website →</button>
+  </div>
+</div>
+
+<!-- STEP 6: YOUR WEBSITE -->
+<div class="step" id="step6">
+  <div class="step-header">
+    <div class="step-eyebrow">Step 6 of 8</div>
+    <h1 class="step-title">Your<br><em>website.</em></h1>
+    <p class="step-subtitle">Your website is built on top of your brand. Let's define what it needs to do and contain.</p>
+  </div>
+
+  <div class="field">
+    <label>Which sections do you need?</label>
+    <div class="check-grid" id="siteSections">
+      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">About Us</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Our Services</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Gallery / Portfolio</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Menu (restaurant/cafe)</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Pricing / Packages</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Blog / News</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Testimonials / Reviews</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Contact Form</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Map & Location</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Online Booking</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Online Store</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Team / About the people</span></div>
+    </div>
+  </div>
+
+  <div class="field">
+    <label>How many languages do you need? *</label>
+    <div class="cards cards-4" id="siteLangs">
+      <div class="card" onclick="selectCard(this,'siteLangs')"><div class="card-title">1 language</div></div>
+      <div class="card" onclick="selectCard(this,'siteLangs')"><div class="card-title">2 languages</div></div>
+      <div class="card" onclick="selectCard(this,'siteLangs')"><div class="card-title">3–5 languages</div></div>
+      <div class="card" onclick="selectCard(this,'siteLangs')"><div class="card-title">More than 5</div></div>
+    </div>
+    <div class="error-msg" id="err-siteLangs">Please select number of languages</div>
+  </div>
+
+  <div class="field">
+    <label>Which languages?</label>
+    <div class="check-grid">
+      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">English</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Bulgarian</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">German</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">French</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Spanish</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Romanian</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Greek</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Serbian</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Russian</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Turkish</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Arabic</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Chinese</span></div>
+    </div>
+  </div>
+
+  <div class="field">
+    <label>Do you send emails to clients regularly?</label>
+    <div class="cards cards-3" id="siteEmails">
+      <div class="card" onclick="selectCard(this,'siteEmails')"><div class="card-title">Yes — regularly</div><div class="card-desc">I need a professional email signature</div></div>
+      <div class="card" onclick="selectCard(this,'siteEmails')"><div class="card-title">Sometimes</div><div class="card-desc">Would be nice to have</div></div>
+      <div class="card" onclick="selectCard(this,'siteEmails')"><div class="card-title">No</div><div class="card-desc">Not needed</div></div>
+    </div>
+  </div>
+
+  <div class="notes-field field">
+    <label>Additional notes for this step</label>
+    <textarea id="notes6" rows="3" placeholder="Any specific functionality, pages, or features you'd like on your website..."></textarea>
+  </div>
+
+  <div class="step-nav">
+    <button class="btn-back" onclick="prevStep(6)">← Back</button>
+    <button class="btn-next" onclick="nextStep(6)">Next — Technical Details →</button>
+  </div>
+</div>
+
+<!-- STEP 7: TECHNICAL -->
+<div class="step" id="step7">
+  <div class="step-header">
+    <div class="step-eyebrow">Step 7 of 8</div>
+    <h1 class="step-title">Technical<br><em>details.</em></h1>
+    <p class="step-subtitle">Almost done. A few practical questions — we handle all the technical work from here.</p>
+  </div>
+
+  <div class="field">
+    <label>Your name *</label>
+    <input type="text" id="techName" placeholder="Your full name" required>
+    <div class="error-msg" id="err-techName">Please enter your name</div>
+  </div>
+
+  <div class="field">
+    <label>Your email address *</label>
+    <input type="email" id="techEmail" placeholder="your@email.com" required>
+    <div class="error-msg" id="err-techEmail">Please enter a valid email</div>
+  </div>
+
+  <div class="field">
+    <label>Phone / WhatsApp *</label>
+    <input type="text" id="techPhone" placeholder="+359 88 888 8888" required>
+    <div class="error-msg" id="err-techPhone">Please enter your phone number</div>
+  </div>
+
+  <div class="field">
+    <label>Physical address</label>
+    <input type="text" id="techAddress" placeholder="Leave empty if no physical location">
+  </div>
+
+  <div class="field">
+    <label>Social media profiles</label>
+    <input type="text" id="techInstagram" placeholder="Instagram: @yourbusiness" style="margin-bottom:.5rem;">
+    <input type="text" id="techFacebook" placeholder="Facebook: facebook.com/yourbusiness" style="margin-bottom:.5rem;">
+    <input type="text" id="techLinkedin" placeholder="LinkedIn: linkedin.com/company/yourbusiness" style="margin-bottom:.5rem;">
+    <input type="text" id="techTiktok" placeholder="TikTok: @yourbusiness">
+  </div>
+
+  <div class="field">
+    <label>Do you have a domain?</label>
+    <div class="cards cards-3" id="techDomain">
+      <div class="card" onclick="selectCard(this,'techDomain');toggleDomainInput(false)"><div class="card-title">No — register one for me</div></div>
+      <div class="card" onclick="selectCard(this,'techDomain');toggleDomainInput(true)"><div class="card-title">Yes — I have one</div></div>
+      <div class="card" onclick="selectCard(this,'techDomain');toggleDomainInput(true)"><div class="card-title">Yes — but want to change it</div></div>
+    </div>
+    <input type="text" id="techDomainName" placeholder="e.g. mybusiness.com" style="margin-top:.8rem;display:none;">
+  </div>
+
+  <div class="field">
+    <label>Professional email on your domain?</label>
+    <div class="hint">e.g. info@yourbusiness.com — included in your package</div>
+    <div class="cards cards-4" id="techMailbox">
+      <div class="card" onclick="selectCard(this,'techMailbox');toggleMailboxInput(false)"><div class="card-title">No thanks</div></div>
+      <div class="card" onclick="selectCard(this,'techMailbox');toggleMailboxInput(true)"><div class="card-title">Yes — 1 address</div></div>
+      <div class="card" onclick="selectCard(this,'techMailbox');toggleMailboxInput(true)"><div class="card-title">Yes — 2–3 addresses</div></div>
+      <div class="card" onclick="selectCard(this,'techMailbox');toggleMailboxInput(true)"><div class="card-title">Yes — more than 3</div></div>
+    </div>
+    <textarea id="techMailboxNames" rows="2" placeholder="e.g. info@ / team@ / sales@ / hello@" style="margin-top:.8rem;display:none;"></textarea>
+  </div>
+
+  <div class="field">
+    <label>Target launch date *</label>
+    <div class="hint">When would you like your brand to go live?</div>
+    <input type="date" id="techDeadline" required>
+    <div class="error-msg" id="err-techDeadline">Please select a target date</div>
+  </div>
+
+  <div class="field">
+    <label>Budget range</label>
+    <div class="cards cards-3" id="techBudget">
+      <div class="card" onclick="selectCard(this,'techBudget')"><div class="card-title">Up to €500</div><div class="card-desc">Essential package territory</div></div>
+      <div class="card" onclick="selectCard(this,'techBudget')"><div class="card-title">€500 – €1,000</div><div class="card-desc">Full Brand territory</div></div>
+      <div class="card" onclick="selectCard(this,'techBudget')"><div class="card-title">Over €1,000</div><div class="card-desc">Total Brand territory</div></div>
+    </div>
+  </div>
+
+  <div class="notes-field field">
+    <label>Final notes — anything else we should know</label>
+    <textarea id="notes7" rows="4" placeholder="Any final details, special requests, questions, concerns, or anything else you'd like to tell us before we start building your brand..."></textarea>
+  </div>
+
+  <div class="step-nav">
+    <button class="btn-back" onclick="prevStep(7)">← Back</button>
+    <button class="btn-next" onclick="nextStep(7)">See my recommended package →</button>
+  </div>
+</div>
+
+<!-- STEP 8: RECOMMENDATION -->
+<div class="step" id="step8">
+  <div class="step-header">
+    <div class="step-eyebrow">Step 8 of 8</div>
+    <h1 class="step-title">Your recommended<br><em>package.</em></h1>
+    <p class="step-subtitle">Based on everything you've shared, here is our recommendation for you.</p>
+  </div>
+
+  <div class="pkg-grid" id="pkgGrid">
+    <div class="pkg-card" id="pkgEssential" onclick="selectPkg('essential')">
+      <div class="pkg-label">Essential</div>
+      <div class="pkg-price">€499</div>
+      <div class="pkg-period">one-time payment</div>
+      <ul class="pkg-features">
+        <li>2 logo concepts (PNG + SVG)</li>
+        <li>Color palette + typography</li>
+        <li>Digital business card with QR</li>
+        <li>One-page website with navigation</li>
+        <li>1 language</li>
+        <li>Full technical setup</li>
+        <li>24 months hosting</li>
+        <li>Delivery: 7 working days</li>
       </ul>
     </div>
-    <label class="addon-toggle" for="f-addon">
-      <input type="checkbox" id="f-addon" name="addon" value="yes">
-      <div class="addon-check">
-        <svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </div>
-      <span class="addon-toggle-text"><strong>Yes, add Monthly Support</strong> &nbsp;— €19.99/month, no contract</span>
-    </label>
+    <div class="pkg-card" id="pkgFull" onclick="selectPkg('full')">
+      <div class="pkg-label">Full Brand</div>
+      <div class="pkg-price">€799</div>
+      <div class="pkg-period">one-time payment</div>
+      <ul class="pkg-features">
+        <li>Everything in Essential</li>
+        <li>Multi-page website (up to 5 pages)</li>
+        <li>Branded HTML email signature</li>
+        <li>Up to 5 languages</li>
+        <li>2 rounds of revisions</li>
+        <li>24 months hosting</li>
+        <li>Delivery: 7 working days</li>
+      </ul>
+    </div>
+    <div class="pkg-card" id="pkgTotal" onclick="selectPkg('total')">
+      <div class="pkg-label">Total Brand</div>
+      <div class="pkg-price" style="font-size:1.6rem;">From €2,500</div>
+      <div class="pkg-period">custom quote</div>
+      <ul class="pkg-features">
+        <li>Everything in Full Brand</li>
+        <li>Digital strategy</li>
+        <li>Social media management</li>
+        <li>Marketing & advertising</li>
+        <li>Corporate identity</li>
+        <li>Priority support</li>
+        <li>Custom timeline</li>
+      </ul>
+    </div>
   </div>
 
-  <div class="btn-row">
-    <button type="button" class="btn-back" onclick="goBack(6)">&larr; Back</button>
-    <button type="button" class="btn-next" onclick="goNext(6)">Review &rarr;</button>
+  <div class="summary-box" id="briefSummary"></div>
+
+  <div style="text-align:center;padding:1.5rem 0;border-top:1px solid #e8e8e8;border-bottom:1px solid #e8e8e8;margin-bottom:1.5rem;">
+    <p style="font-size:13px;color:#888;letter-spacing:.05em;">30% deposit to start &nbsp;·&nbsp; Preview before final payment &nbsp;·&nbsp; 70% on approval</p>
+  </div>
+
+  <button class="btn-submit" onclick="submitBrief()">Send my brief →</button>
+  <p class="submit-note">We will contact you within 24 hours to confirm your order<br>and send your invoice for the 30% deposit.</p>
+
+  <div class="step-nav">
+    <button class="btn-back" onclick="prevStep(8)">← Back</button>
   </div>
 </div>
 
-<!-- ══════════════════════════════════════════
-     STEP 7 — REVIEW & SEND
-══════════════════════════════════════════ -->
-<div class="step" data-step="7">
-  <h2 class="step-heading">Review &amp; <em>send.</em></h2>
-  <p class="step-intro">Check your brief below, then submit.</p>
-
-  <div class="review-card">
-    <span class="review-eyebrow">Brief Summary</span>
-
-    <div class="review-row">
-      <span class="review-key">Business</span>
-      <span class="review-val" id="rv-biz">—</span>
-    </div>
-    <div class="review-row">
-      <span class="review-key">Industry</span>
-      <span class="review-val" id="rv-industry">—</span>
-    </div>
-
-    <div class="review-divider"></div>
-
-    <div class="review-row">
-      <span class="review-key">Style</span>
-      <span class="review-val" id="rv-style">—</span>
-    </div>
-    <div class="review-row">
-      <span class="review-key">Languages</span>
-      <span class="review-val" id="rv-languages">—</span>
-    </div>
-    <div class="review-row">
-      <span class="review-key">Sections</span>
-      <span class="review-val" id="rv-sections" style="max-width:360px;text-align:right;">—</span>
-    </div>
-
-    <div class="review-divider"></div>
-
-    <div class="review-row">
-      <span class="review-key">Package</span>
-      <span class="review-val" id="rv-package">—</span>
-    </div>
-    <div class="review-row">
-      <span class="review-key">Deadline</span>
-      <span class="review-val" id="rv-deadline">—</span>
-    </div>
-    <div class="review-row">
-      <span class="review-key">Monthly Support</span>
-      <span class="review-val" id="rv-addon">—</span>
-    </div>
-    <div class="review-row">
-      <span class="review-key">Notes</span>
-      <span class="review-val" id="rv-notes" style="max-width:360px;word-break:break-word;">—</span>
-    </div>
-  </div>
-
-  <div class="payment-note">
-    <strong>30% deposit to start</strong> &nbsp;&middot;&nbsp; <strong>Preview before final payment</strong> &nbsp;&middot;&nbsp; <strong>70% on approval</strong><br>
-    <span style="font-size:10px;color:rgba(255,255,255,.22);letter-spacing:.08em;">Standard domains included. Premium domains priced separately.</span>
-  </div>
-
-  <div class="btn-row">
-    <button type="button" class="btn-back" onclick="goBack(7)">&larr; Back</button>
-    <button type="submit" class="q-submit">Send my brief &rarr;</button>
-  </div>
-
-  <div class="q-followup">
-    We will contact you within 24 hours to confirm your order and send your invoice for the 30% deposit.
-  </div>
-
-  <p class="q-note" style="margin-top:16px;">By submitting you accept our <a href="terms.html" style="color:rgba(255,255,255,.45);text-decoration:underline;">Terms &amp; Conditions</a>.</p>
-</div>
-
-</form>
-</div>
+</main>
 
 <script>
-var TOTAL = 7;
-var STEP_TITLES = ['Your Details','Your Industry','Your Style','Languages & Sections','Your Package','Project Details','Review & Send'];
-var currentStep = 1;
-var recommendedId = 'full'; // will be set on step 5 entry
+let currentStep = 1;
+const totalSteps = 8;
+const stepNames = ['','Your Business','Your Clients','Your Logo','Colors & Identity','Your Content','Your Website','Technical Details','Your Package'];
 
-/* ── PROGRESS ── */
-function updateProgress(step) {
-  document.getElementById('step-num').textContent = step;
-  document.getElementById('step-title-label').textContent = STEP_TITLES[step - 1];
-  document.getElementById('progress-fill').style.width = ((step - 1) / (TOTAL - 1) * 100) + '%';
+function updateProgress(step){
+  const pct = Math.round((step/totalSteps)*100);
+  document.getElementById('progressFill').style.width = pct+'%';
+  document.getElementById('stepLabel').textContent = 'Step '+step+' of '+totalSteps+' — '+stepNames[step];
+  document.getElementById('stepPct').textContent = pct+'%';
 }
 
-function showStep(step) {
-  document.querySelectorAll('.step').forEach(function(s) { s.classList.remove('active'); });
-  document.querySelector('[data-step="' + step + '"]').classList.add('active');
-  currentStep = step;
-  updateProgress(step);
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+function selectCard(el, groupId){
+  document.querySelectorAll('#'+groupId+' .card, #'+groupId+' .style-card, #'+groupId+' .color-card').forEach(c=>c.classList.remove('selected'));
+  el.classList.add('selected');
 }
 
-/* ── SCORING ── */
-function calcScore() {
-  var score = 0;
-  var styleEl = document.querySelector('input[name="style"]:checked');
-  if (styleEl) score += parseInt(styleEl.getAttribute('data-score') || 0);
-  var langEl = document.querySelector('input[name="languages"]:checked');
-  if (langEl) score += parseInt(langEl.getAttribute('data-score') || 0);
-  var secCount = document.querySelectorAll('input[name="sections"]:checked').length;
-  if (secCount >= 6) score += 4;
-  else if (secCount >= 4) score += 2;
-  return score;
+function toggleCheck(el){
+  el.classList.toggle('checked');
+  el.querySelector('input').checked = el.classList.contains('checked');
 }
 
-function getRecommendedId(score) {
-  if (score <= 2) return 'essential';
-  if (score <= 6) return 'full';
-  return 'total';
+function toggleDomainInput(show){
+  document.getElementById('techDomainName').style.display = show ? 'block' : 'none';
 }
 
-var PKG_LABEL = {
-  essential: 'Essential — €499',
-  full:      'Full Brand — €799',
-  total:     'Total Brand — €2,500'
-};
-
-var PKG_WHY = {
-  essential: 'Your project scope suits a focused identity package — logo, brand palette, and a professional digital card.',
-  full:      'Your scope calls for a full online presence — website, complete visual identity, and hosting included.',
-  total:     'Your vision requires our complete strategy — full brand, social presence, marketing, and ongoing support.'
-};
-
-function applyRecommendation() {
-  var score = calcScore();
-  recommendedId = getRecommendedId(score);
-
-  /* set intro text */
-  document.getElementById('rec-intro-text').innerHTML =
-    'Score <strong>' + score + '</strong> &mdash; ' + PKG_WHY[recommendedId];
-
-  /* reset all card states */
-  ['essential', 'full', 'total'].forEach(function(id) {
-    var card = document.getElementById('card-' + id);
-    card.classList.remove('recommended', 'dimmed');
-  });
-
-  /* mark recommended */
-  document.getElementById('card-' + recommendedId).classList.add('recommended');
-
-  /* auto-select recommended radio */
-  document.getElementById('rec-' + recommendedId).checked = true;
-
-  /* sync dim states */
-  syncPackageCards();
+function toggleMailboxInput(show){
+  document.getElementById('techMailboxNames').style.display = show ? 'block' : 'none';
 }
 
-function syncPackageCards() {
-  ['essential', 'full', 'total'].forEach(function(id) {
-    var card = document.getElementById('card-' + id);
-    var radio = document.getElementById('rec-' + id);
-    if (radio.checked) {
-      card.classList.remove('dimmed');
-    } else {
-      card.classList.add('dimmed');
-    }
-  });
+function getChecked(container){
+  return Array.from(document.querySelectorAll('#'+container+' .check-item.checked .check-label')).map(el=>el.textContent);
 }
 
-/* ── VALIDATION ── */
-function clearErrors(stepEl) {
-  stepEl.querySelectorAll('.field-input,.field-select,.field-textarea').forEach(function(f) {
-    f.classList.remove('error');
-  });
-  stepEl.querySelectorAll('.error-msg[data-auto]').forEach(function(e) { e.remove(); });
+function getSelected(groupId){
+  const el = document.querySelector('#'+groupId+' .selected');
+  return el ? (el.querySelector('.card-title,.style-card-name,.color-name') || el).textContent.trim() : '';
 }
 
-function addFieldError(field, msg) {
-  field.classList.add('error');
-  if (!field.nextElementSibling || !field.nextElementSibling.classList.contains('error-msg')) {
-    var err = document.createElement('span');
-    err.className = 'error-msg';
-    err.setAttribute('data-auto', '1');
-    err.textContent = msg || 'This field is required.';
-    field.parentNode.appendChild(err);
-  }
-}
-
-function validateStep(step) {
-  var stepEl = document.querySelector('[data-step="' + step + '"]');
-  clearErrors(stepEl);
-  var valid = true;
-
-  if (step === 1) {
-    ['f-name', 'f-biz', 'f-email'].forEach(function(id) {
-      var f = document.getElementById(id);
-      if (!f.value.trim()) { addFieldError(f); valid = false; }
-      else if (id === 'f-email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f.value.trim())) {
-        addFieldError(f, 'Enter a valid email address.'); valid = false;
+function validateStep(step){
+  let valid = true;
+  const required = {
+    1: [{id:'bizName'},{id:'bizOffer'},{id:'bizIndustry'},{id:'bizLocation'},{id:'bizDiff'}],
+    2: [{id:'clientIdeal'},{id:'clientImpression'},{id:'clientWords'}],
+    3: [{group:'logoFormat',msg:'err-logoFormat'},{group:'logoStyle',msg:'err-logoStyle'}],
+    4: [{group:'brandStyle',msg:'err-brandStyle'},{group:'colorDir',msg:'err-colorDir'}],
+    5: [{id:'contentStory'},{id:'contentServices'}],
+    6: [{group:'siteLangs',msg:'err-siteLangs'}],
+    7: [{id:'techName'},{id:'techEmail'},{id:'techPhone'},{id:'techDeadline'}],
+  };
+  if(!required[step]) return true;
+  required[step].forEach(f=>{
+    if(f.id){
+      const el = document.getElementById(f.id);
+      const errEl = document.getElementById('err-'+f.id);
+      if(!el.value.trim()){
+        el.classList.add('error');
+        if(errEl) errEl.classList.add('show');
+        valid = false;
+      } else {
+        el.classList.remove('error');
+        if(errEl) errEl.classList.remove('show');
       }
-    });
-  }
-
-  if (step === 2) {
-    var ind = document.getElementById('f-industry');
-    if (!ind.value) { addFieldError(ind); valid = false; }
-  }
-
-  if (step === 3) {
-    var styleChecked = document.querySelector('input[name="style"]:checked');
-    var styleErr = document.getElementById('style-error');
-    if (!styleChecked) {
-      document.getElementById('style-cards-wrap').classList.add('has-error');
-      styleErr.style.display = 'block';
-      valid = false;
-    } else {
-      document.getElementById('style-cards-wrap').classList.remove('has-error');
-      styleErr.style.display = 'none';
     }
-  }
-
-  if (step === 4) {
-    var langChecked = document.querySelector('input[name="languages"]:checked');
-    var langErr = document.getElementById('lang-error');
-    if (!langChecked) {
-      document.getElementById('lang-cards-wrap').classList.add('has-error');
-      langErr.style.display = 'block';
-      valid = false;
-    } else {
-      document.getElementById('lang-cards-wrap').classList.remove('has-error');
-      langErr.style.display = 'none';
+    if(f.group){
+      const sel = document.querySelector('#'+f.group+' .selected');
+      const errEl = document.getElementById(f.msg);
+      if(!sel){
+        if(errEl) errEl.classList.add('show');
+        valid = false;
+      } else {
+        if(errEl) errEl.classList.remove('show');
+      }
     }
-
-    var secChecked = document.querySelectorAll('input[name="sections"]:checked');
-    var secErr = document.getElementById('sections-error');
-    if (secChecked.length === 0) {
-      document.getElementById('section-cards-wrap').classList.add('has-error');
-      secErr.style.display = 'block';
-      valid = false;
-    } else {
-      document.getElementById('section-cards-wrap').classList.remove('has-error');
-      secErr.style.display = 'none';
-    }
-  }
-
-  if (step === 5) {
-    var pkgChecked = document.querySelector('input[name="package"]:checked');
-    var pkgErr = document.getElementById('pkg-error');
-    if (!pkgChecked) { pkgErr.style.display = 'block'; valid = false; }
-    else { pkgErr.style.display = 'none'; }
-  }
-
+  });
   return valid;
 }
 
-/* ── REVIEW BUILDER ── */
-function buildReview() {
-  var biz       = document.getElementById('f-biz').value.trim();
-  var industry  = document.getElementById('f-industry').value;
-  var styleEl   = document.querySelector('input[name="style"]:checked');
-  var langEl    = document.querySelector('input[name="languages"]:checked');
-  var secEls    = document.querySelectorAll('input[name="sections"]:checked');
-  var pkg       = document.querySelector('input[name="package"]:checked');
-  var deadline  = document.getElementById('f-deadline').value;
-  var addon     = document.getElementById('f-addon').checked;
-  var notes     = document.getElementById('f-notes').value.trim();
-
-  var sections = [];
-  secEls.forEach(function(s) { sections.push(s.value); });
-
-  document.getElementById('rv-biz').textContent      = biz || '—';
-  document.getElementById('rv-industry').textContent  = industry || 'Not selected';
-  document.getElementById('rv-style').textContent     = styleEl ? styleEl.value : '—';
-  document.getElementById('rv-languages').textContent = langEl ? langEl.value : '—';
-  document.getElementById('rv-sections').textContent  = sections.length ? sections.join(', ') : '—';
-  document.getElementById('rv-package').textContent   = pkg ? pkg.value : '—';
-  document.getElementById('rv-deadline').textContent  = deadline
-    ? new Date(deadline + 'T00:00:00').toLocaleDateString('en-GB', {day:'numeric',month:'long',year:'numeric'})
-    : 'Not specified';
-  document.getElementById('rv-addon').textContent     = addon ? 'Yes — €19.99/month' : 'No';
-  document.getElementById('rv-notes').textContent     = notes || 'None';
+function nextStep(current){
+  if(!validateStep(current)) return;
+  document.getElementById('step'+current).classList.remove('active');
+  currentStep = current+1;
+  document.getElementById('step'+currentStep).classList.add('active');
+  updateProgress(currentStep);
+  if(currentStep === 8) buildRecommendation();
+  window.scrollTo({top:0,behavior:'smooth'});
 }
 
-/* ── NAVIGATION ── */
-function goNext(step) {
-  if (!validateStep(step)) return;
-  if (step === 4) applyRecommendation();
-  if (step === 6) buildReview();
-  showStep(step + 1);
+function prevStep(current){
+  document.getElementById('step'+current).classList.remove('active');
+  currentStep = current-1;
+  document.getElementById('step'+currentStep).classList.add('active');
+  updateProgress(currentStep);
+  window.scrollTo({top:0,behavior:'smooth'});
 }
 
-function goBack(step) {
-  showStep(step - 1);
+function buildRecommendation(){
+  let score = 0;
+  const langs = getSelected('siteLangs');
+  const sections = getChecked('siteSections');
+  const emails = getSelected('siteEmails');
+  const budget = getSelected('techBudget');
+  const intl = getSelected('clientInternational');
+
+  if(langs.includes('2')) score += 2;
+  if(langs.includes('3') || langs.includes('More')) score += 4;
+  if(langs.includes('More than')) score += 5;
+  if(sections.includes('Online Store')) score += 5;
+  if(sections.includes('Blog')) score += 2;
+  if(sections.length > 5) score += 2;
+  if(emails.includes('Yes')) score += 1;
+  if(intl.includes('International')) score += 2;
+  if(budget.includes('Over')) score += 2;
+  if(budget.includes('Up to')) score -= 1;
+
+  ['pkgEssential','pkgFull','pkgTotal'].forEach(id=>{
+    const el = document.getElementById(id);
+    el.classList.remove('recommended','selected');
+    const badge = el.querySelector('.pkg-badge');
+    if(badge) badge.remove();
+  });
+
+  let recommended;
+  if(score >= 7) recommended = 'pkgTotal';
+  else if(score >= 3) recommended = 'pkgFull';
+  else recommended = 'pkgEssential';
+
+  const recEl = document.getElementById(recommended);
+  recEl.classList.add('recommended','selected');
+  const badge = document.createElement('div');
+  badge.className = 'pkg-badge';
+  badge.textContent = 'Recommended for you';
+  recEl.insertBefore(badge, recEl.firstChild);
+
+  const summary = document.getElementById('briefSummary');
+  summary.innerHTML = `
+    <div class="summary-row"><span class="summary-label">Business</span><span class="summary-value">${document.getElementById('bizName').value || '—'}</span></div>
+    <div class="summary-row"><span class="summary-label">Industry</span><span class="summary-value">${document.getElementById('bizIndustry').value || '—'}</span></div>
+    <div class="summary-row"><span class="summary-label">Location</span><span class="summary-value">${document.getElementById('bizLocation').value || '—'}</span></div>
+    <div class="summary-row"><span class="summary-label">Brand Style</span><span class="summary-value">${getSelected('brandStyle') || '—'}</span></div>
+    <div class="summary-row"><span class="summary-label">Logo Style</span><span class="summary-value">${getSelected('logoStyle') || '—'}</span></div>
+    <div class="summary-row"><span class="summary-label">Languages</span><span class="summary-value">${langs || '—'}</span></div>
+    <div class="summary-row"><span class="summary-label">Sections</span><span class="summary-value">${sections.join(', ') || '—'}</span></div>
+    <div class="summary-row"><span class="summary-label">Launch date</span><span class="summary-value">${document.getElementById('techDeadline').value || '—'}</span></div>
+  `;
 }
 
-/* ── LIVE ERROR CLEARING ── */
-document.querySelectorAll('.field-input,.field-select,.field-textarea').forEach(function(f) {
-  f.addEventListener('input', function() {
-    f.classList.remove('error');
-    var next = f.nextElementSibling;
-    if (next && next.classList.contains('error-msg') && next.getAttribute('data-auto')) next.remove();
-  });
-  f.addEventListener('change', function() { f.dispatchEvent(new Event('input')); });
-});
+function selectPkg(pkg){
+  ['pkgEssential','pkgFull','pkgTotal'].forEach(id=>document.getElementById(id).classList.remove('selected'));
+  const map = {essential:'pkgEssential',full:'pkgFull',total:'pkgTotal'};
+  document.getElementById(map[pkg]).classList.add('selected');
+}
 
-document.querySelectorAll('input[name="style"]').forEach(function(r) {
-  r.addEventListener('change', function() {
-    document.getElementById('style-cards-wrap').classList.remove('has-error');
-    document.getElementById('style-error').style.display = 'none';
-  });
-});
+function submitBrief(){
+  const pkg = document.querySelector('#pkgGrid .pkg-card.selected .pkg-label')?.textContent || 'Not selected';
+  const sections = getChecked('siteSections');
+  const langs = getChecked('step6 .check-grid');
 
-document.querySelectorAll('input[name="languages"]').forEach(function(r) {
-  r.addEventListener('change', function() {
-    document.getElementById('lang-cards-wrap').classList.remove('has-error');
-    document.getElementById('lang-error').style.display = 'none';
-  });
-});
+  const body = `
+NEW BRAND BRIEF — ATELIER V
+============================
 
-document.querySelectorAll('input[name="sections"]').forEach(function(r) {
-  r.addEventListener('change', function() {
-    if (document.querySelectorAll('input[name="sections"]:checked').length > 0) {
-      document.getElementById('section-cards-wrap').classList.remove('has-error');
-      document.getElementById('sections-error').style.display = 'none';
-    }
-  });
-});
+BUSINESS INFORMATION
+Business Name: ${document.getElementById('bizName').value}
+Offer/Services: ${document.getElementById('bizOffer').value}
+Industry: ${document.getElementById('bizIndustry').value}
+Location: ${document.getElementById('bizLocation').value}
+Slogan: ${document.getElementById('bizSlogan').value || 'None'}
+Business Age: ${getSelected('bizAge')}
+Team Size: ${getSelected('bizTeam')}
+What makes them different: ${document.getElementById('bizDiff').value}
+Existing logo/materials: ${getSelected('bizLogo')}
+Notes (Step 1): ${document.getElementById('notes1').value || 'None'}
 
-document.querySelectorAll('input[name="package"]').forEach(function(r) {
-  r.addEventListener('change', function() {
-    document.getElementById('pkg-error').style.display = 'none';
-    syncPackageCards();
-  });
-});
+CLIENT INFORMATION
+Ideal client: ${document.getElementById('clientIdeal').value}
+Age range: ${getChecked('clientAge').join(', ')}
+Gender: ${getSelected('clientGender')}
+International clients: ${getSelected('clientInternational')}
+First impression goal: ${document.getElementById('clientImpression').value}
+Brand personality words: ${document.getElementById('clientWords').value}
+Competitors: ${document.getElementById('clientCompetitors').value || 'None'}
+Better than competitors: ${document.getElementById('clientBetter').value || 'None'}
+Notes (Step 2): ${document.getElementById('notes2').value || 'None'}
 
-/* ── MAILTO SUBMIT ── */
-document.getElementById('qForm').addEventListener('submit', function(e) {
-  e.preventDefault();
+LOGO
+Format: ${getSelected('logoFormat')}
+Style: ${getSelected('logoStyle')}
+Logos they love: ${document.getElementById('logoLove').value || 'None'}
+Logos they dislike: ${document.getElementById('logoHate').value || 'None'}
+Symbols/elements: ${document.getElementById('logoSymbols').value || 'None'}
+Notes (Step 3): ${document.getElementById('notes3').value || 'None'}
 
-  var name      = document.getElementById('f-name').value.trim();
-  var biz       = document.getElementById('f-biz').value.trim();
-  var email     = document.getElementById('f-email').value.trim();
-  var phone     = document.getElementById('f-phone').value.trim();
-  var industry  = document.getElementById('f-industry').value;
-  var styleEl   = document.querySelector('input[name="style"]:checked');
-  var langEl    = document.querySelector('input[name="languages"]:checked');
-  var secEls    = document.querySelectorAll('input[name="sections"]:checked');
-  var pkg       = document.querySelector('input[name="package"]:checked');
-  var deadline  = document.getElementById('f-deadline').value;
-  var addon     = document.getElementById('f-addon').checked;
-  var notes     = document.getElementById('f-notes').value.trim();
+VISUAL IDENTITY
+Brand style: ${getSelected('brandStyle')}
+Emotions: ${getChecked('step4 .check-grid').join(', ')}
+Color direction: ${getSelected('colorDir')}
+Brand as a person: ${document.getElementById('brandPerson').value || 'None'}
+Brands they love: ${document.getElementById('brandLove').value || 'None'}
+Brands they dislike: ${document.getElementById('brandHate').value || 'None'}
+Notes (Step 4): ${document.getElementById('notes4').value || 'None'}
 
-  var sections = [];
-  secEls.forEach(function(s) { sections.push(s.value); });
+CONTENT
+Story: ${document.getElementById('contentStory').value}
+Services/Products: ${document.getElementById('contentServices').value}
+Tone of voice: ${getSelected('contentTone')}
+Photos ready: ${getSelected('contentPhotos')}
+Content ready: ${getSelected('contentText')}
+Tagline: ${getSelected('contentTagline')}
+Notes (Step 5): ${document.getElementById('notes5').value || 'None'}
 
-  var score = calcScore();
-  var recLabel = PKG_LABEL[getRecommendedId(score)];
+WEBSITE
+Sections needed: ${sections.join(', ')}
+Languages: ${getSelected('siteLangs')}
+Email signature needed: ${getSelected('siteEmails')}
+Notes (Step 6): ${document.getElementById('notes6').value || 'None'}
 
-  var body =
-    '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n' +
-    'NEW BRAND BRIEF — ATELIER V\n' +
-    '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n' +
-    'CONTACT DETAILS\n' +
-    '───────────────\n' +
-    'Name:     ' + name + '\n' +
-    'Business: ' + biz + '\n' +
-    'Email:    ' + email + '\n' +
-    'Phone:    ' + (phone || 'Not provided') + '\n\n' +
-    'ABOUT THE BUSINESS\n' +
-    '──────────────────\n' +
-    'Industry: ' + (industry || 'Not selected') + '\n\n' +
-    'BRAND & WEBSITE SCOPE\n' +
-    '─────────────────────\n' +
-    'Style:     ' + (styleEl ? styleEl.value : '—') + '\n' +
-    'Languages: ' + (langEl ? langEl.value : '—') + '\n' +
-    'Sections:  ' + (sections.length ? sections.join(', ') : '—') + '\n\n' +
-    'PACKAGE\n' +
-    '───────\n' +
-    'Recommendation score: ' + score + '\n' +
-    'Recommended package:  ' + recLabel + '\n' +
-    'Selected package:     ' + (pkg ? pkg.value : 'Not selected') + '\n\n' +
-    'PROJECT TIMELINE\n' +
-    '────────────────\n' +
-    'Deadline:        ' + (deadline || 'Not specified') + '\n' +
-    'Monthly Support: ' + (addon ? 'Yes — €19.99/month' : 'No') + '\n\n' +
-    'ADDITIONAL NOTES\n' +
-    '────────────────\n' +
-    (notes || 'None') + '\n\n' +
-    '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━';
+TECHNICAL DETAILS
+Name: ${document.getElementById('techName').value}
+Email: ${document.getElementById('techEmail').value}
+Phone: ${document.getElementById('techPhone').value}
+Address: ${document.getElementById('techAddress').value || 'None'}
+Instagram: ${document.getElementById('techInstagram').value || 'None'}
+Facebook: ${document.getElementById('techFacebook').value || 'None'}
+LinkedIn: ${document.getElementById('techLinkedin').value || 'None'}
+TikTok: ${document.getElementById('techTiktok').value || 'None'}
+Domain: ${getSelected('techDomain')} ${document.getElementById('techDomainName').value}
+Email mailboxes: ${getSelected('techMailbox')} — ${document.getElementById('techMailboxNames').value || ''}
+Launch date: ${document.getElementById('techDeadline').value}
+Budget: ${getSelected('techBudget')}
+Notes (Step 7): ${document.getElementById('notes7').value || 'None'}
 
-  window.location.href =
-    'mailto:team@atelierv.design' +
-    '?subject=' + encodeURIComponent('New Brand Brief — ' + biz) +
-    '&body=' + encodeURIComponent(body);
-});
+SELECTED PACKAGE: ${pkg}
+  `.trim();
 
-/* ── INIT ── */
+  const subject = encodeURIComponent('New Brand Brief — ' + (document.getElementById('bizName').value || 'Client'));
+  window.location.href = `mailto:team@atelierv.design?subject=${subject}&body=${encodeURIComponent(body)}`;
+}
+
 updateProgress(1);
 </script>
 </body>
