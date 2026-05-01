@@ -87,6 +87,7 @@ select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='ht
 /* NOTES FIELD */
 .notes-field{margin-top:2.5rem;padding-top:2rem;border-top:1px solid var(--border);}
 .notes-field label{font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:#aaa;margin-bottom:.5rem;display:block;}
+.step-hint{font-size:11px;color:#888;font-style:italic;line-height:1.6;margin-bottom:.7rem;}
 
 /* NAVIGATION */
 .step-nav{display:flex;gap:1rem;margin-top:3rem;padding-top:2rem;border-top:1px solid var(--border);}
@@ -160,15 +161,15 @@ select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='ht
   </div>
 
   <div class="field">
-    <label>Business name *</label>
-    <input type="text" id="bizName" placeholder="e.g. Le Jardin, Vortex International, Studio Nova" required>
+    <label>Business name</label>
+    <input type="text" id="bizName" placeholder="e.g. Le Jardin, Vortex International, Studio Nova">
     <div class="error-msg" id="err-bizName">Please enter your business name</div>
   </div>
 
   <div class="field">
-    <label>What do you sell or offer? *</label>
+    <label>What do you sell or offer?</label>
     <div class="hint">Describe your main products or services in a few sentences</div>
-    <textarea id="bizOffer" rows="4" placeholder="e.g. We are a fine dining restaurant specializing in Mediterranean cuisine. We also offer private event catering and cooking classes..." required></textarea>
+    <textarea id="bizOffer" rows="4" placeholder="e.g. We are a fine dining restaurant specializing in Mediterranean cuisine. We also offer private event catering and cooking classes..."></textarea>
     <div class="error-msg" id="err-bizOffer">Please describe what you offer</div>
   </div>
 
@@ -193,8 +194,8 @@ select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='ht
   </div>
 
   <div class="field">
-    <label>City & Country *</label>
-    <input type="text" id="bizLocation" placeholder="e.g. Sofia, Bulgaria" required>
+    <label>City & Country</label>
+    <input type="text" id="bizLocation" placeholder="e.g. Sofia, Bulgaria">
     <div class="error-msg" id="err-bizLocation">Please enter your location</div>
   </div>
 
@@ -225,8 +226,8 @@ select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='ht
   </div>
 
   <div class="field">
-    <label>What makes you different from competitors? *</label>
-    <textarea id="bizDiff" rows="3" placeholder="e.g. We use only locally sourced ingredients. Our team speaks 4 languages. We offer same-day delivery..." required></textarea>
+    <label>What makes you different from competitors?</label>
+    <textarea id="bizDiff" rows="3" placeholder="e.g. We use only locally sourced ingredients. Our team speaks 4 languages. We offer same-day delivery..."></textarea>
     <div class="error-msg" id="err-bizDiff">Please tell us what makes you unique</div>
   </div>
 
@@ -241,6 +242,7 @@ select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='ht
 
   <div class="notes-field field">
     <label>Additional notes for this step</label>
+    <p class="step-hint">💡 Additional notes for this step — These questions are recommended to help us better understand your business and deliver the most tailored result. However, even with just your name and industry, we can create something beautiful for you.</p>
     <textarea id="notes1" rows="3" placeholder="Anything else about your business we should know before we begin..."></textarea>
   </div>
 
@@ -258,9 +260,9 @@ select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='ht
   </div>
 
   <div class="field">
-    <label>Describe your ideal client *</label>
+    <label>Describe your ideal client</label>
     <div class="hint">Who is the perfect person that walks through your door or visits your website?</div>
-    <textarea id="clientIdeal" rows="4" placeholder="e.g. Young professionals aged 25–40, living in Sofia, who value quality and are willing to pay more for a premium experience. They discover us through Instagram..." required></textarea>
+    <textarea id="clientIdeal" rows="4" placeholder="e.g. Young professionals aged 25–40, living in Sofia, who value quality and are willing to pay more for a premium experience. They discover us through Instagram..."></textarea>
     <div class="error-msg" id="err-clientIdeal">Please describe your ideal client</div>
   </div>
 
@@ -307,15 +309,15 @@ select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='ht
   </div>
 
   <div class="field">
-    <label>What first impression do you want to make? *</label>
-    <textarea id="clientImpression" rows="3" placeholder="e.g. We want to immediately communicate trust and professionalism. Clients should feel they are dealing with an established, reliable company from the very first glance..." required></textarea>
+    <label>What first impression do you want to make?</label>
+    <textarea id="clientImpression" rows="3" placeholder="e.g. We want to immediately communicate trust and professionalism. Clients should feel they are dealing with an established, reliable company from the very first glance..."></textarea>
     <div class="error-msg" id="err-clientImpression">Please describe the impression you want to make</div>
   </div>
 
   <div class="field">
-    <label>3–5 words that describe your brand personality *</label>
+    <label>3–5 words that describe your brand personality</label>
     <div class="hint">Think of adjectives that capture your brand's character</div>
-    <input type="text" id="clientWords" placeholder="e.g. Trustworthy, Modern, Warm, Sophisticated, Bold" required>
+    <input type="text" id="clientWords" placeholder="e.g. Trustworthy, Modern, Warm, Sophisticated, Bold">
     <div class="error-msg" id="err-clientWords">Please enter some words that describe your brand</div>
   </div>
 
@@ -331,6 +333,7 @@ select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='ht
 
   <div class="notes-field field">
     <label>Additional notes for this step</label>
+    <p class="step-hint">💡 Additional notes for this step — These questions are recommended to help us better understand your business and deliver the most tailored result. However, even with just your name and industry, we can create something beautiful for you.</p>
     <textarea id="notes2" rows="3" placeholder="Any other details about your clients or market that would help us understand your audience..."></textarea>
   </div>
 
@@ -349,7 +352,7 @@ select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='ht
   </div>
 
   <div class="field">
-    <label>Logo format preference *</label>
+    <label>Logo format preference</label>
     <div class="cards cards-3" id="logoFormat">
       <div class="card" onclick="selectCard(this,'logoFormat')"><div class="card-emoji">𝗔𝗕𝗖</div><div class="card-title">Text only</div><div class="card-desc">Wordmark — your name as the logo</div></div>
       <div class="card" onclick="selectCard(this,'logoFormat')"><div class="card-emoji">◈</div><div class="card-title">Symbol + Text</div><div class="card-desc">Icon combined with your name</div></div>
@@ -371,7 +374,7 @@ select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='ht
   </div>
 
   <div class="field">
-    <label>Logo style feeling *</label>
+    <label>Logo style feeling</label>
     <div class="cards cards-3" id="logoStyle">
       <div class="card" onclick="selectCard(this,'logoStyle')"><div class="card-title">Classic & Timeless</div><div class="card-desc">Serif fonts, traditional feel, built to last</div></div>
       <div class="card" onclick="selectCard(this,'logoStyle')"><div class="card-title">Modern & Clean</div><div class="card-desc">Sans-serif, minimal, contemporary</div></div>
@@ -401,6 +404,7 @@ select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='ht
 
   <div class="notes-field field">
     <label>Additional notes for this step</label>
+    <p class="step-hint">💡 Additional notes for this step — These questions are recommended to help us better understand your business and deliver the most tailored result. However, even with just your name and industry, we can create something beautiful for you.</p>
     <textarea id="notes3" rows="3" placeholder="Any other thoughts, references, or logo ideas you'd like to share..."></textarea>
   </div>
 
@@ -419,7 +423,7 @@ select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='ht
   </div>
 
   <div class="field">
-    <label>Overall brand style *</label>
+    <label>Overall brand style</label>
     <div class="style-cards" id="brandStyle">
       <div class="style-card" onclick="selectCard(this,'brandStyle')">
         <div class="style-card-name">Minimal</div>
@@ -457,7 +461,7 @@ select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='ht
   </div>
 
   <div class="field">
-    <label>Preferred color direction *</label>
+    <label>Preferred color direction</label>
     <div class="color-cards" id="colorDir">
       <div class="color-card" onclick="selectCard(this,'colorDir')">
         <div class="color-swatch" style="background:linear-gradient(135deg,#1B2A4A 50%,#C9A84C 50%)"></div>
@@ -506,6 +510,7 @@ select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='ht
 
   <div class="notes-field field">
     <label>Additional notes for this step</label>
+    <p class="step-hint">💡 Additional notes for this step — These questions are recommended to help us better understand your business and deliver the most tailored result. However, even with just your name and industry, we can create something beautiful for you.</p>
     <textarea id="notes4" rows="3" placeholder="Any other visual preferences, references, or ideas about your brand's look and feel..."></textarea>
   </div>
 
@@ -524,16 +529,16 @@ select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='ht
   </div>
 
   <div class="field">
-    <label>Tell us your story *</label>
+    <label>Tell us your story</label>
     <div class="hint">Who you are, when you started, why you started, what drives you</div>
-    <textarea id="contentStory" rows="5" placeholder="e.g. We opened Le Jardin in 2019 after 15 years working in Michelin-starred restaurants across Europe. Our mission is to bring authentic French cuisine to Sofia — without the pretension. Every dish tells a story of tradition and craftsmanship..." required></textarea>
+    <textarea id="contentStory" rows="5" placeholder="e.g. We opened Le Jardin in 2019 after 15 years working in Michelin-starred restaurants across Europe. Our mission is to bring authentic French cuisine to Sofia — without the pretension. Every dish tells a story of tradition and craftsmanship..."></textarea>
     <div class="error-msg" id="err-contentStory">Please share your story</div>
   </div>
 
   <div class="field">
-    <label>List your main services or products *</label>
+    <label>List your main services or products</label>
     <div class="hint">Describe each one — name, brief description, and price if you want to show it</div>
-    <textarea id="contentServices" rows="5" placeholder="e.g. 1. Fine dining — 60 seats, open Tue–Sun, prix fixe menu €45/person&#10;2. Private events — up to 120 guests, full catering service&#10;3. Cooking masterclasses — every Saturday, 10 spots, €65/person..." required></textarea>
+    <textarea id="contentServices" rows="5" placeholder="e.g. 1. Fine dining — 60 seats, open Tue–Sun, prix fixe menu €45/person&#10;2. Private events — up to 120 guests, full catering service&#10;3. Cooking masterclasses — every Saturday, 10 spots, €65/person..."></textarea>
     <div class="error-msg" id="err-contentServices">Please list your services or products</div>
   </div>
 
@@ -578,6 +583,7 @@ select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='ht
 
   <div class="notes-field field">
     <label>Additional notes for this step</label>
+    <p class="step-hint">💡 Additional notes for this step — These questions are recommended to help us better understand your business and deliver the most tailored result. However, even with just your name and industry, we can create something beautiful for you.</p>
     <textarea id="notes5" rows="3" placeholder="Any other content details, specific messages you want to communicate, or things to avoid saying..."></textarea>
   </div>
 
@@ -614,7 +620,7 @@ select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='ht
   </div>
 
   <div class="field">
-    <label>How many languages do you need? *</label>
+    <label>How many languages do you need?</label>
     <div class="cards cards-4" id="siteLangs">
       <div class="card" onclick="selectCard(this,'siteLangs')"><div class="card-title">1 language</div></div>
       <div class="card" onclick="selectCard(this,'siteLangs')"><div class="card-title">2 languages</div></div>
@@ -653,6 +659,7 @@ select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='ht
 
   <div class="notes-field field">
     <label>Additional notes for this step</label>
+    <p class="step-hint">💡 Additional notes for this step — These questions are recommended to help us better understand your business and deliver the most tailored result. However, even with just your name and industry, we can create something beautiful for you.</p>
     <textarea id="notes6" rows="3" placeholder="Any specific functionality, pages, or features you'd like on your website..."></textarea>
   </div>
 
@@ -683,8 +690,8 @@ select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='ht
   </div>
 
   <div class="field">
-    <label>Phone / WhatsApp *</label>
-    <input type="text" id="techPhone" placeholder="+359 88 888 8888" required>
+    <label>Phone / WhatsApp</label>
+    <input type="text" id="techPhone" placeholder="+359 88 888 8888">
     <div class="error-msg" id="err-techPhone">Please enter your phone number</div>
   </div>
 
@@ -724,9 +731,9 @@ select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='ht
   </div>
 
   <div class="field">
-    <label>Target launch date *</label>
+    <label>Target launch date</label>
     <div class="hint">When would you like your brand to go live?</div>
-    <input type="date" id="techDeadline" required>
+    <input type="date" id="techDeadline">
     <div class="error-msg" id="err-techDeadline">Please select a target date</div>
   </div>
 
@@ -741,6 +748,7 @@ select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='ht
 
   <div class="notes-field field">
     <label>Final notes — anything else we should know</label>
+    <p class="step-hint">💡 Additional notes for this step — These questions are recommended to help us better understand your business and deliver the most tailored result. However, even with just your name and industry, we can create something beautiful for you.</p>
     <textarea id="notes7" rows="4" placeholder="Any final details, special requests, questions, concerns, or anything else you'd like to tell us before we start building your brand..."></textarea>
   </div>
 
@@ -862,13 +870,8 @@ function getSelected(groupId){
 function validateStep(step){
   let valid = true;
   const required = {
-    1: [{id:'bizName'},{id:'bizOffer'},{id:'bizIndustry'},{id:'bizLocation'},{id:'bizDiff'}],
-    2: [{id:'clientIdeal'},{id:'clientImpression'},{id:'clientWords'}],
-    3: [{group:'logoFormat',msg:'err-logoFormat'},{group:'logoStyle',msg:'err-logoStyle'}],
-    4: [{group:'brandStyle',msg:'err-brandStyle'},{group:'colorDir',msg:'err-colorDir'}],
-    5: [{id:'contentStory'},{id:'contentServices'}],
-    6: [{group:'siteLangs',msg:'err-siteLangs'}],
-    7: [{id:'techName'},{id:'techEmail'},{id:'techPhone'},{id:'techDeadline'}],
+    1: [{id:'bizIndustry'}],
+    7: [{id:'techName'},{id:'techEmail'}],
   };
   if(!required[step]) return true;
   required[step].forEach(f=>{
