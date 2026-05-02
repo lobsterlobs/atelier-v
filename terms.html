@@ -11,20 +11,6 @@
 <meta property="og:image" content="https://atelierv.design/og-image.png">
 <link rel="canonical" href="https://atelierv.design/terms.html">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <script>
-const lang = localStorage.getItem('<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Terms & Privacy — Atelier V</title>
-<meta name="description" content="Terms and conditions, privacy policy and GDPR rights for Atelier V Digital Branding Studio.">
-<meta property="og:title" content="Terms & Privacy — Atelier V">
-<meta property="og:description" content="Terms and conditions, privacy policy and GDPR rights for Atelier V Digital Branding Studio.">
-<meta property="og:url" content="https://atelierv.design/terms.html">
-<meta property="og:image" content="https://atelierv.design/og-image.png">
-<link rel="canonical" href="https://atelierv.design/terms.html">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 :root{--navy:#1B2A4A;--gold:#C9A84C;--white:#fff;--off:#F9F8F6;--txt:#2c2c2c;}
@@ -72,7 +58,7 @@ footer{background:var(--navy);color:#aaa;text-align:center;padding:40px 2rem;fon
 @media(max-width:768px){
   nav{padding:0 20px;}
   .hero h1{font-size:2rem;}
-  .tab{padding:1rem 1rem;font-size:10px;letter-spacing:.08em;}
+  .tab{padding:1rem 1.5rem;font-size:10px;}
   .content{padding:40px 16px 60px;}
 }
 </style>
@@ -82,9 +68,9 @@ footer{background:var(--navy);color:#aaa;text-align:center;padding:40px 2rem;fon
 <nav>
   <a href="index.html" class="nav-logo">ATELIER V</a>
   <div class="nav-right">
-    <a href="index.html" class="nav-back" id="navBack">← Back to site</a>
+    <a href="index.html" class="nav-back" data-i18n="nav.back">← Back to site</a>
     <div class="lang-switcher">
-      <button class="lang-btn" onclick="toggleLangMenu()">
+      <button class="lang-btn" onclick="toggleLang()">
         <span id="langFlag">🇬🇧</span>
         <span id="langLabel">EN</span> ▾
       </button>
@@ -97,195 +83,98 @@ footer{background:var(--navy);color:#aaa;text-align:center;padding:40px 2rem;fon
 </nav>
 
 <div class="hero">
-  <h1 id="heroTitle">Terms & Privacy</h1>
-  <p id="heroSub">Atelier V Digital Branding Studio</p>
-  <p class="updated" id="heroDate">Effective date: 1 May 2026</p>
+  <h1 data-i18n="hero.title">Terms & Privacy</h1>
+  <p data-i18n="hero.sub">Atelier V Digital Branding Studio</p>
+  <p class="updated" data-i18n="hero.date">Effective date: 1 May 2026</p>
 </div>
 
 <div class="tabs">
-  <div class="tab active" id="tabTerms" onclick="showTab('terms')">Terms & Conditions</div>
-  <div class="tab" id="tabPrivacy" onclick="showTab('privacy')">Privacy Policy</div>
-  <div class="tab" id="tabGdpr" onclick="showTab('gdpr')">GDPR & Your Rights</div>
+  <div class="tab active" onclick="showTab('terms')" data-i18n="tab.terms">Terms & Conditions</div>
+  <div class="tab" onclick="showTab('privacy')" data-i18n="tab.privacy">Privacy Policy</div>
+  <div class="tab" onclick="showTab('gdpr')" data-i18n="tab.gdpr">GDPR & Your Rights</div>
 </div>
 
-<!-- TERMS & CONDITIONS -->
+<!-- TERMS -->
 <div class="content active" id="terms">
   <div class="highlight">
-    <p id="termsIntro">These Terms and Conditions govern the relationship between <strong>Atelier V Digital Branding Studio</strong> (hereinafter "Atelier V", "we", "us") and any individual or legal entity (hereinafter "Client", "you") who engages our services. By filling in our questionnaire, making a payment, or otherwise confirming an order, you agree to these Terms in full.</p>
+    <p data-i18n="terms.intro">These Terms and Conditions govern the relationship between <strong>Atelier V Digital Branding Studio</strong> (hereinafter "Atelier V", "we", "us") and any individual or legal entity (hereinafter "Client", "you") who engages our services. By filling in our questionnaire, making a payment, or otherwise confirming an order, you agree to these Terms in full.</p>
   </div>
-
-  <h2 id="t1h">1. Services</h2>
-  <p id="t1p1">Atelier V provides digital branding services including but not limited to logo design, website development, digital business cards, brand identity systems, and ongoing website maintenance. The specific deliverables for each engagement are defined by the selected package as described on our <a href="services.html">Services page</a>.</p>
-  <p id="t1p2">All services are delivered remotely. Physical meetings are not included unless explicitly agreed in writing.</p>
-
-  <h2 id="t2h">2. Orders & Confirmation</h2>
-  <p id="t2p1">An order is confirmed when the Client submits the brand questionnaire and completes the initial deposit payment. Atelier V will confirm receipt and commencement of work within 24 hours of payment.</p>
-  <p id="t2p2">Atelier V reserves the right to decline any order at its sole discretion, in which case any payment received will be refunded in full within 5 business days.</p>
-
-  <h2 id="t3h">3. Pricing & Payment</h2>
-  <h3 id="t3h1">3.1 Payment Structure</h3>
+  <h2 data-i18n="terms.s1.title">1. Services</h2>
+  <p data-i18n="terms.s1.p1">Atelier V provides digital branding services including but not limited to logo design, website development, digital business cards, brand identity systems, and ongoing website maintenance. The specific deliverables for each engagement are defined by the selected package as described on our <a href="services.html">Services page</a>.</p>
+  <p data-i18n="terms.s1.p2">All services are delivered remotely. Physical meetings are not included unless explicitly agreed in writing.</p>
+  <h2 data-i18n="terms.s2.title">2. Orders & Confirmation</h2>
+  <p data-i18n="terms.s2.p1">An order is confirmed when the Client submits the brand questionnaire and completes the initial deposit payment. Atelier V will confirm receipt and commencement of work within 24 hours of payment.</p>
+  <p data-i18n="terms.s2.p2">Atelier V reserves the right to decline any order at its sole discretion, in which case any payment received will be refunded in full within 5 business days.</p>
+  <h2 data-i18n="terms.s3.title">3. Pricing & Payment</h2>
+  <h3 data-i18n="terms.s3.h1">3.1 Payment Structure</h3>
   <ul>
-    <li id="t3l1"><strong>30% deposit</strong> is due before work begins</li>
-    <li id="t3l2"><strong>70% final payment</strong> is due after the Client approves the delivered work and before final publication</li>
-    <li id="t3l3">For Total Brand projects: 50% deposit upon contract signing, 50% upon final approval</li>
-    <li id="t3l4">Monthly Support: billed monthly after the free period expires, upon written confirmation</li>
+    <li data-i18n="terms.s3.l1"><strong>30% deposit</strong> is due before work begins</li>
+    <li data-i18n="terms.s3.l2"><strong>70% final payment</strong> is due after the Client approves the delivered work</li>
+    <li data-i18n="terms.s3.l3">For Total Brand projects: 50% deposit upon contract signing, 50% upon final approval</li>
+    <li data-i18n="terms.s3.l4">Monthly Support: billed monthly after the free period expires, upon written confirmation</li>
   </ul>
-  <h3 id="t3h2">3.2 Late Payment</h3>
-  <p id="t3p2">If the final payment is not received within 14 days of the invoice date, Atelier V reserves the right to suspend the project, remove the published website, and retain all work completed to date. Work will resume upon payment.</p>
-  <h3 id="t3h3">3.3 Currency & Taxes</h3>
-  <p id="t3p3">All prices are quoted in Euros (€) and are exclusive of applicable taxes. Clients are responsible for any taxes applicable in their jurisdiction.</p>
-
-  <h2 id="t4h">4. Delivery & Timeline</h2>
-  <p id="t4p1">The standard delivery period is <strong>7 working days</strong> from the date of confirmed payment and receipt of a fully completed questionnaire. The timeline may be extended if:</p>
+  <h3 data-i18n="terms.s3.h2">3.2 Late Payment</h3>
+  <p data-i18n="terms.s3.p2">If the final payment is not received within 14 days of the invoice date, Atelier V reserves the right to suspend the project, remove the published website, and retain all work completed to date.</p>
+  <h3 data-i18n="terms.s3.h3">3.3 Currency & Taxes</h3>
+  <p data-i18n="terms.s3.p3">All prices are quoted in Euros (€) and are exclusive of applicable taxes. Clients are responsible for any taxes applicable in their jurisdiction.</p>
+  <h2 data-i18n="terms.s4.title">4. Delivery & Timeline</h2>
+  <p data-i18n="terms.s4.p1">The standard delivery period is <strong>7 working days</strong> from confirmed payment and receipt of a fully completed questionnaire.</p>
+  <h2 data-i18n="terms.s5.title">5. Revisions</h2>
   <ul>
-    <li id="t4l1">The Client delays in providing required information, materials, or feedback</li>
-    <li id="t4l2">The scope of work changes after commencement</li>
-    <li id="t4l3">Circumstances beyond Atelier V's reasonable control arise</li>
+    <li data-i18n="terms.s5.l1"><strong>Essential:</strong> 1 revision round</li>
+    <li data-i18n="terms.s5.l2"><strong>Full Brand:</strong> 2 revision rounds</li>
+    <li data-i18n="terms.s5.l3"><strong>Total Brand:</strong> as agreed in the individual contract</li>
   </ul>
-  <p id="t4p2">Atelier V will notify the Client promptly of any anticipated delays.</p>
-
-  <h2 id="t5h">5. Revisions</h2>
-  <p id="t5p1">Each package includes a defined number of revision rounds:</p>
+  <p data-i18n="terms.s5.p1">Additional revision rounds are available at €50 per round. A complete redesign constitutes a new project.</p>
+  <h2 data-i18n="terms.s6.title">6. Domain & Hosting</h2>
+  <p data-i18n="terms.s6.p1">Each package includes one domain name. Atelier V covers registration costs for the first year. Hosting is provided via GitHub Pages at no cost for 24 months.</p>
+  <h2 data-i18n="terms.s7.title">7. Professional Email</h2>
+  <p data-i18n="terms.s7.p1">Email forwarding on the Client's domain is set up via a third-party service (ImprovMX or equivalent). Sending from a custom address requires a paid account with the email provider.</p>
+  <h2 data-i18n="terms.s8.title">8. Intellectual Property</h2>
+  <p data-i18n="terms.s8.p1">Upon receipt of final payment, the Client receives full ownership of all delivered materials including logo files (PNG, SVG), website code, and all design assets.</p>
+  <h2 data-i18n="terms.s9.title">9. Monthly Support</h2>
+  <p data-i18n="terms.s9.p1">Monthly Support (€19.99/month) is available to all clients. The first 3 months are free for Essential and Full Brand clients. It covers updates to existing content only — not new pages or structural redesigns.</p>
+  <h2 data-i18n="terms.s10.title">10. Cancellation & Refunds</h2>
   <ul>
-    <li id="t5l1"><strong>Essential:</strong> 1 revision round</li>
-    <li id="t5l2"><strong>Full Brand:</strong> 2 revision rounds</li>
-    <li id="t5l3"><strong>Total Brand:</strong> as agreed in the individual contract</li>
+    <li data-i18n="terms.s10.l1">Before work begins: 50% of deposit refunded</li>
+    <li data-i18n="terms.s10.l2">After work has begun: no refund due</li>
+    <li data-i18n="terms.s10.l3">If Atelier V fails to deliver without valid reason: full deposit refunded</li>
   </ul>
-  <p id="t5p2">A revision round is defined as one consolidated list of changes submitted by the Client in a single communication. Atelier V will implement the requested changes within 48 hours. Additional revision rounds beyond those included are available at €50 per round.</p>
-  <p id="t5p3">A revision means modification of existing elements. A complete redesign or change of direction constitutes a new project and will be quoted separately.</p>
-
-  <h2 id="t6h">6. Domain & Hosting</h2>
-  <p id="t6p1">Each package includes one domain name, selected jointly with the Client. Atelier V covers domain registration costs for the first year. After the first year, the domain renewal is the Client's responsibility. Atelier V will send a renewal reminder 30 days before expiry.</p>
-  <p id="t6p2">Hosting is provided via GitHub Pages at no cost for 24 months. The Client acknowledges that this is a third-party service and that Atelier V does not guarantee 100% uptime. Scheduled or unscheduled maintenance by GitHub Pages is outside Atelier V's control.</p>
-  <p id="t6p3">If the Client already owns a domain, Atelier V will connect it to the website at no additional charge.</p>
-  <p id="t6p4">Premium domains (those with market value exceeding standard registration fees) are not included and are priced separately.</p>
-
-  <h2 id="t7h">7. Professional Email</h2>
-  <p id="t7p1">Email forwarding on the Client's domain (e.g. info@yourbusiness.com) is set up via a third-party service (ImprovMX or equivalent). Free-tier accounts forward incoming mail only. The ability to send from the custom address requires a paid account with the email provider, which is the Client's responsibility unless otherwise agreed.</p>
-
-  <h2 id="t8h">8. Intellectual Property</h2>
-  <p id="t8p1">Upon receipt of the final payment, the Client receives full and exclusive ownership of all delivered materials, including logo files (PNG, SVG), website code (HTML, CSS), and all associated design assets.</p>
-  <p id="t8p2">Atelier V retains the right to display completed projects in its portfolio, case studies, and marketing materials unless the Client requests confidentiality in writing at or before the time of project completion.</p>
-  <p id="t8p3">The Client warrants that all materials provided to Atelier V (text, images, brand assets) are owned by the Client or that the Client has the right to use them, and that their use does not infringe any third-party intellectual property rights. Atelier V bears no liability for any infringement resulting from Client-provided materials.</p>
-
-  <h2 id="t9h">9. Monthly Support</h2>
-  <p id="t9p1">The Monthly Support service (€19.99/month) is available to all Atelier V clients. The first 3 months are provided free of charge for Essential and Full Brand clients. After the free period, the service activates upon the Client's written confirmation.</p>
-  <p id="t9p2">Monthly Support includes updates to existing content (text, images, contact details, prices) within the existing website structure. It does not include new page creation, structural redesign, SEO campaigns, or social media management.</p>
-  <p id="t9p3">The service may be cancelled at any time without penalty by written notice to <a href="mailto:team@atelierv.design">team@atelierv.design</a>. Cancellation takes effect at the end of the current billing month.</p>
-
-  <h2 id="t10h">10. Cancellation & Refunds</h2>
-  <ul>
-    <li id="t10l1">Cancellation before work begins: 50% of the deposit is refunded within 5 business days</li>
-    <li id="t10l2">Cancellation after work has begun: no refund is due; all work completed to date remains the property of Atelier V until final payment is received</li>
-    <li id="t10l3">If Atelier V fails to deliver within the agreed timeline without valid reason, the Client may request a full refund of the deposit</li>
-  </ul>
-
-  <h2 id="t11h">11. Limitation of Liability</h2>
-  <p id="t11p1">Atelier V's total liability to the Client shall not exceed the total amount paid by the Client for the specific project in question.</p>
-  <p id="t11p2">Atelier V is not liable for:</p>
-  <ul>
-    <li id="t11l1">Loss of revenue, profits, or business opportunities arising from use of the delivered work</li>
-    <li id="t11l2">Interruptions to hosting or domain services provided by third parties</li>
-    <li id="t11l3">Changes made to the website by the Client or third parties after delivery</li>
-    <li id="t11l4">Any damages resulting from Client-provided content that violates applicable law</li>
-  </ul>
-
-  <h2 id="t12h">12. Confidentiality</h2>
-  <p id="t12p1">Both parties agree to keep confidential any sensitive business information shared in the course of the engagement. This obligation survives the termination of the agreement.</p>
-
-  <h2 id="t13h">13. Governing Law</h2>
-  <p id="t13p1">These Terms are governed by the laws of the Republic of Bulgaria. Any disputes shall first be attempted to be resolved amicably. If resolution is not possible, the competent Bulgarian court shall have jurisdiction.</p>
-
-  <h2 id="t14h">14. Acceptance</h2>
-  <p id="t14p1">By submitting the brand questionnaire and making payment, the Client confirms they have read, understood, and agreed to these Terms and Conditions in full.</p>
-
+  <h2 data-i18n="terms.s11.title">11. Governing Law</h2>
+  <p data-i18n="terms.s11.p1">These Terms are governed by the laws of the Republic of Bulgaria. Disputes shall first be attempted to be resolved amicably.</p>
   <div class="contact-box">
-    <p id="termsContactQ">Questions about these Terms?</p>
+    <p data-i18n="terms.contact">Questions about these Terms?</p>
     <p><a href="mailto:team@atelierv.design">team@atelierv.design</a></p>
   </div>
 </div>
 
-<!-- PRIVACY POLICY -->
+<!-- PRIVACY -->
 <div class="content" id="privacy">
   <div class="highlight">
-    <p id="privacyIntro">Atelier V Digital Branding Studio is committed to protecting your personal data. This Privacy Policy explains what data we collect, why we collect it, how we use it, and your rights under applicable law including the EU General Data Protection Regulation (GDPR).</p>
+    <p data-i18n="privacy.intro">Atelier V Digital Branding Studio is committed to protecting your personal data. This Privacy Policy explains what data we collect, why we collect it, how we use it, and your rights under the GDPR.</p>
   </div>
-
-  <h2 id="p1h">1. Data Controller</h2>
+  <h2 data-i18n="privacy.s1.title">1. Data Controller</h2>
   <p><strong>Atelier V Digital Branding Studio</strong><br>
-  <span id="p1contact">Contact:</span> <a href="mailto:team@atelierv.design">team@atelierv.design</a><br>
-  <span id="p1web">Website:</span> <a href="https://atelierv.design">atelierv.design</a></p>
-
-  <h2 id="p2h">2. What Data We Collect</h2>
-  <h3 id="p2h1">2.1 Data you provide directly</h3>
+  <a href="mailto:team@atelierv.design">team@atelierv.design</a> · <a href="https://atelierv.design">atelierv.design</a></p>
+  <h2 data-i18n="privacy.s2.title">2. What Data We Collect</h2>
   <ul>
-    <li id="p2l1">Name, email address, phone number</li>
-    <li id="p2l2">Business name, industry, and location</li>
-    <li id="p2l3">Project brief and questionnaire responses</li>
-    <li id="p2l4">Payment information (processed by third-party providers — we do not store card details)</li>
-    <li id="p2l5">Communications via email or contact forms</li>
+    <li data-i18n="privacy.s2.l1">Name, email address, phone number</li>
+    <li data-i18n="privacy.s2.l2">Business name, industry, and location</li>
+    <li data-i18n="privacy.s2.l3">Project brief and questionnaire responses</li>
+    <li data-i18n="privacy.s2.l4">Communications via email or contact forms</li>
   </ul>
-  <h3 id="p2h2">2.2 Data collected automatically</h3>
+  <h2 data-i18n="privacy.s3.title">3. How We Use Your Data</h2>
   <ul>
-    <li id="p2l6">IP address and browser type (via standard server logs)</li>
-    <li id="p2l7">Pages visited and time spent on site</li>
-    <li id="p2l8">Referring website or search query</li>
+    <li data-i18n="privacy.s3.l1">To deliver and manage your branding project</li>
+    <li data-i18n="privacy.s3.l2">To communicate about your project status</li>
+    <li data-i18n="privacy.s3.l3">To send invoices and manage payments</li>
+    <li data-i18n="privacy.s3.l4">To comply with legal obligations</li>
   </ul>
-
-  <h2 id="p3h">3. Legal Basis for Processing</h2>
-  <p id="p3intro">We process your personal data on the following legal bases:</p>
-  <ul>
-    <li id="p3l1"><strong>Contract performance:</strong> to deliver the services you have ordered</li>
-    <li id="p3l2"><strong>Legitimate interests:</strong> to manage our business, improve our services, and protect against fraud</li>
-    <li id="p3l3"><strong>Legal obligation:</strong> to comply with applicable laws including tax and accounting requirements</li>
-    <li id="p3l4"><strong>Consent:</strong> where you have explicitly opted in to receive communications from us</li>
-  </ul>
-
-  <h2 id="p4h">4. How We Use Your Data</h2>
-  <ul>
-    <li id="p4l1">To deliver and manage your branding project</li>
-    <li id="p4l2">To communicate with you about your project status</li>
-    <li id="p4l3">To send invoices and manage payments</li>
-    <li id="p4l4">To provide ongoing support services</li>
-    <li id="p4l5">To improve our questionnaire, website, and services</li>
-    <li id="p4l6">To comply with legal and regulatory obligations</li>
-  </ul>
-  <p id="p4p1">We do not sell, rent, or trade your personal data to any third party for marketing purposes.</p>
-
-  <h2 id="p5h">5. Data Sharing</h2>
-  <p id="p5intro">We may share your data with trusted third-party service providers who assist us in operating our business:</p>
-  <ul>
-    <li id="p5l1"><strong>GitHub</strong> — website hosting (GitHub Pages)</li>
-    <li id="p5l2"><strong>ImprovMX</strong> — email forwarding</li>
-    <li id="p5l3"><strong>Namecheap</strong> — domain registration</li>
-    <li id="p5l4"><strong>Google</strong> — fonts and analytics</li>
-    <li id="p5l5"><strong>Payment processors</strong> — for secure payment handling</li>
-  </ul>
-  <p id="p5p1">All third-party providers are required to handle your data securely and in accordance with applicable data protection law. We do not authorize them to use your data for their own purposes.</p>
-
-  <h2 id="p6h">6. Data Retention</h2>
-  <p id="p6intro">We retain your personal data for as long as necessary to fulfill the purposes for which it was collected:</p>
-  <ul>
-    <li id="p6l1">Project data and communications: 5 years from project completion</li>
-    <li id="p6l2">Marketing communications: until you unsubscribe</li>
-    <li id="p6l3">Website logs: 90 days</li>
-  </ul>
-
-  <h2 id="p7h">7. Cookies</h2>
-  <p id="p7p1">Our website uses minimal cookies. We use only essential cookies necessary for the website to function. We do not use tracking cookies or advertising cookies. By using our website, you consent to the use of essential cookies.</p>
-  <p id="p7p2">You can control and delete cookies through your browser settings at any time.</p>
-
-  <h2 id="p8h">8. Data Security</h2>
-  <p id="p8p1">We implement appropriate technical and organizational measures to protect your personal data against unauthorized access, loss, or disclosure. Our website is served over HTTPS. However, no method of transmission over the internet is 100% secure, and we cannot guarantee absolute security.</p>
-
-  <h2 id="p9h">9. International Transfers</h2>
-  <p id="p9p1">Some of our third-party providers may process data outside the European Economic Area (EEA). Where this occurs, we ensure that appropriate safeguards are in place, such as Standard Contractual Clauses approved by the European Commission.</p>
-
-  <h2 id="p10h">10. Changes to This Policy</h2>
-  <p id="p10p1">We may update this Privacy Policy from time to time. The current version is always available at <a href="https://atelierv.design/terms.html">atelierv.design/terms.html</a>. We will notify active clients of significant changes by email.</p>
-
+  <p data-i18n="privacy.s3.p1">We do not sell, rent, or trade your personal data to any third party.</p>
+  <h2 data-i18n="privacy.s4.title">4. Cookies</h2>
+  <p data-i18n="privacy.s4.p1">We use only essential cookies. No tracking or advertising cookies. You can control cookies through your browser settings.</p>
   <div class="contact-box">
-    <p id="privacyContactQ">Privacy questions or requests?</p>
+    <p data-i18n="privacy.contact">Privacy questions?</p>
     <p><a href="mailto:team@atelierv.design">team@atelierv.design</a></p>
   </div>
 </div>
@@ -293,322 +182,213 @@ footer{background:var(--navy);color:#aaa;text-align:center;padding:40px 2rem;fon
 <!-- GDPR -->
 <div class="content" id="gdpr">
   <div class="highlight">
-    <p id="gdprIntro">If you are a resident of the European Union or European Economic Area, you have specific rights under the <strong>General Data Protection Regulation (EU) 2016/679 (GDPR)</strong>. Atelier V is committed to upholding these rights in full.</p>
+    <p data-i18n="gdpr.intro">If you are a resident of the EU or EEA, you have specific rights under the <strong>General Data Protection Regulation (GDPR)</strong>. Atelier V is committed to upholding these rights in full.</p>
   </div>
-
-  <h2 id="g1h">Your Rights Under GDPR</h2>
-
-  <h3 id="g1r1">Right of Access (Article 15)</h3>
-  <p id="g1p1">You have the right to request a copy of the personal data we hold about you, along with information about how we process it. We will respond within 30 days.</p>
-
-  <h3 id="g1r2">Right to Rectification (Article 16)</h3>
-  <p id="g1p2">If any personal data we hold about you is inaccurate or incomplete, you have the right to request correction. We will update your data promptly upon verified request.</p>
-
-  <h3 id="g1r3">Right to Erasure — "Right to be Forgotten" (Article 17)</h3>
-  <p id="g1p3">You may request that we delete your personal data when:</p>
-  <ul>
-    <li id="g1l1">The data is no longer necessary for the purpose it was collected</li>
-    <li id="g1l2">You withdraw consent (where consent was the legal basis)</li>
-    <li id="g1l3">You object to processing and there are no overriding legitimate grounds</li>
-    <li id="g1l4">The data has been unlawfully processed</li>
-  </ul>
-  <p id="g1p4">This right may be limited where we are required by law to retain certain data (e.g. financial records).</p>
-
-  <h3 id="g1r4">Right to Restriction of Processing (Article 18)</h3>
-  <p id="g1p5">You have the right to request that we restrict processing of your data in certain circumstances, such as while the accuracy of data is being contested.</p>
-
-  <h3 id="g1r5">Right to Data Portability (Article 20)</h3>
-  <p id="g1p6">Where processing is based on consent or contract, you have the right to receive your personal data in a structured, machine-readable format and to transmit it to another controller.</p>
-
-  <h3 id="g1r6">Right to Object (Article 21)</h3>
-  <p id="g1p7">You have the right to object to processing based on our legitimate interests. We will cease processing unless we can demonstrate compelling legitimate grounds that override your interests.</p>
-
-  <h3 id="g1r7">Rights Related to Automated Decision-Making (Article 22)</h3>
-  <p id="g1p8">Atelier V does not make decisions about you based solely on automated processing. Our package recommendations are algorithmic suggestions only — all final decisions are made by our team in consultation with you.</p>
-
-  <h2 id="g2h">How to Exercise Your Rights</h2>
-  <p id="g2p1">To exercise any of your GDPR rights, please contact us at:</p>
-  <p><strong><a href="mailto:team@atelierv.design">team@atelierv.design</a></strong></p>
-  <p id="g2p2">We will respond within <strong>30 days</strong>. We may need to verify your identity before processing your request. There is no charge for exercising your rights, unless requests are manifestly unfounded or excessive.</p>
-
-  <h2 id="g3h">Right to Lodge a Complaint</h2>
-  <p id="g3p1">If you believe we have not handled your personal data in accordance with applicable law, you have the right to lodge a complaint with your national data protection supervisory authority. In Bulgaria, this is:</p>
+  <h2 data-i18n="gdpr.rights.title">Your Rights Under GDPR</h2>
+  <h3 data-i18n="gdpr.r1.title">Right of Access (Article 15)</h3>
+  <p data-i18n="gdpr.r1.p">You have the right to request a copy of the personal data we hold about you. We will respond within 30 days.</p>
+  <h3 data-i18n="gdpr.r2.title">Right to Rectification (Article 16)</h3>
+  <p data-i18n="gdpr.r2.p">You have the right to request correction of inaccurate or incomplete data.</p>
+  <h3 data-i18n="gdpr.r3.title">Right to Erasure (Article 17)</h3>
+  <p data-i18n="gdpr.r3.p">You may request deletion of your personal data where it is no longer necessary or where you withdraw consent.</p>
+  <h3 data-i18n="gdpr.r4.title">Right to Data Portability (Article 20)</h3>
+  <p data-i18n="gdpr.r4.p">You have the right to receive your data in a structured, machine-readable format.</p>
+  <h3 data-i18n="gdpr.r5.title">Right to Object (Article 21)</h3>
+  <p data-i18n="gdpr.r5.p">You have the right to object to processing based on our legitimate interests.</p>
+  <h2 data-i18n="gdpr.complaint.title">Right to Lodge a Complaint</h2>
   <div class="highlight">
-    <p id="g3box"><strong>Commission for Personal Data Protection (CPDP)</strong><br>
+    <p data-i18n="gdpr.complaint.p"><strong>Commission for Personal Data Protection (CPDP)</strong><br>
     Website: <a href="https://www.cpdp.bg" target="_blank">www.cpdp.bg</a><br>
-    Address: 2 Prof. Tsvetan Lazarov Blvd., Sofia 1592, Bulgaria<br>
-    Phone: +359 2 915 3518</p>
+    Address: 2 Prof. Tsvetan Lazarov Blvd., Sofia 1592, Bulgaria</p>
   </div>
-
-  <h2 id="g4h">Lawful Basis Summary</h2>
-  <ul>
-    <li id="g4l1"><strong>Contract:</strong> Processing your brief, delivering your project, issuing invoices</li>
-    <li id="g4l2"><strong>Legal obligation:</strong> Tax records, accounting, compliance</li>
-    <li id="g4l3"><strong>Legitimate interests:</strong> Business communications, fraud prevention, portfolio display (unless you opt out)</li>
-    <li id="g4l4"><strong>Consent:</strong> Marketing emails — you may withdraw consent at any time</li>
-  </ul>
-
-  <h2 id="g5h">Data Protection Principles</h2>
-  <p id="g5intro">We adhere to the following GDPR principles in all our data processing activities:</p>
-  <ul>
-    <li id="g5l1"><strong>Lawfulness, fairness and transparency</strong> — we process data legally and openly</li>
-    <li id="g5l2"><strong>Purpose limitation</strong> — data is collected for specified, explicit purposes only</li>
-    <li id="g5l3"><strong>Data minimisation</strong> — we collect only what is necessary</li>
-    <li id="g5l4"><strong>Accuracy</strong> — we keep data accurate and up to date</li>
-    <li id="g5l5"><strong>Storage limitation</strong> — data is not kept longer than necessary</li>
-    <li id="g5l6"><strong>Integrity and confidentiality</strong> — data is processed securely</li>
-    <li id="g5l7"><strong>Accountability</strong> — we are responsible for and can demonstrate compliance</li>
-  </ul>
-
   <div class="contact-box">
-    <p id="gdprContactQ">Data protection enquiries:</p>
+    <p data-i18n="gdpr.contact">Data protection enquiries:</p>
     <p><a href="mailto:team@atelierv.design">team@atelierv.design</a></p>
-    <p id="gdprContactNote" style="margin-top:0.8rem;font-size:0.85rem;">We aim to respond to all requests within 30 days.</p>
   </div>
 </div>
 
 <footer>
   <div class="footer-logo">ATELIER V</div>
   <div class="footer-sub">DIGITAL BRANDING STUDIO</div>
-  <p id="footerCopy">© 2026 Atelier V — Digital Branding Studio. All rights reserved.</p>
-  <p id="footerNote" style="margin-top:0.5rem;font-size:0.8rem;color:#666;">These Terms & Privacy Policy are effective as of 1 May 2026.</p>
+  <p data-i18n="footer.copy">© 2026 Atelier V — Digital Branding Studio. All rights reserved.</p>
   <div class="footer-links">
-    <a href="index.html" id="footerHome">Home</a>
-    <a href="services.html" id="footerServices">Services</a>
-    <a href="faq.html" id="footerFaq">FAQ</a>
-    <a href="card.html" id="footerContact">Contact</a>
+    <a href="index.html" data-i18n="footer.home">Home</a>
+    <a href="services.html" data-i18n="footer.services">Services</a>
+    <a href="faq.html" data-i18n="footer.faq">FAQ</a>
+    <a href="card.html" data-i18n="footer.contact">Contact</a>
   </div>
 </footer>
 
 <script>
-const BG = {
-  navBack: '← Обратно към сайта',
-  heroTitle: 'Условия и Поверителност',
-  heroSub: 'Atelier V — Студио за дигитален брандинг',
-  heroDate: 'В сила от: 1 май 2026',
-  tabTerms: 'Общи условия',
-  tabPrivacy: 'Политика за поверителност',
-  tabGdpr: 'GDPR и вашите права',
-
-  // TERMS
-  termsIntro: 'Настоящите Общи условия уреждат отношенията между <strong>Atelier V — Студио за дигитален брандинг</strong> (наричано по-долу „Atelier V", „ние") и всяко физическо или юридическо лице (наричано по-долу „Клиент", „вие"), което ползва нашите услуги. С попълването на въпросника, извършването на плащане или потвърждаването на поръчка по друг начин, вие приемате настоящите Общи условия в пълен обем.',
-  t1h: '1. Услуги',
-  t1p1: 'Atelier V предоставя услуги в областта на дигиталния брандинг, включително, но не само: дизайн на лого, разработка на уебсайт, дигитални визитки, системи за корпоративна идентичност и текуща поддръжка на уебсайт. Конкретните резултати за всеки проект се определят от избрания пакет, описан на нашата <a href="services.html">страница с услуги</a>.',
-  t1p2: 'Всички услуги се предоставят дистанционно. Физически срещи не са включени, освен ако не е изрично договорено в писмен вид.',
-  t2h: '2. Поръчки и потвърждение',
-  t2p1: 'Поръчката се счита за потвърдена при попълване на въпросника за бранда и заплащане на първоначалния депозит. Atelier V ще потвърди получаването и началото на работа в рамките на 24 часа от плащането.',
-  t2p2: 'Atelier V си запазва правото да откаже поръчка по свое усмотрение, в който случай всички получени плащания ще бъдат възстановени изцяло в рамките на 5 работни дни.',
-  t3h: '3. Ценообразуване и плащане',
-  t3h1: '3.1 Структура на плащане',
-  t3l1: '<strong>30% депозит</strong> — дължим преди начало на работа',
-  t3l2: '<strong>70% финално плащане</strong> — дължимо след одобрение на доставения резултат и преди окончателното публикуване',
-  t3l3: 'За проекти Total Brand: 50% депозит при подписване на договора, 50% при финално одобрение',
-  t3l4: 'Месечна поддръжка: таксува се ежемесечно след изтичане на безплатния период, при писмено потвърждение',
-  t3h2: '3.2 Забавено плащане',
-  t3p2: 'Ако финалното плащане не бъде получено в рамките на 14 дни от датата на фактурата, Atelier V си запазва правото да спре проекта, да свали публикувания уебсайт и да задържи всички изпълнени до момента дейности. Работата се възобновява при получаване на плащането.',
-  t3h3: '3.3 Валута и данъци',
-  t3p3: 'Всички цени са в евро (€) и не включват приложимите данъци. Клиентите носят отговорност за данъците, приложими в тяхната юрисдикция.',
-  t4h: '4. Доставка и срокове',
-  t4p1: 'Стандартният срок за доставка е <strong>7 работни дни</strong> от датата на потвърденото плащане и получаването на напълно попълнен въпросник. Срокът може да бъде удължен, ако:',
-  t4l1: 'Клиентът забави предоставянето на необходима информация, материали или обратна връзка',
-  t4l2: 'Обхватът на работата се промени след началото на проекта',
-  t4l3: 'Възникнат обстоятелства извън разумния контрол на Atelier V',
-  t4p2: 'Atelier V ще уведоми Клиента своевременно за всяко очаквано забавяне.',
-  t5h: '5. Корекции',
-  t5p1: 'Всеки пакет включва определен брой рунда корекции:',
-  t5l1: '<strong>Essential:</strong> 1 рунд корекции',
-  t5l2: '<strong>Full Brand:</strong> 2 рунда корекции',
-  t5l3: '<strong>Total Brand:</strong> съгласно индивидуалния договор',
-  t5p2: 'Един рунд корекции представлява един консолидиран списък с промени, подаден от Клиента в едно съобщение. Atelier V ще приложи исканите промени в рамките на 48 часа. Допълнителни рундове извън включените са достъпни на цена €50 на рунд.',
-  t5p3: 'Корекция означава промяна на съществуващи елементи. Пълен редизайн или смяна на посоката представлява нов проект и ще бъде ценово остойностен отделно.',
-  t6h: '6. Домейн и хостинг',
-  t6p1: 'Всеки пакет включва един домейн, избран съвместно с Клиента. Atelier V покрива разходите за регистрация на домейна за първата година. След първата година подновяването е отговорност на Клиента. Atelier V ще изпрати напомняне за подновяване 30 дни преди изтичането.',
-  t6p2: 'Хостингът се предоставя чрез GitHub Pages безплатно за 24 месеца. Клиентът приема, че това е услуга на трета страна и че Atelier V не гарантира 100% наличност. Планирана или непланирана поддръжка от страна на GitHub Pages е извън контрола на Atelier V.',
-  t6p3: 'Ако Клиентът вече притежава домейн, Atelier V ще го свърже с уебсайта без допълнително заплащане.',
-  t6p4: 'Премиум домейни (с пазарна стойност, надвишаваща стандартните такси за регистрация) не са включени и се остойностяват отделно.',
-  t7h: '7. Професионален имейл',
-  t7p1: 'Пренасочването на имейл от домейна на Клиента (напр. info@вашафирма.com) се настройва чрез услуга на трета страна (ImprovMX или еквивалент). Безплатните акаунти пренасочват само входяща поща. Възможността за изпращане от персонализирания адрес изисква платен акаунт при доставчика на имейл услугата, което е отговорност на Клиента, освен ако не е договорено друго.',
-  t8h: '8. Интелектуална собственост',
-  t8p1: 'След получаване на финалното плащане Клиентът получава пълна и изключителна собственост върху всички доставени материали, включително файлове с лого (PNG, SVG), код на уебсайта (HTML, CSS) и всички свързани дизайн активи.',
-  t8p2: 'Atelier V запазва правото да показва завършени проекти в своето портфолио, казуси и маркетингови материали, освен ако Клиентът не поиска поверителност в писмен вид до момента на завършване на проекта.',
-  t8p3: 'Клиентът гарантира, че всички материали, предоставени на Atelier V (текстове, изображения, брандинг активи), са негова собственост или че има право да ги използва, и че употребата им не нарушава права на интелектуална собственост на трети страни. Atelier V не носи отговорност за никакви нарушения, произтичащи от материали, предоставени от Клиента.',
-  t9h: '9. Месечна поддръжка',
-  t9p1: 'Услугата Месечна поддръжка (€19.99/месец) е достъпна за всички клиенти на Atelier V. Първите 3 месеца се предоставят безплатно за клиентите на Essential и Full Brand. След изтичане на безплатния период услугата се активира при писмено потвърждение от Клиента.',
-  t9p2: 'Месечната поддръжка включва актуализации на съществуващото съдържание (текстове, изображения, данни за контакт, цени) в рамките на съществуващата структура на уебсайта. Не включва създаване на нови страници, структурен редизайн, SEO кампании или управление на социални медии.',
-  t9p3: 'Услугата може да бъде прекратена по всяко време без неустойка с писмено уведомление до <a href="mailto:team@atelierv.design">team@atelierv.design</a>. Прекратяването влиза в сила в края на текущия платежен месец.',
-  t10h: '10. Отказ и възстановяване на суми',
-  t10l1: 'Отказ преди начало на работа: 50% от депозита се възстановява в рамките на 5 работни дни',
-  t10l2: 'Отказ след начало на работа: не се дължи възстановяване; всички изпълнени до момента дейности остават собственост на Atelier V до получаване на финалното плащане',
-  t10l3: 'Ако Atelier V не успее да достави в договорения срок без основателна причина, Клиентът може да поиска пълно възстановяване на депозита',
-  t11h: '11. Ограничаване на отговорността',
-  t11p1: 'Общата отговорност на Atelier V към Клиента не може да надвишава общата сума, платена от Клиента за конкретния проект.',
-  t11p2: 'Atelier V не носи отговорност за:',
-  t11l1: 'Загуба на приходи, печалби или бизнес възможности в резултат от използването на доставената работа',
-  t11l2: 'Прекъсвания на хостинг или домейн услуги, предоставяни от трети страни',
-  t11l3: 'Промени, направени в уебсайта от Клиента или трети страни след доставката',
-  t11l4: 'Каквито и да е щети, произтичащи от съдържание, предоставено от Клиента, което нарушава приложимото законодателство',
-  t12h: '12. Поверителност',
-  t12p1: 'И двете страни се съгласяват да пазят в тайна всяка чувствителна бизнес информация, споделена в хода на сътрудничеството. Това задължение остава в сила и след прекратяване на договора.',
-  t13h: '13. Приложимо право',
-  t13p1: 'Настоящите Общи условия се уреждат от законите на Република България. Всички спорове ще бъдат разрешавани първо по взаимно съгласие. Ако постигането на споразумение е невъзможно, компетентният български съд ще има юрисдикция.',
-  t14h: '14. Приемане',
-  t14p1: 'С подаването на въпросника за бранда и извършването на плащане Клиентът потвърждава, че е прочел, разбрал и приема настоящите Общи условия в пълен обем.',
-  termsContactQ: 'Въпроси относно условията?',
-
-  // PRIVACY
-  privacyIntro: 'Atelier V — Студио за дигитален брандинг се ангажира да защитава вашите лични данни. Настоящата Политика за поверителност обяснява какви данни събираме, защо ги събираме, как ги използваме и какви са вашите права съгласно приложимото законодателство, включително Общия регламент за защита на данните на ЕС (GDPR).',
-  p1h: '1. Администратор на данни',
-  p1contact: 'Контакт:',
-  p1web: 'Уебсайт:',
-  p2h: '2. Какви данни събираме',
-  p2h1: '2.1 Данни, които предоставяте директно',
-  p2l1: 'Имена, имейл адрес, телефонен номер',
-  p2l2: 'Наименование на фирмата, индустрия и местоположение',
-  p2l3: 'Проектно задание и отговори от въпросника',
-  p2l4: 'Информация за плащане (обработвана от доставчици на платежни услуги — ние не съхраняваме данни от карти)',
-  p2l5: 'Комуникация по имейл или чрез форми за контакт',
-  p2h2: '2.2 Автоматично събирани данни',
-  p2l6: 'IP адрес и вид на браузъра (чрез стандартни сървърни логове)',
-  p2l7: 'Посетени страници и прекарано време на сайта',
-  p2l8: 'Препращащ уебсайт или търсена заявка',
-  p3h: '3. Правно основание за обработка',
-  p3intro: 'Обработваме личните ви данни на следните правни основания:',
-  p3l1: '<strong>Изпълнение на договор:</strong> за предоставяне на поръчаните от вас услуги',
-  p3l2: '<strong>Легитимни интереси:</strong> за управление на нашия бизнес, подобряване на услугите и защита срещу измами',
-  p3l3: '<strong>Правно задължение:</strong> за спазване на приложимото законодателство, включително данъчните и счетоводните изисквания',
-  p3l4: '<strong>Съгласие:</strong> когато сте се съгласили изрично да получавате комуникации от нас',
-  p4h: '4. Как използваме вашите данни',
-  p4l1: 'За изпълнение и управление на вашия брандинг проект',
-  p4l2: 'За комуникация относно статуса на проекта',
-  p4l3: 'За издаване на фактури и управление на плащания',
-  p4l4: 'За предоставяне на текущи услуги по поддръжка',
-  p4l5: 'За подобряване на нашия въпросник, уебсайт и услуги',
-  p4l6: 'За спазване на законови и регулаторни задължения',
-  p4p1: 'Не продаваме, отдаваме под наем или предоставяме личните ви данни на трети страни за маркетингови цели.',
-  p5h: '5. Споделяне на данни',
-  p5intro: 'Може да споделяме вашите данни с надеждни доставчици на услуги трети страни, които ни подпомагат в дейността:',
-  p5l1: '<strong>GitHub</strong> — хостинг на уебсайт (GitHub Pages)',
-  p5l2: '<strong>ImprovMX</strong> — пренасочване на имейл',
-  p5l3: '<strong>Namecheap</strong> — регистрация на домейни',
-  p5l4: '<strong>Google</strong> — шрифтове и анализи',
-  p5l5: '<strong>Платежни процесори</strong> — за сигурна обработка на плащания',
-  p5p1: 'Всички доставчици трети страни са длъжни да обработват вашите данни сигурно и в съответствие с приложимото законодателство за защита на данните. Ние не им разрешаваме да използват данните ви за собствени цели.',
-  p6h: '6. Срок на съхранение на данните',
-  p6intro: 'Съхраняваме личните ви данни толкова дълго, колкото е необходимо за постигане на целите, за които са събрани:',
-  p6l1: 'Данни по проекта и комуникации: 5 години от завършването на проекта (за счетоводни и правни цели)',
-  p6l2: 'Маркетингови комуникации: до отписване',
-  p6l3: 'Логове на уебсайта: 90 дни',
-  p7h: '7. Бисквитки',
-  p7p1: 'Нашият уебсайт използва минимален брой бисквитки. Използваме само технически необходими бисквитки, без които сайтът не може да функционира. Не използваме бисквитки за проследяване или реклама. С използването на нашия уебсайт вие се съгласявате с използването на технически необходими бисквитки.',
-  p7p2: 'Можете да управлявате и изтривате бисквитките по всяко време чрез настройките на браузъра си.',
-  p8h: '8. Сигурност на данните',
-  p8p1: 'Прилагаме подходящи технически и организационни мерки за защита на личните ви данни от неоторизиран достъп, загуба или разкриване. Нашият уебсайт работи чрез HTTPS. Въпреки това никой метод на пренос по интернет не е 100% сигурен и не можем да гарантираме абсолютна сигурност.',
-  p9h: '9. Международни трансфери',
-  p9p1: 'Някои от нашите доставчици трети страни могат да обработват данни извън Европейското икономическо пространство (ЕИП). Когато това се случва, осигуряваме наличието на подходящи гаранции, като например Стандартни договорни клаузи, одобрени от Европейската комисия.',
-  p10h: '10. Промени в тази политика',
-  p10p1: 'Можем периодично да актуализираме тази Политика за поверителност. Актуалната версия винаги е достъпна на <a href="https://atelierv.design/terms.html">atelierv.design/terms.html</a>. Ще уведомим активните клиенти за съществени промени по имейл.',
-  privacyContactQ: 'Въпроси или заявки относно поверителността?',
-
-  // GDPR
-  gdprIntro: 'Ако сте жител на Европейския съюз или Европейското икономическо пространство, имате конкретни права съгласно <strong>Общия регламент за защита на данните (ЕС) 2016/679 (GDPR)</strong>. Atelier V се ангажира да спазва тези права в пълен обем.',
-  g1h: 'Вашите права по GDPR',
-  g1r1: 'Право на достъп (Член 15)',
-  g1p1: 'Имате право да поискате копие от личните данни, които съхраняваме за вас, заедно с информация за начина, по който ги обработваме. Ще отговорим в рамките на 30 дни.',
-  g1r2: 'Право на коригиране (Член 16)',
-  g1p2: 'Ако личните данни, които съхраняваме за вас, са неточни или непълни, имате право да поискате тяхното коригиране. Ще актуализираме данните ви незабавно при потвърдена заявка.',
-  g1r3: 'Право на изтриване — „Право да бъдеш забравен" (Член 17)',
-  g1p3: 'Можете да поискате изтриването на личните ви данни, когато:',
-  g1l1: 'Данните вече не са необходими за целта, за която са били събрани',
-  g1l2: 'Оттегляте съгласието си (когато съгласието е правното основание)',
-  g1l3: 'Възразявате срещу обработването и няма надделяващи законни основания',
-  g1l4: 'Данните са обработвани незаконосъобразно',
-  g1p4: 'Това право може да бъде ограничено, когато сме задължени по закон да съхраняваме определени данни (напр. финансови записи).',
-  g1r4: 'Право на ограничаване на обработването (Член 18)',
-  g1p5: 'Имате право да поискате ограничаване на обработването на вашите данни при определени обстоятелства, например докато се оспорва точността на данните.',
-  g1r5: 'Право на преносимост на данните (Член 20)',
-  g1p6: 'Когато обработването се основава на съгласие или договор, имате право да получите личните си данни в структуриран, машинно четим формат и да ги предадете на друг администратор.',
-  g1r6: 'Право на възражение (Член 21)',
-  g1p7: 'Имате право да възразите срещу обработването, основано на нашите легитимни интереси. Ще преустановим обработването, освен ако не можем да докажем наличието на убедителни законни основания, надделяващи над вашите интереси.',
-  g1r7: 'Права, свързани с автоматизирано вземане на решения (Член 22)',
-  g1p8: 'Atelier V не взема решения за вас, основани единствено на автоматизирана обработка. Препоръките ни за пакети са алгоритмични предложения — всички окончателни решения се вземат от нашия екип в консултация с вас.',
-  g2h: 'Как да упражните правата си',
-  g2p1: 'За да упражните някое от правата си по GDPR, моля, свържете се с нас на:',
-  g2p2: 'Ще отговорим в рамките на <strong>30 дни</strong>. Може да се наложи да потвърдим самоличността ви преди обработката на вашата заявка. Упражняването на правата ви е безплатно, освен ако заявките не са явно неоснователни или прекомерни.',
-  g3h: 'Право на жалба',
-  g3p1: 'Ако смятате, че не сме обработили личните ви данни в съответствие с приложимото законодателство, имате право да подадете жалба до националния орган за защита на данните. В България това е:',
-  g3box: '<strong>Комисия за защита на личните данни (КЗЛД)</strong><br>Уебсайт: <a href="https://www.cpdp.bg" target="_blank">www.cpdp.bg</a><br>Адрес: бул. „Проф. Цветан Лазаров" № 2, София 1592, България<br>Телефон: +359 2 915 3518',
-  g4h: 'Обобщение на правните основания',
-  g4l1: '<strong>Договор:</strong> Обработване на вашето задание, изпълнение на проекта, издаване на фактури',
-  g4l2: '<strong>Правно задължение:</strong> Данъчни и счетоводни записи, съответствие с нормативни изисквания',
-  g4l3: '<strong>Легитимни интереси:</strong> Бизнес комуникации, превенция на измами, показване в портфолио (освен ако не сте се отказали)',
-  g4l4: '<strong>Съгласие:</strong> Маркетингови имейли — можете да оттеглите съгласието си по всяко време',
-  g5h: 'Принципи за защита на данните',
-  g5intro: 'Спазваме следните принципи на GDPR във всички наши дейности по обработка на данни:',
-  g5l1: '<strong>Законосъобразност, справедливост и прозрачност</strong> — обработваме данни законно и открито',
-  g5l2: '<strong>Ограничение на целите</strong> — данните се събират само за конкретни, изрично посочени цели',
-  g5l3: '<strong>Минимизиране на данните</strong> — събираме само необходимото',
-  g5l4: '<strong>Точност</strong> — поддържаме данните точни и актуални',
-  g5l5: '<strong>Ограничение на съхранението</strong> — данните не се съхраняват по-дълго от необходимото',
-  g5l6: '<strong>Цялостност и поверителност</strong> — данните се обработват сигурно',
-  g5l7: '<strong>Отчетност</strong> — носим отговорност и можем да докажем съответствие',
-  gdprContactQ: 'Запитвания относно защитата на данните:',
-  gdprContactNote: 'Стремим се да отговорим на всички заявки в рамките на 30 дни.',
-
-  // FOOTER
-  footerCopy: '© 2026 Atelier V — Студио за дигитален брандинг. Всички права запазени.',
-  footerNote: 'Настоящите Условия и Политика за поверителност са в сила от 1 май 2026 г.',
-  footerHome: 'Начало',
-  footerServices: 'Услуги',
-  footerFaq: 'ЧЗВ',
-  footerContact: 'Контакт',
-};
-
-const EN = {
-  navBack: '← Back to site',
-  heroTitle: 'Terms & Privacy',
-  heroSub: 'Atelier V Digital Branding Studio',
-  heroDate: 'Effective date: 1 May 2026',
-  tabTerms: 'Terms & Conditions',
-  tabPrivacy: 'Privacy Policy',
-  tabGdpr: 'GDPR & Your Rights',
-  termsIntro: 'These Terms and Conditions govern the relationship between <strong>Atelier V Digital Branding Studio</strong> (hereinafter "Atelier V", "we", "us") and any individual or legal entity (hereinafter "Client", "you") who engages our services. By filling in our questionnaire, making a payment, or otherwise confirming an order, you agree to these Terms in full.',
-  t1h: '1. Services', t1p1: 'Atelier V provides digital branding services including but not limited to logo design, website development, digital business cards, brand identity systems, and ongoing website maintenance. The specific deliverables for each engagement are defined by the selected package as described on our <a href="services.html">Services page</a>.', t1p2: 'All services are delivered remotely. Physical meetings are not included unless explicitly agreed in writing.',
-  t2h: '2. Orders & Confirmation', t2p1: 'An order is confirmed when the Client submits the brand questionnaire and completes the initial deposit payment. Atelier V will confirm receipt and commencement of work within 24 hours of payment.', t2p2: 'Atelier V reserves the right to decline any order at its sole discretion, in which case any payment received will be refunded in full within 5 business days.',
-  t3h: '3. Pricing & Payment', t3h1: '3.1 Payment Structure', t3l1: '<strong>30% deposit</strong> is due before work begins', t3l2: '<strong>70% final payment</strong> is due after the Client approves the delivered work and before final publication', t3l3: 'For Total Brand projects: 50% deposit upon contract signing, 50% upon final approval', t3l4: 'Monthly Support: billed monthly after the free period expires, upon written confirmation',
-  t3h2: '3.2 Late Payment', t3p2: 'If the final payment is not received within 14 days of the invoice date, Atelier V reserves the right to suspend the project, remove the published website, and retain all work completed to date. Work will resume upon payment.',
-  t3h3: '3.3 Currency & Taxes', t3p3: 'All prices are quoted in Euros (€) and are exclusive of applicable taxes. Clients are responsible for any taxes applicable in their jurisdiction.',
-  t4h: '4. Delivery & Timeline', t4p1: 'The standard delivery period is <strong>7 working days</strong> from the date of confirmed payment and receipt of a fully completed questionnaire. The timeline may be extended if:', t4l1: 'The Client delays in providing required information, materials, or feedback', t4l2: 'The scope of work changes after commencement', t4l3: 'Circumstances beyond Atelier V\'s reasonable control arise', t4p2: 'Atelier V will notify the Client promptly of any anticipated delays.',
-  t5h: '5. Revisions', t5p1: 'Each package includes a defined number of revision rounds:', t5l1: '<strong>Essential:</strong> 1 revision round', t5l2: '<strong>Full Brand:</strong> 2 revision rounds', t5l3: '<strong>Total Brand:</strong> as agreed in the individual contract', t5p2: 'A revision round is defined as one consolidated list of changes submitted by the Client in a single communication. Atelier V will implement the requested changes within 48 hours. Additional revision rounds beyond those included are available at €50 per round.', t5p3: 'A revision means modification of existing elements. A complete redesign or change of direction constitutes a new project and will be quoted separately.',
-  t6h: '6. Domain & Hosting', t6p1: 'Each package includes one domain name, selected jointly with the Client. Atelier V covers domain registration costs for the first year. After the first year, the domain renewal is the Client\'s responsibility. Atelier V will send a renewal reminder 30 days before expiry.', t6p2: 'Hosting is provided via GitHub Pages at no cost for 24 months. The Client acknowledges that this is a third-party service and that Atelier V does not guarantee 100% uptime.', t6p3: 'If the Client already owns a domain, Atelier V will connect it to the website at no additional charge.', t6p4: 'Premium domains (those with market value exceeding standard registration fees) are not included and are priced separately.',
-  t7h: '7. Professional Email', t7p1: 'Email forwarding on the Client\'s domain (e.g. info@yourbusiness.com) is set up via a third-party service (ImprovMX or equivalent). Free-tier accounts forward incoming mail only. The ability to send from the custom address requires a paid account with the email provider, which is the Client\'s responsibility unless otherwise agreed.',
-  t8h: '8. Intellectual Property', t8p1: 'Upon receipt of the final payment, the Client receives full and exclusive ownership of all delivered materials, including logo files (PNG, SVG), website code (HTML, CSS), and all associated design assets.', t8p2: 'Atelier V retains the right to display completed projects in its portfolio, case studies, and marketing materials unless the Client requests confidentiality in writing at or before the time of project completion.', t8p3: 'The Client warrants that all materials provided to Atelier V are owned by the Client or that the Client has the right to use them. Atelier V bears no liability for any infringement resulting from Client-provided materials.',
-  t9h: '9. Monthly Support', t9p1: 'The Monthly Support service (€19.99/month) is available to all Atelier V clients. The first 3 months are provided free of charge for Essential and Full Brand clients. After the free period, the service activates upon the Client\'s written confirmation.', t9p2: 'Monthly Support includes updates to existing content (text, images, contact details, prices) within the existing website structure. It does not include new page creation, structural redesign, SEO campaigns, or social media management.', t9p3: 'The service may be cancelled at any time without penalty by written notice to <a href="mailto:team@atelierv.design">team@atelierv.design</a>. Cancellation takes effect at the end of the current billing month.',
-  t10h: '10. Cancellation & Refunds', t10l1: 'Cancellation before work begins: 50% of the deposit is refunded within 5 business days', t10l2: 'Cancellation after work has begun: no refund is due; all work completed to date remains the property of Atelier V until final payment is received', t10l3: 'If Atelier V fails to deliver within the agreed timeline without valid reason, the Client may request a full refund of the deposit',
-  t11h: '11. Limitation of Liability', t11p1: 'Atelier V\'s total liability to the Client shall not exceed the total amount paid by the Client for the specific project in question.', t11p2: 'Atelier V is not liable for:', t11l1: 'Loss of revenue, profits, or business opportunities arising from use of the delivered work', t11l2: 'Interruptions to hosting or domain services provided by third parties', t11l3: 'Changes made to the website by the Client or third parties after delivery', t11l4: 'Any damages resulting from Client-provided content that violates applicable law',
-  t12h: '12. Confidentiality', t12p1: 'Both parties agree to keep confidential any sensitive business information shared in the course of the engagement. This obligation survives the termination of the agreement.',
-  t13h: '13. Governing Law', t13p1: 'These Terms are governed by the laws of the Republic of Bulgaria. Any disputes shall first be attempted to be resolved amicably. If resolution is not possible, the competent Bulgarian court shall have jurisdiction.',
-  t14h: '14. Acceptance', t14p1: 'By submitting the brand questionnaire and making payment, the Client confirms they have read, understood, and agreed to these Terms and Conditions in full.',
-  termsContactQ: 'Questions about these Terms?',
-  privacyIntro: 'Atelier V Digital Branding Studio is committed to protecting your personal data. This Privacy Policy explains what data we collect, why we collect it, how we use it, and your rights under applicable law including the EU General Data Protection Regulation (GDPR).',
-  p1h: '1. Data Controller', p1contact: 'Contact:', p1web: 'Website:',
-  p2h: '2. What Data We Collect', p2h1: '2.1 Data you provide directly', p2l1: 'Name, email address, phone number', p2l2: 'Business name, industry, and location', p2l3: 'Project brief and questionnaire responses', p2l4: 'Payment information (processed by third-party providers — we do not store card details)', p2l5: 'Communications via email or contact forms', p2h2: '2.2 Data collected automatically', p2l6: 'IP address and browser type (via standard server logs)', p2l7: 'Pages visited and time spent on site', p2l8: 'Referring website or search query',
-  p3h: '3. Legal Basis for Processing', p3intro: 'We process your personal data on the following legal bases:', p3l1: '<strong>Contract performance:</strong> to deliver the services you have ordered', p3l2: '<strong>Legitimate interests:</strong> to manage our business, improve our services, and protect against fraud', p3l3: '<strong>Legal obligation:</strong> to comply with applicable laws including tax and accounting requirements', p3l4: '<strong>Consent:</strong> where you have explicitly opted in to receive communications from us',
-  p4h: '4. How We Use Your Data', p4l1: 'To deliver and manage your branding project', p4l2: 'To communicate with you about your project status', p4l3: 'To send invoices and manage payments', p4l4: 'To provide ongoing support services', p4l5: 'To improve our questionnaire, website, and services', p4l6: 'To comply with legal and regulatory obligations', p4p1: 'We do not sell, rent, or trade your personal data to any third party for marketing purposes.',
-  p5h: '5. Data Sharing', p5intro: 'We may share your data with trusted third-party service providers who assist us in operating our business:', p5l1: '<strong>GitHub</strong> — website hosting (GitHub Pages)', p5l2: '<strong>ImprovMX</strong> — email forwarding', p5l3: '<strong>Namecheap</strong> — domain registration', p5l4: '<strong>Google</strong> — fonts and analytics', p5l5: '<strong>Payment processors</strong> — for secure payment handling', p5p1: 'All third-party providers are required to handle your data securely and in accordance with applicable data protection law.',
-  p6h: '6. Data Retention', p6intro: 'We retain your personal data for as long as necessary:', p6l1: 'Project data and communications: 5 years from project completion', p6l2: 'Marketing communications: until you unsubscribe', p6l3: 'Website logs: 90 days',
-  p7h: '7. Cookies', p7p1: 'Our website uses minimal cookies. We use only essential cookies necessary for the website to function. We do not use tracking cookies or advertising cookies.', p7p2: 'You can control and delete cookies through your browser settings at any time.',
-  p8h: '8. Data Security', p8p1: 'We implement appropriate technical and organizational measures to protect your personal data against unauthorized access, loss, or disclosure. Our website is served over HTTPS.',
-  p9h: '9. International Transfers', p9p1: 'Some of our third-party providers may process data outside the EEA. Where this occurs, we ensure appropriate safeguards are in place, such as Standard Contractual Clauses approved by the European Commission.',
-  p10h: '10. Changes to This Policy', p10p1: 'We may update this Privacy Policy from time to time. The current version is always available at <a href="https://atelierv.design/terms.html">atelierv.design/terms.html</a>. We will notify active clients of significant changes by email.',
-  privacyContactQ: 'Privacy questions or requests?',
-  gdprIntro: 'If you are a resident of the European Union or European Economic Area, you have specific rights under the <strong>General Data Protection Regulation (EU) 2016/679 (GDPR)</strong>. Atelier V is committed to upholding these rights in full.',
-  g1h: 'Your Rights Under GDPR', g1r1: 'Right of Access (Article 15)', g1p1: 'You have the right to request a copy of the personal data we hold about you, along with information about how we process it. We will respond within 30 days.', g1r2: 'Right to Rectification (Article 16)', g1p2: 'If any personal data we hold about you is inaccurate or incomplete, you have the right to request correction. We will update your data promptly upon verified request.', g1r3: 'Right to Erasure — "Right to be Forgotten" (Article 17)', g1p3: 'You may request that we delete your personal data when:', g1l1: 'The data is no longer necessary for the purpose it was collected', g1l2: 'You withdraw consent (where consent was the legal basis)', g1l3: 'You object to processing and there are no overriding legitimate grounds', g1l4: 'The data has been unlawfully processed', g1p4: 'This right may be limited where we are required by law to retain certain data (e.g. financial records).', g1r4: 'Right to Restriction of Processing (Article 18)', g1p5: 'You have the right to request that we restrict processing of your data in certain circumstances, such as while the accuracy of data is being contested.', g1r5: 'Right to Data Portability (Article 20)', g1p6: 'Where processing is based on consent or contract, you have the right to receive your personal data in a structured, machine-readable format and to transmit it to another controller.', g1r6: 'Right to Object (Article 21)', g1p7: 'You have the right to object to processing based on our legitimate interests. We will cease processing unless we can demonstrate compelling legitimate grounds that override your interests.', g1r7: 'Rights Related to Automated Decision-Making (Article 22)', g1p8: 'Atelier V does not make decisions about you based solely on automated processing. Our package recommendations are algorithmic suggestions only — all final decisions are made by our team in consultation with you.',
-  g2h: 'How to Exercise Your Rights', g2p1: 'To exercise any of your GDPR rights, please contact us at:', g2p2: 'We will respond within <strong>30 days</strong>. We may need to verify your identity before processing your request. There is no charge for exercising your rights, unless requests are manifestly unfounded or excessive.',
-  g3h: 'Right to Lodge a Complaint', g3p1: 'If you believe we have not handled your personal data in accordance with applicable law, you have the right to lodge a complaint with your national data protection supervisory authority. In Bulgaria, this is:', g3box: '<strong>Commission for Personal Data Protection (CPDP)</strong><br>Website: <a href="https://www.cpdp.bg" target="_blank">www.cpdp.bg</a><br>Address: 2 Prof. Tsvetan Lazarov Blvd., Sofia 1592, Bulgaria<br>Phone: +359 2 915 3518',
-  g4h: 'Lawful Basis Summary', g4l1: '<strong>Contract:</strong> Processing your brief, delivering your project, issuing invoices', g4l2: '<strong>Legal obligation:</strong> Tax records, accounting, compliance', g4l3: '<strong>Legitimate interests:</strong> Business communications, fraud prevention, portfolio display (unless you opt out)', g4l4: '<strong>Consent:</strong> Marketing emails — you may withdraw consent at any time',
-  g5h: 'Data Protection Principles', g5intro: 'We adhere to the following GDPR principles in all our data processing activities:', g5l1: '<strong>Lawfulness, fairness and transparency</strong> — we process data legally and openly', g5l2: '<strong>Purpose limitation</strong> — data is collected for specified, explicit purposes only', g5l3: '<strong>Data minimisation</strong> — we collect only what is necessary', g5l4: '<strong>Accuracy</strong> — we keep data accurate and up to date', g5l5: '<strong>Storage limitation</strong> — data is not kept longer than necessary', g5l6: '<strong>Integrity and confidentiality</strong> — data is processed securely', g5l7: '<strong>Accountability</strong> — we are responsible for and can demonstrate compliance',
-  gdprContactQ: 'Data protection enquiries:', gdprContactNote: 'We aim to respond to all requests within 30 days.',
-  footerCopy: '© 2026 Atelier V — Digital Branding Studio. All rights reserved.', footerNote: 'These Terms & Privacy Policy are effective as of 1 May 2026.', footerHome: 'Home', footerServices: 'Services', footerFaq: 'FAQ', footerContact: 'Contact',
+const T = {
+  EN: {
+    'nav.back': '← Back to site',
+    'hero.title': 'Terms & Privacy',
+    'hero.sub': 'Atelier V Digital Branding Studio',
+    'hero.date': 'Effective date: 1 May 2026',
+    'tab.terms': 'Terms & Conditions',
+    'tab.privacy': 'Privacy Policy',
+    'tab.gdpr': 'GDPR & Your Rights',
+    'terms.intro': 'These Terms and Conditions govern the relationship between <strong>Atelier V Digital Branding Studio</strong> and any Client who engages our services. By submitting our questionnaire or making payment, you agree to these Terms in full.',
+    'terms.s1.title': '1. Services',
+    'terms.s1.p1': 'Atelier V provides digital branding services including logo design, website development, digital business cards, and brand identity systems.',
+    'terms.s1.p2': 'All services are delivered remotely. Physical meetings are not included unless explicitly agreed in writing.',
+    'terms.s2.title': '2. Orders & Confirmation',
+    'terms.s2.p1': 'An order is confirmed when the Client submits the brand questionnaire and completes the initial deposit payment. We confirm receipt within 24 hours.',
+    'terms.s2.p2': 'Atelier V reserves the right to decline any order, in which case any payment received will be refunded within 5 business days.',
+    'terms.s3.title': '3. Pricing & Payment',
+    'terms.s3.h1': '3.1 Payment Structure',
+    'terms.s3.l1': '<strong>30% deposit</strong> due before work begins',
+    'terms.s3.l2': '<strong>70% final payment</strong> due after Client approval',
+    'terms.s3.l3': 'Total Brand: 50% deposit, 50% on final approval',
+    'terms.s3.l4': 'Monthly Support: billed monthly after free period',
+    'terms.s3.h2': '3.2 Late Payment',
+    'terms.s3.p2': 'If payment is not received within 14 days of invoice, Atelier V may suspend the project and remove the published website.',
+    'terms.s3.h3': '3.3 Currency & Taxes',
+    'terms.s3.p3': 'All prices are in Euros (€), exclusive of applicable taxes.',
+    'terms.s4.title': '4. Delivery & Timeline',
+    'terms.s4.p1': 'Standard delivery is <strong>7 working days</strong> from confirmed payment and completed questionnaire.',
+    'terms.s5.title': '5. Revisions',
+    'terms.s5.l1': '<strong>Essential:</strong> 1 revision round',
+    'terms.s5.l2': '<strong>Full Brand:</strong> 2 revision rounds',
+    'terms.s5.l3': '<strong>Total Brand:</strong> as agreed in contract',
+    'terms.s5.p1': 'Additional rounds at €50 each. A complete redesign is a new project.',
+    'terms.s6.title': '6. Domain & Hosting',
+    'terms.s6.p1': 'Each package includes one domain (first year covered). Hosting via GitHub Pages for 24 months at no cost.',
+    'terms.s7.title': '7. Professional Email',
+    'terms.s7.p1': 'Email forwarding on your domain is set up via ImprovMX. Sending from a custom address requires a paid email account.',
+    'terms.s8.title': '8. Intellectual Property',
+    'terms.s8.p1': 'Upon final payment, you receive full ownership of all delivered materials — logo files, website code, and all design assets.',
+    'terms.s9.title': '9. Monthly Support',
+    'terms.s9.p1': 'Monthly Support (€19.99/month) — first 3 months free for Essential and Full Brand. Covers content updates only.',
+    'terms.s10.title': '10. Cancellation & Refunds',
+    'terms.s10.l1': 'Before work begins: 50% of deposit refunded',
+    'terms.s10.l2': 'After work has begun: no refund',
+    'terms.s10.l3': 'If we fail to deliver without valid reason: full deposit refunded',
+    'terms.s11.title': '11. Governing Law',
+    'terms.s11.p1': 'These Terms are governed by the laws of Bulgaria. Disputes shall first be resolved amicably.',
+    'terms.contact': 'Questions about these Terms?',
+    'privacy.intro': 'Atelier V is committed to protecting your personal data. This Policy explains what we collect, why, and your rights under GDPR.',
+    'privacy.s1.title': '1. Data Controller',
+    'privacy.s2.title': '2. What Data We Collect',
+    'privacy.s2.l1': 'Name, email address, phone number',
+    'privacy.s2.l2': 'Business name, industry, and location',
+    'privacy.s2.l3': 'Project brief and questionnaire responses',
+    'privacy.s2.l4': 'Communications via email or contact forms',
+    'privacy.s3.title': '3. How We Use Your Data',
+    'privacy.s3.l1': 'To deliver and manage your branding project',
+    'privacy.s3.l2': 'To communicate about your project status',
+    'privacy.s3.l3': 'To send invoices and manage payments',
+    'privacy.s3.l4': 'To comply with legal obligations',
+    'privacy.s3.p1': 'We do not sell, rent, or trade your personal data to any third party.',
+    'privacy.s4.title': '4. Cookies',
+    'privacy.s4.p1': 'We use only essential cookies. No tracking or advertising cookies.',
+    'privacy.contact': 'Privacy questions?',
+    'gdpr.intro': 'As an EU/EEA resident, you have specific rights under the <strong>GDPR</strong>. We are committed to upholding them.',
+    'gdpr.rights.title': 'Your Rights Under GDPR',
+    'gdpr.r1.title': 'Right of Access (Article 15)',
+    'gdpr.r1.p': 'You may request a copy of the personal data we hold about you. We respond within 30 days.',
+    'gdpr.r2.title': 'Right to Rectification (Article 16)',
+    'gdpr.r2.p': 'You may request correction of inaccurate or incomplete data.',
+    'gdpr.r3.title': 'Right to Erasure (Article 17)',
+    'gdpr.r3.p': 'You may request deletion of your data where it is no longer necessary.',
+    'gdpr.r4.title': 'Right to Data Portability (Article 20)',
+    'gdpr.r4.p': 'You may receive your data in a structured, machine-readable format.',
+    'gdpr.r5.title': 'Right to Object (Article 21)',
+    'gdpr.r5.p': 'You may object to processing based on our legitimate interests.',
+    'gdpr.complaint.title': 'Right to Lodge a Complaint',
+    'gdpr.complaint.p': '<strong>Commission for Personal Data Protection (CPDP)</strong><br>Website: <a href="https://www.cpdp.bg" target="_blank">www.cpdp.bg</a><br>Address: 2 Prof. Tsvetan Lazarov Blvd., Sofia 1592, Bulgaria',
+    'gdpr.contact': 'Data protection enquiries:',
+    'footer.copy': '© 2026 Atelier V — Digital Branding Studio. All rights reserved.',
+    'footer.home': 'Home',
+    'footer.services': 'Services',
+    'footer.faq': 'FAQ',
+    'footer.contact': 'Contact',
+  },
+  BG: {
+    'nav.back': '← Обратно към сайта',
+    'hero.title': 'Условия и Поверителност',
+    'hero.sub': 'Atelier V — Студио за дигитален брандинг',
+    'hero.date': 'В сила от: 1 май 2026',
+    'tab.terms': 'Общи условия',
+    'tab.privacy': 'Политика за поверителност',
+    'tab.gdpr': 'GDPR и вашите права',
+    'terms.intro': 'Настоящите Общи условия уреждат отношенията между <strong>Atelier V — Студио за дигитален брандинг</strong> и всеки Клиент, който ползва нашите услуги. С попълването на въпросника или извършването на плащане, вие приемате тези условия изцяло.',
+    'terms.s1.title': '1. Услуги',
+    'terms.s1.p1': 'Atelier V предоставя услуги в областта на дигиталния брандинг, включително дизайн на лого, разработка на уебсайт, дигитални визитки и системи за корпоративна идентичност.',
+    'terms.s1.p2': 'Всички услуги се предоставят дистанционно. Физически срещи не са включени, освен ако не е изрично договорено в писмен вид.',
+    'terms.s2.title': '2. Поръчки и потвърждение',
+    'terms.s2.p1': 'Поръчката се счита за потвърдена при попълване на въпросника и заплащане на първоначалния депозит. Потвърждаваме получаването в рамките на 24 часа.',
+    'terms.s2.p2': 'Atelier V си запазва правото да откаже поръчка, в който случай заплатените суми се възстановяват в рамките на 5 работни дни.',
+    'terms.s3.title': '3. Ценообразуване и плащане',
+    'terms.s3.h1': '3.1 Структура на плащане',
+    'terms.s3.l1': '<strong>30% депозит</strong> преди начало на работа',
+    'terms.s3.l2': '<strong>70% финално плащане</strong> след одобрение от клиента',
+    'terms.s3.l3': 'Total Brand: 50% депозит, 50% при финално одобрение',
+    'terms.s3.l4': 'Месечна поддръжка: таксува се месечно след безплатния период',
+    'terms.s3.h2': '3.2 Забавено плащане',
+    'terms.s3.p2': 'При незаплащане в рамките на 14 дни от датата на фактурата, Atelier V може да спре проекта и да свали публикувания сайт.',
+    'terms.s3.h3': '3.3 Валута и данъци',
+    'terms.s3.p3': 'Всички цени са в евро (€), без приложими данъци.',
+    'terms.s4.title': '4. Срокове и доставка',
+    'terms.s4.p1': 'Стандартният срок за доставка е <strong>7 работни дни</strong> от потвърдено плащане и попълнен въпросник.',
+    'terms.s5.title': '5. Корекции',
+    'terms.s5.l1': '<strong>Essential:</strong> 1 рунд корекции',
+    'terms.s5.l2': '<strong>Full Brand:</strong> 2 рунда корекции',
+    'terms.s5.l3': '<strong>Total Brand:</strong> съгласно договора',
+    'terms.s5.p1': 'Допълнителни рундове по €50. Пълен редизайн се счита за нов проект.',
+    'terms.s6.title': '6. Домейн и хостинг',
+    'terms.s6.p1': 'Всеки пакет включва един домейн (първата година е за наша сметка). Хостингът е чрез GitHub Pages — безплатно за 24 месеца.',
+    'terms.s7.title': '7. Професионален имейл',
+    'terms.s7.p1': 'Пренасочването на имейл от домейна се настройва чрез ImprovMX. Изпращането от персонализиран адрес изисква платен акаунт при доставчика.',
+    'terms.s8.title': '8. Интелектуална собственост',
+    'terms.s8.p1': 'След финалното плащане получавате пълна собственост върху всички доставени материали — лого файлове, код на сайта и дизайн активи.',
+    'terms.s9.title': '9. Месечна поддръжка',
+    'terms.s9.p1': 'Месечна поддръжка (€19.99/месец) — първите 3 месеца безплатно за Essential и Full Brand. Включва само актуализации на съдържание.',
+    'terms.s10.title': '10. Отказ и възстановяване',
+    'terms.s10.l1': 'Преди начало на работа: 50% от депозита се възстановява',
+    'terms.s10.l2': 'След начало на работа: без възстановяване',
+    'terms.s10.l3': 'При неизпълнение от наша страна без основателна причина: пълно възстановяване на депозита',
+    'terms.s11.title': '11. Приложимо право',
+    'terms.s11.p1': 'Тези условия се уреждат от законите на Република България. Споровете се решават по взаимно съгласие.',
+    'terms.contact': 'Въпроси относно условията?',
+    'privacy.intro': 'Atelier V се ангажира да защитава вашите лични данни. Тази политика обяснява какво събираме, защо и какви са вашите права по GDPR.',
+    'privacy.s1.title': '1. Администратор на данни',
+    'privacy.s2.title': '2. Какви данни събираме',
+    'privacy.s2.l1': 'Име, имейл адрес, телефонен номер',
+    'privacy.s2.l2': 'Наименование на фирмата, индустрия и местоположение',
+    'privacy.s2.l3': 'Проектно задание и отговори от въпросника',
+    'privacy.s2.l4': 'Комуникация по имейл или чрез форми за контакт',
+    'privacy.s3.title': '3. Как използваме данните ви',
+    'privacy.s3.l1': 'За изпълнение и управление на вашия брандинг проект',
+    'privacy.s3.l2': 'За комуникация относно статуса на проекта',
+    'privacy.s3.l3': 'За издаване на фактури и управление на плащания',
+    'privacy.s3.l4': 'За спазване на законови задължения',
+    'privacy.s3.p1': 'Не продаваме, отдаваме под наем или предоставяме личните ви данни на трети страни.',
+    'privacy.s4.title': '4. Бисквитки',
+    'privacy.s4.p1': 'Използваме само необходими бисквитки. Без проследяване или рекламни бисквитки.',
+    'privacy.contact': 'Въпроси за поверителността?',
+    'gdpr.intro': 'Като жител на ЕС/ЕИП имате специфични права по <strong>GDPR</strong>. Ние се ангажираме да ги спазваме изцяло.',
+    'gdpr.rights.title': 'Вашите права по GDPR',
+    'gdpr.r1.title': 'Право на достъп (Член 15)',
+    'gdpr.r1.p': 'Можете да поискате копие от личните данни, които съхраняваме за вас. Отговаряме в рамките на 30 дни.',
+    'gdpr.r2.title': 'Право на коригиране (Член 16)',
+    'gdpr.r2.p': 'Можете да поискате корекция на неточни или непълни данни.',
+    'gdpr.r3.title': 'Право на изтриване (Член 17)',
+    'gdpr.r3.p': 'Можете да поискате изтриване на данните си, когато те вече не са необходими.',
+    'gdpr.r4.title': 'Право на преносимост (Член 20)',
+    'gdpr.r4.p': 'Можете да получите данните си в структуриран, машинно четим формат.',
+    'gdpr.r5.title': 'Право на възражение (Член 21)',
+    'gdpr.r5.p': 'Можете да възразите срещу обработването на данните ви въз основа на наши законни интереси.',
+    'gdpr.complaint.title': 'Право на жалба',
+    'gdpr.complaint.p': '<strong>Комисия за защита на личните данни (КЗЛД)</strong><br>Уебсайт: <a href="https://www.cpdp.bg" target="_blank">www.cpdp.bg</a><br>Адрес: бул. „Проф. Цветан Лазаров" № 2, София 1592',
+    'gdpr.contact': 'Запитвания за защита на данните:',
+    'footer.copy': '© 2026 Atelier V — Студио за дигитален брандинг. Всички права запазени.',
+    'footer.home': 'Начало',
+    'footer.services': 'Услуги',
+    'footer.faq': 'ЧЗВ',
+    'footer.contact': 'Контакт',
+  }
 };
 
 let currentLang = localStorage.getItem('lang') || 'EN';
@@ -616,12 +396,11 @@ let currentLang = localStorage.getItem('lang') || 'EN';
 function applyLang(lang) {
   currentLang = lang;
   localStorage.setItem('lang', lang);
-  const T = lang === 'BG' ? BG : EN;
   document.getElementById('langLabel').textContent = lang;
   document.getElementById('langFlag').textContent = lang === 'BG' ? '🇧🇬' : '🇬🇧';
-  Object.keys(T).forEach(id => {
-    const el = document.getElementById(id);
-    if (el) el.innerHTML = T[id];
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (T[lang][key]) el.innerHTML = T[lang][key];
   });
 }
 
@@ -630,7 +409,7 @@ function setLang(lang) {
   applyLang(lang);
 }
 
-function toggleLangMenu() {
+function toggleLang() {
   document.getElementById('langDropdown').classList.toggle('open');
 }
 
@@ -649,365 +428,6 @@ function showTab(tab) {
 }
 
 applyLang(currentLang);
-</script>
-</body>
-</html>
-}
-</script>
-<style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-:root{--navy:#1B2A4A;--gold:#C9A84C;--white:#fff;--off:#F9F8F6;--txt:#2c2c2c;}
-body{font-family:'Jost',sans-serif;color:var(--txt);background:var(--off);}
-a{color:var(--gold);text-decoration:none;}
-a:hover{text-decoration:underline;}
-
-nav{position:fixed;top:0;left:0;right:0;z-index:100;height:64px;padding:0 48px;display:flex;align-items:center;justify-content:space-between;background:rgba(249,248,246,.97);border-bottom:1px solid rgba(201,168,76,.15);}
-.nav-logo{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;letter-spacing:.08em;color:var(--navy);}
-.nav-back{font-size:12px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--navy);}
-.nav-back:hover{color:var(--gold);}
-
-.hero{background:var(--navy);padding:120px 2rem 60px;text-align:center;}
-.hero h1{font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:300;color:var(--white);margin-bottom:1rem;}
-.hero p{color:#aaa;font-size:0.9rem;letter-spacing:0.05em;}
-.hero .updated{color:var(--gold);font-size:0.85rem;margin-top:0.5rem;letter-spacing:0.1em;text-transform:uppercase;}
-
-/* TABS */
-.tabs{background:var(--white);border-bottom:1px solid #e8e8e8;position:sticky;top:64px;z-index:50;display:flex;justify-content:center;gap:0;}
-.tab{padding:1.2rem 3rem;font-size:12px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:#888;cursor:pointer;border-bottom:3px solid transparent;transition:all .2s;}
-.tab:hover{color:var(--navy);}
-.tab.active{color:var(--navy);border-bottom-color:var(--gold);}
-
-.content{display:none;max-width:860px;margin:0 auto;padding:60px 24px 80px;}
-.content.active{display:block;}
-
-h2{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:400;color:var(--navy);margin:3rem 0 1rem;padding-bottom:0.5rem;border-bottom:1px solid #e8e8e8;}
-h2:first-child{margin-top:0;}
-h3{font-size:0.85rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--navy);margin:2rem 0 0.8rem;}
-p{font-size:1rem;color:#444;line-height:1.9;margin-bottom:1rem;}
-ul{margin:0.5rem 0 1rem 0;padding-left:0;list-style:none;}
-ul li{font-size:0.95rem;color:#444;line-height:1.8;padding:0.3rem 0 0.3rem 1.2rem;position:relative;}
-ul li::before{content:"—";color:var(--gold);position:absolute;left:0;}
-.highlight{background:#fffdf5;border-left:3px solid var(--gold);padding:1.2rem 1.5rem;border-radius:0 4px 4px 0;margin:1.5rem 0;}
-.highlight p{margin:0;font-size:0.95rem;}
-.contact-box{background:var(--navy);border-radius:6px;padding:2rem;margin-top:3rem;text-align:center;}
-.contact-box p{color:#aaa;margin-bottom:0.5rem;}
-.contact-box a{color:var(--gold);}
-
-footer{background:var(--navy);color:#aaa;text-align:center;padding:40px 2rem;font-size:0.85rem;}
-.footer-logo{font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:var(--white);margin-bottom:0.5rem;}
-.footer-sub{font-size:0.75rem;letter-spacing:0.1em;color:var(--gold);margin-bottom:1rem;}
-.footer-links{display:flex;justify-content:center;gap:2rem;margin-top:1rem;}
-.footer-links a{color:#aaa;}
-
-@media(max-width:768px){
-  nav{padding:0 20px;}
-  .hero h1{font-size:2rem;}
-  .tab{padding:1rem 1.5rem;}
-  .content{padding:40px 16px 60px;}
-}
-</style>
-</head>
-<body>
-
-<nav>
-  <a href="index.html" class="nav-logo">ATELIER V</a>
-  <a href="index.html" class="nav-back">← Back to site</a>
-</nav>
-
-<div class="hero">
-  <h1>Terms & Privacy</h1>
-  <p>Atelier V Digital Branding Studio</p>
-  <p class="updated">Effective date: 1 May 2026</p>
-</div>
-
-<div class="tabs">
-  <div class="tab active" onclick="showTab('terms')">Terms & Conditions</div>
-  <div class="tab" onclick="showTab('privacy')">Privacy Policy</div>
-  <div class="tab" onclick="showTab('gdpr')">GDPR & Your Rights</div>
-</div>
-
-<!-- TERMS & CONDITIONS -->
-<div class="content active" id="terms">
-
-  <div class="highlight">
-    <p>These Terms and Conditions govern the relationship between <strong>Atelier V Digital Branding Studio</strong> (hereinafter "Atelier V", "we", "us") and any individual or legal entity (hereinafter "Client", "you") who engages our services. By filling in our questionnaire, making a payment, or otherwise confirming an order, you agree to these Terms in full.</p>
-  </div>
-
-  <h2>1. Services</h2>
-  <p>Atelier V provides digital branding services including but not limited to logo design, website development, digital business cards, brand identity systems, and ongoing website maintenance. The specific deliverables for each engagement are defined by the selected package as described on our Services page at <a href="services.html">atelierv.design/services</a>.</p>
-  <p>All services are delivered remotely. Physical meetings are not included unless explicitly agreed in writing.</p>
-
-  <h2>2. Orders & Confirmation</h2>
-  <p>An order is confirmed when the Client submits the brand questionnaire and completes the initial deposit payment. Atelier V will confirm receipt and commencement of work within 24 hours of payment.</p>
-  <p>Atelier V reserves the right to decline any order at its sole discretion, in which case any payment received will be refunded in full within 5 business days.</p>
-
-  <h2>3. Pricing & Payment</h2>
-  <h3>3.1 Payment Structure</h3>
-  <ul>
-    <li><strong>30% deposit</strong> is due before work begins</li>
-    <li><strong>70% final payment</strong> is due after the Client approves the delivered work and before final publication</li>
-    <li>For Total Brand projects: 50% deposit upon contract signing, 50% upon final approval</li>
-    <li>Monthly Support: billed monthly after the free period expires, upon written confirmation</li>
-  </ul>
-  <h3>3.2 Late Payment</h3>
-  <p>If the final payment is not received within 14 days of the invoice date, Atelier V reserves the right to suspend the project, remove the published website, and retain all work completed to date. Work will resume upon payment.</p>
-  <h3>3.3 Currency & Taxes</h3>
-  <p>All prices are quoted in Euros (€) and are exclusive of applicable taxes. Clients are responsible for any taxes applicable in their jurisdiction.</p>
-
-  <h2>4. Delivery & Timeline</h2>
-  <p>The standard delivery period is <strong>7 working days</strong> from the date of confirmed payment and receipt of a fully completed questionnaire. The timeline may be extended if:</p>
-  <ul>
-    <li>The Client delays in providing required information, materials, or feedback</li>
-    <li>The scope of work changes after commencement</li>
-    <li>Circumstances beyond Atelier V's reasonable control arise</li>
-  </ul>
-  <p>Atelier V will notify the Client promptly of any anticipated delays.</p>
-
-  <h2>5. Revisions</h2>
-  <p>Each package includes a defined number of revision rounds:</p>
-  <ul>
-    <li><strong>Essential:</strong> 1 revision round</li>
-    <li><strong>Full Brand:</strong> 2 revision rounds</li>
-    <li><strong>Total Brand:</strong> as agreed in the individual contract</li>
-  </ul>
-  <p>A revision round is defined as one consolidated list of changes submitted by the Client in a single communication. Atelier V will implement the requested changes within 48 hours. Additional revision rounds beyond those included are available at €50 per round.</p>
-  <p>A revision means modification of existing elements. A complete redesign or change of direction constitutes a new project and will be quoted separately.</p>
-
-  <h2>6. Domain & Hosting</h2>
-  <p>Each package includes one domain name, selected jointly with the Client. Atelier V covers domain registration costs for the first year. After the first year, the domain renewal is the Client's responsibility. Atelier V will send a renewal reminder 30 days before expiry.</p>
-  <p>Hosting is provided via GitHub Pages at no cost for 24 months. The Client acknowledges that this is a third-party service and that Atelier V does not guarantee 100% uptime. Scheduled or unscheduled maintenance by GitHub Pages is outside Atelier V's control.</p>
-  <p>If the Client already owns a domain, Atelier V will connect it to the website at no additional charge.</p>
-  <p>Premium domains (those with market value exceeding standard registration fees) are not included and are priced separately.</p>
-
-  <h2>7. Professional Email</h2>
-  <p>Email forwarding on the Client's domain (e.g. info@yourbusiness.com) is set up via a third-party service (ImprovMX or equivalent). Free-tier accounts forward incoming mail only. The ability to send from the custom address requires a paid account with the email provider, which is the Client's responsibility unless otherwise agreed.</p>
-
-  <h2>8. Intellectual Property</h2>
-  <p>Upon receipt of the final payment, the Client receives full and exclusive ownership of all delivered materials, including logo files (PNG, SVG), website code (HTML, CSS), and all associated design assets.</p>
-  <p>Atelier V retains the right to display completed projects in its portfolio, case studies, and marketing materials unless the Client requests confidentiality in writing at or before the time of project completion.</p>
-  <p>The Client warrants that all materials provided to Atelier V (text, images, brand assets) are owned by the Client or that the Client has the right to use them, and that their use does not infringe any third-party intellectual property rights. Atelier V bears no liability for any infringement resulting from Client-provided materials.</p>
-
-  <h2>9. Monthly Support</h2>
-  <p>The Monthly Support service (€19.99/month) is available to all Atelier V clients. The first 3 months are provided free of charge for Essential and Full Brand clients. After the free period, the service activates upon the Client's written confirmation.</p>
-  <p>Monthly Support includes updates to existing content (text, images, contact details, prices) within the existing website structure. It does not include new page creation, structural redesign, SEO campaigns, or social media management.</p>
-  <p>The service may be cancelled at any time without penalty by written notice to <a href="mailto:team@atelierv.design">team@atelierv.design</a>. Cancellation takes effect at the end of the current billing month.</p>
-
-  <h2>10. Cancellation & Refunds</h2>
-  <ul>
-    <li>Cancellation before work begins: 50% of the deposit is refunded within 5 business days</li>
-    <li>Cancellation after work has begun: no refund is due; all work completed to date remains the property of Atelier V until final payment is received</li>
-    <li>If Atelier V fails to deliver within the agreed timeline without valid reason, the Client may request a full refund of the deposit</li>
-  </ul>
-
-  <h2>11. Limitation of Liability</h2>
-  <p>Atelier V's total liability to the Client shall not exceed the total amount paid by the Client for the specific project in question.</p>
-  <p>Atelier V is not liable for:</p>
-  <ul>
-    <li>Loss of revenue, profits, or business opportunities arising from use of the delivered work</li>
-    <li>Interruptions to hosting or domain services provided by third parties</li>
-    <li>Changes made to the website by the Client or third parties after delivery</li>
-    <li>Any damages resulting from Client-provided content that violates applicable law</li>
-  </ul>
-
-  <h2>12. Confidentiality</h2>
-  <p>Both parties agree to keep confidential any sensitive business information shared in the course of the engagement. This obligation survives the termination of the agreement.</p>
-
-  <h2>13. Governing Law</h2>
-  <p>These Terms are governed by the laws of the Republic of Bulgaria. Any disputes shall first be attempted to be resolved amicably. If resolution is not possible, the competent Bulgarian court shall have jurisdiction.</p>
-
-  <h2>14. Acceptance</h2>
-  <p>By submitting the brand questionnaire and making payment, the Client confirms they have read, understood, and agreed to these Terms and Conditions in full.</p>
-
-  <div class="contact-box">
-    <p>Questions about these Terms?</p>
-    <p><a href="mailto:team@atelierv.design">team@atelierv.design</a></p>
-  </div>
-</div>
-
-<!-- PRIVACY POLICY -->
-<div class="content" id="privacy">
-
-  <div class="highlight">
-    <p>Atelier V Digital Branding Studio is committed to protecting your personal data. This Privacy Policy explains what data we collect, why we collect it, how we use it, and your rights under applicable law including the EU General Data Protection Regulation (GDPR).</p>
-  </div>
-
-  <h2>1. Data Controller</h2>
-  <p><strong>Atelier V Digital Branding Studio</strong><br>
-  Contact: <a href="mailto:team@atelierv.design">team@atelierv.design</a><br>
-  Website: <a href="https://atelierv.design">atelierv.design</a></p>
-
-  <h2>2. What Data We Collect</h2>
-  <h3>2.1 Data you provide directly</h3>
-  <ul>
-    <li>Name, email address, phone number</li>
-    <li>Business name, industry, and location</li>
-    <li>Project brief and questionnaire responses</li>
-    <li>Payment information (processed by third-party payment providers — we do not store card details)</li>
-    <li>Communications via email or contact forms</li>
-  </ul>
-  <h3>2.2 Data collected automatically</h3>
-  <ul>
-    <li>IP address and browser type (via standard server logs)</li>
-    <li>Pages visited and time spent on site</li>
-    <li>Referring website or search query</li>
-  </ul>
-
-  <h2>3. Legal Basis for Processing</h2>
-  <p>We process your personal data on the following legal bases:</p>
-  <ul>
-    <li><strong>Contract performance:</strong> to deliver the services you have ordered</li>
-    <li><strong>Legitimate interests:</strong> to manage our business, improve our services, and protect against fraud</li>
-    <li><strong>Legal obligation:</strong> to comply with applicable laws including tax and accounting requirements</li>
-    <li><strong>Consent:</strong> where you have explicitly opted in to receive communications from us</li>
-  </ul>
-
-  <h2>4. How We Use Your Data</h2>
-  <ul>
-    <li>To deliver and manage your branding project</li>
-    <li>To communicate with you about your project status</li>
-    <li>To send invoices and manage payments</li>
-    <li>To provide ongoing support services</li>
-    <li>To improve our questionnaire, website, and services</li>
-    <li>To comply with legal and regulatory obligations</li>
-  </ul>
-  <p>We do not sell, rent, or trade your personal data to any third party for marketing purposes.</p>
-
-  <h2>5. Data Sharing</h2>
-  <p>We may share your data with trusted third-party service providers who assist us in operating our business:</p>
-  <ul>
-    <li><strong>GitHub</strong> — website hosting (GitHub Pages)</li>
-    <li><strong>ImprovMX</strong> — email forwarding</li>
-    <li><strong>Namecheap</strong> — domain registration</li>
-    <li><strong>Google</strong> — fonts and analytics</li>
-    <li><strong>Payment processors</strong> — for secure payment handling</li>
-  </ul>
-  <p>All third-party providers are required to handle your data securely and in accordance with applicable data protection law. We do not authorize them to use your data for their own purposes.</p>
-
-  <h2>6. Data Retention</h2>
-  <p>We retain your personal data for as long as necessary to fulfill the purposes for which it was collected:</p>
-  <ul>
-    <li>Project data and communications: 5 years from project completion (for accounting and legal purposes)</li>
-    <li>Marketing communications: until you unsubscribe</li>
-    <li>Website logs: 90 days</li>
-  </ul>
-
-  <h2>7. Cookies</h2>
-  <p>Our website uses minimal cookies. We use only essential cookies necessary for the website to function. We do not use tracking cookies or advertising cookies. By using our website, you consent to the use of essential cookies.</p>
-  <p>You can control and delete cookies through your browser settings at any time.</p>
-
-  <h2>8. Data Security</h2>
-  <p>We implement appropriate technical and organizational measures to protect your personal data against unauthorized access, loss, or disclosure. Our website is served over HTTPS. However, no method of transmission over the internet is 100% secure, and we cannot guarantee absolute security.</p>
-
-  <h2>9. International Transfers</h2>
-  <p>Some of our third-party providers may process data outside the European Economic Area (EEA). Where this occurs, we ensure that appropriate safeguards are in place, such as Standard Contractual Clauses approved by the European Commission.</p>
-
-  <h2>10. Changes to This Policy</h2>
-  <p>We may update this Privacy Policy from time to time. The current version is always available at <a href="https://atelierv.design/terms.html">atelierv.design/terms.html</a>. We will notify active clients of significant changes by email.</p>
-
-  <div class="contact-box">
-    <p>Privacy questions or requests?</p>
-    <p><a href="mailto:team@atelierv.design">team@atelierv.design</a></p>
-  </div>
-</div>
-
-<!-- GDPR & YOUR RIGHTS -->
-<div class="content" id="gdpr">
-
-  <div class="highlight">
-    <p>If you are a resident of the European Union or European Economic Area, you have specific rights under the <strong>General Data Protection Regulation (EU) 2016/679 (GDPR)</strong>. Atelier V is committed to upholding these rights in full.</p>
-  </div>
-
-  <h2>Your Rights Under GDPR</h2>
-
-  <h3>Right of Access (Article 15)</h3>
-  <p>You have the right to request a copy of the personal data we hold about you, along with information about how we process it. We will respond within 30 days.</p>
-
-  <h3>Right to Rectification (Article 16)</h3>
-  <p>If any personal data we hold about you is inaccurate or incomplete, you have the right to request correction. We will update your data promptly upon verified request.</p>
-
-  <h3>Right to Erasure — "Right to be Forgotten" (Article 17)</h3>
-  <p>You may request that we delete your personal data when:</p>
-  <ul>
-    <li>The data is no longer necessary for the purpose it was collected</li>
-    <li>You withdraw consent (where consent was the legal basis)</li>
-    <li>You object to processing and there are no overriding legitimate grounds</li>
-    <li>The data has been unlawfully processed</li>
-  </ul>
-  <p>This right may be limited where we are required by law to retain certain data (e.g. financial records).</p>
-
-  <h3>Right to Restriction of Processing (Article 18)</h3>
-  <p>You have the right to request that we restrict processing of your data in certain circumstances, such as while the accuracy of data is being contested.</p>
-
-  <h3>Right to Data Portability (Article 20)</h3>
-  <p>Where processing is based on consent or contract, you have the right to receive your personal data in a structured, machine-readable format and to transmit it to another controller.</p>
-
-  <h3>Right to Object (Article 21)</h3>
-  <p>You have the right to object to processing based on our legitimate interests. We will cease processing unless we can demonstrate compelling legitimate grounds that override your interests.</p>
-
-  <h3>Rights Related to Automated Decision-Making (Article 22)</h3>
-  <p>Atelier V does not make decisions about you based solely on automated processing. Our package recommendations are algorithmic suggestions only — all final decisions are made by our team in consultation with you.</p>
-
-  <h2>How to Exercise Your Rights</h2>
-  <p>To exercise any of your GDPR rights, please contact us at:</p>
-  <p><strong><a href="mailto:team@atelierv.design">team@atelierv.design</a></strong></p>
-  <p>We will respond within <strong>30 days</strong>. We may need to verify your identity before processing your request. There is no charge for exercising your rights, unless requests are manifestly unfounded or excessive.</p>
-
-  <h2>Right to Lodge a Complaint</h2>
-  <p>If you believe we have not handled your personal data in accordance with applicable law, you have the right to lodge a complaint with your national data protection supervisory authority. In Bulgaria, this is:</p>
-  <div class="highlight">
-    <p><strong>Commission for Personal Data Protection (CPDP)</strong><br>
-    Website: <a href="https://www.cpdp.bg" target="_blank">www.cpdp.bg</a><br>
-    Address: 2 Prof. Tsvetan Lazarov Blvd., Sofia 1592, Bulgaria<br>
-    Phone: +359 2 915 3518</p>
-  </div>
-
-  <h2>Lawful Basis Summary</h2>
-  <ul>
-    <li><strong>Contract:</strong> Processing your brief, delivering your project, issuing invoices</li>
-    <li><strong>Legal obligation:</strong> Tax records, accounting, compliance</li>
-    <li><strong>Legitimate interests:</strong> Business communications, fraud prevention, portfolio display (unless you opt out)</li>
-    <li><strong>Consent:</strong> Marketing emails — you may withdraw consent at any time</li>
-  </ul>
-
-  <h2>Data Protection Principles</h2>
-  <p>We adhere to the following GDPR principles in all our data processing activities:</p>
-  <ul>
-    <li><strong>Lawfulness, fairness and transparency</strong> — we process data legally and openly</li>
-    <li><strong>Purpose limitation</strong> — data is collected for specified, explicit purposes only</li>
-    <li><strong>Data minimisation</strong> — we collect only what is necessary</li>
-    <li><strong>Accuracy</strong> — we keep data accurate and up to date</li>
-    <li><strong>Storage limitation</strong> — data is not kept longer than necessary</li>
-    <li><strong>Integrity and confidentiality</strong> — data is processed securely</li>
-    <li><strong>Accountability</strong> — we are responsible for and can demonstrate compliance</li>
-  </ul>
-
-  <div class="contact-box">
-    <p>Data protection enquiries:</p>
-    <p><a href="mailto:team@atelierv.design">team@atelierv.design</a></p>
-    <p style="margin-top:0.8rem;font-size:0.85rem;">We aim to respond to all requests within 30 days.</p>
-  </div>
-</div>
-
-<footer>
-  <div class="footer-logo">ATELIER V</div>
-  <div class="footer-sub">DIGITAL BRANDING STUDIO</div>
-  <p>© 2026 Atelier V — Digital Branding Studio. All rights reserved.</p>
-  <p style="margin-top:0.5rem;font-size:0.8rem;color:#666;">These Terms & Privacy Policy are effective as of 1 May 2026.</p>
-  <div class="footer-links">
-    <a href="index.html">Home</a>
-    <a href="services.html">Services</a>
-    <a href="mailto:team@atelierv.design">Contact</a>
-  </div>
-</footer>
-
-<script>
-function showTab(tab){
-  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
-  document.querySelectorAll('.content').forEach(c=>c.classList.remove('active'));
-  event.target.classList.add('active');
-  document.getElementById(tab).classList.add('active');
-  window.scrollTo({top:120,behavior:'smooth'});
-}
 </script>
 </body>
 </html>
