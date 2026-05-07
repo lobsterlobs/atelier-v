@@ -15,14 +15,6 @@
 :root{--navy:#1B2A4A;--gold:#C9A84C;--gold-l:#e8c96a;--white:#fff;--off:#F9F8F6;--muted:#777;}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 body{
-  var detailsToggle=document.getElementById('detailsToggle');
-  var detailsPanel=document.getElementById('detailsPanel');
-  var detailsToggleLabel=document.getElementById('detailsToggleLabel');
-  detailsToggle.addEventListener('click',function(){
-    var o=detailsPanel.classList.contains('open');
-    detailsPanel.classList.toggle('open',!o);detailsToggle.classList.toggle('open',!o);
-  });
-
   font-family:'Jost',sans-serif;min-height:100vh;
   background:var(--navy);
   background-image:radial-gradient(ellipse at 15% 60%,rgba(201,168,76,.07) 0%,transparent 55%),
@@ -241,9 +233,44 @@ body::before{
   .qr-wrap{flex-direction:column;gap:14px;}
   .slots-grid{grid-template-columns:repeat(3,1fr);}
 }
+
+/* ── LANG SWITCHER ── */
+.card-lang{position:fixed;top:16px;right:20px;z-index:200;}
+.card-lang-trigger{display:flex;align-items:center;gap:5px;cursor:pointer;
+  font-family:'Jost',sans-serif;font-size:11px;font-weight:600;
+  letter-spacing:.1em;color:rgba(255,255,255,.7);
+  padding:7px 11px;border:1px solid rgba(201,168,76,.35);
+  background:rgba(27,42,74,.6);backdrop-filter:blur(8px);
+  transition:border-color .2s,color .2s;user-select:none;}
+.card-lang-trigger:hover{border-color:var(--gold);color:var(--gold);}
+.card-lang-arrow{transition:transform .25s;}
+.card-lang.open .card-lang-arrow{transform:rotate(180deg);}
+.card-lang-menu{position:absolute;top:calc(100% + 6px);right:0;
+  background:#1B2A4A;border:1px solid rgba(201,168,76,.2);
+  box-shadow:0 12px 40px rgba(0,0,0,.4);
+  min-width:140px;opacity:0;visibility:hidden;
+  transform:translateY(-6px);transition:all .22s ease;z-index:300;}
+.card-lang.open .card-lang-menu{opacity:1;visibility:visible;transform:translateY(0);}
+.card-lang-menu a{display:flex;align-items:center;gap:8px;padding:9px 14px;
+  font-family:'Jost',sans-serif;font-size:11px;font-weight:500;
+  color:rgba(255,255,255,.7);text-decoration:none;transition:background .15s,color .15s;}
+.card-lang-menu a:hover{background:rgba(201,168,76,.1);color:var(--gold);}
+.card-lang-menu a.active{color:var(--gold);font-weight:600;}
+.lang-flag{width:16px;height:12px;flex-shrink:0;}
 </style>
 </head>
 <body>
+<div class="card-lang" id="cardLang">
+  <div class="card-lang-trigger" id="cardLangTrigger">
+    <img class="lang-flag" id="cardLangFlag" src="https://flagcdn.com/16x12/gb.png" alt="EN">
+    <svg class="card-lang-arrow" width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4l4 4 4-4"/></svg>
+  </div>
+  <div class="card-lang-menu" id="cardLangMenu">
+    <a href="#" class="active" data-lang="en" data-flag="gb"><img class="lang-flag" src="https://flagcdn.com/16x12/gb.png" alt="EN"> EN</a>
+    <a href="#" data-lang="de" data-flag="de"><img class="lang-flag" src="https://flagcdn.com/16x12/de.png" alt="DE"> DE</a>
+    <a href="#" data-lang="bg" data-flag="bg"><img class="lang-flag" src="https://flagcdn.com/16x12/bg.png" alt="BG"> BG</a>
+  </div>
+</div>
 <div class="page-inner">
 
   <!-- LOGO HEADER -->
@@ -258,7 +285,7 @@ body::before{
 
     <!-- 1: CONTACTS + QR -->
     <div class="panel">
-      <span class="panel-eyebrow">Contact</span>
+      <span class="panel-eyebrow" data-en="Contact" data-bg="Контакти" data-de="Kontakt">Contact</span>
       <ul class="contact-list">
         <li class="contact-item">
           <div class="contact-icon">
@@ -300,48 +327,48 @@ body::before{
       <div class="qr-wrap">
         <div class="qr-img-wrap"><img id="qrcode" alt="QR Code"></div>
         <div>
-          <div class="qr-eyebrow">Scan &amp; Save</div>
-          <p class="qr-desc">Point your camera to save Atelier V directly to your contacts.</p>
+          <div class="qr-eyebrow" data-en="Scan &amp; Save" data-bg="Сканирай и запази" data-de="Scannen &amp; Speichern">Scan &amp; Save</div>
+          <p class="qr-desc" data-en="Point your camera to save Atelier V directly to your contacts." data-bg="Насочи камерата си за да запазиш Atelier V директно в контактите си." data-de="Richte deine Kamera aus, um Atelier V direkt in deinen Kontakten zu speichern.">Point your camera to save Atelier V directly to your contacts.</p>
         </div>
       </div>
       <div class="panel-spacer"></div>
       <button class="btn-primary" onclick="downloadVCF()">
         <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
-        <span>Save Contact</span>
+        <span data-en="Save Contact" data-bg="Запази контакт" data-de="Kontakt speichern">Save Contact</span>
       </button>
     </div>
 
     <!-- 2: FORM -->
     <div class="panel">
-      <span class="panel-eyebrow">Send a Message</span>
-      <h2 class="form-title">Get in <em>touch</em></h2>
+      <span class="panel-eyebrow" data-en="Send a Message" data-bg="Изпрати съобщение" data-de="Nachricht senden">Send a Message</span>
+      <h2 class="form-title" data-en="Get in <em>touch</em>" data-bg="Свържи се с <em>нас</em>" data-de="Kontakt <em>aufnehmen</em>">Get in <em>touch</em></h2>
       <div class="field">
-        <label class="field-label" for="f-name">Name</label>
+        <label class="field-label" for="f-name" data-en="Name" data-bg="Име" data-de="Name">Name</label>
         <input id="f-name" type="text" class="field-input" placeholder="Your name">
       </div>
       <div class="field">
-        <label class="field-label" for="f-email">Email</label>
+        <label class="field-label" for="f-email" data-en="Email" data-bg="Имейл" data-de="E-Mail">Email</label>
         <input id="f-email" type="email" class="field-input" placeholder="your@email.com">
       </div>
       <div class="field">
-        <label class="field-label" for="f-msg">Message</label>
+        <label class="field-label" for="f-msg" data-en="Message" data-bg="Съобщение" data-de="Nachricht">Message</label>
         <textarea id="f-msg" class="field-input field-textarea" placeholder="How can we help?"></textarea>
       </div>
       <div class="panel-spacer"></div>
       <button class="btn-primary" style="margin-top:0;" onclick="handleSubmit()">
-        <span>Send Message</span>
+        <span data-en="Send Message" data-bg="Изпрати съобщение" data-de="Nachricht senden">Send Message</span>
         <svg viewBox="0 0 24 24"><path d="M2 21l21-9L2 3v7l15 2-15 2v7z"/></svg>
       </button>
-      <p class="form-success" id="formSuccess">Thank you! We'll be in touch soon.</p>
+      <p class="form-success" id="formSuccess" data-en="Thank you! We'll be in touch soon." data-bg="Благодарим! Ще се свържем скоро." data-de="Danke! Wir melden uns bald.">Thank you! We'll be in touch soon.</p>
     </div>
 
     <!-- 3: BOOKING -->
     <div class="booking-panel">
-      <span class="booking-ey">Free Consultation</span>
-      <div class="booking-title">Schedule a Consultation</div>
-      <div class="booking-sub">Available 9:00–21:00 CET · We confirm within 1 hour</div>
+      <span class="booking-ey" data-en="Free Consultation" data-bg="Безплатна консултация" data-de="Kostenlose Beratung">Free Consultation</span>
+      <div class="booking-title" data-en="Schedule a Consultation" data-bg="Запази консултация" data-de="Beratung vereinbaren">Schedule a Consultation</div>
+      <div class="booking-sub" data-en="Available 9:00–21:00 CET · We confirm within 1 hour" data-bg="Достъпно 9:00–21:00 CET · Потвърждаваме в рамките на 1 час" data-de="Verfügbar 9:00–21:00 CET · Bestätigung innerhalb 1 Stunde">Available 9:00–21:00 CET · We confirm within 1 hour</div>
 
-      <div class="step-label"><span class="step-num">1</span>Select a Date</div>
+      <div class="step-label"><span class="step-num">1</span><span data-en="Select a Date" data-bg="Избери дата" data-de="Datum wählen">Select a Date</span></div>
       <div class="cal-header">
         <button class="cal-nav" id="calPrev">&#8249;</button>
         <div class="cal-month" id="calTitle"></div>
@@ -356,9 +383,9 @@ body::before{
       <div class="cal-grid" id="calGrid"></div>
 
       <div class="step-divider"></div>
-      <div class="step-label"><span class="step-num">2</span>Select a Time</div>
+      <div class="step-label"><span class="step-num">2</span><span data-en="Select a Time" data-bg="Избери час" data-de="Uhrzeit wählen">Select a Time</span></div>
       <button class="slots-toggle" id="slotsToggle" type="button">
-        <span id="slotsToggleLabel">Choose a time slot</span>
+        <span id="slotsToggleLabel" data-en="Choose a time slot" data-bg="Избери час" data-de="Zeitfenster wählen">Choose a time slot</span>
         <span class="slots-toggle-icon">+</span>
       </button>
       <div class="slots-panel" id="slotsPanel">
@@ -366,34 +393,34 @@ body::before{
       </div>
 
       <div class="step-divider"></div>
-      <div class="step-label"><span class="step-num">3</span>Your Details</div>
+      <div class="step-label"><span class="step-num">3</span><span data-en="Your Details" data-bg="Твоите данни" data-de="Deine Angaben">Your Details</span></div>
       <button class="slots-toggle" id="detailsToggle" type="button">
-        <span id="detailsToggleLabel">Enter your details</span>
+        <span id="detailsToggleLabel" data-en="Enter your details" data-bg="Въведи данните си" data-de="Angaben eingeben">Enter your details</span>
         <span class="slots-toggle-icon">+</span>
       </button>
       <div class="slots-panel" id="detailsPanel">
         <div style="padding-top:10px;">
-          <div class="bfield"><label class="bfield-label" for="bName">Full Name</label><input id="bName" type="text" class="bfield-input" placeholder="Your full name"></div>
-          <div class="bfield"><label class="bfield-label" for="bEmail">Email Address</label><input id="bEmail" type="email" class="bfield-input" placeholder="your@email.com"></div>
-          <div class="bfield"><label class="bfield-label" for="bPhone">Phone</label><input id="bPhone" type="tel" class="bfield-input" placeholder="+1 234 567 890"></div>
-          <div class="bfield"><label class="bfield-label" for="bNote">About your project (optional)</label><textarea id="bNote" class="bfield-input bfield-textarea" placeholder="Briefly describe your goals..."></textarea></div>
+          <div class="bfield"><label class="bfield-label" for="bName" data-en="Full Name" data-bg="Пълно име" data-de="Vollständiger Name">Full Name</label><input id="bName" type="text" class="bfield-input" placeholder="Your full name"></div>
+          <div class="bfield"><label class="bfield-label" for="bEmail" data-en="Email Address" data-bg="Имейл адрес" data-de="E-Mail-Adresse">Email Address</label><input id="bEmail" type="email" class="bfield-input" placeholder="your@email.com"></div>
+          <div class="bfield"><label class="bfield-label" for="bPhone" data-en="Phone" data-bg="Телефон" data-de="Telefon">Phone</label><input id="bPhone" type="tel" class="bfield-input" placeholder="+1 234 567 890"></div>
+          <div class="bfield"><label class="bfield-label" for="bNote" data-en="About your project (optional)" data-bg="За твоя проект (по желание)" data-de="Über dein Projekt (optional)">About your project (optional)</label><textarea id="bNote" class="bfield-input bfield-textarea" placeholder="Briefly describe your goals..."></textarea></div>
         </div>
       </div>
 
       <div class="step-divider"></div>
-      <div class="step-label"><span class="step-num">4</span>Confirm Booking</div>
+      <div class="step-label"><span class="step-num">4</span><span data-en="Confirm Booking" data-bg="Потвърди резервацията" data-de="Buchung bestätigen">Confirm Booking</span></div>
       <div id="bkFormArea">
         <button class="btn-confirm" id="btnConfirm" type="button">
-          <span>Confirm Booking</span>
+          <span data-en="Confirm Booking" data-bg="Потвърди резервацията" data-de="Buchung bestätigen">Confirm Booking</span>
           <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
         </button>
-        <p class="booking-note-sm">No commitment. Just a conversation.</p>
+        <p class="booking-note-sm" data-en="No commitment. Just a conversation." data-bg="Без ангажимент. Просто разговор." data-de="Unverbindlich. Nur ein Gespräch.">No commitment. Just a conversation.</p>
         <p id="bkError" style="display:none;text-align:center;margin-top:8px;font-family:'Jost',sans-serif;font-size:12px;color:#c0392b;letter-spacing:.06em;"></p>
       </div>
       <div class="bk-success" id="bkSuccess">
         <div class="bk-check"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>
-        <div class="bk-title">Thank you!</div>
-        <p class="bk-detail">We confirm within 1 hour.<br><strong id="bkSummary"></strong></p>
+        <div class="bk-title" data-en="Thank you!" data-bg="Благодарим!" data-de="Danke!">Thank you!</div>
+        <p class="bk-detail"><span data-en="We confirm within 1 hour." data-bg="Потвърждаваме в рамките на 1 час." data-de="Wir bestätigen innerhalb 1 Stunde.">We confirm within 1 hour.</span><br><strong id="bkSummary"></strong></p>
       </div>
     </div>
 
@@ -401,7 +428,7 @@ body::before{
 
   <a href="index.html" class="back-link">
     <svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
-    Back to website
+    <span data-en="Back to website" data-bg="Обратно към сайта" data-de="Zurück zur Website">Back to website</span>
   </a>
 </div>
 
@@ -554,6 +581,50 @@ function downloadVCF(){
   var a=document.createElement('a');a.href=url;a.download='AtelierV.vcf';
   document.body.appendChild(a);a.click();document.body.removeChild(a);URL.revokeObjectURL(url);
 }
+
+// ── LANG SWITCHER ──
+(function(){
+  var drop=document.getElementById('cardLang');
+  var trigger=document.getElementById('cardLangTrigger');
+  var flag=document.getElementById('cardLangFlag');
+  var menu=document.getElementById('cardLangMenu');
+  trigger.addEventListener('click',function(e){e.stopPropagation();drop.classList.toggle('open');});
+  document.addEventListener('click',function(){drop.classList.remove('open');});
+  menu.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click',function(e){
+      e.preventDefault();
+      menu.querySelectorAll('a').forEach(function(x){x.classList.remove('active');});
+      a.classList.add('active');
+      flag.src='https://flagcdn.com/16x12/'+a.dataset.flag+'.png';
+      flag.alt=a.dataset.lang.toUpperCase();
+      drop.classList.remove('open');
+      applyLang(a.dataset.lang);
+    });
+  });
+  // detailsToggle handler (was accidentally in CSS — fixed here)
+  var detailsToggle=document.getElementById('detailsToggle');
+  var detailsPanel=document.getElementById('detailsPanel');
+  if(detailsToggle){
+    detailsToggle.addEventListener('click',function(){
+      var o=detailsPanel.classList.contains('open');
+      detailsPanel.classList.toggle('open',!o);
+      detailsToggle.classList.toggle('open',!o);
+    });
+  }
+  // Apply saved language
+  var saved=localStorage.getItem('av_lang')||'en';
+  var a=menu.querySelector('[data-lang="'+saved+'"]');
+  if(a){a.click();}
+})();
+
+function applyLang(lang){
+  document.querySelectorAll('[data-en]').forEach(function(el){
+    var text=el.getAttribute('data-'+lang);
+    if(text)el.innerHTML=text;
+  });
+  localStorage.setItem('av_lang',lang);
+}
 </script>
+<script src="translations.js"></script>
 </body>
 </html>
