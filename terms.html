@@ -4,7 +4,7 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Terms & Privacy — Atelier V</title>
-<meta name="description" content="Terms and conditions, privacy policy and GDPR rights for Atelier V Digital Branding Studio.">
+<meta name="description" data-i18n="meta.description" content="Terms and conditions, privacy policy and GDPR rights for Atelier V Digital Branding Studio.">
 <meta property="og:title" content="Terms & Privacy — Atelier V">
 <meta property="og:description" content="Terms and conditions, privacy policy and GDPR rights for Atelier V Digital Branding Studio.">
 <meta property="og:url" content="https://atelierv.design/terms.html">
@@ -305,6 +305,7 @@ const T = {
     'footer.services': 'Services',
     'footer.faq': 'FAQ',
     'footer.contact': 'Contact',
+    'meta.description': 'Terms and conditions, privacy policy and GDPR rights for Atelier V Digital Branding Studio.',
   },
   DE: {
     'nav.back': '← Zurück zur Website',
@@ -389,6 +390,7 @@ const T = {
     'footer.services': 'Leistungen',
     'footer.faq': 'FAQ',
     'footer.contact': 'Kontakt',
+    'meta.description': 'AGB, Datenschutzrichtlinie und DSGVO-Rechte für Atelier V — Digitales Branding-Studio.',
   },
   BG: {
     'nav.back': '← Обратно към сайта',
@@ -473,6 +475,7 @@ const T = {
     'footer.services': 'Услуги',
     'footer.faq': 'ЧЗВ',
     'footer.contact': 'Контакт',
+    'meta.description': 'Общи условия, политика за поверителност и GDPR права за Atelier V — Студио за дигитален брандинг.',
   }
 };
 
@@ -487,7 +490,10 @@ function applyLang(lang) {
   const dict = T[lang] || T.EN;
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');
-    if (dict[key]) el.innerHTML = dict[key];
+    if (dict[key]) {
+      if (el.tagName === 'META') el.setAttribute('content', dict[key]);
+      else el.innerHTML = dict[key];
+    }
   });
 }
 

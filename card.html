@@ -4,7 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Contact — Atelier V Digital Branding Studio</title>
-<meta name="description" content="Get in touch with Atelier V. Book a free consultation or send us a message.">
+<meta name="description"
+  data-en="Get in touch with Atelier V. Book a free consultation or send us a message."
+  data-bg="Свържи се с Atelier V. Запази безплатна консултация или ни изпрати съобщение."
+  data-de="Kontaktiere Atelier V. Buche eine kostenlose Beratung oder schreib uns eine Nachricht."
+  content="Get in touch with Atelier V. Book a free consultation or send us a message.">
 <meta property="og:title" content="Contact — Atelier V Digital Branding Studio">
 <meta property="og:description" content="Get in touch with Atelier V. Book a free consultation or send us a message.">
 <meta property="og:url" content="https://atelierv.design/card.html">
@@ -620,7 +624,10 @@ function downloadVCF(){
 function applyLang(lang){
   document.querySelectorAll('[data-en]').forEach(function(el){
     var text=el.getAttribute('data-'+lang);
-    if(text)el.innerHTML=text;
+    if(text){
+      if(el.tagName==='META')el.setAttribute('content',text);
+      else el.innerHTML=text;
+    }
   });
   localStorage.setItem('av_lang',lang);
 }

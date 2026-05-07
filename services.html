@@ -4,6 +4,11 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Services — Atelier V Digital Branding Studio</title>
+  <meta name="description"
+        data-en="Explore Atelier V's branding services — logo design, website, brand identity, and ongoing maintenance."
+        data-bg="Разгледай услугите на Atelier V – лого, уебсайт, бранд идентичност и поддръжка."
+        data-de="Entdecke die Branding-Leistungen von Atelier V – Logo, Website, Markenidentität und Pflege."
+        content="Explore Atelier V's branding services — logo design, website, brand identity, and ongoing maintenance.">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
@@ -376,7 +381,13 @@ document.querySelectorAll('.lang-menu a').forEach(a=>{
 });
 document.addEventListener('click',()=>langDrop.classList.remove('open'));
 function applyLang(lang){
-  document.querySelectorAll('[data-en]').forEach(el=>{const text=el.dataset[lang];if(text)el.innerHTML=text;});
+  document.querySelectorAll('[data-en]').forEach(el=>{
+    const text=el.dataset[lang];
+    if(text){
+      if(el.tagName==='META')el.setAttribute('content',text);
+      else el.innerHTML=text;
+    }
+  });
   localStorage.setItem('av_lang',lang);
 }
 (function(){
