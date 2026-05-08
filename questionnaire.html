@@ -851,11 +851,11 @@ const stepNames = ['','Your Business','Your Clients','Your Logo','Colors & Ident
 
 function qT(key) {
   const lang = localStorage.getItem('av_lang') || 'en';
-  return (window.qTranslations && qTranslations[lang] && qTranslations[lang][key]) || '';
+  return (typeof qTranslations !== 'undefined' && qTranslations[lang] && qTranslations[lang][key]) || '';
 }
 
 function applyQLang(lang) {
-  if (!window.qTranslations || !qTranslations[lang]) return;
+  if (typeof qTranslations === 'undefined' || !qTranslations[lang]) return;
   const t = qTranslations[lang];
   document.querySelectorAll('[data-key]').forEach(el => {
     const key = el.getAttribute('data-key');
@@ -880,7 +880,7 @@ function updateProgress(step) {
   const lang = localStorage.getItem('av_lang') || 'en';
   const stepWord = qT('q-step-word') || 'Step';
   const ofWord = qT('q-of-word') || 'of';
-  const names = (window.qStepNamesMap && qStepNamesMap[lang]) ? ['', ...qStepNamesMap[lang]] : stepNames;
+  const names = (typeof qStepNamesMap !== 'undefined' && qStepNamesMap[lang]) ? ['', ...qStepNamesMap[lang]] : stepNames;
   const pct = Math.round((step / totalSteps) * 100);
   document.getElementById('progressFill').style.width = pct + '%';
   document.getElementById('stepLabel').textContent = stepWord + ' ' + step + ' ' + ofWord + ' ' + totalSteps + ' — ' + names[step];
