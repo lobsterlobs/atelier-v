@@ -755,9 +755,9 @@ select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='ht
   <div class="field">
     <label data-key="q-tech-budget-label">Budget range</label>
     <div class="cards cards-3" id="techBudget">
-      <div class="card" onclick="selectCard(this,'techBudget')"><div class="card-title" data-key="q-budget-500">Up to €500</div><div class="card-desc" data-key="q-budget-500-desc">Essential package territory</div></div>
-      <div class="card" onclick="selectCard(this,'techBudget')"><div class="card-title" data-key="q-budget-1000">€500 – €1,000</div><div class="card-desc" data-key="q-budget-1000-desc">Full Brand territory</div></div>
-      <div class="card" onclick="selectCard(this,'techBudget')"><div class="card-title" data-key="q-budget-over">Over €1,000</div><div class="card-desc" data-key="q-budget-over-desc">Total Brand territory</div></div>
+      <div class="card" onclick="selectCard(this,'techBudget')"><div class="card-title" data-key="q-budget-500">Up to €400</div><div class="card-desc" data-key="q-budget-500-desc">Brand Launch territory</div></div>
+      <div class="card" onclick="selectCard(this,'techBudget')"><div class="card-title" data-key="q-budget-1000">€400 – €2,500</div><div class="card-desc" data-key="q-budget-1000-desc">Between packages</div></div>
+      <div class="card" onclick="selectCard(this,'techBudget')"><div class="card-title" data-key="q-budget-over">From €2,500</div><div class="card-desc" data-key="q-budget-over-desc">Total Brand territory</div></div>
     </div>
   </div>
 
@@ -971,7 +971,7 @@ function buildRecommendation() {
   if (sections.length > 5) score += 2;
   if (emails.includes('Yes') || emails.includes('Да') || emails.includes('Ja')) score += 1;
   if (intl.includes('International') || intl.includes('Международни') || intl.includes('International')) score += 2;
-  if (budget.includes('Over') || budget.includes('Над') || budget.includes('Über')) score += 2;
+  if (budget.includes('From') || budget.includes('От') || budget.includes('Ab')) score += 2;
   if (budget.includes('Up to') || budget.includes('До') || budget.includes('Bis')) score -= 1;
 
   ['pkgEssential', 'pkgFull', 'pkgTotal'].forEach(id => {
