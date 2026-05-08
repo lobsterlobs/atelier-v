@@ -131,6 +131,9 @@ select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='ht
 .btn-submit:hover{opacity:.85;}
 .submit-note{text-align:center;font-size:13px;color:#888;margin-top:1rem;line-height:1.6;}
 
+/* Lang dropdown */
+.lang-dropdown{position:relative;margin-left:16px;}.lang-trigger{display:flex;align-items:center;gap:5px;cursor:pointer;font-family:'Jost',sans-serif;font-size:12px;font-weight:600;letter-spacing:.1em;color:var(--navy);padding:7px 11px;border:1px solid rgba(27,42,74,0.18);transition:border-color .2s,color .2s;user-select:none;}.lang-trigger:hover{border-color:var(--gold);color:var(--gold);}.lang-arrow{transition:transform .25s;}.lang-dropdown.open .lang-arrow{transform:rotate(180deg);}.lang-menu{position:absolute;top:calc(100% + 6px);right:0;background:var(--white);border:1px solid rgba(27,42,74,0.12);box-shadow:0 12px 40px rgba(27,42,74,0.12);min-width:140px;opacity:0;visibility:hidden;transform:translateY(-6px);transition:all .22s ease;z-index:200;}.lang-dropdown.open .lang-menu{opacity:1;visibility:visible;transform:translateY(0);}.lang-menu a{display:flex;align-items:center;gap:8px;padding:9px 16px;font-family:'Jost',sans-serif;font-size:12px;font-weight:500;letter-spacing:.06em;color:var(--navy);text-decoration:none;transition:background .15s,color .15s;}.lang-menu a:hover{background:var(--off);color:var(--gold);}.lang-menu a.active{color:var(--gold);font-weight:600;}.lang-flag{width:16px;height:12px;flex-shrink:0;}.trigger-flag{width:16px;height:12px;}
+
 @media(max-width:768px){
   nav{padding:0 20px;}
   .progress-wrap{padding:12px 20px;}
@@ -149,7 +152,7 @@ select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='ht
 <nav>
   <a href="index.html" class="nav-logo">ATELIER V</a>
   <div class="nav-right">
-    <button id="qLangBtn" onclick="cycleLang()">EN ▾</button>
+    <div class="lang-dropdown" id="langDrop"><div class="lang-trigger" id="langTrigger"><img class="trigger-flag" id="langFlag" src="https://flagcdn.com/16x12/gb.png" alt="EN"><svg class="lang-arrow" width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4l4 4 4-4"/></svg></div><div class="lang-menu"><a href="#" class="active" data-lang="EN" data-flag="gb"><img class="lang-flag" src="https://flagcdn.com/16x12/gb.png" alt="EN"> EN — English</a><a href="#" data-lang="BG" data-flag="bg"><img class="lang-flag" src="https://flagcdn.com/16x12/bg.png" alt="BG"> BG — Български</a><a href="#" data-lang="DE" data-flag="de"><img class="lang-flag" src="https://flagcdn.com/16x12/de.png" alt="DE"> DE — Deutsch</a></div></div>
     <a href="index.html" class="nav-back" data-key="q-nav-back">← Back to site</a>
   </div>
 </nav>
@@ -862,18 +865,16 @@ function applyQLang(lang) {
     const key = el.getAttribute('data-key-ph');
     if (t[key] !== undefined) el.placeholder = t[key];
   });
-  const btn = document.getElementById('qLangBtn');
-  if (btn) btn.textContent = lang.toUpperCase() + ' ▾';
   localStorage.setItem('av_lang', lang);
   updateProgress(currentStep);
 }
 
-function cycleLang() {
-  const langs = ['en','bg','de'];
-  const current = localStorage.getItem('av_lang') || 'en';
-  const next = langs[(langs.indexOf(current) + 1) % 3];
-  applyQLang(next);
-}
+const langDrop=document.getElementById('langDrop'),langTrigger=document.getElementById('langTrigger'),langFlag=document.getElementById('langFlag');
+langTrigger.addEventListener('click',e=>{e.stopPropagation();langDrop.classList.toggle('open');});
+document.querySelectorAll('.lang-menu a').forEach(a=>{
+  a.addEventListener('click',e=>{e.preventDefault();document.querySelectorAll('.lang-menu a').forEach(x=>x.classList.remove('active'));a.classList.add('active');langFlag.src='https://flagcdn.com/16x12/'+a.dataset.flag+'.png';langFlag.alt=a.dataset.lang;langDrop.classList.remove('open');applyQLang(a.dataset.lang.toLowerCase());});
+});
+document.addEventListener('click',()=>langDrop.classList.remove('open'));
 
 function updateProgress(step) {
   const lang = localStorage.getItem('av_lang') || 'en';
@@ -1113,6 +1114,8 @@ function submitBrief() {
 
 document.addEventListener('DOMContentLoaded', function() {
   const saved = localStorage.getItem('av_lang') || 'en';
+  const a = document.querySelector('.lang-menu a[data-lang="'+saved.toUpperCase()+'"]');
+  if (a) { document.querySelectorAll('.lang-menu a').forEach(x=>x.classList.remove('active')); a.classList.add('active'); langFlag.src='https://flagcdn.com/16x12/'+a.dataset.flag+'.png'; langFlag.alt=saved.toUpperCase(); }
   applyQLang(saved);
   updateProgress(1);
 });
