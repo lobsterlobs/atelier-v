@@ -20,8 +20,11 @@ a{text-decoration:none;}
 /* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;height:64px;padding:0 48px;display:flex;align-items:center;justify-content:space-between;background:rgba(249,248,246,.97);border-bottom:1px solid rgba(201,168,76,.15);}
 .nav-logo{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;letter-spacing:.08em;color:var(--navy);}
+.nav-right{display:flex;align-items:center;gap:20px;}
 .nav-back{font-size:12px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--navy);display:flex;align-items:center;gap:8px;}
 .nav-back:hover{color:var(--gold);}
+#qLangBtn{background:none;border:1.5px solid var(--navy);border-radius:3px;padding:4px 10px;font-family:'Jost',sans-serif;font-size:11px;font-weight:600;letter-spacing:.12em;color:var(--navy);cursor:pointer;transition:all .2s;}
+#qLangBtn:hover{background:var(--navy);color:var(--white);}
 
 /* PROGRESS */
 .progress-wrap{position:fixed;top:64px;left:0;right:0;z-index:99;background:var(--white);border-bottom:1px solid var(--border);padding:16px 48px;}
@@ -145,7 +148,10 @@ select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='ht
 
 <nav>
   <a href="index.html" class="nav-logo">ATELIER V</a>
-  <a href="index.html" class="nav-back">← Back to site</a>
+  <div class="nav-right">
+    <button id="qLangBtn" onclick="cycleLang()">EN ▾</button>
+    <a href="index.html" class="nav-back" data-key="q-nav-back">← Back to site</a>
+  </div>
 </nav>
 
 <div class="progress-wrap">
@@ -161,553 +167,553 @@ select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='ht
 <!-- STEP 1: YOUR BUSINESS -->
 <div class="step active" id="step1">
   <div class="step-header">
-    <div class="step-eyebrow">Step 1 of 8</div>
-    <h1 class="step-title">Tell us about<br><em>your business.</em></h1>
-    <p class="step-subtitle">The foundation of your brand starts here. The more you share, the better we can build something that truly represents you.</p>
+    <div class="step-eyebrow" data-key="q-step1-eyebrow">Step 1 of 8</div>
+    <h1 class="step-title" data-key="q-step1-title">Tell us about<br><em>your business.</em></h1>
+    <p class="step-subtitle" data-key="q-step1-sub">The foundation of your brand starts here. The more you share, the better we can build something that truly represents you.</p>
   </div>
 
   <div class="field">
-    <label>Business name</label>
-    <input type="text" id="bizName" placeholder="e.g. Le Jardin, Vortex International, Studio Nova">
+    <label data-key="q-biz-name-label">Business name</label>
+    <input type="text" id="bizName" data-key-ph="q-biz-name-ph" placeholder="e.g. Le Jardin, Vortex International, Studio Nova">
     <div class="error-msg" id="err-bizName">Please enter your business name</div>
   </div>
 
   <div class="field">
-    <label>What do you sell or offer?</label>
-    <div class="hint">Describe your main products or services in a few sentences</div>
-    <textarea id="bizOffer" rows="4" placeholder="e.g. We are a fine dining restaurant specializing in Mediterranean cuisine. We also offer private event catering and cooking classes..."></textarea>
+    <label data-key="q-biz-offer-label">What do you sell or offer?</label>
+    <div class="hint" data-key="q-biz-offer-hint">Describe your main products or services in a few sentences</div>
+    <textarea id="bizOffer" rows="4" data-key-ph="q-biz-offer-ph" placeholder="e.g. We are a fine dining restaurant specializing in Mediterranean cuisine. We also offer private event catering and cooking classes..."></textarea>
     <div class="error-msg" id="err-bizOffer">Please describe what you offer</div>
   </div>
 
   <div class="field">
-    <label>Industry *</label>
+    <label data-key="q-biz-industry-label">Industry *</label>
     <select id="bizIndustry" required>
       <option value="">Select your industry</option>
-      <option>Restaurant & Hospitality</option>
+      <option>Restaurant &amp; Hospitality</option>
       <option>Real Estate</option>
-      <option>Beauty & Wellness</option>
-      <option>Fashion & Retail</option>
+      <option>Beauty &amp; Wellness</option>
+      <option>Fashion &amp; Retail</option>
       <option>Professional Services (Law, Finance, Consulting)</option>
-      <option>Construction & Architecture</option>
-      <option>Health & Medical</option>
-      <option>Education & Training</option>
-      <option>NGO & Non-profit</option>
+      <option>Construction &amp; Architecture</option>
+      <option>Health &amp; Medical</option>
+      <option>Education &amp; Training</option>
+      <option>NGO &amp; Non-profit</option>
       <option>Technology</option>
-      <option>Tourism & Travel</option>
+      <option>Tourism &amp; Travel</option>
       <option>Other</option>
     </select>
-    <div class="error-msg" id="err-bizIndustry">Please select your industry</div>
+    <div class="error-msg" id="err-bizIndustry" data-key="q-err-bizIndustry">Please select your industry</div>
   </div>
 
   <div class="field">
-    <label>City & Country</label>
-    <input type="text" id="bizLocation" placeholder="e.g. Sofia, Bulgaria">
-    <div class="error-msg" id="err-bizLocation">Please enter your location</div>
+    <label data-key="q-biz-location-label">City &amp; Country</label>
+    <input type="text" id="bizLocation" data-key-ph="q-biz-location-ph" placeholder="e.g. Sofia, Bulgaria">
+    <div class="error-msg" id="err-bizLocation" data-key="q-err-bizLocation">Please enter your location</div>
   </div>
 
   <div class="field">
-    <label>Slogan or tagline</label>
-    <div class="hint">Leave empty if you don't have one — we can create it together</div>
-    <input type="text" id="bizSlogan" placeholder="e.g. Quality you can taste">
+    <label data-key="q-biz-slogan-label">Slogan or tagline</label>
+    <div class="hint" data-key="q-biz-slogan-hint">Leave empty if you don't have one — we can create it together</div>
+    <input type="text" id="bizSlogan" data-key-ph="q-biz-slogan-ph" placeholder="e.g. Quality you can taste">
   </div>
 
   <div class="field">
-    <label>How long has your business been running? *</label>
+    <label data-key="q-biz-age-label">How long has your business been running? *</label>
     <div class="cards cards-4" id="bizAge">
-      <div class="card" onclick="selectCard(this,'bizAge')"><div class="card-emoji">🌱</div><div class="card-title">Just starting</div></div>
-      <div class="card" onclick="selectCard(this,'bizAge')"><div class="card-emoji">🌿</div><div class="card-title">Under 1 year</div></div>
-      <div class="card" onclick="selectCard(this,'bizAge')"><div class="card-emoji">🌳</div><div class="card-title">1–3 years</div></div>
-      <div class="card" onclick="selectCard(this,'bizAge')"><div class="card-emoji">🏛️</div><div class="card-title">Over 3 years</div></div>
+      <div class="card" onclick="selectCard(this,'bizAge')"><div class="card-emoji">🌱</div><div class="card-title" data-key="q-age-just-starting">Just starting</div></div>
+      <div class="card" onclick="selectCard(this,'bizAge')"><div class="card-emoji">🌿</div><div class="card-title" data-key="q-age-under1">Under 1 year</div></div>
+      <div class="card" onclick="selectCard(this,'bizAge')"><div class="card-emoji">🌳</div><div class="card-title" data-key="q-age-1-3">1–3 years</div></div>
+      <div class="card" onclick="selectCard(this,'bizAge')"><div class="card-emoji">🏛️</div><div class="card-title" data-key="q-age-over3">Over 3 years</div></div>
     </div>
   </div>
 
   <div class="field">
-    <label>Team size</label>
+    <label data-key="q-biz-team-label">Team size</label>
     <div class="cards cards-4" id="bizTeam">
-      <div class="card" onclick="selectCard(this,'bizTeam')"><div class="card-title">Just me</div></div>
-      <div class="card" onclick="selectCard(this,'bizTeam')"><div class="card-title">2–5 people</div></div>
-      <div class="card" onclick="selectCard(this,'bizTeam')"><div class="card-title">6–20 people</div></div>
-      <div class="card" onclick="selectCard(this,'bizTeam')"><div class="card-title">Over 20</div></div>
+      <div class="card" onclick="selectCard(this,'bizTeam')"><div class="card-title" data-key="q-team-just-me">Just me</div></div>
+      <div class="card" onclick="selectCard(this,'bizTeam')"><div class="card-title" data-key="q-team-2-5">2–5 people</div></div>
+      <div class="card" onclick="selectCard(this,'bizTeam')"><div class="card-title" data-key="q-team-6-20">6–20 people</div></div>
+      <div class="card" onclick="selectCard(this,'bizTeam')"><div class="card-title" data-key="q-team-over20">Over 20</div></div>
     </div>
   </div>
 
   <div class="field">
-    <label>What makes you different from competitors?</label>
-    <textarea id="bizDiff" rows="3" placeholder="e.g. We use only locally sourced ingredients. Our team speaks 4 languages. We offer same-day delivery..."></textarea>
+    <label data-key="q-biz-diff-label">What makes you different from competitors?</label>
+    <textarea id="bizDiff" rows="3" data-key-ph="q-biz-diff-ph" placeholder="e.g. We use only locally sourced ingredients. Our team speaks 4 languages. We offer same-day delivery..."></textarea>
     <div class="error-msg" id="err-bizDiff">Please tell us what makes you unique</div>
   </div>
 
   <div class="field">
-    <label>Do you have an existing logo or brand materials?</label>
+    <label data-key="q-biz-logo-label">Do you have an existing logo or brand materials?</label>
     <div class="cards cards-3" id="bizLogo">
-      <div class="card" onclick="selectCard(this,'bizLogo')"><div class="card-emoji">✨</div><div class="card-title">Starting from scratch</div><div class="card-desc">No existing materials</div></div>
-      <div class="card" onclick="selectCard(this,'bizLogo')"><div class="card-emoji">📁</div><div class="card-title">Yes, I have materials</div><div class="card-desc">I will share them</div></div>
-      <div class="card" onclick="selectCard(this,'bizLogo')"><div class="card-emoji">🔄</div><div class="card-title">Yes, but I want a redesign</div><div class="card-desc">Complete rebrand</div></div>
+      <div class="card" onclick="selectCard(this,'bizLogo')"><div class="card-emoji">✨</div><div class="card-title" data-key="q-logo-scratch">Starting from scratch</div><div class="card-desc" data-key="q-logo-scratch-desc">No existing materials</div></div>
+      <div class="card" onclick="selectCard(this,'bizLogo')"><div class="card-emoji">📁</div><div class="card-title" data-key="q-logo-have">Yes, I have materials</div><div class="card-desc" data-key="q-logo-have-desc">I will share them</div></div>
+      <div class="card" onclick="selectCard(this,'bizLogo')"><div class="card-emoji">🔄</div><div class="card-title" data-key="q-logo-redesign">Yes, but I want a redesign</div><div class="card-desc" data-key="q-logo-redesign-desc">Complete rebrand</div></div>
     </div>
   </div>
 
   <div class="notes-field field">
-    <label>Additional notes for this step</label>
-    <p class="step-hint">💡 Additional notes for this step — These questions are recommended to help us better understand your business and deliver the most tailored result. However, even with just your name and industry, we can create something beautiful for you.</p>
-    <textarea id="notes1" rows="3" placeholder="Anything else about your business we should know before we begin..."></textarea>
+    <label data-key="q-notes-label">Additional notes for this step</label>
+    <p class="step-hint" data-key="q-notes-hint">💡 Additional notes for this step — These questions are recommended to help us better understand your business and deliver the most tailored result. However, even with just your name and industry, we can create something beautiful for you.</p>
+    <textarea id="notes1" rows="3" data-key-ph="q-notes1-ph" placeholder="Anything else about your business we should know before we begin..."></textarea>
   </div>
 
   <div class="step-nav">
-    <button class="btn-next" onclick="nextStep(1)">Next — Your Clients →</button>
+    <button class="btn-next" onclick="nextStep(1)" data-key="q-next-clients">Next — Your Clients →</button>
   </div>
 </div>
 
 <!-- STEP 2: YOUR CLIENTS -->
 <div class="step" id="step2">
   <div class="step-header">
-    <div class="step-eyebrow">Step 2 of 8</div>
-    <h1 class="step-title">Who are<br><em>your clients?</em></h1>
-    <p class="step-subtitle">Great brands speak directly to the right people. Help us understand who we are building this for.</p>
+    <div class="step-eyebrow" data-key="q-step2-eyebrow">Step 2 of 8</div>
+    <h1 class="step-title" data-key="q-step2-title">Who are<br><em>your clients?</em></h1>
+    <p class="step-subtitle" data-key="q-step2-sub">Great brands speak directly to the right people. Help us understand who we are building this for.</p>
   </div>
 
   <div class="field">
-    <label>Describe your ideal client</label>
-    <div class="hint">Who is the perfect person that walks through your door or visits your website?</div>
-    <textarea id="clientIdeal" rows="4" placeholder="e.g. Young professionals aged 25–40, living in Sofia, who value quality and are willing to pay more for a premium experience. They discover us through Instagram..."></textarea>
+    <label data-key="q-client-ideal-label">Describe your ideal client</label>
+    <div class="hint" data-key="q-client-ideal-hint">Who is the perfect person that walks through your door or visits your website?</div>
+    <textarea id="clientIdeal" rows="4" data-key-ph="q-client-ideal-ph" placeholder="e.g. Young professionals aged 25–40, living in Sofia, who value quality and are willing to pay more for a premium experience. They discover us through Instagram..."></textarea>
     <div class="error-msg" id="err-clientIdeal">Please describe your ideal client</div>
   </div>
 
   <div class="field">
-    <label>Age range of your clients</label>
+    <label data-key="q-client-age-label">Age range of your clients</label>
     <div class="check-grid" id="clientAge">
-      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Under 18</span></div>
-      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">18–25</span></div>
-      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">26–35</span></div>
-      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">36–50</span></div>
-      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">50+</span></div>
-      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">All ages</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label" data-key="q-age-under18">Under 18</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label" data-key="q-age-18-25">18–25</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label" data-key="q-age-26-35">26–35</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label" data-key="q-age-36-50">36–50</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label" data-key="q-age-50plus">50+</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label" data-key="q-age-all">All ages</span></div>
     </div>
   </div>
 
   <div class="field">
-    <label>Gender of your typical client</label>
+    <label data-key="q-client-gender-label">Gender of your typical client</label>
     <div class="cards cards-3" id="clientGender">
-      <div class="card" onclick="selectCard(this,'clientGender')"><div class="card-title">Mostly men</div></div>
-      <div class="card" onclick="selectCard(this,'clientGender')"><div class="card-title">Mostly women</div></div>
-      <div class="card" onclick="selectCard(this,'clientGender')"><div class="card-title">Mixed / Both</div></div>
+      <div class="card" onclick="selectCard(this,'clientGender')"><div class="card-title" data-key="q-gender-men">Mostly men</div></div>
+      <div class="card" onclick="selectCard(this,'clientGender')"><div class="card-title" data-key="q-gender-women">Mostly women</div></div>
+      <div class="card" onclick="selectCard(this,'clientGender')"><div class="card-title" data-key="q-gender-mixed">Mixed / Both</div></div>
     </div>
   </div>
 
   <div class="field">
-    <label>Do you have international clients?</label>
+    <label data-key="q-client-intl-label">Do you have international clients?</label>
     <div class="cards cards-3" id="clientInternational">
-      <div class="card" onclick="selectCard(this,'clientInternational')"><div class="card-title">Local only</div><div class="card-desc">My clients are from my city or country</div></div>
-      <div class="card" onclick="selectCard(this,'clientInternational')"><div class="card-title">Regional</div><div class="card-desc">Neighboring countries</div></div>
-      <div class="card" onclick="selectCard(this,'clientInternational')"><div class="card-title">International</div><div class="card-desc">Clients from around the world</div></div>
+      <div class="card" onclick="selectCard(this,'clientInternational')"><div class="card-title" data-key="q-intl-local">Local only</div><div class="card-desc" data-key="q-intl-local-desc">My clients are from my city or country</div></div>
+      <div class="card" onclick="selectCard(this,'clientInternational')"><div class="card-title" data-key="q-intl-regional">Regional</div><div class="card-desc" data-key="q-intl-regional-desc">Neighboring countries</div></div>
+      <div class="card" onclick="selectCard(this,'clientInternational')"><div class="card-title" data-key="q-intl-intl">International</div><div class="card-desc" data-key="q-intl-intl-desc">Clients from around the world</div></div>
     </div>
   </div>
 
   <div class="field">
-    <label>How do clients find you currently?</label>
+    <label data-key="q-client-find-label">How do clients find you currently?</label>
     <div class="check-grid" id="clientFindHow">
-      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Word of mouth</span></div>
-      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Social media</span></div>
-      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Google search</span></div>
-      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Walk-in / physical location</span></div>
-      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Referrals from partners</span></div>
-      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">No online presence yet</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label" data-key="q-find-wom">Word of mouth</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label" data-key="q-find-social">Social media</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label" data-key="q-find-google">Google search</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label" data-key="q-find-walkin">Walk-in / physical location</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label" data-key="q-find-referral">Referrals from partners</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label" data-key="q-find-none">No online presence yet</span></div>
     </div>
   </div>
 
   <div class="field">
-    <label>What first impression do you want to make?</label>
-    <textarea id="clientImpression" rows="3" placeholder="e.g. We want to immediately communicate trust and professionalism. Clients should feel they are dealing with an established, reliable company from the very first glance..."></textarea>
+    <label data-key="q-client-impression-label">What first impression do you want to make?</label>
+    <textarea id="clientImpression" rows="3" data-key-ph="q-client-impression-ph" placeholder="e.g. We want to immediately communicate trust and professionalism. Clients should feel they are dealing with an established, reliable company from the very first glance..."></textarea>
     <div class="error-msg" id="err-clientImpression">Please describe the impression you want to make</div>
   </div>
 
   <div class="field">
-    <label>3–5 words that describe your brand personality</label>
-    <div class="hint">Think of adjectives that capture your brand's character</div>
-    <input type="text" id="clientWords" placeholder="e.g. Trustworthy, Modern, Warm, Sophisticated, Bold">
+    <label data-key="q-client-words-label">3–5 words that describe your brand personality</label>
+    <div class="hint" data-key="q-client-words-hint">Think of adjectives that capture your brand's character</div>
+    <input type="text" id="clientWords" data-key-ph="q-client-words-ph" placeholder="e.g. Trustworthy, Modern, Warm, Sophisticated, Bold">
     <div class="error-msg" id="err-clientWords">Please enter some words that describe your brand</div>
   </div>
 
   <div class="field">
-    <label>Who are your main competitors?</label>
-    <textarea id="clientCompetitors" rows="2" placeholder="e.g. Restaurant X in Sofia, Hotel Y — or describe the type of businesses you compete with..."></textarea>
+    <label data-key="q-client-competitors-label">Who are your main competitors?</label>
+    <textarea id="clientCompetitors" rows="2" data-key-ph="q-client-competitors-ph" placeholder="e.g. Restaurant X in Sofia, Hotel Y — or describe the type of businesses you compete with..."></textarea>
   </div>
 
   <div class="field">
-    <label>How are you better than them?</label>
-    <textarea id="clientBetter" rows="2" placeholder="e.g. Better location, more personal service, lower prices, higher quality materials..."></textarea>
+    <label data-key="q-client-better-label">How are you better than them?</label>
+    <textarea id="clientBetter" rows="2" data-key-ph="q-client-better-ph" placeholder="e.g. Better location, more personal service, lower prices, higher quality materials..."></textarea>
   </div>
 
   <div class="notes-field field">
-    <label>Additional notes for this step</label>
-    <p class="step-hint">💡 Additional notes for this step — These questions are recommended to help us better understand your business and deliver the most tailored result. However, even with just your name and industry, we can create something beautiful for you.</p>
-    <textarea id="notes2" rows="3" placeholder="Any other details about your clients or market that would help us understand your audience..."></textarea>
+    <label data-key="q-notes-label">Additional notes for this step</label>
+    <p class="step-hint" data-key="q-notes-hint">💡 Additional notes for this step — These questions are recommended to help us better understand your business and deliver the most tailored result. However, even with just your name and industry, we can create something beautiful for you.</p>
+    <textarea id="notes2" rows="3" data-key-ph="q-notes2-ph" placeholder="Any other details about your clients or market that would help us understand your audience..."></textarea>
   </div>
 
   <div class="step-nav">
-    <button class="btn-back" onclick="prevStep(2)">← Back</button>
-    <button class="btn-next" onclick="nextStep(2)">Next — Your Logo →</button>
+    <button class="btn-back" onclick="prevStep(2)" data-key="q-back">← Back</button>
+    <button class="btn-next" onclick="nextStep(2)" data-key="q-next-logo">Next — Your Logo →</button>
   </div>
 </div>
 
 <!-- STEP 3: YOUR LOGO -->
 <div class="step" id="step3">
   <div class="step-header">
-    <div class="step-eyebrow">Step 3 of 8</div>
-    <h1 class="step-title">Your<br><em>logo.</em></h1>
-    <p class="step-subtitle">Your logo is the face of your brand. Let's make sure it says exactly the right thing.</p>
+    <div class="step-eyebrow" data-key="q-step3-eyebrow">Step 3 of 8</div>
+    <h1 class="step-title" data-key="q-step3-title">Your<br><em>logo.</em></h1>
+    <p class="step-subtitle" data-key="q-step3-sub">Your logo is the face of your brand. Let's make sure it says exactly the right thing.</p>
   </div>
 
   <div class="field">
-    <label>Logo format preference</label>
+    <label data-key="q-logo-format-label">Logo format preference</label>
     <div class="cards cards-3" id="logoFormat">
-      <div class="card" onclick="selectCard(this,'logoFormat')"><div class="card-emoji">𝗔𝗕𝗖</div><div class="card-title">Text only</div><div class="card-desc">Wordmark — your name as the logo</div></div>
-      <div class="card" onclick="selectCard(this,'logoFormat')"><div class="card-emoji">◈</div><div class="card-title">Symbol + Text</div><div class="card-desc">Icon combined with your name</div></div>
-      <div class="card" onclick="selectCard(this,'logoFormat')"><div class="card-emoji">◉</div><div class="card-title">Symbol only</div><div class="card-desc">A standalone icon or mark</div></div>
+      <div class="card" onclick="selectCard(this,'logoFormat')"><div class="card-emoji">𝗔𝗕𝗖</div><div class="card-title" data-key="q-format-text">Text only</div><div class="card-desc" data-key="q-format-text-desc">Wordmark — your name as the logo</div></div>
+      <div class="card" onclick="selectCard(this,'logoFormat')"><div class="card-emoji">◈</div><div class="card-title" data-key="q-format-symbol-text">Symbol + Text</div><div class="card-desc" data-key="q-format-symbol-text-desc">Icon combined with your name</div></div>
+      <div class="card" onclick="selectCard(this,'logoFormat')"><div class="card-emoji">◉</div><div class="card-title" data-key="q-format-symbol">Symbol only</div><div class="card-desc" data-key="q-format-symbol-desc">A standalone icon or mark</div></div>
     </div>
-    <div class="error-msg" id="err-logoFormat">Please select a logo format</div>
+    <div class="error-msg" id="err-logoFormat" data-key="q-err-logoFormat">Please select a logo format</div>
   </div>
 
   <div class="field">
-    <label>What type of symbol or icon appeals to you?</label>
+    <label data-key="q-logo-symbol-types-label">What type of symbol or icon appeals to you?</label>
     <div class="check-grid" id="logoSymbolTypes">
-      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Abstract geometric shape</span></div>
-      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Letter or monogram</span></div>
-      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Nature / organic shapes</span></div>
-      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Architecture / lines</span></div>
-      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Human / people</span></div>
-      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Surprise me</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label" data-key="q-sym-abstract">Abstract geometric shape</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label" data-key="q-sym-letter">Letter or monogram</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label" data-key="q-sym-nature">Nature / organic shapes</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label" data-key="q-sym-arch">Architecture / lines</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label" data-key="q-sym-human">Human / people</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label" data-key="q-sym-surprise">Surprise me</span></div>
     </div>
   </div>
 
   <div class="field">
-    <label>Logo style feeling</label>
+    <label data-key="q-logo-style-label">Logo style feeling</label>
     <div class="cards cards-3" id="logoStyle">
-      <div class="card" onclick="selectCard(this,'logoStyle')"><div class="card-title">Classic & Timeless</div><div class="card-desc">Serif fonts, traditional feel, built to last</div></div>
-      <div class="card" onclick="selectCard(this,'logoStyle')"><div class="card-title">Modern & Clean</div><div class="card-desc">Sans-serif, minimal, contemporary</div></div>
-      <div class="card" onclick="selectCard(this,'logoStyle')"><div class="card-title">Bold & Expressive</div><div class="card-desc">Strong shapes, high contrast, memorable</div></div>
-      <div class="card" onclick="selectCard(this,'logoStyle')"><div class="card-title">Elegant & Luxury</div><div class="card-desc">Fine details, gold accents, premium</div></div>
-      <div class="card" onclick="selectCard(this,'logoStyle')"><div class="card-title">Friendly & Playful</div><div class="card-desc">Rounded, warm, approachable</div></div>
-      <div class="card" onclick="selectCard(this,'logoStyle')"><div class="card-title">I trust your judgment</div><div class="card-desc">You decide based on our brief</div></div>
+      <div class="card" onclick="selectCard(this,'logoStyle')"><div class="card-title" data-key="q-style-classic">Classic &amp; Timeless</div><div class="card-desc" data-key="q-style-classic-desc">Serif fonts, traditional feel, built to last</div></div>
+      <div class="card" onclick="selectCard(this,'logoStyle')"><div class="card-title" data-key="q-style-modern">Modern &amp; Clean</div><div class="card-desc" data-key="q-style-modern-desc">Sans-serif, minimal, contemporary</div></div>
+      <div class="card" onclick="selectCard(this,'logoStyle')"><div class="card-title" data-key="q-style-bold">Bold &amp; Expressive</div><div class="card-desc" data-key="q-style-bold-desc">Strong shapes, high contrast, memorable</div></div>
+      <div class="card" onclick="selectCard(this,'logoStyle')"><div class="card-title" data-key="q-style-elegant">Elegant &amp; Luxury</div><div class="card-desc" data-key="q-style-elegant-desc">Fine details, gold accents, premium</div></div>
+      <div class="card" onclick="selectCard(this,'logoStyle')"><div class="card-title" data-key="q-style-friendly">Friendly &amp; Playful</div><div class="card-desc" data-key="q-style-friendly-desc">Rounded, warm, approachable</div></div>
+      <div class="card" onclick="selectCard(this,'logoStyle')"><div class="card-title" data-key="q-style-trust">I trust your judgment</div><div class="card-desc" data-key="q-style-trust-desc">You decide based on our brief</div></div>
     </div>
-    <div class="error-msg" id="err-logoStyle">Please select a logo style</div>
+    <div class="error-msg" id="err-logoStyle" data-key="q-err-logoStyle">Please select a logo style</div>
   </div>
 
   <div class="field">
-    <label>Logos you love — describe or paste links</label>
-    <textarea id="logoLove" rows="3" placeholder="e.g. I love the Atelier V logo — clean and premium. I also like Chanel's wordmark. Links: ..."></textarea>
+    <label data-key="q-logo-love-label">Logos you love — describe or paste links</label>
+    <textarea id="logoLove" rows="3" data-key-ph="q-logo-love-ph" placeholder="e.g. I love the Atelier V logo — clean and premium. I also like Chanel's wordmark. Links: ..."></textarea>
   </div>
 
   <div class="field">
-    <label>Logos you absolutely do NOT want to look like</label>
-    <div class="hint">This is just as important — helps us avoid wrong directions</div>
-    <textarea id="logoHate" rows="3" placeholder="e.g. I don't want anything that looks cheap, overly complex, or similar to my competitors. I don't like clipart-style icons..."></textarea>
+    <label data-key="q-logo-hate-label">Logos you absolutely do NOT want to look like</label>
+    <div class="hint" data-key="q-logo-hate-hint">This is just as important — helps us avoid wrong directions</div>
+    <textarea id="logoHate" rows="3" data-key-ph="q-logo-hate-ph" placeholder="e.g. I don't want anything that looks cheap, overly complex, or similar to my competitors. I don't like clipart-style icons..."></textarea>
   </div>
 
   <div class="field">
-    <label>Any specific symbols or elements that represent your business?</label>
-    <textarea id="logoSymbols" rows="2" placeholder="e.g. We are a winery so grapes or vines feel relevant. Or: nothing industry-specific, keep it abstract..."></textarea>
+    <label data-key="q-logo-symbols-label">Any specific symbols or elements that represent your business?</label>
+    <textarea id="logoSymbols" rows="2" data-key-ph="q-logo-symbols-ph" placeholder="e.g. We are a winery so grapes or vines feel relevant. Or: nothing industry-specific, keep it abstract..."></textarea>
   </div>
 
   <div class="notes-field field">
-    <label>Additional notes for this step</label>
-    <p class="step-hint">💡 Additional notes for this step — These questions are recommended to help us better understand your business and deliver the most tailored result. However, even with just your name and industry, we can create something beautiful for you.</p>
-    <textarea id="notes3" rows="3" placeholder="Any other thoughts, references, or logo ideas you'd like to share..."></textarea>
+    <label data-key="q-notes-label">Additional notes for this step</label>
+    <p class="step-hint" data-key="q-notes-hint">💡 Additional notes for this step — These questions are recommended to help us better understand your business and deliver the most tailored result. However, even with just your name and industry, we can create something beautiful for you.</p>
+    <textarea id="notes3" rows="3" data-key-ph="q-notes3-ph" placeholder="Any other thoughts, references, or logo ideas you'd like to share..."></textarea>
   </div>
 
   <div class="step-nav">
-    <button class="btn-back" onclick="prevStep(3)">← Back</button>
-    <button class="btn-next" onclick="nextStep(3)">Next — Colors & Visual Identity →</button>
+    <button class="btn-back" onclick="prevStep(3)" data-key="q-back">← Back</button>
+    <button class="btn-next" onclick="nextStep(3)" data-key="q-next-colors">Next — Colors &amp; Visual Identity →</button>
   </div>
 </div>
 
 <!-- STEP 4: COLORS & VISUAL IDENTITY -->
 <div class="step" id="step4">
   <div class="step-header">
-    <div class="step-eyebrow">Step 4 of 8</div>
-    <h1 class="step-title">Colors &<br><em>visual identity.</em></h1>
-    <p class="step-subtitle">Colors communicate before words do. Let's define the visual language of your brand.</p>
+    <div class="step-eyebrow" data-key="q-step4-eyebrow">Step 4 of 8</div>
+    <h1 class="step-title" data-key="q-step4-title">Colors &amp;<br><em>visual identity.</em></h1>
+    <p class="step-subtitle" data-key="q-step4-sub">Colors communicate before words do. Let's define the visual language of your brand.</p>
   </div>
 
   <div class="field">
-    <label>Overall brand style</label>
+    <label data-key="q-brand-style-label">Overall brand style</label>
     <div class="style-cards" id="brandStyle">
       <div class="style-card" onclick="selectCard(this,'brandStyle')">
-        <div class="style-card-name">Minimal</div>
-        <div class="style-card-desc">Clean lines, white space, understated elegance. Every element has a purpose. Less is more.</div>
+        <div class="style-card-name" data-key="q-bs-minimal">Minimal</div>
+        <div class="style-card-desc" data-key="q-bs-minimal-desc">Clean lines, white space, understated elegance. Every element has a purpose. Less is more.</div>
       </div>
       <div class="style-card" onclick="selectCard(this,'brandStyle')">
-        <div class="style-card-name">Luxury</div>
-        <div class="style-card-desc">Rich textures, premium feel, sophisticated details. Built to impress and signal exclusivity.</div>
+        <div class="style-card-name" data-key="q-bs-luxury">Luxury</div>
+        <div class="style-card-desc" data-key="q-bs-luxury-desc">Rich textures, premium feel, sophisticated details. Built to impress and signal exclusivity.</div>
       </div>
       <div class="style-card" onclick="selectCard(this,'brandStyle')">
-        <div class="style-card-name">Playful</div>
-        <div class="style-card-desc">Bold colors, friendly tone, energetic design. Built to connect and create joy.</div>
+        <div class="style-card-name" data-key="q-bs-playful">Playful</div>
+        <div class="style-card-desc" data-key="q-bs-playful-desc">Bold colors, friendly tone, energetic design. Built to connect and create joy.</div>
       </div>
       <div class="style-card" onclick="selectCard(this,'brandStyle')">
-        <div class="style-card-name">Corporate</div>
-        <div class="style-card-desc">Professional, structured, trustworthy. Built to inspire confidence in a business context.</div>
+        <div class="style-card-name" data-key="q-bs-corporate">Corporate</div>
+        <div class="style-card-desc" data-key="q-bs-corporate-desc">Professional, structured, trustworthy. Built to inspire confidence in a business context.</div>
       </div>
     </div>
-    <div class="error-msg" id="err-brandStyle">Please select a brand style</div>
+    <div class="error-msg" id="err-brandStyle" data-key="q-err-brandStyle">Please select a brand style</div>
   </div>
 
   <div class="field">
-    <label>What emotions should your brand evoke?</label>
-    <div class="hint">Select up to 3</div>
+    <label data-key="q-brand-emotions-label">What emotions should your brand evoke?</label>
+    <div class="hint" data-key="q-emotions-hint">Select up to 3</div>
     <div class="check-grid" id="brandEmotions">
-      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Trust & Reliability</span></div>
-      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Luxury & Exclusivity</span></div>
-      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Warmth & Friendliness</span></div>
-      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Energy & Excitement</span></div>
-      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Authority & Expertise</span></div>
-      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Creativity & Innovation</span></div>
-      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Calm & Sophistication</span></div>
-      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Approachability & Care</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label" data-key="q-em-trust">Trust &amp; Reliability</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label" data-key="q-em-luxury">Luxury &amp; Exclusivity</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label" data-key="q-em-warmth">Warmth &amp; Friendliness</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label" data-key="q-em-energy">Energy &amp; Excitement</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label" data-key="q-em-authority">Authority &amp; Expertise</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label" data-key="q-em-creativity">Creativity &amp; Innovation</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label" data-key="q-em-calm">Calm &amp; Sophistication</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label" data-key="q-em-care">Approachability &amp; Care</span></div>
     </div>
   </div>
 
   <div class="field">
-    <label>Preferred color direction</label>
+    <label data-key="q-color-dir-label">Preferred color direction</label>
     <div class="color-cards" id="colorDir">
       <div class="color-card" onclick="selectCard(this,'colorDir')">
         <div class="color-swatch" style="background:linear-gradient(135deg,#1B2A4A 50%,#C9A84C 50%)"></div>
-        <div class="color-name">Navy & Gold</div>
+        <div class="color-name" data-key="q-color-navy">Navy &amp; Gold</div>
       </div>
       <div class="color-card" onclick="selectCard(this,'colorDir')">
         <div class="color-swatch" style="background:linear-gradient(135deg,#111 50%,#f5f5f5 50%)"></div>
-        <div class="color-name">Black & White</div>
+        <div class="color-name" data-key="q-color-bw">Black &amp; White</div>
       </div>
       <div class="color-card" onclick="selectCard(this,'colorDir')">
         <div class="color-swatch" style="background:linear-gradient(135deg,#8B6F47 50%,#D4B896 50%)"></div>
-        <div class="color-name">Earth & Warm tones</div>
+        <div class="color-name" data-key="q-color-earth">Earth &amp; Warm tones</div>
       </div>
       <div class="color-card" onclick="selectCard(this,'colorDir')">
         <div class="color-swatch" style="background:linear-gradient(135deg,#2D6A4F 50%,#95D5B2 50%)"></div>
-        <div class="color-name">Green & Natural</div>
+        <div class="color-name" data-key="q-color-green">Green &amp; Natural</div>
       </div>
       <div class="color-card" onclick="selectCard(this,'colorDir')">
         <div class="color-swatch" style="background:linear-gradient(135deg,#E63946 50%,#457B9D 50%)"></div>
-        <div class="color-name">Bold & Vibrant</div>
+        <div class="color-name" data-key="q-color-bold">Bold &amp; Vibrant</div>
       </div>
       <div class="color-card" onclick="selectCard(this,'colorDir')">
         <div class="color-swatch" style="background:linear-gradient(135deg,#C9A84C 20%,#1B2A4A 40%,#2D6A4F 60%,#E63946 80%)"></div>
-        <div class="color-name">Surprise me</div>
+        <div class="color-name" data-key="q-color-surprise">Surprise me</div>
       </div>
     </div>
-    <div class="error-msg" id="err-colorDir">Please select a color direction</div>
+    <div class="error-msg" id="err-colorDir" data-key="q-err-colorDir">Please select a color direction</div>
   </div>
 
   <div class="field">
-    <label>If your brand were a person, who would they be?</label>
-    <div class="hint">This helps us capture the personality behind the visuals</div>
-    <textarea id="brandPerson" rows="3" placeholder="e.g. A confident 45-year-old architect in a tailored navy suit. Precise, sophisticated, speaks softly but commands attention. Values quality over quantity..."></textarea>
+    <label data-key="q-brand-person-label">If your brand were a person, who would they be?</label>
+    <div class="hint" data-key="q-brand-person-hint">This helps us capture the personality behind the visuals</div>
+    <textarea id="brandPerson" rows="3" data-key-ph="q-brand-person-ph" placeholder="e.g. A confident 45-year-old architect in a tailored navy suit. Precise, sophisticated, speaks softly but commands attention. Values quality over quantity..."></textarea>
   </div>
 
   <div class="field">
-    <label>Brands or websites you love and why</label>
-    <textarea id="brandLove" rows="3" placeholder="e.g. I love Apple.com — clean, premium, confident. Also Aesop — everything feels intentional. Links: ..."></textarea>
+    <label data-key="q-brand-love-label">Brands or websites you love and why</label>
+    <textarea id="brandLove" rows="3" data-key-ph="q-brand-love-ph" placeholder="e.g. I love Apple.com — clean, premium, confident. Also Aesop — everything feels intentional. Links: ..."></textarea>
   </div>
 
   <div class="field">
-    <label>Brands or websites you dislike and why</label>
-    <div class="hint">Equally important — helps us avoid the wrong direction</div>
-    <textarea id="brandHate" rows="3" placeholder="e.g. I don't want anything that feels cheap, cluttered, or similar to budget competitors. I dislike flashing animations and too many colors..."></textarea>
+    <label data-key="q-brand-hate-label">Brands or websites you dislike and why</label>
+    <div class="hint" data-key="q-brand-hate-hint">Equally important — helps us avoid the wrong direction</div>
+    <textarea id="brandHate" rows="3" data-key-ph="q-brand-hate-ph" placeholder="e.g. I don't want anything that feels cheap, cluttered, or similar to budget competitors. I dislike flashing animations and too many colors..."></textarea>
   </div>
 
   <div class="notes-field field">
-    <label>Additional notes for this step</label>
-    <p class="step-hint">💡 Additional notes for this step — These questions are recommended to help us better understand your business and deliver the most tailored result. However, even with just your name and industry, we can create something beautiful for you.</p>
-    <textarea id="notes4" rows="3" placeholder="Any other visual preferences, references, or ideas about your brand's look and feel..."></textarea>
+    <label data-key="q-notes-label">Additional notes for this step</label>
+    <p class="step-hint" data-key="q-notes-hint">💡 Additional notes for this step — These questions are recommended to help us better understand your business and deliver the most tailored result. However, even with just your name and industry, we can create something beautiful for you.</p>
+    <textarea id="notes4" rows="3" data-key-ph="q-notes4-ph" placeholder="Any other visual preferences, references, or ideas about your brand's look and feel..."></textarea>
   </div>
 
   <div class="step-nav">
-    <button class="btn-back" onclick="prevStep(4)">← Back</button>
-    <button class="btn-next" onclick="nextStep(4)">Next — Your Content →</button>
+    <button class="btn-back" onclick="prevStep(4)" data-key="q-back">← Back</button>
+    <button class="btn-next" onclick="nextStep(4)" data-key="q-next-content">Next — Your Content →</button>
   </div>
 </div>
 
 <!-- STEP 5: YOUR CONTENT -->
 <div class="step" id="step5">
   <div class="step-header">
-    <div class="step-eyebrow">Step 5 of 8</div>
-    <h1 class="step-title">Your<br><em>content.</em></h1>
-    <p class="step-subtitle">Your website tells your story. The more detail you give us, the more authentic and powerful it will be.</p>
+    <div class="step-eyebrow" data-key="q-step5-eyebrow">Step 5 of 8</div>
+    <h1 class="step-title" data-key="q-step5-title">Your<br><em>content.</em></h1>
+    <p class="step-subtitle" data-key="q-step5-sub">Your website tells your story. The more detail you give us, the more authentic and powerful it will be.</p>
   </div>
 
   <div class="field">
-    <label>Tell us your story</label>
-    <div class="hint">Who you are, when you started, why you started, what drives you</div>
-    <textarea id="contentStory" rows="5" placeholder="e.g. We opened Le Jardin in 2019 after 15 years working in Michelin-starred restaurants across Europe. Our mission is to bring authentic French cuisine to Sofia — without the pretension. Every dish tells a story of tradition and craftsmanship..."></textarea>
+    <label data-key="q-content-story-label">Tell us your story</label>
+    <div class="hint" data-key="q-content-story-hint">Who you are, when you started, why you started, what drives you</div>
+    <textarea id="contentStory" rows="5" data-key-ph="q-content-story-ph" placeholder="e.g. We opened Le Jardin in 2019 after 15 years working in Michelin-starred restaurants across Europe. Our mission is to bring authentic French cuisine to Sofia — without the pretension. Every dish tells a story of tradition and craftsmanship..."></textarea>
     <div class="error-msg" id="err-contentStory">Please share your story</div>
   </div>
 
   <div class="field">
-    <label>List your main services or products</label>
-    <div class="hint">Describe each one — name, brief description, and price if you want to show it</div>
-    <textarea id="contentServices" rows="5" placeholder="e.g. 1. Fine dining — 60 seats, open Tue–Sun, prix fixe menu €45/person&#10;2. Private events — up to 120 guests, full catering service&#10;3. Cooking masterclasses — every Saturday, 10 spots, €65/person..."></textarea>
+    <label data-key="q-content-services-label">List your main services or products</label>
+    <div class="hint" data-key="q-content-services-hint">Describe each one — name, brief description, and price if you want to show it</div>
+    <textarea id="contentServices" rows="5" data-key-ph="q-content-services-ph" placeholder="e.g. 1. Fine dining — 60 seats, open Tue–Sun, prix fixe menu €45/person&#10;2. Private events — up to 120 guests, full catering service&#10;3. Cooking masterclasses — every Saturday, 10 spots, €65/person..."></textarea>
     <div class="error-msg" id="err-contentServices">Please list your services or products</div>
   </div>
 
   <div class="field">
-    <label>What tone of voice should your brand use?</label>
+    <label data-key="q-content-tone-label">What tone of voice should your brand use?</label>
     <div class="cards cards-3" id="contentTone">
-      <div class="card" onclick="selectCard(this,'contentTone')"><div class="card-title">Formal & Professional</div><div class="card-desc">Respectful, precise, authoritative</div></div>
-      <div class="card" onclick="selectCard(this,'contentTone')"><div class="card-title">Friendly & Warm</div><div class="card-desc">Conversational, approachable, personal</div></div>
-      <div class="card" onclick="selectCard(this,'contentTone')"><div class="card-title">Bold & Confident</div><div class="card-desc">Direct, strong, no-nonsense</div></div>
-      <div class="card" onclick="selectCard(this,'contentTone')"><div class="card-title">Inspiring & Aspirational</div><div class="card-desc">Visionary, motivational, elevating</div></div>
-      <div class="card" onclick="selectCard(this,'contentTone')"><div class="card-title">Playful & Fun</div><div class="card-desc">Light, humorous, energetic</div></div>
-      <div class="card" onclick="selectCard(this,'contentTone')"><div class="card-title">You decide</div><div class="card-desc">Based on our overall brief</div></div>
+      <div class="card" onclick="selectCard(this,'contentTone')"><div class="card-title" data-key="q-tone-formal">Formal &amp; Professional</div><div class="card-desc" data-key="q-tone-formal-desc">Respectful, precise, authoritative</div></div>
+      <div class="card" onclick="selectCard(this,'contentTone')"><div class="card-title" data-key="q-tone-friendly">Friendly &amp; Warm</div><div class="card-desc" data-key="q-tone-friendly-desc">Conversational, approachable, personal</div></div>
+      <div class="card" onclick="selectCard(this,'contentTone')"><div class="card-title" data-key="q-tone-bold">Bold &amp; Confident</div><div class="card-desc" data-key="q-tone-bold-desc">Direct, strong, no-nonsense</div></div>
+      <div class="card" onclick="selectCard(this,'contentTone')"><div class="card-title" data-key="q-tone-inspiring">Inspiring &amp; Aspirational</div><div class="card-desc" data-key="q-tone-inspiring-desc">Visionary, motivational, elevating</div></div>
+      <div class="card" onclick="selectCard(this,'contentTone')"><div class="card-title" data-key="q-tone-playful">Playful &amp; Fun</div><div class="card-desc" data-key="q-tone-playful-desc">Light, humorous, energetic</div></div>
+      <div class="card" onclick="selectCard(this,'contentTone')"><div class="card-title" data-key="q-tone-decide">You decide</div><div class="card-desc" data-key="q-tone-decide-desc">Based on our overall brief</div></div>
     </div>
   </div>
 
   <div class="field">
-    <label>Do you have photos ready?</label>
+    <label data-key="q-content-photos-label">Do you have photos ready?</label>
     <div class="cards cards-3" id="contentPhotos">
-      <div class="card" onclick="selectCard(this,'contentPhotos')"><div class="card-emoji">📸</div><div class="card-title">Yes — professional</div><div class="card-desc">High quality photos ready to use</div></div>
-      <div class="card" onclick="selectCard(this,'contentPhotos')"><div class="card-emoji">📱</div><div class="card-title">Yes — phone photos</div><div class="card-desc">I have photos but not professional</div></div>
-      <div class="card" onclick="selectCard(this,'contentPhotos')"><div class="card-emoji">🖼️</div><div class="card-title">No — use stock images</div><div class="card-desc">Please find appropriate images for us</div></div>
+      <div class="card" onclick="selectCard(this,'contentPhotos')"><div class="card-emoji">📸</div><div class="card-title" data-key="q-photos-pro">Yes — professional</div><div class="card-desc" data-key="q-photos-pro-desc">High quality photos ready to use</div></div>
+      <div class="card" onclick="selectCard(this,'contentPhotos')"><div class="card-emoji">📱</div><div class="card-title" data-key="q-photos-phone">Yes — phone photos</div><div class="card-desc" data-key="q-photos-phone-desc">I have photos but not professional</div></div>
+      <div class="card" onclick="selectCard(this,'contentPhotos')"><div class="card-emoji">🖼️</div><div class="card-title" data-key="q-photos-no">No — use stock images</div><div class="card-desc" data-key="q-photos-no-desc">Please find appropriate images for us</div></div>
     </div>
   </div>
 
   <div class="field">
-    <label>Do you have written content ready?</label>
+    <label data-key="q-content-text-label">Do you have written content ready?</label>
     <div class="cards cards-3" id="contentText">
-      <div class="card" onclick="selectCard(this,'contentText')"><div class="card-title">Yes — everything</div><div class="card-desc">I will provide all texts</div></div>
-      <div class="card" onclick="selectCard(this,'contentText')"><div class="card-title">Partially</div><div class="card-desc">I need some help with copywriting</div></div>
-      <div class="card" onclick="selectCard(this,'contentText')"><div class="card-title">No — guide me</div><div class="card-desc">Please help create all content</div></div>
+      <div class="card" onclick="selectCard(this,'contentText')"><div class="card-title" data-key="q-text-yes">Yes — everything</div><div class="card-desc" data-key="q-text-yes-desc">I will provide all texts</div></div>
+      <div class="card" onclick="selectCard(this,'contentText')"><div class="card-title" data-key="q-text-partial">Partially</div><div class="card-desc" data-key="q-text-partial-desc">I need some help with copywriting</div></div>
+      <div class="card" onclick="selectCard(this,'contentText')"><div class="card-title" data-key="q-text-no">No — guide me</div><div class="card-desc" data-key="q-text-no-desc">Please help create all content</div></div>
     </div>
   </div>
 
   <div class="field">
-    <label>Do you have a tagline or want us to create one?</label>
+    <label data-key="q-content-tagline-label">Do you have a tagline or want us to create one?</label>
     <div class="cards cards-3" id="contentTagline">
-      <div class="card" onclick="selectCard(this,'contentTagline')"><div class="card-title">I have one</div></div>
-      <div class="card" onclick="selectCard(this,'contentTagline')"><div class="card-title">Please create one</div></div>
-      <div class="card" onclick="selectCard(this,'contentTagline')"><div class="card-title">Not needed</div></div>
+      <div class="card" onclick="selectCard(this,'contentTagline')"><div class="card-title" data-key="q-tagline-have">I have one</div></div>
+      <div class="card" onclick="selectCard(this,'contentTagline')"><div class="card-title" data-key="q-tagline-create">Please create one</div></div>
+      <div class="card" onclick="selectCard(this,'contentTagline')"><div class="card-title" data-key="q-tagline-no">Not needed</div></div>
     </div>
   </div>
 
   <div class="notes-field field">
-    <label>Additional notes for this step</label>
-    <p class="step-hint">💡 Additional notes for this step — These questions are recommended to help us better understand your business and deliver the most tailored result. However, even with just your name and industry, we can create something beautiful for you.</p>
-    <textarea id="notes5" rows="3" placeholder="Any other content details, specific messages you want to communicate, or things to avoid saying..."></textarea>
+    <label data-key="q-notes-label">Additional notes for this step</label>
+    <p class="step-hint" data-key="q-notes-hint">💡 Additional notes for this step — These questions are recommended to help us better understand your business and deliver the most tailored result. However, even with just your name and industry, we can create something beautiful for you.</p>
+    <textarea id="notes5" rows="3" data-key-ph="q-notes5-ph" placeholder="Any other content details, specific messages you want to communicate, or things to avoid saying..."></textarea>
   </div>
 
   <div class="step-nav">
-    <button class="btn-back" onclick="prevStep(5)">← Back</button>
-    <button class="btn-next" onclick="nextStep(5)">Next — Your Website →</button>
+    <button class="btn-back" onclick="prevStep(5)" data-key="q-back">← Back</button>
+    <button class="btn-next" onclick="nextStep(5)" data-key="q-next-website">Next — Your Website →</button>
   </div>
 </div>
 
 <!-- STEP 6: YOUR WEBSITE -->
 <div class="step" id="step6">
   <div class="step-header">
-    <div class="step-eyebrow">Step 6 of 8</div>
-    <h1 class="step-title">Your<br><em>website.</em></h1>
-    <p class="step-subtitle">Your website is built on top of your brand. Let's define what it needs to do and contain.</p>
+    <div class="step-eyebrow" data-key="q-step6-eyebrow">Step 6 of 8</div>
+    <h1 class="step-title" data-key="q-step6-title">Your<br><em>website.</em></h1>
+    <p class="step-subtitle" data-key="q-step6-sub">Your website is built on top of your brand. Let's define what it needs to do and contain.</p>
   </div>
 
   <div class="field">
-    <label>Which sections do you need?</label>
+    <label data-key="q-site-sections-label">Which sections do you need?</label>
     <div class="check-grid" id="siteSections">
-      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">About Us</span></div>
-      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Our Services</span></div>
-      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Gallery / Portfolio</span></div>
-      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Menu (restaurant/cafe)</span></div>
-      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Pricing / Packages</span></div>
-      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Blog / News</span></div>
-      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Testimonials / Reviews</span></div>
-      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Contact Form</span></div>
-      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Map & Location</span></div>
-      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Online Booking</span></div>
-      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Online Store</span></div>
-      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Team / About the people</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label" data-key="q-sec-about">About Us</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label" data-key="q-sec-services">Our Services</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label" data-key="q-sec-gallery">Gallery / Portfolio</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label" data-key="q-sec-menu">Menu (restaurant/cafe)</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label" data-key="q-sec-pricing">Pricing / Packages</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label" data-key="q-sec-blog">Blog / News</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label" data-key="q-sec-testimonials">Testimonials / Reviews</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label" data-key="q-sec-contact">Contact Form</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label" data-key="q-sec-map">Map &amp; Location</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label" data-key="q-sec-booking">Online Booking</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label" data-key="q-sec-store">Online Store</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label" data-key="q-sec-team">Team / About the people</span></div>
     </div>
   </div>
 
   <div class="field">
-    <label>How many languages do you need?</label>
+    <label data-key="q-site-langs-label">How many languages do you need?</label>
     <div class="cards cards-4" id="siteLangs">
-      <div class="card" onclick="selectCard(this,'siteLangs')"><div class="card-title">1 language</div></div>
-      <div class="card" onclick="selectCard(this,'siteLangs')"><div class="card-title">2 languages</div></div>
-      <div class="card" onclick="selectCard(this,'siteLangs')"><div class="card-title">3–5 languages</div></div>
-      <div class="card" onclick="selectCard(this,'siteLangs')"><div class="card-title">More than 5</div></div>
+      <div class="card" onclick="selectCard(this,'siteLangs')"><div class="card-title" data-key="q-langs-1">1 language</div></div>
+      <div class="card" onclick="selectCard(this,'siteLangs')"><div class="card-title" data-key="q-langs-2">2 languages</div></div>
+      <div class="card" onclick="selectCard(this,'siteLangs')"><div class="card-title" data-key="q-langs-3-5">3–5 languages</div></div>
+      <div class="card" onclick="selectCard(this,'siteLangs')"><div class="card-title" data-key="q-langs-more">More than 5</div></div>
     </div>
-    <div class="error-msg" id="err-siteLangs">Please select number of languages</div>
+    <div class="error-msg" id="err-siteLangs" data-key="q-err-siteLangs">Please select number of languages</div>
   </div>
 
   <div class="field">
-    <label>Which languages?</label>
+    <label data-key="q-site-langs-list-label">Which languages?</label>
     <div class="check-grid" id="siteLangsList">
-      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">English</span></div>
-      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Bulgarian</span></div>
-      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">German</span></div>
-      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">French</span></div>
-      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Spanish</span></div>
-      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Romanian</span></div>
-      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Greek</span></div>
-      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Serbian</span></div>
-      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Russian</span></div>
-      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Turkish</span></div>
-      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Arabic</span></div>
-      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label">Chinese</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label" data-key="q-lang-en">English</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label" data-key="q-lang-bg">Bulgarian</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label" data-key="q-lang-de">German</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label" data-key="q-lang-fr">French</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label" data-key="q-lang-es">Spanish</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label" data-key="q-lang-ro">Romanian</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label" data-key="q-lang-gr">Greek</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label" data-key="q-lang-sr">Serbian</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label" data-key="q-lang-ru">Russian</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label" data-key="q-lang-tr">Turkish</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label" data-key="q-lang-ar">Arabic</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><div class="check-box"><span class="check-tick">✓</span></div><span class="check-label" data-key="q-lang-zh">Chinese</span></div>
     </div>
   </div>
 
   <div class="field">
-    <label>Do you send emails to clients regularly?</label>
+    <label data-key="q-site-emails-label">Do you send emails to clients regularly?</label>
     <div class="cards cards-3" id="siteEmails">
-      <div class="card" onclick="selectCard(this,'siteEmails')"><div class="card-title">Yes — regularly</div><div class="card-desc">I need a professional email signature</div></div>
-      <div class="card" onclick="selectCard(this,'siteEmails')"><div class="card-title">Sometimes</div><div class="card-desc">Would be nice to have</div></div>
-      <div class="card" onclick="selectCard(this,'siteEmails')"><div class="card-title">No</div><div class="card-desc">Not needed</div></div>
+      <div class="card" onclick="selectCard(this,'siteEmails')"><div class="card-title" data-key="q-email-yes">Yes — regularly</div><div class="card-desc" data-key="q-email-yes-desc">I need a professional email signature</div></div>
+      <div class="card" onclick="selectCard(this,'siteEmails')"><div class="card-title" data-key="q-email-sometimes">Sometimes</div><div class="card-desc" data-key="q-email-sometimes-desc">Would be nice to have</div></div>
+      <div class="card" onclick="selectCard(this,'siteEmails')"><div class="card-title" data-key="q-email-no">No</div><div class="card-desc" data-key="q-email-no-desc">Not needed</div></div>
     </div>
   </div>
 
   <div class="notes-field field">
-    <label>Additional notes for this step</label>
-    <p class="step-hint">💡 Additional notes for this step — These questions are recommended to help us better understand your business and deliver the most tailored result. However, even with just your name and industry, we can create something beautiful for you.</p>
-    <textarea id="notes6" rows="3" placeholder="Any specific functionality, pages, or features you'd like on your website..."></textarea>
+    <label data-key="q-notes-label">Additional notes for this step</label>
+    <p class="step-hint" data-key="q-notes-hint">💡 Additional notes for this step — These questions are recommended to help us better understand your business and deliver the most tailored result. However, even with just your name and industry, we can create something beautiful for you.</p>
+    <textarea id="notes6" rows="3" data-key-ph="q-notes6-ph" placeholder="Any specific functionality, pages, or features you'd like on your website..."></textarea>
   </div>
 
   <div class="step-nav">
-    <button class="btn-back" onclick="prevStep(6)">← Back</button>
-    <button class="btn-next" onclick="nextStep(6)">Next — Technical Details →</button>
+    <button class="btn-back" onclick="prevStep(6)" data-key="q-back">← Back</button>
+    <button class="btn-next" onclick="nextStep(6)" data-key="q-next-tech">Next — Technical Details →</button>
   </div>
 </div>
 
 <!-- STEP 7: TECHNICAL -->
 <div class="step" id="step7">
   <div class="step-header">
-    <div class="step-eyebrow">Step 7 of 8</div>
-    <h1 class="step-title">Technical<br><em>details.</em></h1>
-    <p class="step-subtitle">Almost done. A few practical questions — we handle all the technical work from here.</p>
+    <div class="step-eyebrow" data-key="q-step7-eyebrow">Step 7 of 8</div>
+    <h1 class="step-title" data-key="q-step7-title">Technical<br><em>details.</em></h1>
+    <p class="step-subtitle" data-key="q-step7-sub">Almost done. A few practical questions — we handle all the technical work from here.</p>
   </div>
 
   <div class="field">
-    <label>Your name *</label>
-    <input type="text" id="techName" placeholder="Your full name" required>
-    <div class="error-msg" id="err-techName">Please enter your name</div>
+    <label data-key="q-tech-name-label">Your name *</label>
+    <input type="text" id="techName" data-key-ph="q-tech-name-ph" placeholder="Your full name" required>
+    <div class="error-msg" id="err-techName" data-key="q-err-techName">Please enter your name</div>
   </div>
 
   <div class="field">
-    <label>Your email address *</label>
+    <label data-key="q-tech-email-label">Your email address *</label>
     <input type="email" id="techEmail" placeholder="your@email.com" required>
-    <div class="error-msg" id="err-techEmail">Please enter a valid email</div>
+    <div class="error-msg" id="err-techEmail" data-key="q-err-techEmail">Please enter a valid email</div>
   </div>
 
   <div class="field">
-    <label>Phone / WhatsApp</label>
+    <label data-key="q-tech-phone-label">Phone / WhatsApp</label>
     <input type="text" id="techPhone" placeholder="+359 88 888 8888">
     <div class="error-msg" id="err-techPhone">Please enter your phone number</div>
   </div>
 
   <div class="field">
-    <label>Physical address</label>
-    <input type="text" id="techAddress" placeholder="Leave empty if no physical location">
+    <label data-key="q-tech-address-label">Physical address</label>
+    <input type="text" id="techAddress" data-key-ph="q-tech-address-ph" placeholder="Leave empty if no physical location">
   </div>
 
   <div class="field">
-    <label>Social media profiles</label>
+    <label data-key="q-tech-social-label">Social media profiles</label>
     <input type="text" id="techInstagram" placeholder="Instagram: @yourbusiness" style="margin-bottom:.5rem;">
     <input type="text" id="techFacebook" placeholder="Facebook: facebook.com/yourbusiness" style="margin-bottom:.5rem;">
     <input type="text" id="techLinkedin" placeholder="LinkedIn: linkedin.com/company/yourbusiness" style="margin-bottom:.5rem;">
@@ -715,105 +721,105 @@ select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='ht
   </div>
 
   <div class="field">
-    <label>Do you have a domain?</label>
+    <label data-key="q-tech-domain-label">Do you have a domain?</label>
     <div class="cards cards-3" id="techDomain">
-      <div class="card" onclick="selectCard(this,'techDomain');toggleDomainInput(false)"><div class="card-title">No — register one for me</div></div>
-      <div class="card" onclick="selectCard(this,'techDomain');toggleDomainInput(true)"><div class="card-title">Yes — I have one</div></div>
-      <div class="card" onclick="selectCard(this,'techDomain');toggleDomainInput(true)"><div class="card-title">Yes — but want to change it</div></div>
+      <div class="card" onclick="selectCard(this,'techDomain');toggleDomainInput(false)"><div class="card-title" data-key="q-domain-no">No — register one for me</div></div>
+      <div class="card" onclick="selectCard(this,'techDomain');toggleDomainInput(true)"><div class="card-title" data-key="q-domain-yes">Yes — I have one</div></div>
+      <div class="card" onclick="selectCard(this,'techDomain');toggleDomainInput(true)"><div class="card-title" data-key="q-domain-change">Yes — but want to change it</div></div>
     </div>
     <input type="text" id="techDomainName" placeholder="e.g. mybusiness.com" style="margin-top:.8rem;display:none;">
   </div>
 
   <div class="field">
-    <label>Professional email on your domain?</label>
-    <div class="hint">e.g. info@yourbusiness.com — included in your package</div>
+    <label data-key="q-tech-mailbox-label">Professional email on your domain?</label>
+    <div class="hint" data-key="q-tech-mailbox-hint">e.g. info@yourbusiness.com — included in your package</div>
     <div class="cards cards-4" id="techMailbox">
-      <div class="card" onclick="selectCard(this,'techMailbox');toggleMailboxInput(false)"><div class="card-title">No thanks</div></div>
-      <div class="card" onclick="selectCard(this,'techMailbox');toggleMailboxInput(true)"><div class="card-title">Yes — 1 address</div></div>
-      <div class="card" onclick="selectCard(this,'techMailbox');toggleMailboxInput(true)"><div class="card-title">Yes — 2–3 addresses</div></div>
-      <div class="card" onclick="selectCard(this,'techMailbox');toggleMailboxInput(true)"><div class="card-title">Yes — more than 3</div></div>
+      <div class="card" onclick="selectCard(this,'techMailbox');toggleMailboxInput(false)"><div class="card-title" data-key="q-mailbox-no">No thanks</div></div>
+      <div class="card" onclick="selectCard(this,'techMailbox');toggleMailboxInput(true)"><div class="card-title" data-key="q-mailbox-1">Yes — 1 address</div></div>
+      <div class="card" onclick="selectCard(this,'techMailbox');toggleMailboxInput(true)"><div class="card-title" data-key="q-mailbox-2-3">Yes — 2–3 addresses</div></div>
+      <div class="card" onclick="selectCard(this,'techMailbox');toggleMailboxInput(true)"><div class="card-title" data-key="q-mailbox-more">Yes — more than 3</div></div>
     </div>
     <textarea id="techMailboxNames" rows="2" placeholder="e.g. info@ / team@ / sales@ / hello@" style="margin-top:.8rem;display:none;"></textarea>
   </div>
 
   <div class="field">
-    <label>Target launch date</label>
-    <div class="hint">When would you like your brand to go live?</div>
+    <label data-key="q-tech-deadline-label">Target launch date</label>
+    <div class="hint" data-key="q-tech-deadline-hint">When would you like your brand to go live?</div>
     <input type="date" id="techDeadline">
     <div class="error-msg" id="err-techDeadline">Please select a target date</div>
   </div>
 
   <div class="field">
-    <label>Budget range</label>
+    <label data-key="q-tech-budget-label">Budget range</label>
     <div class="cards cards-3" id="techBudget">
-      <div class="card" onclick="selectCard(this,'techBudget')"><div class="card-title">Up to €500</div><div class="card-desc">Essential package territory</div></div>
-      <div class="card" onclick="selectCard(this,'techBudget')"><div class="card-title">€500 – €1,000</div><div class="card-desc">Full Brand territory</div></div>
-      <div class="card" onclick="selectCard(this,'techBudget')"><div class="card-title">Over €1,000</div><div class="card-desc">Total Brand territory</div></div>
+      <div class="card" onclick="selectCard(this,'techBudget')"><div class="card-title" data-key="q-budget-500">Up to €500</div><div class="card-desc" data-key="q-budget-500-desc">Essential package territory</div></div>
+      <div class="card" onclick="selectCard(this,'techBudget')"><div class="card-title" data-key="q-budget-1000">€500 – €1,000</div><div class="card-desc" data-key="q-budget-1000-desc">Full Brand territory</div></div>
+      <div class="card" onclick="selectCard(this,'techBudget')"><div class="card-title" data-key="q-budget-over">Over €1,000</div><div class="card-desc" data-key="q-budget-over-desc">Total Brand territory</div></div>
     </div>
   </div>
 
   <div class="notes-field field">
-    <label>Final notes — anything else we should know</label>
-    <p class="step-hint">💡 Additional notes for this step — These questions are recommended to help us better understand your business and deliver the most tailored result. However, even with just your name and industry, we can create something beautiful for you.</p>
-    <textarea id="notes7" rows="4" placeholder="Any final details, special requests, questions, concerns, or anything else you'd like to tell us before we start building your brand..."></textarea>
+    <label data-key="q-notes7-label">Final notes — anything else we should know</label>
+    <p class="step-hint" data-key="q-notes-hint">💡 Additional notes for this step — These questions are recommended to help us better understand your business and deliver the most tailored result. However, even with just your name and industry, we can create something beautiful for you.</p>
+    <textarea id="notes7" rows="4" data-key-ph="q-notes7-ph" placeholder="Any final details, special requests, questions, concerns, or anything else you'd like to tell us before we start building your brand..."></textarea>
   </div>
 
   <div class="step-nav">
-    <button class="btn-back" onclick="prevStep(7)">← Back</button>
-    <button class="btn-next" onclick="nextStep(7)">See my recommended package →</button>
+    <button class="btn-back" onclick="prevStep(7)" data-key="q-back">← Back</button>
+    <button class="btn-next" onclick="nextStep(7)" data-key="q-next-pkg">See my recommended package →</button>
   </div>
 </div>
 
 <!-- STEP 8: RECOMMENDATION -->
 <div class="step" id="step8">
   <div class="step-header">
-    <div class="step-eyebrow">Step 8 of 8</div>
-    <h1 class="step-title">Your recommended<br><em>package.</em></h1>
-    <p class="step-subtitle">Based on everything you've shared, here is our recommendation for you.</p>
+    <div class="step-eyebrow" data-key="q-step8-eyebrow">Step 8 of 8</div>
+    <h1 class="step-title" data-key="q-step8-title">Your recommended<br><em>package.</em></h1>
+    <p class="step-subtitle" data-key="q-step8-sub">Based on everything you've shared, here is our recommendation for you.</p>
   </div>
 
   <div class="pkg-grid" id="pkgGrid">
     <div class="pkg-card" id="pkgEssential" onclick="selectPkg('essential')">
-      <div class="pkg-label">Essential</div>
+      <div class="pkg-label" data-key="q-pkg-essential-label">Essential</div>
       <div class="pkg-price">€499</div>
-      <div class="pkg-period">one-time payment</div>
+      <div class="pkg-period" data-key="q-pkg-essential-period">one-time payment</div>
       <ul class="pkg-features">
-        <li>2 logo concepts (PNG + SVG)</li>
-        <li>Color palette + typography</li>
-        <li>Digital business card with QR</li>
-        <li>One-page website with navigation</li>
-        <li>1 language</li>
-        <li>Full technical setup</li>
-        <li>24 months hosting</li>
-        <li>Delivery: 7 working days</li>
+        <li data-key="q-pkg-essential-f1">2 logo concepts (PNG + SVG)</li>
+        <li data-key="q-pkg-essential-f2">Color palette + typography</li>
+        <li data-key="q-pkg-essential-f3">Digital business card with QR</li>
+        <li data-key="q-pkg-essential-f4">One-page website with navigation</li>
+        <li data-key="q-pkg-essential-f5">1 language</li>
+        <li data-key="q-pkg-essential-f6">Full technical setup</li>
+        <li data-key="q-pkg-essential-f7">24 months hosting</li>
+        <li data-key="q-pkg-essential-f8">Delivery: 7 working days</li>
       </ul>
     </div>
     <div class="pkg-card" id="pkgFull" onclick="selectPkg('full')">
-      <div class="pkg-label">Full Brand</div>
+      <div class="pkg-label" data-key="q-pkg-full-label">Full Brand</div>
       <div class="pkg-price">€799</div>
-      <div class="pkg-period">one-time payment</div>
+      <div class="pkg-period" data-key="q-pkg-full-period">one-time payment</div>
       <ul class="pkg-features">
-        <li>Everything in Essential</li>
-        <li>Multi-page website (up to 5 pages)</li>
-        <li>Branded HTML email signature</li>
-        <li>Up to 5 languages</li>
-        <li>2 rounds of revisions</li>
-        <li>24 months hosting</li>
-        <li>Delivery: 7 working days</li>
+        <li data-key="q-pkg-full-f1">Everything in Essential</li>
+        <li data-key="q-pkg-full-f2">Multi-page website (up to 5 pages)</li>
+        <li data-key="q-pkg-full-f3">Branded HTML email signature</li>
+        <li data-key="q-pkg-full-f4">Up to 5 languages</li>
+        <li data-key="q-pkg-full-f5">2 rounds of revisions</li>
+        <li data-key="q-pkg-full-f6">24 months hosting</li>
+        <li data-key="q-pkg-full-f7">Delivery: 7 working days</li>
       </ul>
     </div>
     <div class="pkg-card" id="pkgTotal" onclick="selectPkg('total')">
-      <div class="pkg-label">Total Brand</div>
+      <div class="pkg-label" data-key="q-pkg-total-label">Total Brand</div>
       <div class="pkg-price" style="font-size:1.6rem;">From €2,500</div>
-      <div class="pkg-period">custom quote</div>
+      <div class="pkg-period" data-key="q-pkg-total-period">custom quote</div>
       <ul class="pkg-features">
-        <li>Everything in Full Brand</li>
-        <li>Digital strategy</li>
-        <li>Social media management</li>
-        <li>Marketing & advertising</li>
-        <li>Corporate identity</li>
-        <li>Priority support</li>
-        <li>Custom timeline</li>
+        <li data-key="q-pkg-total-f1">Everything in Full Brand</li>
+        <li data-key="q-pkg-total-f2">Digital strategy</li>
+        <li data-key="q-pkg-total-f3">Social media management</li>
+        <li data-key="q-pkg-total-f4">Marketing &amp; advertising</li>
+        <li data-key="q-pkg-total-f5">Corporate identity</li>
+        <li data-key="q-pkg-total-f6">Priority support</li>
+        <li data-key="q-pkg-total-f7">Custom timeline</li>
       </ul>
     </div>
   </div>
@@ -821,111 +827,135 @@ select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='ht
   <div class="summary-box" id="briefSummary"></div>
 
   <div style="text-align:center;padding:1.5rem 0;border-top:1px solid #e8e8e8;border-bottom:1px solid #e8e8e8;margin-bottom:1.5rem;">
-    <p style="font-size:13px;color:#888;letter-spacing:.05em;">30% deposit to start &nbsp;·&nbsp; Preview before final payment &nbsp;·&nbsp; 70% on approval</p>
+    <p style="font-size:13px;color:#888;letter-spacing:.05em;" data-key="q-payment-note">30% deposit to start &nbsp;·&nbsp; Preview before final payment &nbsp;·&nbsp; 70% on approval</p>
   </div>
 
-  <button class="btn-submit" onclick="submitBrief()">Send my brief →</button>
-  <p class="submit-note">We will contact you within 24 hours to confirm your order<br>and send your invoice for the 30% deposit.</p>
+  <button class="btn-submit" onclick="submitBrief()" data-key="q-submit-btn">Send my brief →</button>
+  <p class="submit-note" data-key="q-submit-note">We will contact you within 24 hours to confirm your order<br>and send your invoice for the 30% deposit.</p>
 
   <div class="step-nav">
-    <button class="btn-back" onclick="prevStep(8)">← Back</button>
+    <button class="btn-back" onclick="prevStep(8)" data-key="q-back">← Back</button>
   </div>
 </div>
 
 </main>
 
+<script src="translations.js"></script>
 <script>
 let currentStep = 1;
 const totalSteps = 8;
 const stepNames = ['','Your Business','Your Clients','Your Logo','Colors & Identity','Your Content','Your Website','Technical Details','Your Package'];
 
-function updateProgress(step){
-  const pct = Math.round((step/totalSteps)*100);
-  document.getElementById('progressFill').style.width = pct+'%';
-  document.getElementById('stepLabel').textContent = 'Step '+step+' of '+totalSteps+' — '+stepNames[step];
-  document.getElementById('stepPct').textContent = pct+'%';
+function qT(key) {
+  const lang = localStorage.getItem('av_lang') || 'en';
+  return (window.qTranslations && qTranslations[lang] && qTranslations[lang][key]) || '';
 }
 
-function selectCard(el, groupId){
-  document.querySelectorAll('#'+groupId+' .card, #'+groupId+' .style-card, #'+groupId+' .color-card').forEach(c=>c.classList.remove('selected'));
+function applyQLang(lang) {
+  if (!window.qTranslations || !qTranslations[lang]) return;
+  const t = qTranslations[lang];
+  document.querySelectorAll('[data-key]').forEach(el => {
+    const key = el.getAttribute('data-key');
+    if (t[key] !== undefined) el.innerHTML = t[key];
+  });
+  document.querySelectorAll('[data-key-ph]').forEach(el => {
+    const key = el.getAttribute('data-key-ph');
+    if (t[key] !== undefined) el.placeholder = t[key];
+  });
+  const btn = document.getElementById('qLangBtn');
+  if (btn) btn.textContent = lang.toUpperCase() + ' ▾';
+  localStorage.setItem('av_lang', lang);
+  updateProgress(currentStep);
+}
+
+function cycleLang() {
+  const langs = ['en','bg','de'];
+  const current = localStorage.getItem('av_lang') || 'en';
+  const next = langs[(langs.indexOf(current) + 1) % 3];
+  applyQLang(next);
+}
+
+function updateProgress(step) {
+  const lang = localStorage.getItem('av_lang') || 'en';
+  const stepWord = qT('q-step-word') || 'Step';
+  const ofWord = qT('q-of-word') || 'of';
+  const names = (window.qStepNamesMap && qStepNamesMap[lang]) ? ['', ...qStepNamesMap[lang]] : stepNames;
+  const pct = Math.round((step / totalSteps) * 100);
+  document.getElementById('progressFill').style.width = pct + '%';
+  document.getElementById('stepLabel').textContent = stepWord + ' ' + step + ' ' + ofWord + ' ' + totalSteps + ' — ' + names[step];
+  document.getElementById('stepPct').textContent = pct + '%';
+}
+
+function selectCard(el, groupId) {
+  document.querySelectorAll('#' + groupId + ' .card, #' + groupId + ' .style-card, #' + groupId + ' .color-card').forEach(c => c.classList.remove('selected'));
   el.classList.add('selected');
 }
 
-function toggleCheck(el){
+function toggleCheck(el) {
   el.classList.toggle('checked');
   el.querySelector('input').checked = el.classList.contains('checked');
 }
 
-function toggleDomainInput(show){
+function toggleDomainInput(show) {
   document.getElementById('techDomainName').style.display = show ? 'block' : 'none';
 }
 
-function toggleMailboxInput(show){
+function toggleMailboxInput(show) {
   document.getElementById('techMailboxNames').style.display = show ? 'block' : 'none';
 }
 
-function getChecked(container){
-  return Array.from(document.querySelectorAll('#'+container+' .check-item.checked .check-label')).map(el=>el.textContent);
+function getChecked(container) {
+  return Array.from(document.querySelectorAll('#' + container + ' .check-item.checked .check-label')).map(el => el.textContent);
 }
 
-function getSelected(groupId){
-  const el = document.querySelector('#'+groupId+' .selected');
+function getSelected(groupId) {
+  const el = document.querySelector('#' + groupId + ' .selected');
   return el ? (el.querySelector('.card-title,.style-card-name,.color-name') || el).textContent.trim() : '';
 }
 
-function validateStep(step){
+function validateStep(step) {
   let valid = true;
   const required = {
-    1: [{id:'bizIndustry'}],
-    7: [{id:'techName'},{id:'techEmail'}],
+    1: [{id: 'bizIndustry'}],
+    7: [{id: 'techName'}, {id: 'techEmail'}],
   };
-  if(!required[step]) return true;
-  required[step].forEach(f=>{
-    if(f.id){
+  if (!required[step]) return true;
+  required[step].forEach(f => {
+    if (f.id) {
       const el = document.getElementById(f.id);
-      const errEl = document.getElementById('err-'+f.id);
-      if(!el.value.trim()){
+      const errEl = document.getElementById('err-' + f.id);
+      if (!el.value.trim()) {
         el.classList.add('error');
-        if(errEl) errEl.classList.add('show');
+        if (errEl) errEl.classList.add('show');
         valid = false;
       } else {
         el.classList.remove('error');
-        if(errEl) errEl.classList.remove('show');
-      }
-    }
-    if(f.group){
-      const sel = document.querySelector('#'+f.group+' .selected');
-      const errEl = document.getElementById(f.msg);
-      if(!sel){
-        if(errEl) errEl.classList.add('show');
-        valid = false;
-      } else {
-        if(errEl) errEl.classList.remove('show');
+        if (errEl) errEl.classList.remove('show');
       }
     }
   });
   return valid;
 }
 
-function nextStep(current){
-  if(!validateStep(current)) return;
-  document.getElementById('step'+current).classList.remove('active');
-  currentStep = current+1;
-  document.getElementById('step'+currentStep).classList.add('active');
+function nextStep(current) {
+  if (!validateStep(current)) return;
+  document.getElementById('step' + current).classList.remove('active');
+  currentStep = current + 1;
+  document.getElementById('step' + currentStep).classList.add('active');
   updateProgress(currentStep);
-  if(currentStep === 8) buildRecommendation();
-  window.scrollTo({top:0,behavior:'smooth'});
+  if (currentStep === 8) buildRecommendation();
+  window.scrollTo({top: 0, behavior: 'smooth'});
 }
 
-function prevStep(current){
-  document.getElementById('step'+current).classList.remove('active');
-  currentStep = current-1;
-  document.getElementById('step'+currentStep).classList.add('active');
+function prevStep(current) {
+  document.getElementById('step' + current).classList.remove('active');
+  currentStep = current - 1;
+  document.getElementById('step' + currentStep).classList.add('active');
   updateProgress(currentStep);
-  window.scrollTo({top:0,behavior:'smooth'});
+  window.scrollTo({top: 0, behavior: 'smooth'});
 }
 
-function buildRecommendation(){
+function buildRecommendation() {
   let score = 0;
   const langs = getSelected('siteLangs');
   const sections = getChecked('siteSections');
@@ -933,58 +963,58 @@ function buildRecommendation(){
   const budget = getSelected('techBudget');
   const intl = getSelected('clientInternational');
 
-  if(langs.includes('2')) score += 2;
-  if(langs.includes('3') || langs.includes('More')) score += 4;
-  if(langs.includes('More than')) score += 5;
-  if(sections.includes('Online Store')) score += 5;
-  if(sections.includes('Blog')) score += 2;
-  if(sections.length > 5) score += 2;
-  if(emails.includes('Yes')) score += 1;
-  if(intl.includes('International')) score += 2;
-  if(budget.includes('Over')) score += 2;
-  if(budget.includes('Up to')) score -= 1;
+  if (langs.includes('2')) score += 2;
+  if (langs.includes('3') || langs.includes('More') || langs.includes('Mehr') || langs.includes('Повече')) score += 4;
+  if (sections.includes('Online Store') || sections.includes('Онлайн магазин') || sections.includes('Online-Shop')) score += 5;
+  if (sections.includes('Blog') || sections.includes('Блог')) score += 2;
+  if (sections.length > 5) score += 2;
+  if (emails.includes('Yes') || emails.includes('Да') || emails.includes('Ja')) score += 1;
+  if (intl.includes('International') || intl.includes('Международни') || intl.includes('International')) score += 2;
+  if (budget.includes('Over') || budget.includes('Над') || budget.includes('Über')) score += 2;
+  if (budget.includes('Up to') || budget.includes('До') || budget.includes('Bis')) score -= 1;
 
-  ['pkgEssential','pkgFull','pkgTotal'].forEach(id=>{
+  ['pkgEssential', 'pkgFull', 'pkgTotal'].forEach(id => {
     const el = document.getElementById(id);
-    el.classList.remove('recommended','selected');
+    el.classList.remove('recommended', 'selected');
     const badge = el.querySelector('.pkg-badge');
-    if(badge) badge.remove();
+    if (badge) badge.remove();
   });
 
   let recommended;
-  if(score >= 7) recommended = 'pkgTotal';
-  else if(score >= 3) recommended = 'pkgFull';
+  if (score >= 7) recommended = 'pkgTotal';
+  else if (score >= 3) recommended = 'pkgFull';
   else recommended = 'pkgEssential';
 
   const recEl = document.getElementById(recommended);
-  recEl.classList.add('recommended','selected');
+  recEl.classList.add('recommended', 'selected');
   const badge = document.createElement('div');
   badge.className = 'pkg-badge';
-  badge.textContent = 'Recommended for you';
+  badge.textContent = qT('q-recommended') || 'Recommended for you';
   recEl.insertBefore(badge, recEl.firstChild);
 
+  const tB = key => qT(key) || key.replace('q-sum-','').replace(/-/g,' ');
   const summary = document.getElementById('briefSummary');
   summary.innerHTML = `
-    <div class="summary-row"><span class="summary-label">Business</span><span class="summary-value">${document.getElementById('bizName').value || '—'}</span></div>
-    <div class="summary-row"><span class="summary-label">Industry</span><span class="summary-value">${document.getElementById('bizIndustry').value || '—'}</span></div>
-    <div class="summary-row"><span class="summary-label">Location</span><span class="summary-value">${document.getElementById('bizLocation').value || '—'}</span></div>
-    <div class="summary-row"><span class="summary-label">Brand Style</span><span class="summary-value">${getSelected('brandStyle') || '—'}</span></div>
-    <div class="summary-row"><span class="summary-label">Logo Style</span><span class="summary-value">${getSelected('logoStyle') || '—'}</span></div>
-    <div class="summary-row"><span class="summary-label">Languages</span><span class="summary-value">${langs || '—'}</span></div>
-    <div class="summary-row"><span class="summary-label">Sections</span><span class="summary-value">${sections.join(', ') || '—'}</span></div>
-    <div class="summary-row"><span class="summary-label">Launch date</span><span class="summary-value">${document.getElementById('techDeadline').value || '—'}</span></div>
+    <div class="summary-row"><span class="summary-label">${tB('q-sum-business')}</span><span class="summary-value">${document.getElementById('bizName').value || '—'}</span></div>
+    <div class="summary-row"><span class="summary-label">${tB('q-sum-industry')}</span><span class="summary-value">${document.getElementById('bizIndustry').value || '—'}</span></div>
+    <div class="summary-row"><span class="summary-label">${tB('q-sum-location')}</span><span class="summary-value">${document.getElementById('bizLocation').value || '—'}</span></div>
+    <div class="summary-row"><span class="summary-label">${tB('q-sum-brand-style')}</span><span class="summary-value">${getSelected('brandStyle') || '—'}</span></div>
+    <div class="summary-row"><span class="summary-label">${tB('q-sum-logo-style')}</span><span class="summary-value">${getSelected('logoStyle') || '—'}</span></div>
+    <div class="summary-row"><span class="summary-label">${tB('q-sum-languages')}</span><span class="summary-value">${langs || '—'}</span></div>
+    <div class="summary-row"><span class="summary-label">${tB('q-sum-sections')}</span><span class="summary-value">${sections.join(', ') || '—'}</span></div>
+    <div class="summary-row"><span class="summary-label">${tB('q-sum-launch')}</span><span class="summary-value">${document.getElementById('techDeadline').value || '—'}</span></div>
   `;
 }
 
-function selectPkg(pkg){
-  ['pkgEssential','pkgFull','pkgTotal'].forEach(id=>document.getElementById(id).classList.remove('selected'));
-  const map = {essential:'pkgEssential',full:'pkgFull',total:'pkgTotal'};
+function selectPkg(pkg) {
+  ['pkgEssential', 'pkgFull', 'pkgTotal'].forEach(id => document.getElementById(id).classList.remove('selected'));
+  const map = {essential: 'pkgEssential', full: 'pkgFull', total: 'pkgTotal'};
   document.getElementById(map[pkg]).classList.add('selected');
 }
 
-function v(id){ const el = document.getElementById(id); return el ? el.value.trim() : ''; }
+function v(id) { const el = document.getElementById(id); return el ? el.value.trim() : ''; }
 
-function submitBrief(){
+function submitBrief() {
   const pkg = document.querySelector('#pkgGrid .pkg-card.selected .pkg-label')?.textContent || 'Not selected';
 
   const lines = [
@@ -993,83 +1023,83 @@ function submitBrief(){
     '',
     'STEP 1 — YOUR BUSINESS',
     '-----------------------',
-    'Business Name: '           + (v('bizName')       || '—'),
-    'What you offer: '          + (v('bizOffer')      || '—'),
-    'Industry: '                + (v('bizIndustry')   || '—'),
-    'Location: '                + (v('bizLocation')   || '—'),
-    'Slogan: '                  + (v('bizSlogan')     || '—'),
-    'Business Age: '            + (getSelected('bizAge')  || '—'),
-    'Team Size: '               + (getSelected('bizTeam') || '—'),
-    'What makes you different: '+ (v('bizDiff')       || '—'),
-    'Existing logo/materials: ' + (getSelected('bizLogo') || '—'),
-    'Notes: '                   + (v('notes1')        || '—'),
+    'Business Name: '            + (v('bizName')       || '—'),
+    'What you offer: '           + (v('bizOffer')      || '—'),
+    'Industry: '                 + (v('bizIndustry')   || '—'),
+    'Location: '                 + (v('bizLocation')   || '—'),
+    'Slogan: '                   + (v('bizSlogan')     || '—'),
+    'Business Age: '             + (getSelected('bizAge')  || '—'),
+    'Team Size: '                + (getSelected('bizTeam') || '—'),
+    'What makes you different: ' + (v('bizDiff')       || '—'),
+    'Existing logo/materials: '  + (getSelected('bizLogo') || '—'),
+    'Notes: '                    + (v('notes1')        || '—'),
     '',
     'STEP 2 — YOUR CLIENTS',
     '----------------------',
-    'Ideal client: '            + (v('clientIdeal')        || '—'),
-    'Client age range: '        + (getChecked('clientAge').join(', ')      || '—'),
-    'Client gender: '           + (getSelected('clientGender')             || '—'),
-    'International clients: '   + (getSelected('clientInternational')      || '—'),
-    'How clients find you: '    + (getChecked('clientFindHow').join(', ')  || '—'),
-    'First impression goal: '   + (v('clientImpression') || '—'),
-    'Brand personality words: ' + (v('clientWords')       || '—'),
-    'Competitors: '             + (v('clientCompetitors') || '—'),
-    'Better than competitors: ' + (v('clientBetter')      || '—'),
-    'Notes: '                   + (v('notes2')            || '—'),
+    'Ideal client: '             + (v('clientIdeal')        || '—'),
+    'Client age range: '         + (getChecked('clientAge').join(', ')      || '—'),
+    'Client gender: '            + (getSelected('clientGender')             || '—'),
+    'International clients: '    + (getSelected('clientInternational')      || '—'),
+    'How clients find you: '     + (getChecked('clientFindHow').join(', ')  || '—'),
+    'First impression goal: '    + (v('clientImpression') || '—'),
+    'Brand personality words: '  + (v('clientWords')       || '—'),
+    'Competitors: '              + (v('clientCompetitors') || '—'),
+    'Better than competitors: '  + (v('clientBetter')      || '—'),
+    'Notes: '                    + (v('notes2')            || '—'),
     '',
     'STEP 3 — YOUR LOGO',
     '-------------------',
-    'Logo format: '             + (getSelected('logoFormat')                || '—'),
-    'Symbol types: '            + (getChecked('logoSymbolTypes').join(', ') || '—'),
-    'Logo style: '              + (getSelected('logoStyle')                 || '—'),
-    'Logos they love: '         + (v('logoLove')    || '—'),
-    'Logos they dislike: '      + (v('logoHate')    || '—'),
+    'Logo format: '              + (getSelected('logoFormat')                || '—'),
+    'Symbol types: '             + (getChecked('logoSymbolTypes').join(', ') || '—'),
+    'Logo style: '               + (getSelected('logoStyle')                 || '—'),
+    'Logos they love: '          + (v('logoLove')    || '—'),
+    'Logos they dislike: '       + (v('logoHate')    || '—'),
     'Specific symbols/elements: '+ (v('logoSymbols') || '—'),
-    'Notes: '                   + (v('notes3')      || '—'),
+    'Notes: '                    + (v('notes3')      || '—'),
     '',
     'STEP 4 — COLORS & VISUAL IDENTITY',
     '----------------------------------',
-    'Brand style: '             + (getSelected('brandStyle')               || '—'),
-    'Brand emotions: '          + (getChecked('brandEmotions').join(', ')  || '—'),
-    'Color direction: '         + (getSelected('colorDir')                 || '—'),
-    'Brand as a person: '       + (v('brandPerson') || '—'),
-    'Brands they love: '        + (v('brandLove')   || '—'),
-    'Brands they dislike: '     + (v('brandHate')   || '—'),
-    'Notes: '                   + (v('notes4')      || '—'),
+    'Brand style: '              + (getSelected('brandStyle')               || '—'),
+    'Brand emotions: '           + (getChecked('brandEmotions').join(', ')  || '—'),
+    'Color direction: '          + (getSelected('colorDir')                 || '—'),
+    'Brand as a person: '        + (v('brandPerson') || '—'),
+    'Brands they love: '         + (v('brandLove')   || '—'),
+    'Brands they dislike: '      + (v('brandHate')   || '—'),
+    'Notes: '                    + (v('notes4')      || '—'),
     '',
     'STEP 5 — YOUR CONTENT',
     '----------------------',
-    'Brand story: '             + (v('contentStory')    || '—'),
-    'Services/Products: '       + (v('contentServices') || '—'),
-    'Tone of voice: '           + (getSelected('contentTone')    || '—'),
-    'Photos ready: '            + (getSelected('contentPhotos')  || '—'),
-    'Content ready: '           + (getSelected('contentText')    || '—'),
-    'Tagline: '                 + (getSelected('contentTagline') || '—'),
-    'Notes: '                   + (v('notes5') || '—'),
+    'Brand story: '              + (v('contentStory')    || '—'),
+    'Services/Products: '        + (v('contentServices') || '—'),
+    'Tone of voice: '            + (getSelected('contentTone')    || '—'),
+    'Photos ready: '             + (getSelected('contentPhotos')  || '—'),
+    'Content ready: '            + (getSelected('contentText')    || '—'),
+    'Tagline: '                  + (getSelected('contentTagline') || '—'),
+    'Notes: '                    + (v('notes5') || '—'),
     '',
     'STEP 6 — YOUR WEBSITE',
     '----------------------',
-    'Sections needed: '         + (getChecked('siteSections').join(', ')  || '—'),
-    'Number of languages: '     + (getSelected('siteLangs')               || '—'),
-    'Languages: '               + (getChecked('siteLangsList').join(', ') || '—'),
-    'Email signature: '         + (getSelected('siteEmails')              || '—'),
-    'Notes: '                   + (v('notes6') || '—'),
+    'Sections needed: '          + (getChecked('siteSections').join(', ')  || '—'),
+    'Number of languages: '      + (getSelected('siteLangs')               || '—'),
+    'Languages: '                + (getChecked('siteLangsList').join(', ') || '—'),
+    'Email signature: '          + (getSelected('siteEmails')              || '—'),
+    'Notes: '                    + (v('notes6') || '—'),
     '',
     'STEP 7 — TECHNICAL DETAILS',
     '---------------------------',
-    'Name: '                    + (v('techName')    || '—'),
-    'Email: '                   + (v('techEmail')   || '—'),
-    'Phone: '                   + (v('techPhone')   || '—'),
-    'Address: '                 + (v('techAddress') || '—'),
-    'Instagram: '               + (v('techInstagram') || '—'),
-    'Facebook: '                + (v('techFacebook')  || '—'),
-    'LinkedIn: '                + (v('techLinkedin')  || '—'),
-    'TikTok: '                  + (v('techTiktok')    || '—'),
-    'Domain: '                  + (getSelected('techDomain') || '—') + (v('techDomainName') ? ' — ' + v('techDomainName') : ''),
-    'Email mailboxes: '         + (getSelected('techMailbox') || '—') + (v('techMailboxNames') ? ' — ' + v('techMailboxNames') : ''),
-    'Target launch date: '      + (v('techDeadline') || '—'),
-    'Budget: '                  + (getSelected('techBudget') || '—'),
-    'Notes: '                   + (v('notes7') || '—'),
+    'Name: '                     + (v('techName')    || '—'),
+    'Email: '                    + (v('techEmail')   || '—'),
+    'Phone: '                    + (v('techPhone')   || '—'),
+    'Address: '                  + (v('techAddress') || '—'),
+    'Instagram: '                + (v('techInstagram') || '—'),
+    'Facebook: '                 + (v('techFacebook')  || '—'),
+    'LinkedIn: '                 + (v('techLinkedin')  || '—'),
+    'TikTok: '                   + (v('techTiktok')    || '—'),
+    'Domain: '                   + (getSelected('techDomain') || '—') + (v('techDomainName') ? ' — ' + v('techDomainName') : ''),
+    'Email mailboxes: '          + (getSelected('techMailbox') || '—') + (v('techMailboxNames') ? ' — ' + v('techMailboxNames') : ''),
+    'Target launch date: '       + (v('techDeadline') || '—'),
+    'Budget: '                   + (getSelected('techBudget') || '—'),
+    'Notes: '                    + (v('notes7') || '—'),
     '',
     'STEP 8 — SELECTED PACKAGE',
     '--------------------------',
@@ -1081,7 +1111,11 @@ function submitBrief(){
   window.location.href = 'mailto:team@atelierv.design?subject=' + subject + '&body=' + encodeURIComponent(body);
 }
 
-updateProgress(1);
+document.addEventListener('DOMContentLoaded', function() {
+  const saved = localStorage.getItem('av_lang') || 'en';
+  applyQLang(saved);
+  updateProgress(1);
+});
 </script>
 </body>
 </html>
