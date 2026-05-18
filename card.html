@@ -87,24 +87,24 @@ body::before{
 .panel-eyebrow{font-family:'Jost',sans-serif;font-size:9px;font-weight:600;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:20px;}
 
 /* ── CONTACTS ── */
-.contact-list{list-style:none;margin-bottom:24px;flex:1;}
-.contact-item{display:flex;align-items:center;gap:14px;padding:10px 0;border-bottom:1px solid rgba(27,42,74,.07);}
+.contact-list{list-style:none;margin-bottom:0;flex:1;}
+.contact-item{display:flex;align-items:center;gap:16px;padding:15px 0;border-bottom:1px solid rgba(27,42,74,.07);}
 .contact-item:last-child{border-bottom:none;}
-.contact-icon{width:36px;height:36px;background:var(--navy);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .25s;}
+.contact-icon{width:42px;height:42px;background:var(--navy);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .25s;}
 .contact-item:hover .contact-icon{background:var(--gold);}
 .contact-item:hover .contact-icon svg{fill:var(--navy);}
-.contact-icon svg{width:14px;height:14px;fill:var(--gold);transition:fill .25s;}
-.contact-info{display:flex;flex-direction:column;gap:2px;}
-.contact-label{font-family:'Jost',sans-serif;font-size:9px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);text-decoration:none;}
-.contact-value{font-family:'Jost',sans-serif;font-size:13px;font-weight:400;color:var(--navy);text-decoration:none;transition:color .2s;}
+.contact-icon svg{width:16px;height:16px;fill:var(--gold);transition:fill .25s;}
+.contact-info{display:flex;flex-direction:column;gap:3px;min-width:0;}
+.contact-label{font-family:'Jost',sans-serif;font-size:9px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);text-decoration:none;}
+.contact-value{font-family:'Jost',sans-serif;font-size:14px;font-weight:400;color:var(--navy);text-decoration:none;transition:color .2s;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .contact-value:hover{color:var(--gold);}
 
 /* QR */
-.qr-wrap{display:flex;align-items:center;gap:18px;padding:16px;background:var(--white);border:1px solid rgba(27,42,74,.08);margin-bottom:20px;}
-.qr-img-wrap{flex-shrink:0;width:80px;height:80px;background:var(--white);display:flex;align-items:center;justify-content:center;overflow:hidden;}
-.qr-img-wrap img{display:block;width:80px;height:80px;object-fit:contain;}
-.qr-eyebrow{font-family:'Jost',sans-serif;font-size:9px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:5px;}
-.qr-desc{font-family:'Jost',sans-serif;font-size:11px;font-weight:300;line-height:1.65;color:var(--muted);}
+.qr-section{text-align:center;padding:28px 0 24px;border-top:1px solid rgba(27,42,74,.07);margin-top:8px;}
+.qr-img-wrap{width:100px;height:100px;background:var(--white);border:1px solid rgba(27,42,74,.08);display:flex;align-items:center;justify-content:center;overflow:hidden;margin:0 auto 16px;}
+.qr-img-wrap img{display:block;width:100px;height:100px;object-fit:contain;}
+.qr-eyebrow{font-family:'Jost',sans-serif;font-size:9px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:6px;}
+.qr-desc{font-family:'Jost',sans-serif;font-size:11px;font-weight:300;line-height:1.7;color:var(--muted);max-width:220px;margin:0 auto;}
 
 /* ── SHARED BUTTON (navy bg) ── */
 .btn-primary{
@@ -299,20 +299,11 @@ body::before{
       <ul class="contact-list">
         <li class="contact-item">
           <div class="contact-icon">
-            <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          </div>
-          <div class="contact-info">
-            <a href="https://wa.me/359887804614" class="contact-value">+359 887 804 614</a>
-            <span class="contact-label">WhatsApp</span>
-          </div>
-        </li>
-        <li class="contact-item">
-          <div class="contact-icon">
             <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
           </div>
           <div class="contact-info">
             <a href="mailto:team@atelierv.design" class="contact-value">team@atelierv.design</a>
-            <span class="contact-label">Email</span>
+            <span class="contact-label" data-en="Email" data-bg="Имейл" data-de="E-Mail">Email</span>
           </div>
         </li>
         <li class="contact-item">
@@ -329,17 +320,15 @@ body::before{
             <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
           </div>
           <div class="contact-info">
-            <span class="contact-value">Atelier V — Digital Branding Studio</span>
-            <span class="contact-label">Studio</span>
+            <a href="https://atelierv.design" class="contact-value" target="_blank" rel="noopener">atelierv.design</a>
+            <span class="contact-label" data-en="Studio" data-bg="Студио" data-de="Studio">Studio</span>
           </div>
         </li>
       </ul>
-      <div class="qr-wrap">
+      <div class="qr-section">
         <div class="qr-img-wrap"><img id="qrcode" alt="QR Code"></div>
-        <div>
-          <div class="qr-eyebrow" data-en="Scan &amp; Save" data-bg="Сканирай и запази" data-de="Scannen &amp; Speichern">Scan &amp; Save</div>
-          <p class="qr-desc" data-en="Point your camera to save Atelier V directly to your contacts." data-bg="Насочи камерата си за да запазиш Atelier V директно в контактите си." data-de="Richte deine Kamera aus, um Atelier V direkt in deinen Kontakten zu speichern.">Point your camera to save Atelier V directly to your contacts.</p>
-        </div>
+        <div class="qr-eyebrow" data-en="Scan &amp; Save" data-bg="Сканирай и запази" data-de="Scannen &amp; Speichern">Scan &amp; Save</div>
+        <p class="qr-desc" data-en="Point your camera to save Atelier V directly to your contacts." data-bg="Насочи камерата си за да запазиш Atelier V директно в контактите си." data-de="Richte deine Kamera aus, um Atelier V direkt in deinen Kontakten zu speichern.">Point your camera to save Atelier V directly to your contacts.</p>
       </div>
       <div class="panel-spacer"></div>
       <button class="btn-primary" onclick="downloadVCF()">
@@ -443,7 +432,7 @@ body::before{
 </div>
 
 <script>
-const VCARD=['BEGIN:VCARD','VERSION:3.0','FN:Atelier V','ORG:Atelier V — Digital Branding Studio','TEL;TYPE=WORK,VOICE:+359887804614','EMAIL;TYPE=INTERNET:team@atelierv.design','URL:https://instagram.com/atelierv.design','END:VCARD'].join('\r\n');
+const VCARD=['BEGIN:VCARD','VERSION:3.0','FN:Atelier V','ORG:Atelier V — Digital Branding Studio','EMAIL;TYPE=INTERNET:team@atelierv.design','URL:https://atelierv.design','NOTE:Digital Branding Studio','END:VCARD'].join('\r\n');
 
 // QR — по-висока резолюция за по-чист render
 document.getElementById('qrcode').src='https://api.qrserver.com/v1/create-qr-code/?size=200x200&color=1B2A4A&bgcolor=ffffff&qzone=1&data='+encodeURIComponent(VCARD);
