@@ -82,6 +82,13 @@ nav.scrolled{box-shadow:0 4px 28px rgba(27,42,74,0.10);}
 .lang-menu a.active{color:var(--gold);font-weight:600;}
 .lang-flag{width:16px;height:12px;flex-shrink:0;display:inline-block;vertical-align:middle;}
 .trigger-flag{width:16px;height:12px;display:inline-block;vertical-align:middle;}
+/* Terms & Privacy nav dropdown */
+.nav-has-dropdown{position:relative;}
+.nav-has-dropdown>.dropdown{display:none;position:absolute;top:calc(100% + 6px);left:0;list-style:none;background:var(--white);border:1px solid rgba(27,42,74,.12);box-shadow:0 12px 40px rgba(27,42,74,.12);min-width:190px;z-index:200;padding:8px 0;}
+.nav-has-dropdown:hover>.dropdown{display:block;}
+.nav-has-dropdown>.dropdown li a{display:block;padding:10px 20px;font-family:'Jost',sans-serif;font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--navy);text-decoration:none;transition:background .15s,color .15s;}
+.nav-has-dropdown>.dropdown li a:hover{background:var(--off);color:var(--gold);}
+.nav-has-dropdown>a::after{content:' ▾';font-size:9px;}
 
 /* ── HERO ── */
 .hero{position:relative;height:100vh;min-height:600px;overflow:hidden;}
@@ -162,7 +169,7 @@ section{padding:100px 56px;}
 #packages{background:var(--white);padding-bottom:120px;}
 .packages-header{text-align:center;margin-bottom:64px;}
 .packages-header .section-sub{margin:16px auto 0;}
-.packages-grid{display:grid;grid-template-columns:repeat(3,minmax(0,340px));gap:40px;max-width:1100px;margin:0 auto;}
+.packages-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;max-width:1100px;margin:0 auto;}
 .package-card{background:var(--off);border:1px solid rgba(27,42,74,.07);border-left:3px solid transparent;padding:40px 28px 36px;position:relative;transition:transform .3s,box-shadow .3s,border-color .3s;display:flex;flex-direction:column;}
 .package-card:hover{transform:translateY(-6px);box-shadow:0 24px 64px rgba(27,42,74,.12);border-left-color:#C9A84C;}
 .package-card.featured{background:var(--navy);border-color:var(--navy);}
@@ -261,7 +268,7 @@ footer{background:var(--navy);padding:36px 56px;display:flex;flex-direction:colu
 .mob-links>li:last-child{padding-top:20px;}
 .mob-links>li:last-child>a{border:none;display:inline-block;padding:13px 28px;background:var(--gold);color:var(--navy)!important;font-weight:600;letter-spacing:.2em;}
 .mob-links>li:last-child>a:hover{background:var(--gold-l)!important;}
-@media(max-width:1100px){.hiw-grid{grid-template-columns:repeat(3,1fr);} .packages-grid{grid-template-columns:repeat(2,1fr);} .portfolio-grid{grid-template-columns:repeat(2,1fr);} .cases-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:1100px){.hiw-grid{grid-template-columns:repeat(3,1fr);} .portfolio-grid{grid-template-columns:repeat(2,1fr);} .cases-grid{grid-template-columns:repeat(2,1fr);}}
 @media(max-width:768px){.hiw-grid{grid-template-columns:1fr;} .why-grid{grid-template-columns:1fr;} .packages-grid{grid-template-columns:1fr;} .stats-inner{grid-template-columns:repeat(2,1fr);} .portfolio-grid{grid-template-columns:repeat(2,1fr);} .cases-grid{grid-template-columns:1fr;} .support-inner{flex-direction:column;text-align:center;} .nav-links{display:none;} section{padding:72px 24px;} footer{flex-direction:column;gap:20px;text-align:center;padding:28px 24px;} nav{padding:0 20px;}.ham-btn{display:flex;}}
 
 /* ── BOOK A CALL ── */
@@ -293,7 +300,7 @@ footer{background:var(--navy);padding:36px 56px;display:flex;flex-direction:colu
       <li><a href="#why-us" data-i18n="nav.whyUs">Why Us</a></li>
       <li><a href="services.html" data-i18n="nav.services">Services</a></li>
       <li><a href="services.html#packages" data-i18n="nav.packages">Packages</a></li>
-      <li><a href="flipbook.html" data-i18n="nav.catalog">Catalog</a></li><li><a href="questionnaire.html"><span class="btn-nav" data-i18n="nav.start">Start</span></a></li><li><a href="card.html"><span class="btn-nav-outline" data-i18n="nav.contact">Contact</span></a></li>
+      <li><a href="flipbook.html" data-i18n="nav.catalog">Catalog</a></li><li class="nav-has-dropdown"><a href="terms.html">Terms &amp; Privacy</a><ul class="dropdown"><li><a href="terms.html">Terms &amp; Conditions</a></li><li><a href="terms.html">Privacy Policy</a></li><li><a href="terms.html">GDPR &amp; Your Rights</a></li></ul></li><li><a href="questionnaire.html"><span class="btn-nav" data-i18n="nav.start">Start</span></a></li><li><a href="card.html"><span class="btn-nav-outline" data-i18n="nav.contact">Contact</span></a></li>
     </ul>
     <div class="lang-dropdown" id="langDrop">
       <div class="lang-trigger" id="langTrigger">
@@ -325,6 +332,7 @@ footer{background:var(--navy);padding:36px 56px;display:flex;flex-direction:colu
     <li><a href="services.html" data-i18n="nav.services">Services</a></li>
     <li><a href="services.html#packages" data-i18n="nav.packages">Packages</a></li>
     <li><a href="flipbook.html" data-i18n="nav.catalog">Catalog</a></li>
+    <li><a href="terms.html">Terms &amp; Privacy</a></li>
     <li><a href="questionnaire.html" data-i18n="nav.start">Start</a></li>
     <li><a href="card.html" data-i18n="nav.connect">Connect</a></li>
   </ul>
