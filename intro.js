@@ -2,61 +2,74 @@
   if (sessionStorage.getItem('av-intro-done')) return;
   sessionStorage.setItem('av-intro-done', '1');
 
-  var s = document.createElement('style');
-  s.textContent =
-    '#av-intro{position:fixed;inset:0;z-index:9999;background:#1B2A4A;' +
-    'display:flex;align-items:center;justify-content:center;' +
-    'opacity:1;transition:opacity 1.2s ease;}' +
-    '#av-intro.av-out{opacity:0;pointer-events:none;}' +
-    '.av-letters{font-family:"Cormorant Garamond",serif;' +
-    'font-size:clamp(3.5rem,8vw,7rem);font-weight:300;letter-spacing:0.18em;' +
-    'display:flex;align-items:baseline;perspective:800px;}' +
-    '.av-lt{display:inline-block;color:#F9F8F6;opacity:0;' +
-    'transition:opacity 0.45s ease;}' +
-    '.av-lt-v{display:inline-block;color:#C9A84C;opacity:0;' +
-    'transition:opacity 0.45s ease;transform-style:preserve-3d;}' +
-    '.av-lt.av-on,.av-lt-v.av-on{opacity:1;}' +
-    '.av-lt-v.av-spin{animation:av-vspin 1.6s cubic-bezier(.4,0,.2,1) forwards;}' +
-    '@keyframes av-vspin{0%{transform:rotateY(0)}100%{transform:rotateY(360deg)}}';
-  document.head.appendChild(s);
+  var logo = document.querySelector('a.nav-logo');
+  if (!logo) return;
 
-  var wrap = document.createElement('div');
-  wrap.id = 'av-intro';
-  wrap.innerHTML =
-    '<div class="av-letters">' +
-    '<span class="av-lt">A</span>' +
-    '<span class="av-lt">T</span>' +
-    '<span class="av-lt">E</span>' +
-    '<span class="av-lt">L</span>' +
-    '<span class="av-lt">I</span>' +
-    '<span class="av-lt">E</span>' +
-    '<span class="av-lt">R</span>' +
-    '<span class="av-lt-v">V</span>' +
-    '</div>';
-  document.body.appendChild(wrap);
+  var img = logo.querySelector('img');
+  if (img) img.style.opacity = '0';
 
-  var els = wrap.querySelectorAll('.av-lt, .av-lt-v');
-  // Stagger: A=400ms, T=1150ms, E=1900ms, L=2650ms, I=3400ms, E=4150ms, R=4900ms, V=5650ms
-  var stagger = 750, start = 400;
-  for (var i = 0; i < els.length; i++) {
-    (function (el, delay) {
-      setTimeout(function () {
-        el.classList.add('av-on');
-        if (el.classList.contains('av-lt-v')) {
-          // V is visible — start spin after 1.5s
-          setTimeout(function () { el.classList.add('av-spin'); }, 1500);
-        }
-      }, delay);
-    })(els[i], start + i * stagger);
-  }
+  logo.style.position = 'relative';
 
-  // V visible at 5650ms, spin at 7150ms, ends ~8750ms
-  // Fade-out overlay at 8500ms
-  setTimeout(function () {
-    wrap.classList.add('av-out');
+  // Build letter overlay
+  var ov = document.createElement('span');
+  ov.id = 'av-logo-anim';
+  ov.style.cssText =
+    'position:absolute;inset:0;display:flex;align-items:center;' +
+    'font-family:"Cormorant Garamond",serif;font-size:27px;font-weight:300;font-style:italic;' +
+    'letter-spacing:.1em;color:#1B2A4A;white-space:nowrap;pointer-events:none;';
+
+  var spans = [];
+  'ATELIER'.split('').forEach(function (ch) {
+    var s = document.createElement('span');
+    s.textContent = ch;
+    s.style.cssText = 'opacity:0;display:inline-block;transition:opacity 0.3s ease;';
+    ov.appendChild(s);
+    spans.push(s);
+  });
+
+  var gap = document.createElement('span');
+  gap.innerHTML = '&nbsp;';
+  ov.appendChild(gap);
+
+  var vEl = document.createElement('span');
+  vEl.textContent = 'V';
+  vEl.style.cssText =
+    'opacity:0;display:inline-block;color:#C9A84C;' +
+    'transition:opacity 0.3s ease;transform-style:preserve-3d;';
+  ov.appendChild(vEl);
+  spans.push(vEl);
+
+  logo.appendChild(ov);
+
+  var kf = document.createElement('style');
+  kf.textContent = '@keyframes _av_spin{from{transform:rotateY(0)}to{transform:rotateY(360deg)}}';
+  document.head.appendChild(kf);
+
+  // Light up A→T→E→L→I→E→R→V over ~3 s (350 ms stagger)
+  var stagger = 350, startDelay = 200;
+  spans.forEach(function (el, i) {
     setTimeout(function () {
-      if (wrap.parentNode) wrap.parentNode.removeChild(wrap);
-      if (s.parentNode) s.parentNode.removeChild(s);
-    }, 1300);
-  }, 8500);
+      el.style.opacity = '1';
+      if (el === vEl) {
+        setTimeout(function () {
+          el.style.animation = '_av_spin 0.85s cubic-bezier(.4,0,.2,1) forwards';
+        }, 450);
+      }
+    }, startDelay + i * stagger);
+  });
+
+  // V lit at 200 + 7×350 = 2 650 ms → spin starts 3 100 ms → ends ~3 950 ms
+  // Fade real logo in at 3 600 ms (overlaps spin end — smooth)
+  setTimeout(function () {
+    if (img) {
+      img.style.transition = 'opacity 0.5s ease';
+      img.style.opacity = '1';
+    }
+    setTimeout(function () {
+      ov.remove();
+      kf.remove();
+      logo.style.position = '';
+      if (img) img.style.transition = '';
+    }, 550);
+  }, 3600);
 })();
