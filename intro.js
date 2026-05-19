@@ -13,12 +13,12 @@
     var kf = document.createElement('style');
     kf.textContent =
       '@keyframes _av_v{' +
-        '0%  {left:0%;opacity:0;'          + _ts(0,0,0)      + '}' +
-        '5%  {left:3%;opacity:.65;'        + _ts(.5,.2,.06)  + '}' +
-        '65% {left:65%;'                   + _ts(.55,.2,.06) + '}' +
-        '74% {left:76%;opacity:1;'         + _ts(1,.8,.4)    + '}' +
-        '83% {left:84%;opacity:1;'         + _ts(1,.8,.4)    + '}' +
-        '93% {left:94%;opacity:.2;'        + _ts(.15,.04,0)  + '}' +
+        '0%  {left:0%;opacity:0;'          + _ts(0,0,0)       + '}' +
+        '5%  {left:3%;opacity:.9;'         + _ts(.9,.5,.2)   + '}' +
+        '65% {left:65%;opacity:.9;'        + _ts(.9,.5,.2)   + '}' +
+        '74% {left:76%;opacity:1;'         + _ts(1,1,.7)     + '}' +
+        '83% {left:84%;opacity:1;'         + _ts(1,1,.7)     + '}' +
+        '93% {left:94%;opacity:.35;'       + _ts(.35,.1,0)   + '}' +
         '100%{left:100%;opacity:0;'        + _ts(0,0,0)      + '}' +
       '}';
     document.head.appendChild(kf);
@@ -45,9 +45,9 @@
 
   function _ts(near, mid, far) {
     return 'text-shadow:' +
-      '0 0  8px rgba(201,168,76,' + near + '),' +
-      '0 0 22px rgba(201,168,76,' + mid  + '),' +
-      '0 0 44px rgba(201,168,76,' + far  + ');';
+      '0 0 10px rgba(201,168,76,' + near + '),' +
+      '0 0 28px rgba(201,168,76,' + mid  + '),' +
+      '0 0 56px rgba(201,168,76,' + far  + ');';
   }
 
   if (document.readyState === 'loading') {
