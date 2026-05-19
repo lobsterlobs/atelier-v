@@ -344,15 +344,6 @@ section{padding:100px 56px;}
         <a href="#" class="active" data-lang="EN" data-flag="gb"><img class="lang-flag" src="https://flagcdn.com/16x12/gb.png" alt="EN">EN — English</a>
         <a href="#" data-lang="BG" data-flag="bg"><img class="lang-flag" src="https://flagcdn.com/16x12/bg.png" alt="BG">BG — Български</a>
         <a href="#" data-lang="DE" data-flag="de"><img class="lang-flag" src="https://flagcdn.com/16x12/de.png" alt="DE">DE — Deutsch</a>
-        <a href="#" data-lang="FR" data-flag="fr"><img class="lang-flag" src="https://flagcdn.com/16x12/fr.png" alt="FR">FR — Français</a>
-        <a href="#" data-lang="GR" data-flag="gr"><img class="lang-flag" src="https://flagcdn.com/16x12/gr.png" alt="GR">GR — Ελληνικά</a>
-        <a href="#" data-lang="MK" data-flag="mk"><img class="lang-flag" src="https://flagcdn.com/16x12/mk.png" alt="MK">MK — Македонски</a>
-        <a href="#" data-lang="IT" data-flag="it"><img class="lang-flag" src="https://flagcdn.com/16x12/it.png" alt="IT">IT — Italiano</a>
-        <a href="#" data-lang="NL" data-flag="nl"><img class="lang-flag" src="https://flagcdn.com/16x12/nl.png" alt="NL">NL — Nederlands</a>
-        <a href="#" data-lang="NO" data-flag="no"><img class="lang-flag" src="https://flagcdn.com/16x12/no.png" alt="NO">NO — Norsk</a>
-        <a href="#" data-lang="SV" data-flag="se"><img class="lang-flag" src="https://flagcdn.com/16x12/se.png" alt="SV">SV — Svenska</a>
-        <a href="#" data-lang="DA" data-flag="dk"><img class="lang-flag" src="https://flagcdn.com/16x12/dk.png" alt="DA">DA — Dansk</a>
-        <a href="#" data-lang="RO" data-flag="ro"><img class="lang-flag" src="https://flagcdn.com/16x12/ro.png" alt="RO">RO — Română</a>
       </div>
     </div>
   </div>
@@ -884,19 +875,7 @@ const translations = {
 };
 
 function applyLanguage(lang) {
-  localStorage.setItem('lang', lang);
-
-  const page = window.location.pathname;
-
-  if (page.includes("terms")) {
-    if (lang === "BG") {
-      window.location.href = "/terms-bg.html";
-    } else {
-      window.location.href = "/terms.html";
-    }
-    return;
-  }
-
+  localStorage.setItem('av_lang', lang.toLowerCase());
   const t = translations[lang] || translations.EN;
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.dataset.i18n;
@@ -908,7 +887,8 @@ function applyLanguage(lang) {
 }
 
 (function(){
-  const l = localStorage.getItem('lang');
+  const _raw = localStorage.getItem('av_lang');
+  const l = _raw ? _raw.toUpperCase() : null;
   if (l && translations[l]) {
     const a = document.querySelector('.lang-menu a[data-lang="' + l + '"]');
     if (a) {

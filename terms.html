@@ -161,15 +161,6 @@ ul li::before{content:"—";color:var(--gold);position:absolute;left:0;}
         <a href="#" class="active" data-lang="EN" data-flag="gb"><img class="lang-flag" src="https://flagcdn.com/16x12/gb.png" alt="EN">EN — English</a>
         <a href="#" data-lang="BG" data-flag="bg"><img class="lang-flag" src="https://flagcdn.com/16x12/bg.png" alt="BG">BG — Български</a>
         <a href="#" data-lang="DE" data-flag="de"><img class="lang-flag" src="https://flagcdn.com/16x12/de.png" alt="DE">DE — Deutsch</a>
-        <a href="#" data-lang="FR" data-flag="fr"><img class="lang-flag" src="https://flagcdn.com/16x12/fr.png" alt="FR">FR — Français</a>
-        <a href="#" data-lang="GR" data-flag="gr"><img class="lang-flag" src="https://flagcdn.com/16x12/gr.png" alt="GR">GR — Ελληνικά</a>
-        <a href="#" data-lang="MK" data-flag="mk"><img class="lang-flag" src="https://flagcdn.com/16x12/mk.png" alt="MK">MK — Македонски</a>
-        <a href="#" data-lang="IT" data-flag="it"><img class="lang-flag" src="https://flagcdn.com/16x12/it.png" alt="IT">IT — Italiano</a>
-        <a href="#" data-lang="NL" data-flag="nl"><img class="lang-flag" src="https://flagcdn.com/16x12/nl.png" alt="NL">NL — Nederlands</a>
-        <a href="#" data-lang="NO" data-flag="no"><img class="lang-flag" src="https://flagcdn.com/16x12/no.png" alt="NO">NO — Norsk</a>
-        <a href="#" data-lang="SV" data-flag="se"><img class="lang-flag" src="https://flagcdn.com/16x12/se.png" alt="SV">SV — Svenska</a>
-        <a href="#" data-lang="DA" data-flag="dk"><img class="lang-flag" src="https://flagcdn.com/16x12/dk.png" alt="DA">DA — Dansk</a>
-        <a href="#" data-lang="RO" data-flag="ro"><img class="lang-flag" src="https://flagcdn.com/16x12/ro.png" alt="RO">RO — Română</a>
       </div>
     </div>
   </div>
@@ -614,15 +605,17 @@ const T = {
   }
 };
 
-let currentLang = localStorage.getItem('lang') || 'EN';
+let currentLang = localStorage.getItem('av_lang') || 'en';
 
-function applyLang(lang) {
+function applyTermsLang(lang) {
   currentLang = lang;
-  localStorage.setItem('lang', lang);
-  document.getElementById('langLabel').textContent = lang;
-  const flags = { EN: '🇬🇧', BG: '🇧🇬', DE: '🇩🇪' };
-  document.getElementById('langFlag').textContent = flags[lang] || '🇬🇧';
-  const dict = T[lang] || T.EN;
+  localStorage.setItem('av_lang', lang);
+  const flagMap = { en: 'gb', bg: 'bg', de: 'de' };
+  const flagEl = document.getElementById('langFlag');
+  if (flagEl && flagEl.tagName === 'IMG') {
+    flagEl.src = 'https://flagcdn.com/16x12/' + (flagMap[lang] || 'gb') + '.png';
+  }
+  const dict = T[lang.toUpperCase()] || T.EN;
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');
     if (dict[key]) {
@@ -632,21 +625,6 @@ function applyLang(lang) {
   });
 }
 
-function setLang(lang) {
-  document.getElementById('langDropdown').classList.remove('open');
-  applyLang(lang);
-}
-
-function toggleLang() {
-  document.getElementById('langDropdown').classList.toggle('open');
-}
-
-document.addEventListener('click', e => {
-  if (!e.target.closest('.lang-switcher')) {
-    document.getElementById('langDropdown').classList.remove('open');
-  }
-});
-
 function showTab(tab) {
   document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
   document.querySelectorAll('.content').forEach(c => c.classList.remove('active'));
@@ -655,14 +633,23 @@ function showTab(tab) {
   window.scrollTo({top: 120, behavior: 'smooth'});
 }
 
-applyLang(currentLang);
+applyTermsLang(currentLang);
+// Mark the correct dropdown item active on page load
+(function(){
+  const _fl={en:'gb',bg:'bg',de:'de'};
+  document.querySelectorAll('.lang-menu a').forEach(a=>{
+    a.classList.toggle('active',a.dataset.lang.toLowerCase()===currentLang.toLowerCase());
+  });
+  const flagEl=document.getElementById('langFlag');
+  if(flagEl&&flagEl.tagName==='IMG')flagEl.src='https://flagcdn.com/16x12/'+((_fl[currentLang])||'gb')+'.png';
+})();
 </script>
 <script>
 // Lang dropdown
 const langDrop=document.getElementById('langDrop'),langTrigger=document.getElementById('langTrigger'),langFlag=document.getElementById('langFlag');
 langTrigger.addEventListener('click',e=>{e.stopPropagation();langDrop.classList.toggle('open');});
 document.querySelectorAll('.lang-menu a').forEach(a=>{
-  a.addEventListener('click',e=>{e.preventDefault();document.querySelectorAll('.lang-menu a').forEach(x=>x.classList.remove('active'));a.classList.add('active');langFlag.src='https://flagcdn.com/16x12/'+a.dataset.flag+'.png';langFlag.alt=a.dataset.lang;langDrop.classList.remove('open');applyLang(a.dataset.lang.toLowerCase());});
+  a.addEventListener('click',e=>{e.preventDefault();document.querySelectorAll('.lang-menu a').forEach(x=>x.classList.remove('active'));a.classList.add('active');langFlag.src='https://flagcdn.com/16x12/'+a.dataset.flag+'.png';langFlag.alt=a.dataset.lang;langDrop.classList.remove('open');const _l=a.dataset.lang.toLowerCase();applyTermsLang(_l);if(typeof applyLang==='function')applyLang(_l);});
 });
 document.addEventListener('click',()=>langDrop.classList.remove('open'));
 </script>
