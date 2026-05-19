@@ -22,7 +22,7 @@ const translations = {
   "card-qr-eyebrow": { en: "Scan & Save", bg: "Сканирай и запази", de: "Scannen & Speichern" },
   "card-qr-desc": {
     en: "Point your camera to save Atelier V directly to your contacts.",
-    bg: "Насочи камерата си за да запазиш Atelier V директно в контактите си.",
+    bg: "Насочи камерата и запази Atelier V директно в контактите си.",
     de: "Richte deine Kamera aus, um Atelier V direkt in deinen Kontakten zu speichern."
   },
   "card-save-btn": { en: "Save Contact", bg: "Запази контакт", de: "Kontakt speichern" },
@@ -39,8 +39,8 @@ const translations = {
   "card-bk-title": { en: "Schedule a Consultation", bg: "Запази консултация", de: "Beratung vereinbaren" },
   "card-bk-sub": {
     en: "Available 9:00–21:00 CET · We confirm within 1 hour",
-    bg: "Достъпно 9:00–21:00 CET · Потвърждаваме в рамките на 1 час",
-    de: "Verfügbar 9:00–21:00 CET · Bestätigung innerhalb 1 Stunde"
+    bg: "Работим от 9:00 до 21:00 CET · Потвърждаваме в рамките на 1 час",
+    de: "Verfügbar 9:00–21:00 CET · Bestätigung innerhalb von 1 Stunde"
   },
   "card-step1": { en: "Select a Date", bg: "Избери дата", de: "Datum wählen" },
   "card-step2": { en: "Select a Time", bg: "Избери час", de: "Uhrzeit wählen" },
@@ -58,7 +58,7 @@ const translations = {
   "card-no-commitment": { en: "No commitment. Just a conversation.", bg: "Без ангажимент. Просто разговор.", de: "Unverbindlich. Nur ein Gespräch." },
   "card-error": { en: "Something went wrong, please try again.", bg: "Нещо се обърка, моля опитай отново.", de: "Etwas ist schiefgelaufen, bitte versuche es erneut." },
   "card-bk-success-title": { en: "Thank you!", bg: "Благодарим!", de: "Danke!" },
-  "card-bk-success-sub": { en: "We confirm within 1 hour.", bg: "Потвърждаваме в рамките на 1 час.", de: "Wir bestätigen innerhalb 1 Stunde." },
+  "card-bk-success-sub": { en: "We confirm within 1 hour.", bg: "Потвърждаваме в рамките на 1 час.", de: "Wir bestätigen innerhalb von 1 Stunde." },
   "card-back": { en: "Back to website", bg: "Обратно към сайта", de: "Zurück zur Website" },
 
   // ============================================================
@@ -85,7 +85,7 @@ const translations = {
   "index-step1-p": {
     en: "Tell us who you are, what you sell, and how you want to look.",
     bg: "Разкажи ни кой си, какво продаваш и как искаш да изглеждаш.",
-    de: "Erzähl uns, wer du bist, was du verkaufst und wie du aussehen willst."
+    de: "Erzähl uns, wer du bist, was du verkaufst und wie du wahrgenommen werden möchtest."
   },
   "index-step2-h3": { en: "Confirmation + 30% deposit", bg: "Потвърждение + 30% депозит", de: "Bestätigung + 30% Anzahlung" },
   "index-step2-p": {
@@ -93,7 +93,7 @@ const translations = {
     bg: "В рамките на 24 часа получаваш потвърждение и фактура. Плати 30% и започваме веднага.",
     de: "Innerhalb von 24 Stunden erhältst du Bestätigung und Rechnung. Zahl 30% und wir beginnen sofort."
   },
-  "index-step3-h3": { en: "We build your brand", bg: "Изграждаме твоя бранд", de: "Wir bauen deine Marke" },
+  "index-step3-h3": { en: "We build your brand", bg: "Изграждаме твоя бранд", de: "Wir entwickeln deine Marke" },
   "index-step3-p": {
     en: "Within 7 working days we create your logo, website, and all included materials. You do nothing.",
     bg: "В рамките на 7 работни дни създаваме твоето лого, уебсайт и всички включени материали. Ти не правиш нищо.",
@@ -111,7 +111,7 @@ const translations = {
     bg: "Сайтът ти е на живо. Домейнът ти работи. Дигиталната ти визитка е готова за споделяне.",
     de: "Deine Website ist live. Deine Domain funktioniert. Deine digitale Visitenkarte ist bereit zum Teilen."
   },
-  "index-step6-h3": { en: "We handle everything after", bg: "Ние се грижим за всичко след това", de: "Wir kümmern uns um alles danach" },
+  "index-step6-h3": { en: "We handle everything after", bg: "Ние продължаваме да се грижим за теб", de: "Wir sind auch danach für dich da" },
   "index-step6-p": {
     en: "Something changed? Email team@atelierv.design — we update it within 24 hours.",
     bg: "Нещо се е променило? Пиши на team@atelierv.design — актуализираме го в рамките на 24 часа.",
@@ -142,7 +142,7 @@ const translations = {
     bg: "Без шаблони. Всеки бранд се изгражда от нулата въз основа на твоите отговори.",
     de: "Keine Vorlagen. Jede Marke wird von Grund auf nach deinen Angaben aufgebaut."
   },
-  "index-pkg-h2": { en: "Simple pricing. Powerful results.", bg: "Ясни цени. Мощни резултати.", de: "Klare Preise. Starke Ergebnisse." },
+  "index-pkg-h2": { en: "Simple pricing. Powerful results.", bg: "Ясни цени. Реални резултати.", de: "Klare Preise. Starke Ergebnisse." },
   "index-pkg-brand-launch-label": { en: "Brand Launch", bg: "Brand Launch", de: "Brand Launch" },
   "index-pkg-essential-period": { en: "one-time payment", bg: "еднократно плащане", de: "Einmalzahlung" },
   "index-pkg-total-label": { en: "Total Brand", bg: "Total Brand", de: "Total Brand" },
@@ -203,24 +203,24 @@ const translations = {
   "sv-s2-note": { en: "Takes 2 minutes. We get back to you within 24 hours.", bg: "Отнема 2 минути. Отговаряме в рамките на 24 часа.", de: "Dauert 2 Minuten. Wir melden uns innerhalb von 24 Stunden." },
   "sv-s3-h2": { en: "How it works", bg: "Как работи", de: "So funktioniert es" },
   "sv-step1-h3": { en: "Fill in the questionnaire", bg: "Попълни анкетата", de: "Fragebogen ausfüllen" },
-  "sv-step1-p": { en: "Tell us who you are, what you sell, and how you want to look.", bg: "Разкажи ни кой си, какво продаваш и как искаш да изглеждаш.", de: "Erzähl uns, wer du bist, was du verkaufst und wie du aussehen willst." },
+  "sv-step1-p": { en: "Tell us who you are, what you sell, and how you want to look.", bg: "Разкажи ни кой си, какво продаваш и как искаш да изглеждаш.", de: "Erzähl uns, wer du bist, was du verkaufst und wie du wahrgenommen werden möchtest." },
   "sv-step2-h3": { en: "Confirmation + 30% deposit", bg: "Потвърждение + 30% депозит", de: "Bestätigung + 30% Anzahlung" },
   "sv-step2-p": { en: "Within 24 hours you receive confirmation and invoice. Pay 30% and we start immediately.", bg: "В рамките на 24 часа получаваш потвърждение и фактура. Плати 30% и започваме веднага.", de: "Innerhalb von 24 Stunden erhältst du Bestätigung und Rechnung. Zahl 30% und wir beginnen sofort." },
-  "sv-step3-h3": { en: "We build your brand", bg: "Изграждаме твоя бранд", de: "Wir bauen deine Marke" },
+  "sv-step3-h3": { en: "We build your brand", bg: "Изграждаме твоя бранд", de: "Wir entwickeln deine Marke" },
   "sv-step3-p": { en: "Within 7 working days we create your logo, website, and all included materials. You do nothing.", bg: "В рамките на 7 работни дни създаваме твоето лого, уебсайт и всички включени материали. Ти не правиш нищо.", de: "Innerhalb von 7 Werktagen erstellen wir dein Logo, deine Website und alle enthaltenen Materialien. Du tust nichts." },
   "sv-step4-h3": { en: "Preview + revisions", bg: "Преглед + корекции", de: "Vorschau + Korrekturen" },
   "sv-step4-p": { en: "You see the finished result. Give feedback. When happy — pay the remaining 70%.", bg: "Виждаш готовия резултат. Даваш обратна връзка. Когато си доволен — плащаш оставащите 70%.", de: "Du siehst das fertige Ergebnis. Gib Feedback. Wenn du zufrieden bist — zahl die restlichen 70%." },
   "sv-step5-h3": { en: "You go live", bg: "Излизаш онлайн", de: "Du gehst live" },
   "sv-step5-p": { en: "Your site is live. Your domain works. Your digital business card is ready to share.", bg: "Сайтът ти е на живо. Домейнът ти работи. Дигиталната ти визитка е готова за споделяне.", de: "Deine Website ist live. Deine Domain funktioniert. Deine digitale Visitenkarte ist bereit zum Teilen." },
-  "sv-step6-h3": { en: "We handle everything after", bg: "Ние се грижим за всичко след това", de: "Wir kümmern uns um alles danach" },
+  "sv-step6-h3": { en: "We handle everything after", bg: "Ние продължаваме да се грижим за теб", de: "Wir sind auch danach für dich da" },
   "sv-step6-p": { en: "Something changed? Email team@atelierv.design — we update it within 24 hours.", bg: "Нещо се е променило? Пиши на team@atelierv.design — актуализираме го в рамките на 24 часа.", de: "Etwas hat sich geändert? Schreib an team@atelierv.design — wir aktualisieren es innerhalb von 24 Stunden." },
   "sv-note": {
     en: "By filling in the questionnaire you accept our <a href='terms.html'>Terms & Conditions</a>.",
     bg: "С попълването на анкетата приемаш нашите <a href='terms.html'>Общи условия</a>.",
     de: "Mit dem Ausfüllen des Fragebogens stimmst du unseren <a href='terms.html'>AGB</a> zu."
   },
-  "sv-s4-h2": { en: "Simple pricing. Powerful results.", bg: "Ясни цени. Мощни резултати.", de: "Klare Preise. Starke Ergebnisse." },
-  "sv-s4-p": { en: "Every package includes brand delivery within 7 days. Choose the depth that fits your vision.", bg: "Всеки пакет включва доставка на бранда в рамките на 7 дни. Избери дълбочината, която отговаря на твоята визия.", de: "Jedes Paket beinhaltet die Markenlieferung innerhalb von 7 Tagen. Wähle die Tiefe, die zu deiner Vision passt." },
+  "sv-s4-h2": { en: "Simple pricing. Powerful results.", bg: "Ясни цени. Реални резултати.", de: "Klare Preise. Starke Ergebnisse." },
+  "sv-s4-p": { en: "Every package includes brand delivery within 7 days. Choose the depth that fits your vision.", bg: "Всеки пакет включва готов бранд за 7 дни. Избери нивото, което отговаря на твоите нужди.", de: "Jedes Paket liefert deine fertige Marke in 7 Tagen. Wähle den Umfang, der zu deiner Vision passt." },
   "sv-pkg-essential-period": { en: "one-time payment", bg: "еднократно плащане", de: "Einmalzahlung" },
   "sv-pkg-essential-li1": { en: "2 logo concepts (PNG + SVG)", bg: "2 концепции за лого (PNG + SVG)", de: "2 Logo-Konzepte (PNG + SVG)" },
   "sv-pkg-essential-li2": { en: "Color palette + typography system", bg: "Цветова палитра + типографска система", de: "Farbpalette + Typografiesystem" },
@@ -255,7 +255,7 @@ const translations = {
   "sv-pkg-support-li1": { en: "Changes & updates via email", bg: "Промени и актуализации по имейл", de: "Änderungen & Updates per E-Mail" },
   "sv-pkg-support-li2": { en: "Technical support", bg: "Техническа поддръжка", de: "Technischer Support" },
   "sv-pkg-support-li3": { en: "Response within 24 hours", bg: "Отговор в рамките на 24 часа", de: "Antwort innerhalb von 24 Stunden" },
-  "sv-pkg-support-li4": { en: "Cancel anytime", bg: "Отказ по всяко време", de: "Jederzeit kündbar" },
+  "sv-pkg-support-li4": { en: "Cancel anytime", bg: "Прекратяване по всяко време", de: "Jederzeit kündbar" },
   "sv-pkg-support-li5": { en: "One-time changes at €19.99/request for non-subscribers", bg: "Еднократни промени на €19.99/заявка за клиенти без абонамент", de: "Einmalige Änderungen für €19.99/Anfrage für Nicht-Abonnenten" },
   "sv-pkg-support-note": {
     en: "No changes are included without Monthly Support. One-time changes cost €19.99 per request. Monthly Support at €19.99/month covers up to 10 changes per month. First 3 months free for Essential and Full Brand clients.",
@@ -331,8 +331,8 @@ const translations = {
   "sv-det-full-rev-h4": { en: "Revisions", bg: "Корекции", de: "Korrekturen" },
   "sv-det-full-rev-p": {
     en: "Two rounds of revisions included. One round represents one list of changes submitted by the client and applied by Atelier V within 48 hours.",
-    bg: "Два кръга корекции включени. Един кръг представлява един списък с промени, подаден от клиента и приложен от Atelier V в рамките на 48 часа.",
-    de: "Zwei Korrekturschleifen inklusive. Eine Schleife stellt eine Liste von Änderungen dar, die vom Kunden eingereicht und von Atelier V innerhalb von 48 Stunden angewendet werden."
+    bg: "Включени са два кръга корекции. Един кръг = един списък с промени от клиента, приложен от Atelier V в рамките на 48 часа.",
+    de: "Zwei Korrekturschleifen inklusive. Eine Runde bedeutet eine Änderungsliste vom Kunden, die Atelier V innerhalb von 48 Stunden umsetzt."
   },
   "sv-det-full-notincl": {
     en: "<strong>Not included:</strong> more than five pages, online store or payment system, blog system, domains with non-standard market value.",
@@ -363,8 +363,8 @@ const translations = {
   },
   "sv-det-sup-note1": {
     en: "The first three months are free for every Essential or Full Brand client. Can be cancelled at any time without penalty.",
-    bg: "Първите три месеца са безплатни за всеки клиент на Essential или Full Brand. Може да бъде отказан по всяко време без санкция.",
-    de: "Die ersten drei Monate sind für jeden Essential- oder Full-Brand-Kunden kostenlos. Kann jederzeit ohne Strafgebühr gekündigt werden."
+    bg: "Първите три месеца са безплатни за всеки клиент на Essential или Full Brand. Можеш да го прекратиш по всяко време без неустойка.",
+    de: "Die ersten drei Monate sind für jeden Essential- oder Full-Brand-Kunden kostenlos. Du kannst jederzeit ohne Kosten kündigen."
   },
   "sv-det-terms-h3": { en: "Terms of Service", bg: "Общи условия", de: "Nutzungsbedingungen" },
   "sv-det-terms-domain-h4": { en: "Domain", bg: "Домейн", de: "Domain" },
@@ -394,7 +394,7 @@ const translations = {
   "sv-det-terms-ip-h4": { en: "Intellectual Property", bg: "Интелектуална собственост", de: "Geistiges Eigentum" },
   "sv-det-terms-ip-p": {
     en: "After final payment the client receives full rights over all delivered materials — logo, website, files. Atelier V reserves the right to use completed projects as portfolio references unless the client explicitly requests confidentiality in writing.",
-    bg: "След окончателното плащане клиентът получава пълни права върху всички доставени материали — лого, уебсайт, файлове. Atelier V си запазва правото да използва завършените проекти като портфолио референции, освен ако клиентът изрично не поиска поверителност в писмен вид.",
+    bg: "След окончателното плащане клиентът получава пълни права върху всички доставени материали — лого, уебсайт, файлове. Atelier V си запазва правото да използва завършените проекти като референции в своето портфолио, освен ако клиентът изрично не поиска поверителност в писмен вид.",
     de: "Nach der Abschlusszahlung erhält der Kunde vollständige Rechte an allen gelieferten Materialien — Logo, Website, Dateien. Atelier V behält sich das Recht vor, abgeschlossene Projekte als Portfolio-Referenzen zu nutzen, es sei denn, der Kunde beantragt ausdrücklich schriftlich Vertraulichkeit."
   },
   "sv-det-terms-liab-h4": { en: "Liability", bg: "Отговорност", de: "Haftung" },
@@ -772,7 +772,7 @@ const qTranslations = {
 
     "q-step2-eyebrow": "Стъпка 2 от 8",
     "q-step2-title": "Кои са<br><em>твоите клиенти?</em>",
-    "q-step2-sub": "Страхотните брандове говорят директно на правилните хора. Помогни ни да разберем за кого изграждаме това.",
+    "q-step2-sub": "Силните брандове говорят директно на правилните хора. Помогни ни да разберем за кого изграждаме това.",
     "q-client-ideal-label": "Опиши идеалния си клиент",
     "q-client-ideal-hint": "Кой е перфектният човек, който влиза в твоя магазин или посещава уебсайта ти?",
     "q-client-ideal-ph": "напр. Млади професионалисти на 25–40 години, живеещи в София, ценящи качество...",
@@ -803,7 +803,7 @@ const qTranslations = {
 
     "q-step3-eyebrow": "Стъпка 3 от 8",
     "q-step3-title": "Твоето<br><em>лого.</em>",
-    "q-step3-sub": "Логото ти е лицето на твоя бранд. Нека се уверим, че казва точно правилното нещо.",
+    "q-step3-sub": "Логото ти е лицето на твоя бранд. Нека се уверим, че казва точно това, което трябва.",
     "q-logo-format-label": "Предпочитан формат на логото",
     "q-format-text": "Само текст", "q-format-text-desc": "Wordmark — твоето име като лого",
     "q-format-symbol-text": "Символ + Текст", "q-format-symbol-text-desc": "Икона, комбинирана с твоето име",
@@ -921,7 +921,7 @@ const qTranslations = {
     "q-step7-sub": "Почти готово. Няколко практични въпроса — ние поемаме цялата техническа работа от тук.",
     "q-tech-name-label": "Твоето име *",
     "q-tech-name-ph": "Твоето пълно име",
-    "q-err-techName": "Моля, въведи твоето ime",
+    "q-err-techName": "Моля, въведи твоето име",
     "q-tech-email-label": "Твоят имейл адрес *",
     "q-err-techEmail": "Моля, въведи валиден имейл",
     "q-tech-phone-label": "Телефон / WhatsApp",
@@ -1020,7 +1020,7 @@ const qTranslations = {
     "q-logo-have": "Ja, ich habe Materialien", "q-logo-have-desc": "Ich werde sie teilen",
     "q-logo-redesign": "Ja, aber ich möchte ein Redesign", "q-logo-redesign-desc": "Vollständiges Rebranding",
     "q-notes-label": "Zusätzliche Anmerkungen zu diesem Schritt",
-    "q-notes-hint": "💡 Zusätzliche Anmerkungen — Diese Fragen sind empfohlen, um dein Unternehmen besser zu verstehen. Aber auch nur mit deinem Namen und deiner Branche können wir etwas Schönes schaffen.",
+    "q-notes-hint": "💡 Zusätzliche Anmerkungen — Diese Fragen helfen uns, dein Unternehmen besser zu verstehen. Aber auch nur mit deinem Namen und deiner Branche können wir etwas Schönes schaffen.",
     "q-notes1-ph": "Alles andere über dein Unternehmen, das wir vor dem Start wissen sollten...",
     "q-next-clients": "Weiter — Deine Kunden →",
 
@@ -1073,7 +1073,7 @@ const qTranslations = {
     "q-style-bold": "Mutig & Ausdrucksstark", "q-style-bold-desc": "Starke Formen, hoher Kontrast, einprägsam",
     "q-style-elegant": "Elegant & Luxuriös", "q-style-elegant-desc": "Feine Details, Gold-Akzente, Premium",
     "q-style-friendly": "Freundlich & Verspielt", "q-style-friendly-desc": "Abgerundet, warm, zugänglich",
-    "q-style-trust": "Ich vertraue Ihrem Urteil", "q-style-trust-desc": "Entscheidet basierend auf unserem Brief",
+    "q-style-trust": "Ich vertraue eurem Urteil", "q-style-trust-desc": "Entscheidet anhand unseres Briefs",
     "q-err-logoStyle": "Bitte wähle einen Logo-Stil",
     "q-logo-love-label": "Logos, die du liebst — beschreibe oder füge Links ein",
     "q-logo-love-ph": "z.B. Ich liebe das Atelier V Logo — klar und premium. Ich mag auch Chanels Wortmarke...",
@@ -1131,7 +1131,7 @@ const qTranslations = {
     "q-tone-bold": "Mutig & Selbstbewusst", "q-tone-bold-desc": "Direkt, stark, ohne Umschweife",
     "q-tone-inspiring": "Inspirierend & Ehrgeizig", "q-tone-inspiring-desc": "Visionär, motivierend, erhebend",
     "q-tone-playful": "Verspielt & Spaßig", "q-tone-playful-desc": "Leicht, humorvoll, energetisch",
-    "q-tone-decide": "Sie entscheiden", "q-tone-decide-desc": "Basierend auf unserem Gesamtbrief",
+    "q-tone-decide": "Ihr entscheidet", "q-tone-decide-desc": "Anhand unseres Gesamtbriefs",
     "q-content-photos-label": "Hast du Fotos bereit?",
     "q-photos-pro": "Ja — professionell", "q-photos-pro-desc": "Hochwertige Fotos, bereit zur Verwendung",
     "q-photos-phone": "Ja — Handyfotos", "q-photos-phone-desc": "Ich habe Fotos, aber keine professionellen",
@@ -1180,7 +1180,7 @@ const qTranslations = {
     "q-err-techEmail": "Bitte gib eine gültige E-Mail ein",
     "q-tech-phone-label": "Telefon / WhatsApp",
     "q-tech-address-label": "Physische Adresse",
-    "q-tech-address-ph": "Leer lassen, wenn kein physischer Standort",
+    "q-tech-address-ph": "Leer lassen, falls kein physischer Standort vorhanden",
     "q-tech-social-label": "Social-Media-Profile",
     "q-tech-domain-label": "Hast du eine Domain?",
     "q-domain-no": "Nein — registriert eine für mich",
@@ -1202,7 +1202,7 @@ const qTranslations = {
 
     "q-step8-eyebrow": "Schritt 8 von 8",
     "q-step8-title": "Dein empfohlenes<br><em>Paket.</em>",
-    "q-step8-sub": "Basierend auf allem, was du geteilt hast, ist dies unsere Empfehlung für dich.",
+    "q-step8-sub": "Anhand deiner Angaben haben wir dieses Paket für dich ausgewählt.",
     "q-pkg-essential-label": "Essential",
     "q-pkg-essential-period": "Einmalzahlung",
     "q-pkg-essential-f1": "2 Logo-Konzepte (PNG + SVG)",
