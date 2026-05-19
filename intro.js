@@ -8,43 +8,51 @@
     logo.style.position = 'relative';
     logo.style.overflow  = 'hidden';
 
+    // V spins on its own axis (rotateY coin-flip) while travelling left→right,
+    // slows and stops at the golden V in the logo, then flashes and fades.
     var kf = document.createElement('style');
     kf.textContent =
       '@keyframes _av_v{' +
-        '0%  {left:-5%;  opacity:0;   transform:translateY(-50%) rotate(-15deg) scale(.6); filter:blur(6px)}' +
-        '7%  {left:4%;   opacity:1;   transform:translateY(-50%) rotate(0deg)   scale(1.3); filter:blur(1px)}' +
-        '20% {left:18%;              transform:translateY(-50%) rotate(-8deg)  scale(1);   filter:blur(3px)}' +
-        '38% {left:35%;              transform:translateY(-50%) rotate(6deg)   scale(1.1); filter:blur(2px)}' +
-        '55% {left:52%;              transform:translateY(-50%) rotate(-4deg)  scale(1);   filter:blur(3px)}' +
-        '68% {left:66%;              transform:translateY(-50%) rotate(0deg)   scale(1.15);filter:blur(1px)}' +
-        '76% {left:76%;  opacity:1;   transform:translateY(-50%) rotate(0deg)   scale(1.5); filter:blur(0px)}' +
-        '84% {left:84%;  opacity:1;   transform:translateY(-50%) rotate(0deg)   scale(1.5); filter:blur(0px)}' +
-        '93% {left:96%;  opacity:.3;  transform:translateY(-50%) rotate(12deg)  scale(.8);  filter:blur(4px)}' +
-        '100%{left:108%; opacity:0;   transform:translateY(-50%) rotate(20deg)  scale(.4);  filter:blur(8px)}' +
+        // enter — spinning fast, small
+        '0%  {left:0%;  opacity:0; transform:translateY(-50%) perspective(100px) rotateY(0deg)    scale(.5); filter:blur(3px)}' +
+        '6%  {left:4%;  opacity:1; transform:translateY(-50%) perspective(100px) rotateY(270deg)  scale(1);  filter:blur(0px)}' +
+        // travel — continuous spin
+        '20% {left:16%; transform:translateY(-50%) perspective(100px) rotateY(630deg)  scale(1)}' +
+        '36% {left:30%; transform:translateY(-50%) perspective(100px) rotateY(990deg)  scale(1)}' +
+        '52% {left:46%; transform:translateY(-50%) perspective(100px) rotateY(1260deg) scale(1)}' +
+        '66% {left:62%; transform:translateY(-50%) perspective(100px) rotateY(1530deg) scale(1.05)}' +
+        // decelerate into V position
+        '76% {left:74%; transform:translateY(-50%) perspective(100px) rotateY(1620deg) scale(1.15)}' +
+        '83% {left:81%; transform:translateY(-50%) perspective(100px) rotateY(1660deg) scale(1.3); opacity:1; filter:brightness(1.4)}' +
+        // STOP & FLASH at V
+        '88% {left:84%; transform:translateY(-50%) perspective(100px) rotateY(1680deg) scale(1.5); opacity:1; filter:brightness(2)}' +
+        // settle
+        '93% {left:84%; transform:translateY(-50%) perspective(100px) rotateY(1680deg) scale(1.35); opacity:.85; filter:brightness(1.2)}' +
+        // fade out
+        '100%{left:84%; transform:translateY(-50%) perspective(100px) rotateY(1680deg) scale(1);    opacity:0;  filter:brightness(1)}' +
       '}';
     document.head.appendChild(kf);
 
     var sv = document.createElement('span');
     sv.textContent = 'V';
     sv.style.cssText =
-      'position:absolute;top:50%;left:-5%;' +
-      'transform:translateY(-50%);' +
-      'font-family:"Cormorant Garamond",serif;font-size:64px;font-weight:600;' +
-      'color:rgba(201,168,76,1);' +
+      'position:absolute;top:50%;left:0%;' +
+      'transform:translateY(-50%) perspective(100px) rotateY(0deg) scale(.5);' +
+      'font-family:"Cormorant Garamond",serif;font-size:44px;font-weight:600;' +
+      'color:#C9A84C;' +
       'text-shadow:' +
         '0 0  6px #fff,' +
-        '0 0 14px rgba(201,168,76,1),' +
-        '0 0 30px rgba(201,168,76,.9),' +
-        '0 0 60px rgba(201,168,76,.6),' +
-        '0 0 100px rgba(201,168,76,.3);' +
-      'line-height:1;pointer-events:none;user-select:none;';
+        '0 0 16px #C9A84C,' +
+        '0 0 36px rgba(201,168,76,.8),' +
+        '0 0 70px rgba(201,168,76,.4);' +
+      'line-height:1;pointer-events:none;user-select:none;transform-style:preserve-3d;';
 
     logo.insertBefore(sv, img);
 
     function runAnim() {
       sv.style.animation = 'none';
       void sv.offsetWidth;
-      sv.style.animation = '_av_v 3.8s ease-in-out forwards';
+      sv.style.animation = '_av_v 4s cubic-bezier(.2,.6,.4,1) forwards';
     }
 
     runAnim();
