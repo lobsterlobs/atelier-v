@@ -186,22 +186,22 @@ main{max-width:860px;margin:0 auto;padding:60px 24px 80px;}
 </div>
 
 <div class="hero">
-  <h1>Frequently Asked<br><em>Questions</em></h1>
-  <p>Everything you need to know before starting your brand. Can't find the answer? Write to us at <a href="mailto:team@atelierv.design">team@atelierv.design</a></p>
+  <h1 data-faq-id="hero-h1">Frequently Asked<br><em>Questions</em></h1>
+  <p data-faq-id="hero-p">Everything you need to know before starting your brand. Can't find the answer? Write to us at <a href="mailto:team@atelierv.design">team@atelierv.design</a></p>
 </div>
 
 <main>
 
   <!-- PROCESS -->
   <div class="faq-category">
-    <div class="category-title">The Process</div>
+    <div class="category-title" data-faq-id="cat-process">The Process</div>
 
     <div class="faq-item">
       <div class="faq-question" onclick="toggleFaq(this)">
-        <h3>How does the process work from start to finish?</h3>
+        <h3 data-faq-id="proc-q1">How does the process work from start to finish?</h3>
         <div class="faq-icon">+</div>
       </div>
-      <div class="faq-answer"><div class="faq-answer-inner">
+      <div class="faq-answer"><div class="faq-answer-inner" data-faq-id="proc-a1">
         <p>It's simple. You fill in our brand questionnaire — it takes about 10–15 minutes and covers everything we need to know about your business, your clients, and your vision. We review your answers, confirm your order, and send you an invoice for the 30% deposit. Once payment is confirmed, we start building your brand immediately.</p>
         <p>Within 7 working days, you receive the finished result — logo, website, digital business card, and all included materials. You review it, give us feedback, and we apply any revisions. Once you approve, you pay the remaining 70% and we publish everything live.</p>
       </div></div>
@@ -209,10 +209,10 @@ main{max-width:860px;margin:0 auto;padding:60px 24px 80px;}
 
     <div class="faq-item">
       <div class="faq-question" onclick="toggleFaq(this)">
-        <h3>How long does it take?</h3>
+        <h3 data-faq-id="proc-q2">How long does it take?</h3>
         <div class="faq-icon">+</div>
       </div>
-      <div class="faq-answer"><div class="faq-answer-inner">
+      <div class="faq-answer"><div class="faq-answer-inner" data-faq-id="proc-a2">
         <p>Standard delivery is <strong>7 working days</strong> from the moment we receive your completed questionnaire and confirmed payment. This covers logo design, website development, digital business card, and all included deliverables.</p>
         <p>The timeline may be extended if we are waiting for content or feedback from your side. We will always communicate any changes in timeline proactively.</p>
       </div></div>
@@ -220,10 +220,10 @@ main{max-width:860px;margin:0 auto;padding:60px 24px 80px;}
 
     <div class="faq-item">
       <div class="faq-question" onclick="toggleFaq(this)">
-        <h3>Do we need to meet in person or have calls?</h3>
+        <h3 data-faq-id="proc-q3">Do we need to meet in person or have calls?</h3>
         <div class="faq-icon">+</div>
       </div>
-      <div class="faq-answer"><div class="faq-answer-inner">
+      <div class="faq-answer"><div class="faq-answer-inner" data-faq-id="proc-a3">
         <p>No meetings required. Our entire process is designed to work remotely and asynchronously. The questionnaire replaces the discovery call — it collects everything we need in a structured way that actually produces better results than an open conversation.</p>
         <p>All communication happens via email. If you have specific questions or requests, simply write to <a href="mailto:team@atelierv.design">team@atelierv.design</a> and we will respond within 24 hours on working days.</p>
       </div></div>
@@ -231,10 +231,10 @@ main{max-width:860px;margin:0 auto;padding:60px 24px 80px;}
 
     <div class="faq-item">
       <div class="faq-question" onclick="toggleFaq(this)">
-        <h3>What if I don't know exactly what I want?</h3>
+        <h3 data-faq-id="proc-q4">What if I don't know exactly what I want?</h3>
         <div class="faq-icon">+</div>
       </div>
-      <div class="faq-answer"><div class="faq-answer-inner">
+      <div class="faq-answer"><div class="faq-answer-inner" data-faq-id="proc-a4">
         <p>That's completely normal — and it's exactly why we built the questionnaire the way we did. You don't need to know design terminology or have a vision board ready. Just answer the questions honestly and as specifically as you can about your business and your clients.</p>
         <p>We are the experts in translating business identity into visual language. Your job is to tell us about your business. Our job is to turn that into a brand.</p>
       </div></div>
@@ -244,14 +244,14 @@ main{max-width:860px;margin:0 auto;padding:60px 24px 80px;}
 
   <!-- PAYMENT -->
   <div class="faq-category">
-    <div class="category-title">Payment</div>
+    <div class="category-title" data-faq-id="cat-payment">Payment</div>
 
     <div class="faq-item">
       <div class="faq-question" onclick="toggleFaq(this)">
-        <h3>How does payment work?</h3>
+        <h3 data-faq-id="pay-q1">How does payment work?</h3>
         <div class="faq-icon">+</div>
       </div>
-      <div class="faq-answer"><div class="faq-answer-inner">
+      <div class="faq-answer"><div class="faq-answer-inner" data-faq-id="pay-a1">
         <p>We split the payment into two parts to protect both sides:</p>
         <ul>
           <li><strong>30% deposit</strong> — paid before we start. This confirms your order and covers our initial work.</li>
@@ -263,20 +263,20 @@ main{max-width:860px;margin:0 auto;padding:60px 24px 80px;}
 
     <div class="faq-item">
       <div class="faq-question" onclick="toggleFaq(this)">
-        <h3>Can I get an invoice?</h3>
+        <h3 data-faq-id="pay-q2">Can I get an invoice?</h3>
         <div class="faq-icon">+</div>
       </div>
-      <div class="faq-answer"><div class="faq-answer-inner">
+      <div class="faq-answer"><div class="faq-answer-inner" data-faq-id="pay-a2">
         <p>Yes. We issue invoices for all payments. Please let us know when placing your order if you need the invoice issued to a company name and VAT number, and provide the relevant details.</p>
       </div></div>
     </div>
 
     <div class="faq-item">
       <div class="faq-question" onclick="toggleFaq(this)">
-        <h3>What if I'm not satisfied with the result?</h3>
+        <h3 data-faq-id="pay-q3">What if I'm not satisfied with the result?</h3>
         <div class="faq-icon">+</div>
       </div>
-      <div class="faq-answer"><div class="faq-answer-inner">
+      <div class="faq-answer"><div class="faq-answer-inner" data-faq-id="pay-a3">
         <p>Each package includes revision rounds — 1 for Brand Launch, 2 for Total Brand. You review the delivered work and send us a consolidated list of changes. We implement them within 48 hours.</p>
         <p>In the unlikely event that the result is fundamentally not aligned with your brief, we will work with you to find a resolution. Our goal is for you to be genuinely proud of the result.</p>
         <p>Please note that revisions must be based on the original brief. A change of direction or completely new concept is a new project.</p>
@@ -285,10 +285,10 @@ main{max-width:860px;margin:0 auto;padding:60px 24px 80px;}
 
     <div class="faq-item">
       <div class="faq-question" onclick="toggleFaq(this)">
-        <h3>Can I cancel after placing an order?</h3>
+        <h3 data-faq-id="pay-q4">Can I cancel after placing an order?</h3>
         <div class="faq-icon">+</div>
       </div>
-      <div class="faq-answer"><div class="faq-answer-inner">
+      <div class="faq-answer"><div class="faq-answer-inner" data-faq-id="pay-a4">
         <p>If you cancel before we have started work, we refund 50% of the deposit within 5 business days.</p>
         <p>If work has already begun, the deposit is non-refundable as it covers the work already completed. The final 70% is never charged if you cancel before approval.</p>
       </div></div>
@@ -298,24 +298,24 @@ main{max-width:860px;margin:0 auto;padding:60px 24px 80px;}
 
   <!-- TECHNICAL -->
   <div class="faq-category">
-    <div class="category-title">Technical Questions</div>
+    <div class="category-title" data-faq-id="cat-technical">Technical Questions</div>
 
     <div class="faq-item">
       <div class="faq-question" onclick="toggleFaq(this)">
-        <h3>Do I need any technical knowledge?</h3>
+        <h3 data-faq-id="tech-q1">Do I need any technical knowledge?</h3>
         <div class="faq-icon">+</div>
       </div>
-      <div class="faq-answer"><div class="faq-answer-inner">
+      <div class="faq-answer"><div class="faq-answer-inner" data-faq-id="tech-a1">
         <p>None whatsoever. You don't need to know what a domain, hosting, SSL certificate, or HTML is. We handle 100% of the technical setup. Your only job is to fill in the questionnaire and give us feedback on the result.</p>
       </div></div>
     </div>
 
     <div class="faq-item">
       <div class="faq-question" onclick="toggleFaq(this)">
-        <h3>Can I edit the website myself after it's delivered?</h3>
+        <h3 data-faq-id="tech-q2">Can I edit the website myself after it's delivered?</h3>
         <div class="faq-icon">+</div>
       </div>
-      <div class="faq-answer"><div class="faq-answer-inner">
+      <div class="faq-answer"><div class="faq-answer-inner" data-faq-id="tech-a2">
         <p>The websites we build are in HTML/CSS — they are fast, secure, and don't require a clunky admin panel. However, editing them directly requires basic technical knowledge.</p>
         <p>This is exactly why we offer Monthly Support at €19.99/month. You simply email us what needs changing and we handle it within 24 hours. No technical knowledge required — ever.</p>
         <p>The first 3 months of Monthly Support are free for Brand Launch and Total Brand clients.</p>
@@ -324,10 +324,10 @@ main{max-width:860px;margin:0 auto;padding:60px 24px 80px;}
 
     <div class="faq-item">
       <div class="faq-question" onclick="toggleFaq(this)">
-        <h3>Where is my website hosted?</h3>
+        <h3 data-faq-id="tech-q3">Where is my website hosted?</h3>
         <div class="faq-icon">+</div>
       </div>
-      <div class="faq-answer"><div class="faq-answer-inner">
+      <div class="faq-answer"><div class="faq-answer-inner" data-faq-id="tech-a3">
         <p>Your website is hosted on GitHub Pages — a professional, reliable hosting platform used by millions of websites worldwide. It offers excellent performance, global CDN delivery, and automatic HTTPS security.</p>
         <p>24 months of hosting are included in every package at no extra cost. After 24 months, GitHub Pages remains free — there is no mandatory cost increase.</p>
       </div></div>
@@ -335,10 +335,10 @@ main{max-width:860px;margin:0 auto;padding:60px 24px 80px;}
 
     <div class="faq-item">
       <div class="faq-question" onclick="toggleFaq(this)">
-        <h3>Is my website secure? Will it have HTTPS?</h3>
+        <h3 data-faq-id="tech-q4">Is my website secure? Will it have HTTPS?</h3>
         <div class="faq-icon">+</div>
       </div>
-      <div class="faq-answer"><div class="faq-answer-inner">
+      <div class="faq-answer"><div class="faq-answer-inner" data-faq-id="tech-a4">
         <p>Yes. Every website we build is served over HTTPS — the padlock symbol your clients see in their browser. This is essential for trust and is set up automatically as part of our technical setup process.</p>
       </div></div>
     </div>
@@ -347,24 +347,24 @@ main{max-width:860px;margin:0 auto;padding:60px 24px 80px;}
 
   <!-- DOMAIN & EMAIL -->
   <div class="faq-category">
-    <div class="category-title">Domain & Email</div>
+    <div class="category-title" data-faq-id="cat-domain">Domain & Email</div>
 
     <div class="faq-item">
       <div class="faq-question" onclick="toggleFaq(this)">
-        <h3>What if I already have a domain?</h3>
+        <h3 data-faq-id="dom-q1">What if I already have a domain?</h3>
         <div class="faq-icon">+</div>
       </div>
-      <div class="faq-answer"><div class="faq-answer-inner">
+      <div class="faq-answer"><div class="faq-answer-inner" data-faq-id="dom-a1">
         <p>No problem. We will connect your existing domain to your new website free of charge as part of the technical setup. Just let us know in the questionnaire and provide the domain name.</p>
       </div></div>
     </div>
 
     <div class="faq-item">
       <div class="faq-question" onclick="toggleFaq(this)">
-        <h3>What domain will I get?</h3>
+        <h3 data-faq-id="dom-q2">What domain will I get?</h3>
         <div class="faq-icon">+</div>
       </div>
-      <div class="faq-answer"><div class="faq-answer-inner">
+      <div class="faq-answer"><div class="faq-answer-inner" data-faq-id="dom-a2">
         <p>We register a standard domain — typically .com, .bg, .eu, .de, or similar — based on your business name and availability. We select it together with you before registration.</p>
         <p>The first year of domain registration is covered by Atelier V and included in your package price. After the first year, renewal is at your expense. We will remind you 30 days before expiry and assist with renewal.</p>
         <p>Premium domains with market value above standard registration fees are not included and are priced separately.</p>
@@ -373,10 +373,10 @@ main{max-width:860px;margin:0 auto;padding:60px 24px 80px;}
 
     <div class="faq-item">
       <div class="faq-question" onclick="toggleFaq(this)">
-        <h3>Can I have a professional email like info@mybusiness.com?</h3>
+        <h3 data-faq-id="dom-q3">Can I have a professional email like info@mybusiness.com?</h3>
         <div class="faq-icon">+</div>
       </div>
-      <div class="faq-answer"><div class="faq-answer-inner">
+      <div class="faq-answer"><div class="faq-answer-inner" data-faq-id="dom-a3">
         <p>Yes. We set up email forwarding on your domain so that emails sent to info@yourbusiness.com (or any address you choose) are forwarded directly to your existing Gmail or other inbox.</p>
         <p>This means your clients see a professional email address, while you receive everything in the inbox you already use — no new accounts to manage.</p>
         <p>The number of email addresses you need can be specified in the questionnaire.</p>
@@ -387,14 +387,14 @@ main{max-width:860px;margin:0 auto;padding:60px 24px 80px;}
 
   <!-- PACKAGES -->
   <div class="faq-category">
-    <div class="category-title">Packages & Services</div>
+    <div class="category-title" data-faq-id="cat-packages">Packages & Services</div>
 
     <div class="faq-item">
       <div class="faq-question" onclick="toggleFaq(this)">
-        <h3>What is the difference between Brand Launch and Total Brand?</h3>
+        <h3 data-faq-id="pkg-q1">What is the difference between Brand Launch and Total Brand?</h3>
         <div class="faq-icon">+</div>
       </div>
-      <div class="faq-answer"><div class="faq-answer-inner">
+      <div class="faq-answer"><div class="faq-answer-inner" data-faq-id="pkg-a1">
         <p><strong>Brand Launch (€399)</strong> is the complete foundation — logo, brand colors, digital business card, and a one-page website. Perfect for a new business or anyone who needs a clean, professional online presence fast.</p>
         <p><strong>Total Brand (€2,500)</strong> adds depth — a multi-page website (up to 5 pages), a branded HTML email signature, up to 5 languages, and 2 rounds of revisions. Ideal for businesses that need more content, more languages, or more pages.</p>
         <p>Both packages are delivered in 7 working days and include 24 months of hosting.</p>
@@ -403,20 +403,20 @@ main{max-width:860px;margin:0 auto;padding:60px 24px 80px;}
 
     <div class="faq-item">
       <div class="faq-question" onclick="toggleFaq(this)">
-        <h3>Can I upgrade my package later?</h3>
+        <h3 data-faq-id="pkg-q2">Can I upgrade my package later?</h3>
         <div class="faq-icon">+</div>
       </div>
-      <div class="faq-answer"><div class="faq-answer-inner">
+      <div class="faq-answer"><div class="faq-answer-inner" data-faq-id="pkg-a2">
         <p>Yes. If you start with Brand Launch and later want to upgrade to Total Brand, we can quote you for the additional work.</p>
       </div></div>
     </div>
 
     <div class="faq-item">
       <div class="faq-question" onclick="toggleFaq(this)">
-        <h3>What does Monthly Support include exactly?</h3>
+        <h3 data-faq-id="pkg-q3">What does Monthly Support include exactly?</h3>
         <div class="faq-icon">+</div>
       </div>
-      <div class="faq-answer"><div class="faq-answer-inner">
+      <div class="faq-answer"><div class="faq-answer-inner" data-faq-id="pkg-a3">
         <p>Monthly Support (€19.99/month) covers all ongoing changes to your existing website content:</p>
         <ul>
           <li>Text updates — prices, descriptions, opening hours, contact details</li>
@@ -432,20 +432,20 @@ main{max-width:860px;margin:0 auto;padding:60px 24px 80px;}
 
     <div class="faq-item">
       <div class="faq-question" onclick="toggleFaq(this)">
-        <h3>What if I don't subscribe to Monthly Support?</h3>
+        <h3 data-faq-id="pkg-q4">What if I don't subscribe to Monthly Support?</h3>
         <div class="faq-icon">+</div>
       </div>
-      <div class="faq-answer"><div class="faq-answer-inner">
+      <div class="faq-answer"><div class="faq-answer-inner" data-faq-id="pkg-a4">
         <p>Without Monthly Support your website is locked and no changes are included. A one-time change costs €19.99 per request. Monthly Support at €19.99 per month covers up to 10 changes per month, making it the smarter choice from the first update.</p>
       </div></div>
     </div>
 
     <div class="faq-item">
       <div class="faq-question" onclick="toggleFaq(this)">
-        <h3>How do I submit a change request?</h3>
+        <h3 data-faq-id="pkg-q5">How do I submit a change request?</h3>
         <div class="faq-icon">+</div>
       </div>
-      <div class="faq-answer"><div class="faq-answer-inner">
+      <div class="faq-answer"><div class="faq-answer-inner" data-faq-id="pkg-a5">
         <p>Simply email <a href="mailto:team@atelierv.design">team@atelierv.design</a> or use the contact method provided by Atelier V. Include: which page, what exactly needs changing, and the new content (text or image). We implement all changes within 24 hours on working days.</p>
         <p>Please note: change requests cover content updates only — text, contact details, images, prices. New pages, new menu items, or structural redesigns are not included and are quoted separately, or through the contact method provided by Atelier V.</p>
       </div></div>
@@ -453,20 +453,20 @@ main{max-width:860px;margin:0 auto;padding:60px 24px 80px;}
 
     <div class="faq-item">
       <div class="faq-question" onclick="toggleFaq(this)">
-        <h3>Who owns the logo and website after delivery?</h3>
+        <h3 data-faq-id="pkg-q6">Who owns the logo and website after delivery?</h3>
         <div class="faq-icon">+</div>
       </div>
-      <div class="faq-answer"><div class="faq-answer-inner">
+      <div class="faq-answer"><div class="faq-answer-inner" data-faq-id="pkg-a6">
         <p>You do. After the final payment, you receive full ownership of all delivered materials — the logo files (PNG, SVG), the website code, and all associated design assets. You are free to use them however you wish.</p>
       </div></div>
     </div>
 
     <div class="faq-item">
       <div class="faq-question" onclick="toggleFaq(this)">
-        <h3>Do you work with businesses in any country?</h3>
+        <h3 data-faq-id="pkg-q7">Do you work with businesses in any country?</h3>
         <div class="faq-icon">+</div>
       </div>
-      <div class="faq-answer"><div class="faq-answer-inner">
+      <div class="faq-answer"><div class="faq-answer-inner" data-faq-id="pkg-a7">
         <p>Yes. Our process is fully remote and we work with clients across Europe and beyond. We communicate in English, Bulgarian, German, and other languages. Our questionnaire and deliverables can be produced in any of the 12 languages we support.</p>
       </div></div>
     </div>
@@ -474,9 +474,9 @@ main{max-width:860px;margin:0 auto;padding:60px 24px 80px;}
   </div>
 
   <div class="cta-box">
-    <h2>Still have a question?</h2>
-    <p>Write to us and we will get back to you within 24 hours.</p>
-    <a href="card.html" class="btn">Contact us →</a>
+    <h2 data-faq-id="cta-h2">Still have a question?</h2>
+    <p data-faq-id="cta-p">Write to us and we will get back to you within 24 hours.</p>
+    <a href="card.html" class="btn" data-faq-id="cta-btn">Contact us →</a>
   </div>
 
 </main>
@@ -545,7 +545,7 @@ document.querySelectorAll('.mob-links a').forEach(a=>a.addEventListener('click',
 const langDrop=document.getElementById('langDrop'),langTrigger=document.getElementById('langTrigger'),langFlag=document.getElementById('langFlag');
 langTrigger.addEventListener('click',e=>{e.stopPropagation();langDrop.classList.toggle('open');});
 document.querySelectorAll('.lang-menu a').forEach(a=>{
-  a.addEventListener('click',e=>{e.preventDefault();document.querySelectorAll('.lang-menu a').forEach(x=>x.classList.remove('active'));a.classList.add('active');langFlag.src='https://flagcdn.com/16x12/'+a.dataset.flag+'.png';langFlag.alt=a.dataset.lang;langDrop.classList.remove('open');applyLang(a.dataset.lang.toLowerCase());});
+  a.addEventListener('click',e=>{e.preventDefault();document.querySelectorAll('.lang-menu a').forEach(x=>x.classList.remove('active'));a.classList.add('active');langFlag.src='https://flagcdn.com/16x12/'+a.dataset.flag+'.png';langFlag.alt=a.dataset.lang;langDrop.classList.remove('open');applyLang(a.dataset.lang.toLowerCase());applyFaqLang(a.dataset.lang.toLowerCase());});
 });
 document.addEventListener('click',()=>langDrop.classList.remove('open'));
 </script>
@@ -561,6 +561,122 @@ document.addEventListener('click',()=>langDrop.classList.remove('open'));
     langFlag.src = 'https://flagcdn.com/16x12/'+a.dataset.flag+'.png';
     langFlag.alt = a.dataset.lang;
   }
+})();
+</script>
+<script>
+(function(){
+var T={
+en:{
+'hero-h1':'Frequently Asked<br><em>Questions</em>',
+'hero-p':'Everything you need to know before starting your brand. Can't find the answer? Write to us at <a href="mailto:team@atelierv.design">team@atelierv.design</a>',
+'cat-process':'The Process','cat-payment':'Payment','cat-technical':'Technical Questions','cat-domain':'Domain & Email','cat-packages':'Packages & Services',
+'proc-q1':'How does the process work from start to finish?','proc-q2':'How long does it take?','proc-q3':'Do we need to meet in person or have calls?','proc-q4':'What if I don't know exactly what I want?',
+'proc-a1':'<p>It's simple. You fill in our brand questionnaire — it takes about 10–15 minutes and covers everything we need to know about your business, your clients, and your vision. We review your answers, confirm your order, and send you an invoice for the 30% deposit. Once payment is confirmed, we start building your brand immediately.</p><p>Within 7 working days, you receive the finished result — logo, website, digital business card, and all included materials. You review it, give us feedback, and we apply any revisions. Once you approve, you pay the remaining 70% and we publish everything live.</p>',
+'proc-a2':'<p>Standard delivery is <strong>7 working days</strong> from the moment we receive your completed questionnaire and confirmed payment. This covers logo design, website development, digital business card, and all included deliverables.</p><p>The timeline may be extended if we are waiting for content or feedback from your side. We will always communicate any changes in timeline proactively.</p>',
+'proc-a3':'<p>No meetings required. Our entire process is designed to work remotely and asynchronously. The questionnaire replaces the discovery call — it collects everything we need in a structured way that actually produces better results than an open conversation.</p><p>All communication happens via email. If you have specific questions or requests, simply write to <a href="mailto:team@atelierv.design">team@atelierv.design</a> and we will respond within 24 hours on working days.</p>',
+'proc-a4':'<p>That's completely normal — and it's exactly why we built the questionnaire the way we did. You don't need to know design terminology or have a vision board ready. Just answer the questions honestly and as specifically as you can about your business and your clients.</p><p>We are the experts in translating business identity into visual language. Your job is to tell us about your business. Our job is to turn that into a brand.</p>',
+'pay-q1':'How does payment work?','pay-q2':'Can I get an invoice?','pay-q3':'What if I'm not satisfied with the result?','pay-q4':'Can I cancel after placing an order?',
+'pay-a1':'<p>We split the payment into two parts to protect both sides:</p><ul><li><strong>30% deposit</strong> — paid before we start. This confirms your order and covers our initial work.</li><li><strong>70% final payment</strong> — paid after you see and approve the finished result, before we publish it live.</li></ul><p>This means you never pay the full amount before seeing the work. And we never publish before payment is complete.</p>',
+'pay-a2':'<p>Yes. We issue invoices for all payments. Please let us know when placing your order if you need the invoice issued to a company name and VAT number, and provide the relevant details.</p>',
+'pay-a3':'<p>Each package includes revision rounds — 1 for Brand Launch, 2 for Total Brand. You review the delivered work and send us a consolidated list of changes. We implement them within 48 hours.</p><p>In the unlikely event that the result is fundamentally not aligned with your brief, we will work with you to find a resolution. Our goal is for you to be genuinely proud of the result.</p><p>Please note that revisions must be based on the original brief. A change of direction or completely new concept is a new project.</p>',
+'pay-a4':'<p>If you cancel before we have started work, we refund 50% of the deposit within 5 business days.</p><p>If work has already begun, the deposit is non-refundable as it covers the work already completed. The final 70% is never charged if you cancel before approval.</p>',
+'tech-q1':'Do I need any technical knowledge?','tech-q2':'Can I edit the website myself after it's delivered?','tech-q3':'Where is my website hosted?','tech-q4':'Is my website secure? Will it have HTTPS?',
+'tech-a1':'<p>None whatsoever. You don't need to know what a domain, hosting, SSL certificate, or HTML is. We handle 100% of the technical setup. Your only job is to fill in the questionnaire and give us feedback on the result.</p>',
+'tech-a2':'<p>The websites we build are in HTML/CSS — they are fast, secure, and don't require a clunky admin panel. However, editing them directly requires basic technical knowledge.</p><p>This is exactly why we offer Monthly Support at €19.99/month. You simply email us what needs changing and we handle it within 24 hours. No technical knowledge required — ever.</p><p>The first 3 months of Monthly Support are free for Brand Launch and Total Brand clients.</p>',
+'tech-a3':'<p>Your website is hosted on GitHub Pages — a professional, reliable hosting platform used by millions of websites worldwide. It offers excellent performance, global CDN delivery, and automatic HTTPS security.</p><p>24 months of hosting are included in every package at no extra cost. After 24 months, GitHub Pages remains free — there is no mandatory cost increase.</p>',
+'tech-a4':'<p>Yes. Every website we build is served over HTTPS — the padlock symbol your clients see in their browser. This is essential for trust and is set up automatically as part of our technical setup process.</p>',
+'dom-q1':'What if I already have a domain?','dom-q2':'What domain will I get?','dom-q3':'Can I have a professional email like info@mybusiness.com?',
+'dom-a1':'<p>No problem. We will connect your existing domain to your new website free of charge as part of the technical setup. Just let us know in the questionnaire and provide the domain name.</p>',
+'dom-a2':'<p>We register a standard domain — typically .com, .bg, .eu, .de, or similar — based on your business name and availability. We select it together with you before registration.</p><p>The first year of domain registration is covered by Atelier V and included in your package price. After the first year, renewal is at your expense. We will remind you 30 days before expiry and assist with renewal.</p><p>Premium domains with market value above standard registration fees are not included and are priced separately.</p>',
+'dom-a3':'<p>Yes. We set up email forwarding on your domain so that emails sent to info@yourbusiness.com (or any address you choose) are forwarded directly to your existing Gmail or other inbox.</p><p>This means your clients see a professional email address, while you receive everything in the inbox you already use — no new accounts to manage.</p><p>The number of email addresses you need can be specified in the questionnaire.</p>',
+'pkg-q1':'What is the difference between Brand Launch and Total Brand?','pkg-q2':'Can I upgrade my package later?','pkg-q3':'What does Monthly Support include exactly?','pkg-q4':'What if I don't subscribe to Monthly Support?','pkg-q5':'How do I submit a change request?','pkg-q6':'Who owns the logo and website after delivery?','pkg-q7':'Do you work with businesses in any country?',
+'pkg-a1':'<p><strong>Brand Launch (€399)</strong> is the complete foundation — logo, brand colors, digital business card, and a one-page website. Perfect for a new business or anyone who needs a clean, professional online presence fast.</p><p><strong>Total Brand (€2,500)</strong> adds depth — a multi-page website (up to 5 pages), a branded HTML email signature, up to 5 languages, and 2 rounds of revisions. Ideal for businesses that need more content, more languages, or more pages.</p><p>Both packages are delivered in 7 working days and include 24 months of hosting.</p>',
+'pkg-a2':'<p>Yes. If you start with Brand Launch and later want to upgrade to Total Brand, we can quote you for the additional work.</p>',
+'pkg-a3':'<p>Monthly Support (€19.99/month) covers all ongoing changes to your existing website content:</p><ul><li>Text updates — prices, descriptions, opening hours, contact details</li><li>Image updates — replacing or adding photos</li><li>Adding new items within existing sections (e.g. new service, new team member)</li><li>Technical support if something stops working</li></ul><p>How it works: you email us the changes at <a href="mailto:team@atelierv.design">team@atelierv.design</a> and we implement them within 24 hours on working days.</p><p>Monthly Support does not include building new pages, structural redesign, SEO campaigns, or social media management.</p><p>The first 3 months are free for all Brand Launch and Total Brand clients.</p>',
+'pkg-a4':'<p>Without Monthly Support your website is locked and no changes are included. A one-time change costs €19.99 per request. Monthly Support at €19.99 per month covers up to 10 changes per month, making it the smarter choice from the first update.</p>',
+'pkg-a5':'<p>Simply email <a href="mailto:team@atelierv.design">team@atelierv.design</a> or use the contact method provided by Atelier V. Include: which page, what exactly needs changing, and the new content (text or image). We implement all changes within 24 hours on working days.</p><p>Please note: change requests cover content updates only — text, contact details, images, prices. New pages, new menu items, or structural redesigns are not included and are quoted separately.</p>',
+'pkg-a6':'<p>You do. After the final payment, you receive full ownership of all delivered materials — the logo files (PNG, SVG), the website code, and all associated design assets. You are free to use them however you wish.</p>',
+'pkg-a7':'<p>Yes. Our process is fully remote and we work with clients across Europe and beyond. We communicate in English, Bulgarian, German, and other languages. Our questionnaire and deliverables can be produced in any of the 12 languages we support.</p>',
+'cta-h2':'Still have a question?','cta-p':'Write to us and we will get back to you within 24 hours.','cta-btn':'Contact us →'
+},
+bg:{
+'hero-h1':'Често задавани<br><em>въпроси</em>',
+'hero-p':'Всичко, което трябва да знаеш, преди да стартираш бранда си. Не намираш отговора? Пиши ни на <a href="mailto:team@atelierv.design">team@atelierv.design</a>',
+'cat-process':'Процесът','cat-payment':'Плащане','cat-technical':'Технически въпроси','cat-domain':'Домейн и имейл','cat-packages':'Пакети и услуги',
+'proc-q1':'Как протича процесът от началото до края?','proc-q2':'Колко време отнема?','proc-q3':'Необходими ли са лични срещи или видеоразговори?','proc-q4':'Ами ако не знам точно какво искам?',
+'proc-a1':'<p>Просто е. Попълваш нашия въпросник за бранд — отнема около 10–15 минути и обхваща всичко, което трябва да знаем за бизнеса ти, клиентите ти и визията ти. Разглеждаме отговорите ти, потвърждаваме поръчката и изпращаме фактура за депозита от 30%. След потвърждение на плащането веднага започваме да изграждаме бранда ти.</p><p>В рамките на 7 работни дни получаваш готовия резултат — лого, уебсайт, дигитална визитка и всички включени материали. Преглеждаш всичко, даваш обратна връзка, а ние нанасяме корекциите. След одобрение заплащаш оставащите 70% и публикуваме всичко на живо.</p>',
+'proc-a2':'<p>Стандартният срок за доставка е <strong>7 работни дни</strong> от момента, в който получим попълнения въпросник и потвърденото плащане. Това включва дизайн на лого, разработка на уебсайт, дигитална визитка и всички останали включени материали.</p><p>Срокът може да се удължи, ако чакаме съдържание или обратна връзка от твоя страна. Винаги ще те информираме предварително за всяка промяна в графика.</p>',
+'proc-a3':'<p>Никакви срещи не са необходими. Целият ни процес е създаден да работи дистанционно и асинхронно. Въпросникът замества първоначалния разговор — събира всичко необходимо по структуриран начин, който дава по-добри резултати от открит разговор.</p><p>Цялата комуникация протича по имейл. При конкретни въпроси или запитвания просто пиши на <a href="mailto:team@atelierv.design">team@atelierv.design</a> и ще отговорим в рамките на 24 часа в работни дни.</p>',
+'proc-a4':'<p>Напълно нормално е — и именно затова сме създали въпросника по този начин. Не е нужно да познаваш дизайнерска терминология или да имаш готов мудборд. Просто отговори честно и конкретно на въпросите за бизнеса и клиентите си.</p><p>Ние сме специалистите в превръщането на бизнес идентичността във визуален език. Твоята задача е да ни разкажеш за бизнеса си. Наша задача е да го превърнем в бранд.</p>',
+'pay-q1':'Как работи плащането?','pay-q2':'Мога ли да получа фактура?','pay-q3':'Ами ако не съм доволен от резултата?','pay-q4':'Мога ли да откажа след направена поръчка?',
+'pay-a1':'<p>Плащането се разделя на две части, за да бъдат защитени и двете страни:</p><ul><li><strong>30% депозит</strong> — заплаща се преди да започнем. Потвърждава поръчката и покрива началната ни работа.</li><li><strong>70% окончателно плащане</strong> — заплаща се след като видиш и одобриш готовия резултат, преди да го публикуваме.</li></ul><p>Това означава, че никога не плащаш пълната сума, преди да видиш работата. А ние никога не публикуваме, преди плащането да е завършено.</p>',
+'pay-a2':'<p>Да. Издаваме фактури за всички плащания. При подаване на поръчката ни уведоми, ако фактурата трябва да бъде издадена на фирмено име и ДДС номер, и предостави необходимите данни.</p>',
+'pay-a3':'<p>Всеки пакет включва корекции — 1 за Brand Launch, 2 за Total Brand. Преглеждаш доставения материал и ни изпращаш обобщен списък с промени. Нанасяме ги в рамките на 48 часа.</p><p>В малко вероятния случай, че резултатът коренно не съответства на брифа ти, ще работим с теб за намиране на решение. Целта ни е да бъдеш наистина горд с резултата.</p><p>Имай предвид, че корекциите трябва да се основават на оригиналния бриф. Промяна на посоката или изцяло нова концепция е нов проект.</p>',
+'pay-a4':'<p>Ако откажеш преди да сме започнали работа, възстановяваме 50% от депозита в рамките на 5 работни дни.</p><p>Ако работата вече е започнала, депозитът не се възстановява, тъй като покрива вече извършената работа. Окончателните 70% не се начисляват, ако откажеш преди одобрението.</p>',
+'tech-q1':'Нужни ли са ми технически познания?','tech-q2':'Мога ли сам да редактирам сайта след доставката?','tech-q3':'Къде е хостван моят уебсайт?','tech-q4':'Сигурен ли е моят уебсайт? Ще има ли HTTPS?',
+'tech-a1':'<p>Абсолютно никакви. Не е нужно да знаеш какво е домейн, хостинг, SSL сертификат или HTML. Ние поемаме 100% от техническата настройка. Твоята единствена задача е да попълниш въпросника и да дадеш обратна връзка за резултата.</p>',
+'tech-a2':'<p>Сайтовете, които изграждаме, са на HTML/CSS — бързи, сигурни и без нужда от тромав административен панел. Директното им редактиране обаче изисква основни технически познания.</p><p>Именно затова предлагаме Месечна поддръжка за €19.99/месец. Просто ни изпрати имейл с необходимите промени и ние се грижим за тях в рамките на 24 часа. Технически познания не са нужни — никога.</p><p>Първите 3 месеца Месечна поддръжка са безплатни за клиентите на Brand Launch и Total Brand.</p>',
+'tech-a3':'<p>Уебсайтът ти е хостван в GitHub Pages — професионална, надеждна хостинг платформа, използвана от милиони уебсайтове по целия свят. Предлага отлична производителност, глобална CDN доставка и автоматична HTTPS защита.</p><p>24 месеца хостинг са включени във всеки пакет без допълнително заплащане. След 24 месеца GitHub Pages остава безплатен — без задължително увеличение на разходите.</p>',
+'tech-a4':'<p>Да. Всеки уебсайт, който изграждаме, работи чрез HTTPS — символът на катинар, който клиентите ти виждат в браузъра. Това е от ключово значение за доверието и се настройва автоматично като част от техническата ни настройка.</p>',
+'dom-q1':'Ами ако вече имам домейн?','dom-q2':'Какъв домейн ще получа?','dom-q3':'Мога ли да имам професионален имейл като info@mybusiness.com?',
+'dom-a1':'<p>Без проблем. Ще свържем съществуващия ти домейн с новия уебсайт безплатно като част от техническата настройка. Просто ни уведоми във въпросника и посочи домейна.</p>',
+'dom-a2':'<p>Регистрираме стандартен домейн — обикновено .com, .bg, .eu, .de или подобен — въз основа на името на бизнеса ти и наличността. Избираме го заедно с теб преди регистрацията.</p><p>Първата година на регистрацията е за сметка на Atelier V и е включена в цената на пакета. След първата година подновяването е за твоя сметка. Ще те уведомим 30 дни преди изтичането и ще ти помогнем с подновяването.</p><p>Премиум домейни с пазарна стойност над стандартните такси за регистрация не са включени и се ценообразуват отделно.</p>',
+'dom-a3':'<p>Да. Настройваме пренасочване на имейли към домейна ти, така че съобщенията, изпратени на info@твоябизнес.com (или всеки адрес по твой избор), се препращат директно към Gmail или друга пощенска кутия, която вече използваш.</p><p>Клиентите ти виждат професионален имейл адрес, докато ти получаваш всичко там, където вече работиш — без нови акаунти за управление.</p><p>Броят на имейл адресите може да бъде посочен във въпросника.</p>',
+'pkg-q1':'Каква е разликата между Brand Launch и Total Brand?','pkg-q2':'Мога ли да надградя пакета си по-късно?','pkg-q3':'Какво точно включва Месечната поддръжка?','pkg-q4':'Ами ако не се абонирам за Месечна поддръжка?','pkg-q5':'Как да подам заявка за промяна?','pkg-q6':'Кой притежава логото и уебсайта след доставката?','pkg-q7':'Работите ли с бизнеси от всяка държава?',
+'pkg-a1':'<p><strong>Brand Launch (€399)</strong> е пълната основа — лого, цветова палитра на бранда, дигитална визитка и едностраничен уебсайт. Идеален за нов бизнес или за всеки, който търси чисто и професионално онлайн присъствие бързо.</p><p><strong>Total Brand (€2,500)</strong> добавя дълбочина — многостраничен уебсайт (до 5 страници), брандиран HTML имейл подпис, до 5 езика и 2 корекции. Идеален за бизнеси, нуждаещи се от повече съдържание, повече езици или повече страници.</p><p>И двата пакета се доставят за 7 работни дни и включват 24 месеца хостинг.</p>',
+'pkg-a2':'<p>Да. Ако стартираш с Brand Launch и по-късно искаш да надградиш до Total Brand, можем да ти предложим оферта за допълнителната работа.</p>',
+'pkg-a3':'<p>Месечната поддръжка (€19.99/месец) покрива всички текущи промени в съдържанието на уебсайта ти:</p><ul><li>Текстови промени — цени, описания, работно време, данни за контакт</li><li>Промяна на изображения — замяна или добавяне на снимки</li><li>Добавяне на нови елементи в съществуващи раздели (напр. нова услуга, нов член на екипа)</li><li>Техническа поддръжка, ако нещо спре да работи</li></ul><p>Как работи: изпращаш ни имейл с промените на <a href="mailto:team@atelierv.design">team@atelierv.design</a> и ние ги нанасяме в рамките на 24 часа в работни дни.</p><p>Месечната поддръжка не включва изграждане на нови страници, структурен редизайн, SEO кампании или управление на социални медии.</p><p>Първите 3 месеца са безплатни за всички клиенти на Brand Launch и Total Brand.</p>',
+'pkg-a4':'<p>Без Месечна поддръжка уебсайтът ти е заключен и никакви промени не са включени. Еднократна промяна струва €19.99 на заявка. Месечната поддръжка за €19.99 на месец покрива до 10 промени месечно — по-умният избор от самото начало.</p>',
+'pkg-a5':'<p>Просто изпрати имейл на <a href="mailto:team@atelierv.design">team@atelierv.design</a> или използвай метода за контакт, предоставен от Atelier V. Посочи: коя страница, какво точно трябва да се промени и новото съдържание (текст или изображение). Нанасяме всички промени в рамките на 24 часа в работни дни.</p><p>Заявките за промяна обхващат само актуализации на съдържание — текст, данни за контакт, изображения, цени. Нови страници, нови елементи в менюто или структурни редизайни не са включени и се ценообразуват отделно.</p>',
+'pkg-a6':'<p>Ти. След окончателното плащане получаваш пълна собственост върху всички доставени материали — файловете на логото (PNG, SVG), кода на уебсайта и всички свързани дизайн активи. Свободен си да ги използваш по свое усмотрение.</p>',
+'pkg-a7':'<p>Да. Процесът ни е изцяло дистанционен и работим с клиенти от цяла Европа и отвъд. Комуникираме на английски, български, немски и други езици. Въпросникът и материалите ни могат да бъдат изготвени на всеки от 12-те езика, които поддържаме.</p>',
+'cta-h2':'Имате още въпроси?','cta-p':'Пишете ни и ще отговорим в рамките на 24 часа.','cta-btn':'Свържете се с нас →'
+},
+de:{
+'hero-h1':'Häufig gestellte<br><em>Fragen</em>',
+'hero-p':'Alles, was du wissen musst, bevor du deine Marke startest. Keine Antwort gefunden? Schreib uns: <a href="mailto:team@atelierv.design">team@atelierv.design</a>',
+'cat-process':'Der Prozess','cat-payment':'Zahlung','cat-technical':'Technische Fragen','cat-domain':'Domain & E-Mail','cat-packages':'Pakete & Leistungen',
+'proc-q1':'Wie läuft der Prozess von Anfang bis Ende ab?','proc-q2':'Wie lange dauert es?','proc-q3':'Müssen wir uns persönlich treffen oder Anrufe führen?','proc-q4':'Was, wenn ich nicht genau weiß, was ich möchte?',
+'proc-a1':'<p>Es ist ganz einfach. Du füllst unseren Marken-Fragebogen aus — das dauert etwa 10–15 Minuten und umfasst alles, was wir über dein Unternehmen, deine Kunden und deine Vision wissen müssen. Wir prüfen deine Antworten, bestätigen deine Bestellung und senden dir eine Rechnung für die 30 % Anzahlung. Sobald die Zahlung bestätigt ist, beginnen wir sofort mit dem Aufbau deiner Marke.</p><p>Innerhalb von 7 Werktagen erhältst du das fertige Ergebnis — Logo, Website, digitale Visitenkarte und alle enthaltenen Materialien. Du überprüfst alles, gibst uns Feedback, und wir führen alle Korrekturen durch. Nach deiner Freigabe zahlst du die restlichen 70 %, und wir schalten alles live.</p>',
+'proc-a2':'<p>Die Standardlieferzeit beträgt <strong>7 Werktage</strong> ab dem Zeitpunkt, an dem wir deinen ausgefüllten Fragebogen und die bestätigte Zahlung erhalten. Das umfasst Logo-Design, Website-Entwicklung, digitale Visitenkarte und alle enthaltenen Leistungen.</p><p>Die Frist kann sich verlängern, wenn wir auf Inhalte oder Feedback von deiner Seite warten. Wir kommunizieren alle Änderungen am Zeitplan stets proaktiv.</p>',
+'proc-a3':'<p>Keine Meetings notwendig. Unser gesamter Prozess ist für die Remote-Arbeit und asynchrone Kommunikation ausgelegt. Der Fragebogen ersetzt das erste Gespräch — er erfasst alles, was wir benötigen, auf strukturierte Weise, die oft bessere Ergebnisse liefert als ein offenes Gespräch.</p><p>Die gesamte Kommunikation läuft per E-Mail. Bei konkreten Fragen oder Anfragen schreib einfach an <a href="mailto:team@atelierv.design">team@atelierv.design</a> — wir antworten innerhalb von 24 Stunden an Werktagen.</p>',
+'proc-a4':'<p>Das ist völlig normal — und genau deshalb haben wir den Fragebogen so konzipiert. Du musst keine Design-Terminologie kennen oder ein Moodboard parat haben. Beantworte die Fragen einfach ehrlich und so konkret wie möglich zu deinem Unternehmen und deinen Kunden.</p><p>Wir sind die Experten darin, Unternehmensidentität in visuelle Sprache zu übersetzen. Deine Aufgabe ist es, uns von deinem Unternehmen zu erzählen. Unsere Aufgabe ist es, daraus eine Marke zu machen.</p>',
+'pay-q1':'Wie funktioniert die Zahlung?','pay-q2':'Kann ich eine Rechnung erhalten?','pay-q3':'Was, wenn ich mit dem Ergebnis nicht zufrieden bin?','pay-q4':'Kann ich nach der Bestellung stornieren?',
+'pay-a1':'<p>Wir teilen die Zahlung in zwei Teile, um beide Seiten zu schützen:</p><ul><li><strong>30 % Anzahlung</strong> — wird vor Beginn der Arbeit bezahlt. Sie bestätigt deine Bestellung und deckt unsere anfängliche Arbeit ab.</li><li><strong>70 % Abschlusszahlung</strong> — wird bezahlt, nachdem du das fertige Ergebnis gesehen und genehmigt hast, bevor wir es veröffentlichen.</li></ul><p>Das bedeutet: Du zahlst niemals den vollen Betrag, bevor du die Arbeit gesehen hast. Und wir veröffentlichen niemals, bevor die Zahlung vollständig ist.</p>',
+'pay-a2':'<p>Ja. Für alle Zahlungen stellen wir Rechnungen aus. Bitte teile uns bei der Bestellung mit, falls die Rechnung auf einen Firmennamen und eine USt-IdNr. ausgestellt werden soll, und übermittle die entsprechenden Angaben.</p>',
+'pay-a3':'<p>Jedes Paket enthält Korrekturschleifen — 1 für Brand Launch, 2 für Total Brand. Du prüfst die gelieferte Arbeit und schickst uns eine konsolidierte Liste mit Änderungen. Wir setzen diese innerhalb von 48 Stunden um.</p><p>Im unwahrscheinlichen Fall, dass das Ergebnis grundlegend nicht mit deinem Briefing übereinstimmt, arbeiten wir gemeinsam an einer Lösung. Unser Ziel ist es, dass du wirklich stolz auf das Ergebnis bist.</p><p>Bitte beachte, dass Korrekturen auf dem ursprünglichen Briefing basieren müssen. Eine Richtungsänderung oder ein völlig neues Konzept gilt als neues Projekt.</p>',
+'pay-a4':'<p>Wenn du vor Beginn der Arbeit stornierst, erstatten wir 50 % der Anzahlung innerhalb von 5 Werktagen.</p><p>Hat die Arbeit bereits begonnen, ist die Anzahlung nicht erstattungsfähig, da sie die bereits geleistete Arbeit abdeckt. Die abschließenden 70 % werden nicht berechnet, wenn du vor der Freigabe stornierst.</p>',
+'tech-q1':'Brauche ich technische Kenntnisse?','tech-q2':'Kann ich die Website nach der Lieferung selbst bearbeiten?','tech-q3':'Wo wird meine Website gehostet?','tech-q4':'Ist meine Website sicher? Wird sie HTTPS haben?',
+'tech-a1':'<p>Überhaupt keine. Du musst nicht wissen, was eine Domain, Hosting, ein SSL-Zertifikat oder HTML ist. Wir übernehmen 100 % der technischen Einrichtung. Deine einzige Aufgabe ist es, den Fragebogen auszufüllen und uns Feedback zum Ergebnis zu geben.</p>',
+'tech-a2':'<p>Die Websites, die wir erstellen, sind in HTML/CSS — sie sind schnell, sicher und benötigen kein umständliches Admin-Panel. Die direkte Bearbeitung erfordert jedoch grundlegende technische Kenntnisse.</p><p>Genau deshalb bieten wir monatlichen Support für €19,99/Monat an. Du schickst uns einfach eine E-Mail mit den gewünschten Änderungen, und wir kümmern uns darum innerhalb von 24 Stunden. Technische Kenntnisse werden nie benötigt.</p><p>Die ersten 3 Monate monatlichen Supports sind für Brand Launch- und Total Brand-Kunden kostenlos.</p>',
+'tech-a3':'<p>Deine Website wird auf GitHub Pages gehostet — einer professionellen, zuverlässigen Hosting-Plattform, die von Millionen von Websites weltweit genutzt wird. Sie bietet hervorragende Performance, globales CDN und automatische HTTPS-Sicherheit.</p><p>24 Monate Hosting sind in jedem Paket ohne Aufpreis enthalten. Nach 24 Monaten bleibt GitHub Pages kostenlos — es gibt keine obligatorische Kostensteigerung.</p>',
+'tech-a4':'<p>Ja. Jede Website, die wir erstellen, wird über HTTPS ausgeliefert — das Schloss-Symbol, das deine Kunden im Browser sehen. Das ist entscheidend für das Vertrauen und wird automatisch als Teil unseres technischen Einrichtungsprozesses konfiguriert.</p>',
+'dom-q1':'Was, wenn ich bereits eine Domain habe?','dom-q2':'Welche Domain werde ich erhalten?','dom-q3':'Kann ich eine professionelle E-Mail wie info@meinunternehmen.com haben?',
+'dom-a1':'<p>Kein Problem. Wir verbinden deine bestehende Domain mit deiner neuen Website kostenlos als Teil der technischen Einrichtung. Gib uns einfach im Fragebogen Bescheid und nenne uns den Domain-Namen.</p>',
+'dom-a2':'<p>Wir registrieren eine Standard-Domain — typischerweise .com, .bg, .eu, .de oder ähnlich — basierend auf deinem Unternehmensnamen und der Verfügbarkeit. Wir wählen sie gemeinsam mit dir aus, bevor wir sie registrieren.</p><p>Das erste Jahr der Domain-Registrierung wird von Atelier V übernommen und ist im Paketpreis enthalten. Nach dem ersten Jahr geht die Verlängerung auf deine Kosten. Wir erinnern dich 30 Tage vor Ablauf und unterstützen dich bei der Verlängerung.</p><p>Premium-Domains mit einem Marktwert über den Standardregistrierungsgebühren sind nicht enthalten und werden separat berechnet.</p>',
+'dom-a3':'<p>Ja. Wir richten eine E-Mail-Weiterleitung auf deiner Domain ein, sodass E-Mails an info@deinunternehmen.com (oder eine beliebige Adresse deiner Wahl) direkt an dein bestehendes Gmail oder Postfach weitergeleitet werden.</p><p>Deine Kunden sehen eine professionelle E-Mail-Adresse, während du alles in dem Posteingang erhältst, den du bereits verwendest — keine neuen Konten zu verwalten.</p><p>Die Anzahl der benötigten E-Mail-Adressen kann im Fragebogen angegeben werden.</p>',
+'pkg-q1':'Was ist der Unterschied zwischen Brand Launch und Total Brand?','pkg-q2':'Kann ich mein Paket später upgraden?','pkg-q3':'Was beinhaltet der monatliche Support genau?','pkg-q4':'Was, wenn ich keinen monatlichen Support abonniere?','pkg-q5':'Wie reiche ich eine Änderungsanfrage ein?','pkg-q6':'Wem gehören Logo und Website nach der Lieferung?','pkg-q7':'Arbeiten Sie mit Unternehmen in jedem Land zusammen?',
+'pkg-a1':'<p><strong>Brand Launch (€399)</strong> ist die vollständige Grundlage — Logo, Markenfarben, digitale Visitenkarte und eine einseitige Website. Perfekt für ein neues Unternehmen oder jeden, der schnell eine saubere, professionelle Online-Präsenz braucht.</p><p><strong>Total Brand (€2.500)</strong> fügt Tiefe hinzu — eine mehrseitige Website (bis zu 5 Seiten), eine gebrandete HTML-E-Mail-Signatur, bis zu 5 Sprachen und 2 Korrekturschleifen. Ideal für Unternehmen, die mehr Inhalte, mehr Sprachen oder mehr Seiten benötigen.</p><p>Beide Pakete werden in 7 Werktagen geliefert und beinhalten 24 Monate Hosting.</p>',
+'pkg-a2':'<p>Ja. Wenn du mit Brand Launch startest und später auf Total Brand upgraden möchtest, können wir dir ein Angebot für die zusätzliche Arbeit erstellen.</p>',
+'pkg-a3':'<p>Monatlicher Support (€19,99/Monat) deckt alle laufenden Änderungen an deinen bestehenden Website-Inhalten ab:</p><ul><li>Textaktualisierungen — Preise, Beschreibungen, Öffnungszeiten, Kontaktdaten</li><li>Bildaktualisierungen — Ersetzen oder Hinzufügen von Fotos</li><li>Hinzufügen neuer Elemente in bestehenden Bereichen (z. B. neue Dienstleistung, neues Teammitglied)</li><li>Technischer Support, wenn etwas nicht mehr funktioniert</li></ul><p>So funktioniert es: Du schickst uns die Änderungen per E-Mail an <a href="mailto:team@atelierv.design">team@atelierv.design</a>, und wir setzen sie innerhalb von 24 Stunden an Werktagen um.</p><p>Monatlicher Support umfasst nicht das Erstellen neuer Seiten, strukturelles Redesign, SEO-Kampagnen oder Social-Media-Management.</p><p>Die ersten 3 Monate sind für alle Brand Launch- und Total Brand-Kunden kostenlos.</p>',
+'pkg-a4':'<p>Ohne monatlichen Support ist deine Website gesperrt und keine Änderungen sind enthalten. Eine einmalige Änderung kostet €19,99 pro Anfrage. Monatlicher Support für €19,99 pro Monat deckt bis zu 10 Änderungen pro Monat ab — die kluge Wahl ab der ersten Aktualisierung.</p>',
+'pkg-a5':'<p>Schick einfach eine E-Mail an <a href="mailto:team@atelierv.design">team@atelierv.design</a> oder nutze die von Atelier V bereitgestellte Kontaktmethode. Gib an: welche Seite, was genau geändert werden soll und den neuen Inhalt (Text oder Bild). Wir setzen alle Änderungen innerhalb von 24 Stunden an Werktagen um.</p><p>Bitte beachte: Änderungsanfragen umfassen nur Inhaltsaktualisierungen — Text, Kontaktdaten, Bilder, Preise. Neue Seiten, neue Menüpunkte oder strukturelle Neugestaltungen sind nicht enthalten und werden separat angeboten.</p>',
+'pkg-a6':'<p>Du. Nach der abschließenden Zahlung erhältst du das vollständige Eigentum an allen gelieferten Materialien — die Logo-Dateien (PNG, SVG), den Website-Code und alle zugehörigen Design-Assets. Du kannst sie nach Belieben verwenden.</p>',
+'pkg-a7':'<p>Ja. Unser Prozess ist vollständig remote, und wir arbeiten mit Kunden in ganz Europa und darüber hinaus. Wir kommunizieren auf Englisch, Bulgarisch, Deutsch und anderen Sprachen. Unser Fragebogen und die Ergebnisse können in jeder der 12 Sprachen erstellt werden, die wir unterstützen.</p>',
+'cta-h2':'Haben Sie noch Fragen?','cta-p':'Schreiben Sie uns und wir melden uns innerhalb von 24 Stunden.','cta-btn':'Kontakt aufnehmen →'
+}
+};
+window.applyFaqLang=function(lang){
+  var map=T[lang]||T.en;
+  document.querySelectorAll('[data-faq-id]').forEach(function(el){
+    var v=map[el.dataset.faqId];
+    if(v)el.innerHTML=v;
+  });
+};
+document.addEventListener('DOMContentLoaded',function(){
+  var saved=localStorage.getItem('av_lang')||'en';
+  applyFaqLang(saved);
+});
 })();
 </script>
 <script src="intro.js"></script>
