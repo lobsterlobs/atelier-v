@@ -258,9 +258,9 @@ const translations = {
   "sv-pkg-support-li4": { en: "Cancel anytime", bg: "Прекратяване по всяко време", de: "Jederzeit kündbar" },
   "sv-pkg-support-li5": { en: "One-time changes at €19.99/request for non-subscribers", bg: "Еднократни промени на €19.99/заявка за клиенти без абонамент", de: "Einmalige Änderungen für €19.99/Anfrage für Nicht-Abonnenten" },
   "sv-pkg-support-note": {
-    en: "No changes are included without Monthly Support. One-time changes cost €19.99 per request. Monthly Support at €19.99/month covers up to 10 changes per month. First 3 months free for Essential and Full Brand clients.",
-    bg: "Без Monthly Support не са включени никакви промени. Еднократните промени струват €19.99 на заявка. Monthly Support от €19.99/месец покрива до 10 промени на месец. Първите 3 месеца са безплатни за клиенти на Essential и Full Brand.",
-    de: "Ohne Monthly Support sind keine Änderungen enthalten. Einmalige Änderungen kosten €19.99 pro Anfrage. Monthly Support für €19.99/Monat deckt bis zu 10 Änderungen pro Monat ab. Erste 3 Monate gratis für Essential- und Full-Brand-Kunden."
+    en: "No changes are included without Monthly Support. One-time changes cost €19.99 per request. Monthly Support at €19.99/month covers up to 10 changes per month. First 3 months free for Brand Launch and Total Brand clients.",
+    bg: "Без Monthly Support не са включени никакви промени. Еднократните промени струват €19.99 на заявка. Monthly Support от €19.99/месец покрива до 10 промени на месец. Първите 3 месеца са безплатни за клиенти на Brand Launch и Total Brand.",
+    de: "Ohne Monthly Support sind keine Änderungen enthalten. Einmalige Änderungen kosten €19.99 pro Anfrage. Monthly Support für €19.99/Monat deckt bis zu 10 Änderungen pro Monat ab. Erste 3 Monate gratis für Brand Launch- und Total Brand-Kunden."
   },
   "sv-det-h2": { en: "What's included in each package", bg: "Какво е включено във всеки пакет", de: "Was ist in jedem Paket enthalten" },
   "sv-det-ess-logo-h4": { en: "Logo Design", bg: "Дизайн на лого", de: "Logo-Design" },
@@ -309,7 +309,7 @@ const translations = {
     bg: "<strong>Доставка:</strong> 7 работни дни от получаване на попълнена анкета и потвърдено плащане.",
     de: "<strong>Lieferung:</strong> 7 Werktage nach Eingang des ausgefüllten Fragebogens und bestätigter Zahlung."
   },
-  "sv-det-full-intro": { en: "Includes everything in Essential, plus:", bg: "Включва всичко от Essential, плюс:", de: "Enthält alles aus Essential, plus:" },
+  "sv-det-full-intro": { en: "Includes everything in Brand Launch, plus:", bg: "Включва всичко от Brand Launch, плюс:", de: "Enthält alles aus Brand Launch, plus:" },
   "sv-det-full-web-h4": { en: "Multi-page Website", bg: "Многостраничен уебсайт", de: "Mehrseitige Website" },
   "sv-det-full-web-p": {
     en: "Separate pages for each section — home, about, services, gallery, contact. Up to five pages included. Each page is standalone with full content and navigation.",
@@ -340,9 +340,9 @@ const translations = {
     de: "<strong>Nicht enthalten:</strong> mehr als fünf Seiten, Online-Shop oder Zahlungssystem, Blog-System, Domains mit nicht standardmäßigem Marktwert."
   },
   "sv-det-total-p": {
-    en: "Complete digital presence for corporate clients and businesses with complex needs. Includes everything in Full Brand, plus digital strategy, social media management, marketing and advertising, and corporate identity. Terms and scope are agreed individually. Contact us for a free consultation.",
-    bg: "Пълно дигитално присъствие за корпоративни клиенти и бизнеси със сложни нужди. Включва всичко от Full Brand, плюс дигитална стратегия, управление на социални мрежи, маркетинг и реклама и корпоративна идентичност. Условията и обхватът се договарят индивидуално. Свържи се с нас за безплатна консултация.",
-    de: "Vollständige digitale Präsenz für Unternehmenskunden und Unternehmen mit komplexen Bedürfnissen. Enthält alles aus Full Brand, plus digitale Strategie, Social-Media-Management, Marketing und Werbung sowie Corporate Identity. Bedingungen und Umfang werden individuell vereinbart. Kontaktiere uns für eine kostenlose Beratung."
+    en: "Complete digital presence for corporate clients and businesses with complex needs. Includes everything in Total Brand, plus digital strategy, social media management, marketing and advertising, and corporate identity. Terms and scope are agreed individually. Contact us for a free consultation.",
+    bg: "Пълно дигитално присъствие за корпоративни клиенти и бизнеси със сложни нужди. Включва всичко от Total Brand, плюс дигитална стратегия, управление на социални мрежи, маркетинг и реклама и корпоративна идентичност. Условията и обхватът се договарят индивидуално. Свържи се с нас за безплатна консултация.",
+    de: "Vollständige digitale Präsenz für Unternehmenskunden und Unternehmen mit komplexen Bedürfnissen. Enthält alles aus Total Brand, plus digitale Strategie, Social-Media-Management, Marketing und Werbung sowie Corporate Identity. Bedingungen und Umfang werden individuell vereinbart. Kontaktiere uns für eine kostenlose Beratung."
   },
   "sv-det-sup-what-h4": { en: "What's included", bg: "Какво е включено", de: "Was ist enthalten" },
   "sv-det-sup-what-p": {
@@ -362,9 +362,9 @@ const translations = {
     de: "<strong>Nicht enthalten:</strong> Erstellung neuer Abschnitte oder Seiten, Redesign oder strukturelle Änderungen, SEO-Optimierung, Social-Media-Management."
   },
   "sv-det-sup-note1": {
-    en: "The first three months are free for every Essential or Full Brand client. Can be cancelled at any time without penalty.",
-    bg: "Първите три месеца са безплатни за всеки клиент на Essential или Full Brand. Можеш да го прекратиш по всяко време без неустойка.",
-    de: "Die ersten drei Monate sind für jeden Essential- oder Full-Brand-Kunden kostenlos. Du kannst jederzeit ohne Kosten kündigen."
+    en: "The first three months are free for every Brand Launch or Total Brand client. Can be cancelled at any time without penalty.",
+    bg: "Първите три месеца са безплатни за всеки клиент на Brand Launch или Total Brand. Можеш да го прекратиш по всяко време без неустойка.",
+    de: "Die ersten drei Monate sind für jeden Brand Launch- oder Total Brand-Kunden kostenlos. Du kannst jederzeit ohne Kosten kündigen."
   },
   "sv-det-terms-h3": { en: "Terms of Service", bg: "Общи условия", de: "Nutzungsbedingungen" },
   "sv-det-terms-domain-h4": { en: "Domain", bg: "Домейн", de: "Domain" },
@@ -695,7 +695,7 @@ const qTranslations = {
     "q-step8-eyebrow": "Step 8 of 8",
     "q-step8-title": "Your recommended<br><em>package.</em>",
     "q-step8-sub": "Based on everything you've shared, here is our recommendation for you.",
-    "q-pkg-essential-label": "Essential",
+    "q-pkg-essential-label": "Brand Launch",
     "q-pkg-essential-period": "one-time payment",
     "q-pkg-essential-f1": "2 logo concepts (PNG + SVG)",
     "q-pkg-essential-f2": "Color palette + typography",
@@ -705,9 +705,9 @@ const qTranslations = {
     "q-pkg-essential-f6": "Full technical setup",
     "q-pkg-essential-f7": "24 months hosting",
     "q-pkg-essential-f8": "Delivery: 7 working days",
-    "q-pkg-full-label": "Full Brand",
+    "q-pkg-full-label": "Total Brand",
     "q-pkg-full-period": "one-time payment",
-    "q-pkg-full-f1": "Everything in Essential",
+    "q-pkg-full-f1": "Everything in Brand Launch",
     "q-pkg-full-f2": "Multi-page website (up to 5 pages)",
     "q-pkg-full-f3": "Branded HTML email signature",
     "q-pkg-full-f4": "Up to 5 languages",
@@ -716,7 +716,7 @@ const qTranslations = {
     "q-pkg-full-f7": "Delivery: 7 working days",
     "q-pkg-total-label": "Total Brand",
     "q-pkg-total-period": "custom quote",
-    "q-pkg-total-f1": "Everything in Full Brand",
+    "q-pkg-total-f1": "Everything in Total Brand",
     "q-pkg-total-f2": "Digital strategy",
     "q-pkg-total-f3": "Social media management",
     "q-pkg-total-f4": "Marketing & advertising",
@@ -949,7 +949,7 @@ const qTranslations = {
     "q-step8-eyebrow": "Стъпка 8 от 8",
     "q-step8-title": "Твоят препоръчан<br><em>пакет.</em>",
     "q-step8-sub": "Въз основа на всичко, което сподели, ето нашата препоръка за теб.",
-    "q-pkg-essential-label": "Essential",
+    "q-pkg-essential-label": "Brand Launch",
     "q-pkg-essential-period": "еднократно плащане",
     "q-pkg-essential-f1": "2 концепции за лого (PNG + SVG)",
     "q-pkg-essential-f2": "Цветова палитра + типография",
@@ -959,9 +959,9 @@ const qTranslations = {
     "q-pkg-essential-f6": "Пълна техническа настройка",
     "q-pkg-essential-f7": "24 месеца хостинг",
     "q-pkg-essential-f8": "Доставка: 7 работни дни",
-    "q-pkg-full-label": "Full Brand",
+    "q-pkg-full-label": "Total Brand",
     "q-pkg-full-period": "еднократно плащане",
-    "q-pkg-full-f1": "Всичко от Essential",
+    "q-pkg-full-f1": "Всичко от Brand Launch",
     "q-pkg-full-f2": "Многостраничен уебсайт (до 5 страници)",
     "q-pkg-full-f3": "Брандиран HTML имейл подпис",
     "q-pkg-full-f4": "До 5 езика",
@@ -970,7 +970,7 @@ const qTranslations = {
     "q-pkg-full-f7": "Доставка: 7 работни дни",
     "q-pkg-total-label": "Total Brand",
     "q-pkg-total-period": "индивидуална оферта",
-    "q-pkg-total-f1": "Всичко от Full Brand",
+    "q-pkg-total-f1": "Всичко от Total Brand",
     "q-pkg-total-f2": "Дигитална стратегия",
     "q-pkg-total-f3": "Управление на социалните мрежи",
     "q-pkg-total-f4": "Маркетинг и реклама",
@@ -1203,7 +1203,7 @@ const qTranslations = {
     "q-step8-eyebrow": "Schritt 8 von 8",
     "q-step8-title": "Dein empfohlenes<br><em>Paket.</em>",
     "q-step8-sub": "Anhand deiner Angaben haben wir dieses Paket für dich ausgewählt.",
-    "q-pkg-essential-label": "Essential",
+    "q-pkg-essential-label": "Brand Launch",
     "q-pkg-essential-period": "Einmalzahlung",
     "q-pkg-essential-f1": "2 Logo-Konzepte (PNG + SVG)",
     "q-pkg-essential-f2": "Farbpalette + Typografie",
@@ -1213,9 +1213,9 @@ const qTranslations = {
     "q-pkg-essential-f6": "Vollständige technische Einrichtung",
     "q-pkg-essential-f7": "24 Monate Hosting",
     "q-pkg-essential-f8": "Lieferung: 7 Werktage",
-    "q-pkg-full-label": "Full Brand",
+    "q-pkg-full-label": "Total Brand",
     "q-pkg-full-period": "Einmalzahlung",
-    "q-pkg-full-f1": "Alles aus Essential",
+    "q-pkg-full-f1": "Alles aus Brand Launch",
     "q-pkg-full-f2": "Mehrseitige Website (bis zu 5 Seiten)",
     "q-pkg-full-f3": "Gebrandete HTML-E-Mail-Signatur",
     "q-pkg-full-f4": "Bis zu 5 Sprachen",
@@ -1224,7 +1224,7 @@ const qTranslations = {
     "q-pkg-full-f7": "Lieferung: 7 Werktage",
     "q-pkg-total-label": "Total Brand",
     "q-pkg-total-period": "individuelles Angebot",
-    "q-pkg-total-f1": "Alles aus Full Brand",
+    "q-pkg-total-f1": "Alles aus Total Brand",
     "q-pkg-total-f2": "Digitale Strategie",
     "q-pkg-total-f3": "Social-Media-Management",
     "q-pkg-total-f4": "Marketing & Werbung",
