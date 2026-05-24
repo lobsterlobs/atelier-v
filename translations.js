@@ -164,9 +164,9 @@ const translations = {
     de: "Standarddomains inklusive. Premium-Domains werden separat berechnet."
   },
   "index-footer-copy": {
-    en: "© 2025 Atelier V — Digital Branding Studio. All rights reserved.",
-    bg: "© 2025 Atelier V — Digital Branding Studio. Всички права запазени.",
-    de: "© 2025 Atelier V — Digital Branding Studio. Alle Rechte vorbehalten."
+    en: "© 2026 Atelier V — Digital Branding Studio. All rights reserved.",
+    bg: "© 2026 Atelier V — Digital Branding Studio. Всички права запазени.",
+    de: "© 2026 Atelier V — Digital Branding Studio. Alle Rechte vorbehalten."
   },
   "index-footer-faq": { en: "FAQ", bg: "Въпроси и отговори", de: "FAQ" },
   "index-footer-terms": { en: "Terms", bg: "Условия", de: "AGB" },
