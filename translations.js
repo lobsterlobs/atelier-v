@@ -175,13 +175,13 @@ const translations = {
   // ============================================================
   // SERVICES.HTML
   // ============================================================
-  "sv-hero-h1": { en: "Digital branding for your business", bg: "Дигитален брандинг за твоя бизнес", de: "Digitales Branding für dein Unternehmen" },
+  "sv-hero-h1": { en: "Digital Branding & Web Design for Your Business", bg: "Дигитален брандинг и изработка на уебсайтове за твоя бизнес", de: "Webdesign & Digitales Branding für dein Unternehmen" },
   "sv-hero-p": { en: "7 Days · Logo · Brand · Design · Website", bg: "7 дни · Лого · Бранд · Дизайн · Уебсайт", de: "7 Tage · Logo · Marke · Design · Website" },
   "sv-s1-h2": { en: "No technical knowledge.<br>No admins. No headaches.", bg: "Без технически познания.<br>Без администратори. Без главоболия.", de: "Kein technisches Wissen.<br>Keine Admins. Keine Kopfschmerzen." },
   "sv-s1-p1": {
     en: "You have a business. You have a product or service. But online — you are invisible, or you look like everyone else. We fix exactly that.",
     bg: "Имаш бизнес. Имаш продукт или услуга. Но онлайн — ти си невидим или изглеждаш като всички останали. Ние оправяме точно това.",
-    de: "Du hast ein Unternehmen. Du hast ein Produkt oder eine Dienstleistung. Aber online — du bist unsichtbar oder siehst aus wie alle anderen. Genau das beheben wir."
+    de: "Digitalagentur für Branding & Webdesign behebt genau das — professionelles Logo-Design, Corporate Identity und bezahlbares Webdesign für Kleinunternehmer und Startups in ganz Europa. In nur 7 Tagen."
   },
   "sv-s1-p2": {
     en: "You do one single thing — fill in our questionnaire. We handle everything else. No domains to configure. No hosting to manage. No technical skills needed. Just answer a few simple questions and your brand will be live in 7 days.",
