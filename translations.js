@@ -176,7 +176,7 @@ const translations = {
   // SERVICES.HTML
   // ============================================================
   "sv-hero-h1": { en: "Digital Branding & Web Design for Your Business", bg: "Дигитален брандинг и изработка на уебсайтове за твоя бизнес", de: "Webdesign & Digitales Branding für dein Unternehmen" },
-  "sv-hero-p": { en: "7 Days · Logo · Brand · Design · Website", bg: "7 дни · Лого · Бранд · Дизайн · Уебсайт", de: "7 Tage · Logo · Marke · Design · Website" },
+  "sv-hero-p": { en: "7 Days · Logo · Brand · Design · Website", bg: "7 дни · Лого · Бранд · Дизайн · Уебсайт", de: "Logo · Marke · Design · Website · Webdesign für Kleinunternehmer" },
   "sv-s1-h2": { en: "No technical knowledge.<br>No admins. No headaches.", bg: "Без технически познания.<br>Без администратори. Без главоболия.", de: "Kein technisches Wissen.<br>Keine Admins. Keine Kopfschmerzen." },
   "sv-s1-p1": {
     en: "You have a business. You have a product or service. But online — you are invisible, or you look like everyone else. We fix exactly that.",
