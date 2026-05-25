@@ -868,7 +868,8 @@ function applyLanguage(lang) {
 }
 
 (function(){
-  const _raw = localStorage.getItem('av_lang');
+  const urlLang = new URLSearchParams(window.location.search).get('lang');
+  const _raw = urlLang || localStorage.getItem('av_lang');
   const l = _raw ? _raw.toUpperCase() : null;
   if (l && translations[l]) {
     const a = document.querySelector('.lang-menu a[data-lang="' + l + '"]');
