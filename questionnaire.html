@@ -938,6 +938,17 @@ function applyQLang(lang) {
     if (t[key] !== undefined) el.placeholder = t[key];
   });
   localStorage.setItem('av_lang', lang);
+  if (lang === 'de') {
+    document.title = 'Starte deine Marke — Atelier V';
+    document.querySelector('meta[name="description"]').setAttribute('content', 'Fülle unseren 8-stufigen Markenfragebogen aus und wir erstellen deine vollständige Markenidentität in 7 Tagen.');
+    document.querySelector('meta[property="og:title"]').setAttribute('content', 'Starte deine Marke — Atelier V');
+    document.querySelector('meta[property="og:description"]').setAttribute('content', 'Fülle unseren 8-stufigen Markenfragebogen aus und wir erstellen deine vollständige Markenidentität in 7 Tagen.');
+  } else {
+    document.title = 'Start Your Brand — Atelier V';
+    document.querySelector('meta[name="description"]').setAttribute('content', 'Fill in our 8-step brand questionnaire and we will build your complete brand identity in 7 days.');
+    document.querySelector('meta[property="og:title"]').setAttribute('content', 'Start Your Brand — Atelier V');
+    document.querySelector('meta[property="og:description"]').setAttribute('content', 'Fill in our 8-step brand questionnaire and we will build your complete brand identity in 7 days.');
+  }
   updateProgress(currentStep);
 }
 

@@ -619,6 +619,15 @@ function applyTermsLang(lang) {
       else el.innerHTML = dict[key];
     }
   });
+  if (lang === 'de') {
+    document.title = 'AGB & Datenschutz — Atelier V';
+    document.querySelector('meta[property="og:title"]').setAttribute('content', 'AGB & Datenschutz — Atelier V');
+    document.querySelector('meta[property="og:description"]').setAttribute('content', 'Allgemeine Geschäftsbedingungen, Datenschutzrichtlinie und DSGVO-Rechte für Atelier V Digitales Branding Studio.');
+  } else {
+    document.title = 'Terms & Privacy — Atelier V';
+    document.querySelector('meta[property="og:title"]').setAttribute('content', 'Terms & Privacy — Atelier V');
+    document.querySelector('meta[property="og:description"]').setAttribute('content', 'Terms and conditions, privacy policy and GDPR rights for Atelier V Digital Branding Studio.');
+  }
 }
 
 function showTab(tab) {

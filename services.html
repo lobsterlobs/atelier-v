@@ -482,6 +482,17 @@ function applyLang(lang){
     }
   });
   localStorage.setItem('av_lang',lang);
+  if (lang === 'de') {
+    document.title = 'Leistungen — Atelier V Digitales Branding Studio';
+    document.querySelector('meta[name="description"]').setAttribute('content', 'Entdecke die Branding-Leistungen von Atelier V – Logo, Website, Markenidentität und Pflege.');
+    document.querySelector('meta[property="og:title"]').setAttribute('content', 'Leistungen — Atelier V Digitales Branding Studio');
+    document.querySelector('meta[property="og:description"]').setAttribute('content', 'Entdecke die Branding-Leistungen von Atelier V – Logo, Website, Markenidentität und Pflege.');
+  } else {
+    document.title = 'Services — Atelier V Digital Branding Studio';
+    document.querySelector('meta[name="description"]').setAttribute('content', 'Explore Atelier V\'s branding services — logo design, website, brand identity, and ongoing maintenance.');
+    document.querySelector('meta[property="og:title"]').setAttribute('content', 'Services — Atelier V Digital Branding Studio');
+    document.querySelector('meta[property="og:description"]').setAttribute('content', 'Explore Atelier V\'s branding services — logo design, website, brand identity, and ongoing maintenance.');
+  }
 }
 (function(){
   const l=localStorage.getItem('av_lang')||'en';

@@ -865,6 +865,17 @@ function applyLanguage(lang) {
       else el.innerHTML = t[key];
     }
   });
+  if (lang === 'DE') {
+    document.title = 'Atelier V – Digitales Branding Studio';
+    document.querySelector('meta[name="description"]').setAttribute('content', 'Wir erstellen komplette Markenidentitäten in 7 Tagen. Logo, Website, Visitenkarte und mehr — ab 399 €.');
+    document.querySelector('meta[property="og:title"]').setAttribute('content', 'Atelier V – Digitales Branding Studio');
+    document.querySelector('meta[property="og:description"]').setAttribute('content', 'Wir erstellen komplette Markenidentitäten in 7 Tagen. Logo, Website, Visitenkarte und mehr — ab 399 €.');
+  } else {
+    document.title = 'Atelier V – Digital Branding Studio';
+    document.querySelector('meta[name="description"]').setAttribute('content', 'We build complete brand identities in 7 days. Logo, website, business card and more — starting from €399.');
+    document.querySelector('meta[property="og:title"]').setAttribute('content', 'Atelier V – Digital Branding Studio');
+    document.querySelector('meta[property="og:description"]').setAttribute('content', 'We build complete brand identities in 7 days. Logo, website, business card and more — starting from €399.');
+  }
 }
 
 (function(){
