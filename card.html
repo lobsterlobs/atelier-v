@@ -625,6 +625,15 @@ function applyLang(lang){
     }
   });
   localStorage.setItem('av_lang',lang);
+  if (lang === 'de') {
+    document.title = 'Kontakt — Atelier V Digitales Branding Studio';
+    document.querySelector('meta[property="og:title"]').setAttribute('content', 'Kontakt — Atelier V Digitales Branding Studio');
+    document.querySelector('meta[property="og:description"]').setAttribute('content', 'Kontaktiere Atelier V. Buche eine kostenlose Beratung oder schreib uns eine Nachricht.');
+  } else {
+    document.title = 'Contact — Atelier V Digital Branding Studio';
+    document.querySelector('meta[property="og:title"]').setAttribute('content', 'Contact — Atelier V Digital Branding Studio');
+    document.querySelector('meta[property="og:description"]').setAttribute('content', 'Get in touch with Atelier V. Book a free consultation or send us a message.');
+  }
 }
 </script>
 <script src="translations.js"></script>

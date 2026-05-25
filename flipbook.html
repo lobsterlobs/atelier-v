@@ -1072,5 +1072,21 @@ body { font-family: 'Jost', sans-serif; background: var(--navy); }
   }, { passive: true });
 }());
 </script>
+<script>
+(function(){
+  var lang = localStorage.getItem('av_lang') || 'en';
+  if (lang === 'de') {
+    document.title = 'Katalog — Atelier V Digitales Branding Studio';
+    document.querySelector('meta[name="description"]').setAttribute('content', 'Entdecke unsere Arbeiten und sieh, was wir für dein Unternehmen bauen können.');
+    document.querySelector('meta[property="og:title"]').setAttribute('content', 'Katalog — Atelier V Digitales Branding Studio');
+    document.querySelector('meta[property="og:description"]').setAttribute('content', 'Entdecke unsere Arbeiten und sieh, was wir für dein Unternehmen bauen können.');
+  } else {
+    document.title = 'Catalog — Atelier V Digital Branding Studio';
+    document.querySelector('meta[name="description"]').setAttribute('content', 'Browse our work and see what we can build for your business.');
+    document.querySelector('meta[property="og:title"]').setAttribute('content', 'Catalog — Atelier V Digital Branding Studio');
+    document.querySelector('meta[property="og:description"]').setAttribute('content', 'Browse our work and see what we can build for your business.');
+  }
+})();
+</script>
 </body>
 </html>
