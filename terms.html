@@ -601,7 +601,8 @@ const T = {
   }
 };
 
-let currentLang = localStorage.getItem('av_lang') || 'en';
+const _urlLang = new URLSearchParams(window.location.search).get('lang');
+let currentLang = _urlLang || localStorage.getItem('av_lang') || 'en';
 
 function applyTermsLang(lang) {
   currentLang = lang;

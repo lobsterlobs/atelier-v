@@ -1196,7 +1196,8 @@ function submitBrief() {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-  const saved = localStorage.getItem('av_lang') || 'en';
+  const urlLang = new URLSearchParams(window.location.search).get('lang');
+  const saved = urlLang || localStorage.getItem('av_lang') || 'en';
   const a = document.querySelector('.lang-menu a[data-lang="'+saved.toUpperCase()+'"]');
   if (a) { document.querySelectorAll('.lang-menu a').forEach(x=>x.classList.remove('active')); a.classList.add('active'); langFlag.src='https://flagcdn.com/16x12/'+a.dataset.flag+'.png'; langFlag.alt=saved.toUpperCase(); }
   applyQLang(saved);
