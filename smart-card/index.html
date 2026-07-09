@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="bg">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#050505" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-title" content="Winners Card" />
+  <title>Daniela Karakonov | Winners Group</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="apple-touch-icon" href="icon-192.png" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+    <section class="hero">
+      <div class="lang" aria-label="Language selector">
+        <button class="active" data-lang="bg" type="button">BG</button><span>|</span><button data-lang="en" type="button">EN</button>
+      </div>
+
+      <div class="brand">
+        <img src="logo-clean.png" alt="Winners Group" />
+        <p>We Change The Game</p>
+      </div>
+
+      <div class="identity">
+        <h1 data-i18n="name">Даниела Караконов</h1>
+        <h2 data-i18n="title">Консултант кредитиране</h2>
+      </div>
+    </section>
+
+    <section class="actions" aria-label="Quick actions">
+      <a href="tel:+359889355777"><span class="icon"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.4 19.4 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.6a2 2 0 0 1-.4 2.1L8.1 9.7a16 16 0 0 0 6.2 6.2l1.3-1.3a2 2 0 0 1 2.1-.4c.8.3 1.7.6 2.6.7a2 2 0 0 1 1.7 2Z"/></svg></span><span data-i18n="call">Обади се</span></a>
+      <a href="https://wa.me/359889355777"><span class="icon"><svg viewBox="0 0 24 24"><path d="M20.5 11.8a8.5 8.5 0 0 1-12.6 7.4L3 20.5l1.3-4.7a8.5 8.5 0 1 1 16.2-4Z"/><path d="M8.8 8.6c.2-.5.4-.5.8-.5h.6c.2 0 .5.1.6.5l.6 1.5c.1.3.1.5-.1.7l-.4.5c-.2.2-.2.4 0 .7.4.7 1.3 1.7 2.2 2.2.3.2.5.2.7 0l.6-.7c.2-.2.4-.2.7-.1l1.6.7c.3.1.5.3.5.6 0 .7-.5 1.5-1.1 1.7-1 .4-3.4-.1-5.5-2.2-2.1-2.1-2.7-4.5-2.3-5.6Z"/></svg></span><span>WhatsApp</span></a>
+      <a href="viber://chat?number=%2B359889355777"><span class="icon"><svg viewBox="0 0 24 24"><path d="M7 4h10a3 3 0 0 1 3 3v7a3 3 0 0 1-3 3h-3.5L10 20v-3H7a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3Z"/><path d="M8.5 8.5c1.8 3.6 3.1 4.9 7 7M15 14l1.3-1.3M8.5 8.5 9.8 7"/></svg></span><span>Viber</span></a>
+      <a href="mailto:daniela.karakonov@winnersgroup.bg"><span class="icon"><svg viewBox="0 0 24 24"><path d="M4 5h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z"/><path d="m22 7-10 7L2 7"/></svg></span><span data-i18n="email">Имейл</span></a>
+      <a href="https://maps.google.com/?q=Sofia,%2084%20Aleksandar%20Stamboliyski%20Blvd"><span class="icon"><svg viewBox="0 0 24 24"><path d="M12 21s7-6.4 7-12A7 7 0 1 0 5 9c0 5.6 7 12 7 12Z"/><circle cx="12" cy="9" r="2.5"/></svg></span><span data-i18n="map">Адрес</span></a>
+      <a href="https://calendar.google.com/calendar/u/0/r/eventedit?text=Meeting%20with%20Daniela%20Karakonov&location=Sofia%2C%2084%20Aleksandar%20Stamboliyski%20Blvd"><span class="icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></span><span data-i18n="meeting">Запази среща</span></a>
+      <a href="https://www.winnersgroup.bg"><span class="icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 0 20M12 2a15.3 15.3 0 0 0 0 20"/></svg></span><span data-i18n="website">Уебсайт</span></a>
+      <button type="button" id="shareBtn"><span class="icon"><svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 13.5 6.8 4M15.4 6.5l-6.8 4"/></svg></span><span data-i18n="share">Сподели</span></button>
+      <a href="contact.vcf" download><span class="icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M8 10h.01M8 14h.01M12 10h4M12 14h4"/><circle cx="8" cy="10" r="1.5"/></svg></span><span data-i18n="save">Запази контакт</span></a>
+    </section>
+
+    <section class="wallets" aria-label="Wallet buttons">
+      <button type="button" class="wallet-action apple" data-wallet="apple"><span class="wallet-logo apple-logo"><span></span><span></span><span></span><span></span></span><span><small data-i18n="walletAdd">Добави в</small><strong>Apple Wallet</strong></span></button>
+      <button type="button" class="wallet-action google" data-wallet="google"><span class="wallet-logo google-logo"><span></span><span></span><span></span><span></span></span><span><small data-i18n="walletAdd">Добави в</small><strong>Google Wallet</strong></span></button>
+    </section>
+
+    <section class="qr-card" aria-label="QR code">
+      <h3 data-i18n="qrTitle">QR код</h3>
+      <img src="qr-code.png" alt="QR code" />
+      <p data-i18n="qrText">Сканирай ме</p>
+    </section>
+
+    <section class="card services-card">
+      <h3><span class="icon"><svg viewBox="0 0 24 24"><path d="M3 21h18"/><path d="M7 21V10l5-4 5 4v11"/><path d="M9 21v-6h6v6"/></svg></span><span data-i18n="solutionsTitle">Финансови решения</span></h3>
+      <div class="services">
+        <span data-i18n="s1">Ипотечни кредити</span>
+        <span data-i18n="s2">Бизнес кредити</span>
+        <span data-i18n="s3">Рефинансиране</span>
+        <span data-i18n="s4">Финансова консултация</span>
+      </div>
+    </section>
+
+    <section class="card install-card">
+      <h3><span class="icon"><svg viewBox="0 0 24 24"><path d="M6 2h12a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Z"/><path d="M12 18h.01"/></svg></span><span data-i18n="installTitle">Запази като приложение</span></h3>
+      <p data-i18n="installText">Отвори менюто на браузъра и избери Add to Home Screen или Install app.</p>
+    </section>
+
+    <footer>
+      <div class="socials">
+        <a href="https://www.facebook.com/winnersgroup.bg" aria-label="Facebook">f</a>
+        <a href="https://www.instagram.com/winnersgroup.bg" aria-label="Instagram">◎</a>
+        <a href="https://www.linkedin.com" aria-label="LinkedIn">in</a>
+      </div>
+      <p>© 2026 Winners Group</p>
+    </footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
